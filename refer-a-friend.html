@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer a Friend - Sigma Audley</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1e40af 0%, #0f766e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #10b981, #047857);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .reward-box {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .reward-box .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .reward-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .steps {
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border-left: 4px solid #10b981;
+        }
+        
+        .step-number {
+            background: #10b981;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .message-box {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .email-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: #10b981;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #10b981, #047857);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .button-secondary {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+        }
+        
+        .button-secondary:hover {
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .warning {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-link a {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🎁</div>
+            <h1>Refer a Friend</h1>
+            <p>Share Sigma Audley and get rewarded!</p>
+        </div>
+        
+        <div class="content">
+            <div class="reward-box">
+                <div class="icon">💰</div>
+                <h2>Get 25% OFF Your Next Order!</h2>
+                <p>When your friend places their first order</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <strong>Share your email with a friend</strong><br>
+                        Tell them about our premium research pharmaceuticals
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <strong>They include your email in their order notes</strong><br>
+                        When they place their first order, they mention you referred them
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <strong>We email you a 25% OFF referral code!</strong><br>
+                        You'll receive your discount code within 24 hours
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning">
+                ⚠️ <strong>Single Use Only</strong> - Each referral code can only be used once
+            </div>
+            
+            <div>
+                <label for="userEmail" style="display: block; font-weight: 600; margin-bottom: 5px;">Your Email Address:</label>
+                <input type="email" id="userEmail" class="email-input" placeholder="Enter your email address" value="your-email@example.com">
+            </div>
+            
+            <div class="message-box" id="referralMessage">
+                "Hey! I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products. 
+                When you place your first order, just include my email <strong id="emailPlaceholder">your-email@example.com</strong> in the order notes, 
+                and I'll get a 25% discount code! Check them out: <strong>sigma-audley.com</strong>"
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="button" onclick="copyMessage()">📋 Copy Message</button>
+                <button class="button button-secondary" onclick="shareViaEmail()">📧 Share via Email</button>
+            </div>
+            
+            <div class="back-link">
+                <a href="sigma-audley-perfect.html">← Back to Products</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Update email placeholder when user types
+        document.getElementById('userEmail').addEventListener('input', function() {
+            const email = this.value || 'your-email@example.com';
+            document.getElementById('emailPlaceholder').textContent = email;
+        });
+        
+        function copyMessage() {
+            const email = document.getElementById('userEmail').value || 'your-email@example.com';
+            const message = `Hey! I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products. When you place your first order, just include my email ${email} in the order notes, and I'll get a 25% discount code! Check them out: sigma-audley.com`;
+            
+            navigator.clipboard.writeText(message).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = 'linear-gradient(135deg, #059669, #047857)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, #10b981, #047857)';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy message. Please copy manually.');
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        function shareViaEmail() {
+            const email = document.getElementById('userEmail').value || 'your-email@example.com';
+            const subject = 'Check out Sigma Audley - Premium Research Pharmaceuticals';
+            const body = `Hey!
+
+I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products.
+
+When you place your first order, just include my email ${email} in the order notes, and I'll get a 25% discount code!
+
+Check them out: sigma-audley.com
+
+Thanks!`;
+            
+            const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(mailtoLink, '_blank');
+        }
+    </script>
+</body>
+</html>

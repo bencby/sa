@@ -435,6 +435,28 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
+/* Mobile Search Button */
+.mobile-search-btn {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    display: none; /* Hidden by default */
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.mobile-search-btn:hover {
+    background: linear-gradient(135deg, var(--primary-dark), #1e3a8a);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+
 .cart-count {
     position: absolute;
     top: -8px;
@@ -479,6 +501,28 @@ body {
     .cart-btn {
         padding: var(--space-2) var(--space-3);
         font-size: var(--font-size-sm);
+    }
+    
+    .mobile-search-btn {
+        display: flex; /* Show on mobile */
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-sm);
+        flex: 1;
+    }
+    
+    .search-container {
+        display: none; /* Hide regular search on mobile */
+    }
+
+    /* Enhanced Mobile Layout */
+    .header-actions {
+        flex-direction: row;
+        gap: var(--space-2);
+        align-items: center;
+    }
+    
+    .cart-btn {
+        flex: 1;
     }
 }
 
@@ -865,6 +909,54 @@ body {
     outline: none;
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    margin-top: 4px;
+}
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+.search-result-item:hover {
+    background-color: var(--gray-50);
+}
+.search-result-item:last-child {
+    border-bottom: none;
+}
+.search-result-info {
+    flex: 1;
+}
+.search-result-name {
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 14px;
+}
+.search-result-details {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-top: 2px;
+}
+.search-result-price {
+    font-size: 12px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-left: var(--space-2);
 }
 
 .search-icon {
@@ -2432,6 +2524,39 @@ body {
         border-radius: var(--radius-sm);
     }
     
+    /* Mobile Product Grid Enhancements */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+    
+    .product-card {
+        padding: var(--space-4);
+        margin-bottom: var(--space-2);
+    }
+    
+    /* Mobile Category Grid */
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2);
+    }
+    
+    .category-btn {
+        font-size: 13px;
+        padding: var(--space-3);
+    }
+    
+    /* Mobile Navigation Improvements */
+    .nav-links {
+        gap: var(--space-2);
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        padding: var(--space-2) var(--space-3);
+    }
+    
     .warehouse-selector {
         padding: var(--space-1) var(--space-2);
         font-size: 12px;
@@ -2690,6 +2815,12 @@ body {
                         <span class="cart-count" id="cartCount">0</span>
                     </button>
                     
+                    <!-- Mobile Search Button (only visible on mobile) -->
+                    <button class="mobile-search-btn" onclick="toggleMobileSearch()">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                    
                 </div>
             </div>
         </div>
@@ -2744,11 +2875,15 @@ body {
                     <li><a href="#" class="nav-link active">Products</a></li>
                     <li><a href="#about" class="nav-link" onclick="showModal('aboutModal')">About</a></li>
                     <li><a href="#contact" class="nav-link" onclick="showModal('contactModal')">Contact</a></li>
+                    <li><a href="refer-a-friend.html" class="nav-link" target="_blank">🎁 Refer Friend</a></li>
                 </ul>
                 
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
                     <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                    <div class="search-dropdown" id="searchDropdown">
+                        <!-- Search results will appear here -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -3025,6 +3160,16 @@ body {
                                 <a href="https://t.me/miclix">@miclix</a>
                             </div>
                         </div>
+                        <div class="contact-item">
+                            <i class="fab fa-discord"></i>
+                            <div>
+                                <strong>Discord Server:</strong>
+                                <a href="https://discord.gg/KbdBxkkN" target="_blank">Web Order Support</a>
+                                <p style="font-size: 0.9em; color: var(--gray-600); margin-top: 4px;">
+                                    🎫 <strong>For web orders only</strong> - Join to open support tickets
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="contact-section">
@@ -3092,6 +3237,9 @@ body {
                             </div>
                             <div class="response-item">
                                 <strong>Telegram:</strong> 15-30 minutes
+                            </div>
+                            <div class="response-item">
+                                <strong>Discord:</strong> 1-4 hours via ticket system (web orders only)
                             </div>
                         </div>
                     </div>
@@ -3648,7 +3796,7 @@ body {
                             "name": "GH 191AA (Somatropin)",
                             "specification": "15iu*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 15iu of pharmaceutical-grade Human Growth Hormone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/60444-HGH_15iu_EVKUNCG3RUTC",
                             "pricing": { "base": 70, "10": 58, "20": 56, "50": 53 },
                             "category": "peptides",
                             "subcategory": "growth_hormones"
@@ -3658,7 +3806,7 @@ body {
                             "name": "GH 191AA (Somatropin)",
                             "specification": "24iu*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 24iu of pharmaceutical-grade Human Growth Hormone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/58036-H24HGH_24iu_LNG5X2B4K9F7",
                             "pricing": { "base": 88, "10": 73, "20": 70, "50": 66 },
                             "category": "peptides",
                             "subcategory": "growth_hormones",
@@ -3669,7 +3817,7 @@ body {
                             "name": "GH 191AA (Somatropin)",
                             "specification": "36iu*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 36iu of pharmaceutical-grade Human Growth Hormone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/58038-H36HGH_36iu_Z3WH5Q6EF1BJ",
                             "pricing": { "base": 130, "10": 108, "20": 104, "50": 98 },
                             "category": "peptides",
                             "subcategory": "growth_hormones"
@@ -3684,7 +3832,7 @@ body {
                             "name": "Semaglutide",
                             "specification": "5mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 5mg of high-purity Semaglutide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/58022-SM5semaglutide_5mg_GZY1YNSFAFPC",
                             "pricing": { "base": 42, "10": 36, "20": 34, "50": 32 },
                             "category": "peptides",
                             "subcategory": "weight_loss",
@@ -3695,7 +3843,7 @@ body {
                             "name": "Semaglutide",
                             "specification": "10mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 10mg of high-purity Semaglutide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/54823-SM10semaglutude_10mg_GYXIMDQTLVP5",
                             "pricing": { "base": 52, "10": 44, "20": 42, "50": 39 },
                             "category": "peptides",
                             "subcategory": "weight_loss",
@@ -3707,7 +3855,7 @@ body {
                             "name": "Semaglutide",
                             "specification": "15mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 15mg of high-purity Semaglutide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41561-semaglutide_10mg_T1R9E8ESR2RN",
                             "pricing": { "base": 65, "10": 54, "20": 52, "50": 49 },
                             "category": "peptides",
                             "subcategory": "weight_loss"
@@ -3717,7 +3865,7 @@ body {
                             "name": "Semaglutide",
                             "specification": "20mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 20mg of high-purity Semaglutide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/54824-SM20Semaglutide_20mg_BIEZ8KMJ7AAL",
                             "pricing": { "base": 74, "10": 62, "20": 59, "50": 56 },
                             "category": "peptides",
                             "subcategory": "weight_loss",
@@ -3728,7 +3876,7 @@ body {
                             "name": "Semaglutide",
                             "specification": "30mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 30mg of high-purity Semaglutide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/60538-Semaglutide_30mg_9FHU73TLY8BA",
                             "pricing": { "base": 96, "10": 80, "20": 77, "50": 73 },
                             "category": "peptides",
                             "subcategory": "weight_loss"
@@ -3738,7 +3886,7 @@ body {
                             "name": "Tirzepatide",
                             "specification": "5mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 5mg of high-purity Tirzepatide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41527-Tirzepatide_5mg_7BEM159VJ6TG",
                             "pricing": { "base": 42, "10": 36, "20": 34, "50": 32 },
                             "category": "peptides",
                             "subcategory": "weight_loss",
@@ -3749,7 +3897,7 @@ body {
                             "name": "Tirzepatide",
                             "specification": "10mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 10mg of high-purity Tirzepatide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/54821-TR10Tirzepatide_10mg_7DZBCAVVGYCF",
                             "pricing": { "base": 61, "10": 51, "20": 49, "50": 46 },
                             "category": "peptides",
                             "subcategory": "weight_loss",
@@ -3761,7 +3909,7 @@ body {
                             "name": "Tirzepatide",
                             "specification": "15mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 15mg of high-purity Tirzepatide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/58744-Tirzepatide_15mg_7ALCD53BVQU9",
                             "pricing": { "base": 74, "10": 62, "20": 59, "50": 56 },
                             "category": "peptides",
                             "subcategory": "weight_loss"
@@ -3771,7 +3919,7 @@ body {
                             "name": "Tirzepatide",
                             "specification": "20mg*10vials",
                             "composition": "1 kit contains 10 vials, each vial contains 20mg of high-purity Tirzepatide",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/58082-TR20Tirzepatide_20mg_4HEIEI19V7BK",
                             "pricing": { "base": 83, "10": 70, "20": 67, "50": 63 },
                             "category": "peptides",
                             "subcategory": "weight_loss",
@@ -4204,6 +4352,1052 @@ body {
                             "pricing": { "base": 50, "20": 48, "50": 45 },
                             "category": "peptides",
                             "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DS2",
+                            "name": "DSIP",
+                            "specification": "2mg*10vials",
+                            "composition": "Deep Sleep Inducing Peptide - 1 kit contains 10 vials, each vial contains 2mg of high-purity DSIP for enhanced sleep quality",
+                            "janoshik_url": "https://janoshik.com/tests/44603-DSIP_2mg_EBDMMKF2NVKP",
+                            "pricing": { "base": 20, "20": 18, "50": 17 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DS5",
+                            "name": "DSIP",
+                            "specification": "5mg*10vials",
+                            "composition": "Deep Sleep Inducing Peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity DSIP for enhanced sleep quality",
+                            "janoshik_url": "https://janoshik.com/tests/44601-DSIP_5mg_EBDMMKF2NVKV",
+                            "pricing": { "base": 42, "20": 41, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DS10",
+                            "name": "DSIP",
+                            "specification": "10mg*10vials",
+                            "composition": "Deep Sleep Inducing Peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity DSIP for enhanced sleep quality",
+                            "janoshik_url": "https://janoshik.com/tests/58858-Dsip10_V4QWLC4Z1YY5",
+                            "pricing": { "base": 65, "20": 62, "50": 60 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DS15",
+                            "name": "DSIP",
+                            "specification": "15mg*10vials",
+                            "composition": "Deep Sleep Inducing Peptide - 1 kit contains 10 vials, each vial contains 15mg of high-purity DSIP for enhanced sleep quality",
+                            "janoshik_url": "https://janoshik.com/tests/58859-DSIP_15mg_V4QWLC4Z1YY5",
+                            "pricing": { "base": 85, "20": 83, "50": 80 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "SK5",
+                            "name": "Selank",
+                            "specification": "5mg*10vials",
+                            "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Selank for cognitive enhancement and anxiety reduction",
+                            "janoshik_url": "https://janoshik.com/tests/55422-Selank_5mg_XY8BVTHWXXFL",
+                            "pricing": { "base": 35, "20": 32, "50": 30 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "SK10",
+                            "name": "Selank",
+                            "specification": "10mg*10vials",
+                            "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity Selank for cognitive enhancement and anxiety reduction",
+                            "janoshik_url": "https://janoshik.com/tests/63163-Selank_10mg_8RAX9YA6M7VB",
+                            "pricing": { "base": 48, "20": 45, "50": 43 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "SK30",
+                            "name": "Selank",
+                            "specification": "30mg*10vials",
+                            "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 30mg of high-purity Selank for cognitive enhancement and anxiety reduction",
+                            "janoshik_url": "https://janoshik.com/tests/55422-Selank_30mg_XY8BVTHW9944",
+                            "pricing": { "base": 90, "20": 85, "50": 83 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "XA5",
+                            "name": "Semax",
+                            "specification": "5mg*10vials",
+                            "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Semax for cognitive enhancement and neuroprotection",
+                            "janoshik_url": "https://janoshik.com/tests/55422-Semax_5mg_Y3B6VTHWXXFL",
+                            "pricing": { "base": 35, "20": 32, "50": 30 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "XA10",
+                            "name": "Semax",
+                            "specification": "10mg*10vials",
+                            "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity Semax for cognitive enhancement and neuroprotection",
+                            "janoshik_url": "https://janoshik.com/tests/55422-Semax_10mg_Y3B6VTHWXXFL",
+                            "pricing": { "base": 48, "20": 45, "50": 43 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "XA30",
+                            "name": "Semax",
+                            "specification": "30mg*10vials",
+                            "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 30mg of high-purity Semax for cognitive enhancement and neuroprotection",
+                            "janoshik_url": "https://janoshik.com/tests/55422-Semax_30mg_Y3B6VTHW9988",
+                            "pricing": { "base": 90, "20": 85, "50": 83 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "G2K",
+                            "name": "HCG",
+                            "specification": "2000IU*10vials",
+                            "composition": "Human Chorionic Gonadotropin - 1 kit contains 10 vials, each vial contains 2000IU of pharmaceutical-grade HCG",
+                            "janoshik_url": "https://janoshik.com/tests/58862-HCG_2000IU_QH5UT2E98YB7",
+                            "pricing": { "base": 46, "20": 44, "50": 41 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "G5K",
+                            "name": "HCG",
+                            "specification": "5000IU*10vials",
+                            "composition": "Human Chorionic Gonadotropin - 1 kit contains 10 vials, each vial contains 5000IU of pharmaceutical-grade HCG",
+                            "janoshik_url": "https://janoshik.com/tests/59905-HCG_5000iu_49N184MASR7I",
+                            "pricing": { "base": 68, "20": 65, "50": 63 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "G10K",
+                            "name": "HCG",
+                            "specification": "10000IU*10vials",
+                            "composition": "Human Chorionic Gonadotropin - 1 kit contains 10 vials, each vial contains 10000IU of pharmaceutical-grade HCG",
+                            "janoshik_url": "https://janoshik.com/tests/61505-HCG_10000iu_AD2T5HS9XDPA",
+                            "pricing": { "base": 125, "20": 123, "50": 120 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "2AD",
+                            "name": "AOD9604",
+                            "specification": "2mg*10vials",
+                            "composition": "Anti-Obesity Drug - 1 kit contains 10 vials, each vial contains 2mg of high-purity AOD9604 for targeted fat loss",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 46, "20": 45, "50": 43 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "5AD",
+                            "name": "AOD9604",
+                            "specification": "5mg*10vials",
+                            "composition": "Anti-Obesity Drug - 1 kit contains 10 vials, each vial contains 5mg of high-purity AOD9604 for targeted fat loss",
+                            "janoshik_url": "https://janoshik.com/tests/62997-aod5_5mg_5CZLQ38SRE3N",
+                            "pricing": { "base": 90, "20": 88, "50": 85 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "10AD",
+                            "name": "AOD9604",
+                            "specification": "10mg*10vials",
+                            "composition": "Anti-Obesity Drug - 1 kit contains 10 vials, each vial contains 10mg of high-purity AOD9604 for targeted fat loss",
+                            "janoshik_url": "https://janoshik.com/tests/65458-Aod9604_10mg_1IWIBPFV1Q8N",
+                            "pricing": { "base": 160, "20": 158, "50": 155 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "IG01",
+                            "name": "IGF-1 LR3",
+                            "specification": "0.1mg*10vials",
+                            "composition": "Insulin-like Growth Factor-1 Long R3 - 1 kit contains 10 vials, each vial contains 0.1mg of high-purity IGF-1 LR3",
+                            "janoshik_url": "https://janoshik.com/tests/58040-IG01_IGF1LR3_01mg_DM2LPHM5BMEX",
+                            "pricing": { "base": 35, "20": 30, "50": 28 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "IG1",
+                            "name": "IGF-1 LR3",
+                            "specification": "1mg*10vials",
+                            "composition": "Insulin-like Growth Factor-1 Long R3 - 1 kit contains 10 vials, each vial contains 1mg of high-purity IGF-1 LR3",
+                            "janoshik_url": "https://janoshik.com/tests/58039-IG1IGF1LR3_1mg_1YMTZLDPVMET",
+                            "pricing": { "base": 170, "20": 165, "50": 160 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "CND5",
+                            "name": "CJC-1295 Without DAC",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog - 1 kit contains 10 vials, each vial contains 5mg of high-purity CJC-1295 without DAC",
+                            "janoshik_url": "https://janoshik.com/tests/44880-CJC1295_Whitout_DAC_ERNL7N1TFEPM",
+                            "pricing": { "base": 75, "20": 73, "50": 70 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "CND10",
+                            "name": "CJC-1295 Without DAC",
+                            "specification": "10mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog - 1 kit contains 10 vials, each vial contains 10mg of high-purity CJC-1295 without DAC",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "20": 115, "50": 110 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "CP10",
+                            "name": "CJC-1295 without DAC + Ipamorelin",
+                            "specification": "5mg CJC + 5mg IPA*10vials",
+                            "composition": "Combination peptide - 1 kit contains 10 vials, each vial contains 5mg CJC-1295 without DAC + 5mg Ipamorelin",
+                            "janoshik_url": "https://janoshik.com/tests/68615-CJC1295_without_DAC_5mg_IPA_5mg_RY6S8B5TE3Q1",
+                            "pricing": { "base": 100, "20": 95, "50": 90 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "CD2",
+                            "name": "CJC-1295 With DAC",
+                            "specification": "2mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog with Drug Affinity Complex - 1 kit contains 10 vials, each vial contains 2mg of high-purity CJC-1295 with DAC",
+                            "janoshik_url": "https://janoshik.com/tests/63474-CJC1295_DAC_2mg_W6NY8D3RDF95",
+                            "pricing": { "base": 75, "20": 73, "50": 70 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "CD5",
+                            "name": "CJC-1295 With DAC",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog with Drug Affinity Complex - 1 kit contains 10 vials, each vial contains 5mg of high-purity CJC-1295 with DAC",
+                            "janoshik_url": "https://janoshik.com/tests/58859-CjC_dac_5_39SQGPKXIEHN",
+                            "pricing": { "base": 140, "20": 135, "50": 130 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "BD5",
+                            "name": "TB500 (cas885340-08-9)",
+                            "specification": "5mg*10vials",
+                            "composition": "Thymosin Beta-4 alternative form - 1 kit contains 10 vials, each vial contains 5mg of high-purity TB500",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 52, "20": 50, "50": 48 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "BD10",
+                            "name": "TB500 (cas885340-08-9)",
+                            "specification": "10mg*10vials",
+                            "composition": "Thymosin Beta-4 alternative form - 1 kit contains 10 vials, each vial contains 10mg of high-purity TB500",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 95, "20": 90, "50": 85 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "IP2",
+                            "name": "Ipamorelin",
+                            "specification": "2mg*10vials",
+                            "composition": "Growth Hormone Releasing Peptide - 1 kit contains 10 vials, each vial contains 2mg of high-purity Ipamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 18, "20": 17, "50": 16 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "IP5",
+                            "name": "Ipamorelin",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Releasing Peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Ipamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 40, "20": 38, "50": 35 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "IP10",
+                            "name": "Ipamorelin",
+                            "specification": "10mg*10vials",
+                            "composition": "Growth Hormone Releasing Peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity Ipamorelin",
+                            "janoshik_url": "https://janoshik.com/tests/42649-IP10_cleargold_top_vial_QD7QLRIFEP6J",
+                            "pricing": { "base": 70, "20": 65, "50": 60 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "MDT5",
+                            "name": "Mazdutide",
+                            "specification": "5mg*10vials",
+                            "composition": "Advanced GLP-1/GIP/Glucagon receptor triagonist - 1 kit contains 10 vials, each vial contains 5mg of high-purity Mazdutide for superior weight management",
+                            "janoshik_url": "https://janoshik.com/tests/64754-Mazdutide_10mg_MQLQW7XH98AW",
+                            "pricing": { "base": 120, "20": 115, "50": 110 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true,
+                            "new": true
+                        },
+                        {
+                            "cat_no": "MDT10",
+                            "name": "Mazdutide",
+                            "specification": "10mg*10vials",
+                            "composition": "Advanced GLP-1/GIP/Glucagon receptor triagonist - 1 kit contains 10 vials, each vial contains 10mg of high-purity Mazdutide for superior weight management",
+                            "janoshik_url": "https://janoshik.com/tests/64754-Mazdutide_10mg_MQLQW7XH98AW",
+                            "pricing": { "base": 200, "20": 195, "50": 190 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true,
+                            "new": true
+                        },
+                        {
+                            "cat_no": "SUR10",
+                            "name": "Survodutide",
+                            "specification": "10mg*10vials",
+                            "composition": "Dual GLP-1/Glucagon receptor agonist - 1 kit contains 10 vials, each vial contains 10mg of high-purity Survodutide for advanced metabolic control",
+                            "janoshik_url": "https://janoshik.com/tests/64755-Survodutide_10mg_P9JNTTATB2LU",
+                            "pricing": { "base": 235, "20": 230, "50": 225 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true,
+                            "new": true
+                        },
+                        {
+                            "cat_no": "AP2",
+                            "name": "Adipotide",
+                            "specification": "2mg*10vials",
+                            "composition": "Fat tissue targeting peptide - 1 kit contains 10 vials, each vial contains 2mg of high-purity Adipotide for selective fat reduction",
+                            "janoshik_url": "https://janoshik.com/tests/63724-Adipotide_2mg_LXWCQY5X9ECQ",
+                            "pricing": { "base": 60, "20": 58, "50": 55 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "AP5",
+                            "name": "Adipotide",
+                            "specification": "5mg*10vials",
+                            "composition": "Fat tissue targeting peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Adipotide for selective fat reduction",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 135, "20": 130, "50": 125 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "AE1",
+                            "name": "ACE-031",
+                            "specification": "1mg*10vials",
+                            "composition": "Myostatin inhibitor - 1 kit contains 10 vials, each vial contains 1mg of high-purity ACE-031 for muscle growth enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/63732-Ace031_1mg_BZ5KW6KIMIXD",
+                            "pricing": { "base": 82, "20": 80, "50": 78 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "CBL60",
+                            "name": "Cerebrolysin",
+                            "specification": "60mg*6vials",
+                            "composition": "Neurotrophic peptide complex - 1 kit contains 6 vials, each vial contains 60mg of pharmaceutical-grade Cerebrolysin for cognitive enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/50508-cerebrolysin_60mg_9LSIAV29TX4C",
+                            "pricing": { "base": 50, "20": 48, "50": 45 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "P21",
+                            "name": "P21",
+                            "specification": "10mg*10vials",
+                            "composition": "Nootropic peptide derived from CNTF - 1 kit contains 10 vials, each vial contains 10mg of high-purity P21 for memory enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/63728-P21_10mg_TPALCTXHX7F4",
+                            "pricing": { "base": 60, "20": 58, "50": 57 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PNC5",
+                            "name": "PNC27",
+                            "specification": "5mg*10vials",
+                            "composition": "Anticancer research peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity PNC27",
+                            "janoshik_url": "https://janoshik.com/tests/63730-PNC27_5mg_D7SIM1T6TKTS",
+                            "pricing": { "base": 60, "20": 58, "50": 55 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PNC10",
+                            "name": "PNC27",
+                            "specification": "10mg*10vials",
+                            "composition": "Anticancer research peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity PNC27",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "20": 115, "50": 110 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "KP10",
+                            "name": "KPV",
+                            "specification": "10mg*10vials",
+                            "composition": "Anti-inflammatory tripeptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity KPV for inflammation control",
+                            "janoshik_url": "https://janoshik.com/tests/63162-KPV10mg_YQU6DR9QFRGS",
+                            "pricing": { "base": 47, "20": 45, "50": 43 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "ADA10",
+                            "name": "Adamax",
+                            "specification": "10mg*10vials",
+                            "composition": "Performance enhancement peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity Adamax",
+                            "janoshik_url": "https://janoshik.com/tests/63729-Adamax_10mg_DEQ62M1LJHBE",
+                            "pricing": { "base": 100, "20": 98, "50": 95 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "RA10",
+                            "name": "ARA-290",
+                            "specification": "10mg*10vials",
+                            "composition": "Neuroprotective peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity ARA-290 for nerve protection",
+                            "janoshik_url": "https://janoshik.com/tests/58747-ARA290_10mg_WTKX8G997E66",
+                            "pricing": { "base": 65, "20": 63, "50": 60 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PE10",
+                            "name": "PE-22-28",
+                            "specification": "10mg*10vials",
+                            "composition": "Memory enhancement peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity PE-22-28",
+                            "janoshik_url": "https://janoshik.com/tests/63159-PE2228_10mg_A9WNSB7NXBL5",
+                            "pricing": { "base": 50, "20": 48, "50": 45 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "NP810",
+                            "name": "SNAP-8",
+                            "specification": "10mg*10vials",
+                            "composition": "Anti-aging cosmetic peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity SNAP-8",
+                            "janoshik_url": "https://janoshik.com/tests/67500-SNAP8_10mg_Y6IPM74L1SAL",
+                            "pricing": { "base": 45, "20": 43, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "TRA2",
+                            "name": "Triptorelin Acetate",
+                            "specification": "2mg*10vials",
+                            "composition": "GnRH agonist - 1 kit contains 10 vials, each vial contains 2mg of high-purity Triptorelin Acetate for hormone regulation",
+                            "janoshik_url": "https://janoshik.com/tests/42647-XA11_clearblue_top_vial_TJKSD8YJ3I57",
+                            "pricing": { "base": 19, "20": 18, "50": 17 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "KS5",
+                            "name": "KissPeptin-10",
+                            "specification": "5mg*10vials",
+                            "composition": "Reproductive hormone regulator - 1 kit contains 10 vials, each vial contains 5mg of high-purity KissPeptin-10 for hormone optimization",
+                            "janoshik_url": "https://janoshik.com/tests/66739-KissPeptin_5mg_WT8DRHSUUIAC",
+                            "pricing": { "base": 42, "20": 40, "50": 38 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "KS10",
+                            "name": "KissPeptin-10",
+                            "specification": "10mg*10vials",
+                            "composition": "Reproductive hormone regulator - 1 kit contains 10 vials, each vial contains 10mg of high-purity KissPeptin-10 for hormone optimization",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 75, "20": 72, "50": 70 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "TY5",
+                            "name": "Thymulin",
+                            "specification": "5mg*10vials",
+                            "composition": "Thymic hormone - 1 kit contains 10 vials, each vial contains 5mg of high-purity Thymulin for immune system enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/58746-Thymulin_5mg_H12Z9HRL3XYM",
+                            "pricing": { "base": 43, "20": 41, "50": 39 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "TY10",
+                            "name": "Thymulin",
+                            "specification": "10mg*10vials",
+                            "composition": "Thymic hormone - 1 kit contains 10 vials, each vial contains 10mg of high-purity Thymulin for immune system enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/64747-Thymulin_10mg_UJWWNA2HXMDT",
+                            "pricing": { "base": 80, "20": 77, "50": 75 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "VP5",
+                            "name": "VIP",
+                            "specification": "5mg*10vials",
+                            "composition": "Vasoactive Intestinal Peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity VIP for vascular health",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 40, "20": 38, "50": 36 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "VP10",
+                            "name": "VIP",
+                            "specification": "10mg*10vials",
+                            "composition": "Vasoactive Intestinal Peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity VIP for vascular health",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 70, "20": 67, "50": 65 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "CU50",
+                            "name": "GHK-CU",
+                            "specification": "50mg*10vials",
+                            "composition": "Copper tripeptide - 1 kit contains 10 vials, each vial contains 50mg of high-purity GHK-CU for tissue regeneration and anti-aging",
+                            "janoshik_url": "https://janoshik.com/tests/62996-GHKCu_50mg_4K5X43P319YQ",
+                            "pricing": { "base": 32, "20": 30, "50": 28 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "CU100",
+                            "name": "GHK-CU",
+                            "specification": "100mg*10vials",
+                            "composition": "Copper tripeptide - 1 kit contains 10 vials, each vial contains 100mg of high-purity GHK-CU for tissue regeneration and anti-aging",
+                            "janoshik_url": "https://janoshik.com/tests/60324-GHKCU_100mg_S6UDD83R4MV9",
+                            "pricing": { "base": 48, "20": 45, "50": 43 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "AU100",
+                            "name": "AHK-CU",
+                            "specification": "100mg*10vials",
+                            "composition": "Advanced copper peptide - 1 kit contains 10 vials, each vial contains 100mg of high-purity AHK-CU for enhanced tissue repair",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 52, "20": 49, "50": 47 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "GND2",
+                            "name": "Gonadorelin Acetate",
+                            "specification": "2mg*10vials",
+                            "composition": "GnRH analog - 1 kit contains 10 vials, each vial contains 2mg of high-purity Gonadorelin Acetate",
+                            "janoshik_url": "https://janoshik.com/tests/63472-Gonadorelin_Acetate_2mg_QEI7SFC4BAU3",
+                            "pricing": { "base": 32, "20": 30, "50": 28 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "NET5",
+                            "name": "N-Acetyl Epitalon Amidate",
+                            "specification": "5mg*10vials",
+                            "composition": "Enhanced Epitalon analog - 1 kit contains 10 vials, each vial contains 5mg of high-purity N-Acetyl Epitalon Amidate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 50, "20": 47, "50": 45 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "BC20",
+                            "name": "BPC-157",
+                            "specification": "20mg*10vials",
+                            "composition": "Body Protection Compound - 1 kit contains 10 vials, each vial contains 20mg of high-purity BPC-157",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 85, "20": 82, "50": 80 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "BT2",
+                            "name": "TB500",
+                            "specification": "2mg*10vials",
+                            "composition": "Thymosin Beta-4 - 1 kit contains 10 vials, each vial contains 2mg of high-purity TB500",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 25, "20": 23, "50": 21 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "FM2",
+                            "name": "MGF",
+                            "specification": "2mg*10vials",
+                            "composition": "Mechano Growth Factor - 1 kit contains 10 vials, each vial contains 2mg of high-purity MGF",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 45, "20": 42, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "FMP2",
+                            "name": "PEG MGF",
+                            "specification": "2mg*10vials",
+                            "composition": "Pegylated Mechano Growth Factor - 1 kit contains 10 vials, each vial contains 2mg of high-purity PEG MGF",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 52, "20": 49, "50": 47 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "SMO2",
+                            "name": "Sermorelin Acetate",
+                            "specification": "2mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone - 1 kit contains 10 vials, each vial contains 2mg of high-purity Sermorelin Acetate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 30, "20": 28, "50": 26 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "SMO5",
+                            "name": "Sermorelin Acetate",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone - 1 kit contains 10 vials, each vial contains 5mg of high-purity Sermorelin Acetate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 42, "20": 39, "50": 37 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "SMO10",
+                            "name": "Sermorelin Acetate",
+                            "specification": "10mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone - 1 kit contains 10 vials, each vial contains 10mg of high-purity Sermorelin Acetate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 75, "20": 72, "50": 70 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "TSM2",
+                            "name": "Tesamorelin",
+                            "specification": "2mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog - 1 kit contains 10 vials, each vial contains 2mg of high-purity Tesamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "20": 32, "50": 30 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "IP5",
+                            "name": "Ipamorelin",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Releasing Peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Ipamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 45, "20": 42, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "HX5",
+                            "name": "Hexarelin Acetate",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Releasing Peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Hexarelin Acetate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 40, "20": 37, "50": 35 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "TA5",
+                            "name": "Thymosin Alpha-1",
+                            "specification": "5mg*10vials",
+                            "composition": "Immune system peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Thymosin Alpha-1",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 45, "20": 42, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "LL3710",
+                            "name": "LL37",
+                            "specification": "10mg*10vials",
+                            "composition": "Antimicrobial peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity LL37",
+                            "janoshik_url": "https://janoshik.com/tests/62370-LL37_5mg_HT8GDDXGZ2JU",
+                            "pricing": { "base": 85, "20": 82, "50": 80 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "MT10",
+                            "name": "Melatonin",
+                            "specification": "10mg*10vials",
+                            "composition": "Sleep hormone - 1 kit contains 10 vials, each vial contains 10mg of high-purity Melatonin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "20": 32, "50": 30 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "FR2",
+                            "name": "GH Fragment 176-191",
+                            "specification": "2mg*10vials",
+                            "composition": "Growth Hormone Fragment - 1 kit contains 10 vials, each vial contains 2mg of high-purity GH Fragment 176-191",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 25, "20": 23, "50": 21 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "FR5",
+                            "name": "GH Fragment 176-191",
+                            "specification": "5mg*10vials",
+                            "composition": "Growth Hormone Fragment - 1 kit contains 10 vials, each vial contains 5mg of high-purity GH Fragment 176-191",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 42, "20": 39, "50": 37 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "FR10",
+                            "name": "GH Fragment 176-191",
+                            "specification": "10mg*10vials",
+                            "composition": "Growth Hormone Fragment - 1 kit contains 10 vials, each vial contains 10mg of high-purity GH Fragment 176-191",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 75, "20": 72, "50": 70 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DR5",
+                            "name": "Dermorphin",
+                            "specification": "5mg*10vials",
+                            "composition": "Opioid peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Dermorphin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 45, "20": 42, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "ISU",
+                            "name": "Insulin (lantus)",
+                            "specification": "3ml/1vial",
+                            "composition": "Long-acting insulin - 1 vial contains 3ml of pharmaceutical-grade Insulin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 26, "20": 24, "50": 22 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "WA10",
+                            "name": "Bac.water",
+                            "specification": "10ml/10vials",
+                            "composition": "Bacteriostatic water - 10 vials of 10ml sterile water for injection",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "20": 14, "50": 13 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "BA10",
+                            "name": "Bac.water",
+                            "specification": "10ml/10vials Contains Benzyl Alcohol",
+                            "composition": "Bacteriostatic water with Benzyl Alcohol - 10 vials of 10ml sterile water",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 18, "20": 17, "50": 16 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "BA03",
+                            "name": "Bac.water",
+                            "specification": "3ml/10vials Contains Benzyl Alcohol",
+                            "composition": "Bacteriostatic water with Benzyl Alcohol - 10 vials of 3ml sterile water",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 12, "20": 11, "50": 10 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "XT100",
+                            "name": "Botulinum toxin",
+                            "specification": "100iu/10vials",
+                            "composition": "Botulinum Toxin Type A - 1 kit contains 10 vials, each vial contains 100IU",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 160, "20": 155, "50": 150 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "5AM",
+                            "name": "5-amino-1mq",
+                            "specification": "5mg*10vials",
+                            "composition": "NAD+ booster - 1 kit contains 10 vials, each vial contains 5mg of high-purity 5-amino-1MQ",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 45, "20": 42, "50": 40 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "10AM",
+                            "name": "5-amino-1mq",
+                            "specification": "10mg*10vials",
+                            "composition": "NAD+ booster - 1 kit contains 10 vials, each vial contains 10mg of high-purity 5-amino-1MQ",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 90, "20": 85, "50": 82 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "50AM",
+                            "name": "5-amino-1mq",
+                            "specification": "50mg*10vials",
+                            "composition": "NAD+ booster - 1 kit contains 10 vials, each vial contains 50mg of high-purity 5-amino-1MQ",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 215, "20": 210, "50": 205 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "G75",
+                            "name": "HMG 75 IU",
+                            "specification": "75 IU*10vials",
+                            "composition": "Human Menopausal Gonadotropin - 1 kit contains 10 vials, each vial contains 75IU",
+                            "janoshik_url": "https://janoshik.com/tests/62373-HMG_75iu_8KCPGF74ACTZ",
+                            "pricing": { "base": 65, "20": 62, "50": 60 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "E3K",
+                            "name": "EPO 3000 IU",
+                            "specification": "3000 IU*5vials",
+                            "composition": "Erythropoietin - 1 kit contains 5 vials, each vial contains 3000IU",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 100, "20": 95, "50": 90 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "HA5",
+                            "name": "Hyaluronic acid",
+                            "specification": "5mg*1vial",
+                            "composition": "Hyaluronic Acid - 1 vial contains 5mg of pharmaceutical-grade Hyaluronic Acid",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "20": 32, "50": 30 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PI5",
+                            "name": "Pinealon",
+                            "specification": "5mg*10vials",
+                            "composition": "Brain bioregulator - 1 kit contains 10 vials, each vial contains 5mg of high-purity Pinealon",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 46, "20": 43, "50": 41 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PI10",
+                            "name": "Pinealon",
+                            "specification": "10mg*10vials",
+                            "composition": "Brain bioregulator - 1 kit contains 10 vials, each vial contains 10mg of high-purity Pinealon",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 65, "20": 62, "50": 60 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PI20",
+                            "name": "Pinealon",
+                            "specification": "20mg*10vials",
+                            "composition": "Brain bioregulator - 1 kit contains 10 vials, each vial contains 20mg of high-purity Pinealon",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 97, "20": 94, "50": 91 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "VI20",
+                            "name": "Vilon",
+                            "specification": "20mg/10vials",
+                            "composition": "Immune system bioregulator - 1 kit contains 10 vials, each vial contains 20mg of high-purity Vilon",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 110, "20": 105, "50": 102 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DL5",
+                            "name": "Dulaglutide",
+                            "specification": "5mg*10vials",
+                            "composition": "GLP-1 receptor agonist - 1 kit contains 10 vials, each vial contains 5mg of high-purity Dulaglutide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 97, "20": 94, "50": 91 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "DL10",
+                            "name": "Dulaglutide",
+                            "specification": "10mg*10vials",
+                            "composition": "GLP-1 receptor agonist - 1 kit contains 10 vials, each vial contains 10mg of high-purity Dulaglutide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 190, "20": 185, "50": 180 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PL5",
+                            "name": "Pramlintide",
+                            "specification": "5mg*10vials",
+                            "composition": "Amylin analog - 1 kit contains 10 vials, each vial contains 5mg of high-purity Pramlintide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "20": 115, "50": 112 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PL10",
+                            "name": "Pramlintide",
+                            "specification": "10mg*10vials",
+                            "composition": "Amylin analog - 1 kit contains 10 vials, each vial contains 10mg of high-purity Pramlintide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 215, "20": 210, "50": 205 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "PRO20",
+                            "name": "Alprostadil",
+                            "specification": "20mcg*5vials",
+                            "composition": "Prostaglandin E1 - 1 kit contains 5 vials, each vial contains 20mcg of high-purity Alprostadil",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "20": 115, "50": 112 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "LB10",
+                            "name": "LEMON BOTTLE",
+                            "specification": "10ml*10vials",
+                            "composition": "Lipolytic solution - 1 kit contains 10 vials, each vial contains 10ml of LEMON BOTTLE solution",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "20": 115, "50": 112 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "AR50",
+                            "name": "AICAR",
+                            "specification": "50mg*10vials",
+                            "composition": "Metabolic activator - 1 kit contains 10 vials, each vial contains 50mg of high-purity AICAR",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 65, "20": 62, "50": 60 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "ET5",
+                            "name": "Epithalon",
+                            "specification": "5mg*10vials",
+                            "composition": "Telomerase activator peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Epithalon for longevity support",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 32, "20": 30, "50": 29 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "ET10",
+                            "name": "Epithalon",
+                            "specification": "10mg*10vials",
+                            "composition": "Telomerase activator peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity Epithalon for longevity support",
+                            "janoshik_url": "https://janoshik.com/tests/44876-Epithalon_10mg_W1RXSGRXH428",
+                            "pricing": { "base": 45, "20": 43, "50": 42 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "ET40",
+                            "name": "Epithalon",
+                            "specification": "40mg*10vials",
+                            "composition": "Telomerase activator peptide - 1 kit contains 10 vials, each vial contains 40mg of high-purity Epithalon for longevity support",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 85, "20": 83, "50": 80 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "ET50",
+                            "name": "Epithalon",
+                            "specification": "50mg*10vials",
+                            "composition": "Telomerase activator peptide - 1 kit contains 10 vials, each vial contains 50mg of high-purity Epithalon for longevity support",
+                            "janoshik_url": "https://janoshik.com/tests/65462-Epithalon_50mg_B78EHNEPAMM8",
+                            "pricing": { "base": 120, "20": 118, "50": 115 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "MS5",
+                            "name": "MOTS-c",
+                            "specification": "5mg*10vials",
+                            "composition": "Mitochondrial-derived peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity MOTS-c for metabolic enhancement",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 30, "20": 28, "50": 27 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "MS10",
+                            "name": "MOTS-c",
+                            "specification": "10mg*10vials",
+                            "composition": "Mitochondrial-derived peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity MOTS-c for metabolic enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/42650-MS10_cleargold_top_vial_I27UCAXRCDSJ",
+                            "pricing": { "base": 55, "20": 53, "50": 50 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "MS40",
+                            "name": "MOTS-c",
+                            "specification": "40mg*10vials",
+                            "composition": "Mitochondrial-derived peptide - 1 kit contains 10 vials, each vial contains 40mg of high-purity MOTS-c for metabolic enhancement",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 180, "20": 175, "50": 170 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "OT5",
+                            "name": "Oxytocin",
+                            "specification": "5mg*10vials",
+                            "composition": "Social bonding hormone - 1 kit contains 10 vials, each vial contains 5mg of high-purity Oxytocin",
+                            "janoshik_url": "https://janoshik.com/tests/48191-Oxytocin_5mg_1vials_9E9AVRBVPAEM",
+                            "pricing": { "base": 38, "20": 36, "50": 35 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "OT10",
+                            "name": "Oxytocin",
+                            "specification": "10mg*10vials",
+                            "composition": "Social bonding hormone - 1 kit contains 10 vials, each vial contains 10mg of high-purity Oxytocin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 70, "20": 68, "50": 65 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
                         }
                     ]
                 }
@@ -4219,7 +5413,7 @@ body {
                             "name": "Dianabol (Methandrostenolone)",
                             "specification": "20mg*100tabs",
                             "composition": "1 bottle contains 100 tablets, each tablet contains 20mg of pharmaceutical-grade Methandrostenolone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41537-DIANABOL_20mg_7UVJ15L318PP",
                             "pricing": { "base": 17, "10": 15 },
                             "category": "oral_tablets",
                             "subcategory": "anabolic_steroids",
@@ -4231,7 +5425,7 @@ body {
                             "name": "Anavar (Oxandrolone)",
                             "specification": "25mg*100tabs",
                             "composition": "1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Oxandrolone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/51101-ANAVAR_25mg_HRIRS4X67U19",
                             "pricing": { "base": 27, "10": 26 },
                             "category": "oral_tablets",
                             "subcategory": "anabolic_steroids",
@@ -4242,7 +5436,7 @@ body {
                             "name": "Winstrol (Stanozolol)",
                             "specification": "20mg*100tabs",
                             "composition": "1 bottle contains 100 tablets, each tablet contains 20mg of pharmaceutical-grade Stanozolol",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/43557-Winstrol_Or_Stanozolol_20mg_FZ2UXGAH68TD",
                             "pricing": { "base": 17, "10": 15 },
                             "category": "oral_tablets",
                             "subcategory": "anabolic_steroids"
@@ -4252,7 +5446,7 @@ body {
                             "name": "ANADROL (Oxymetholone)",
                             "specification": "50mg*100tabs",
                             "composition": "1 bottle contains 100 tablets, each tablet contains 50mg of pharmaceutical-grade Oxymetholone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41577-Anadrol_50_mg_12Z2IPAC4UW5",
                             "pricing": { "base": 18, "10": 17 },
                             "category": "oral_tablets",
                             "subcategory": "anabolic_steroids"
@@ -4262,8 +5456,188 @@ body {
                             "name": "Turinabol",
                             "specification": "25mg*100tabs",
                             "composition": "1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Chlordehydromethyltestosterone",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41536-turinabol_25mg_GMLHJY1GGZPA",
                             "pricing": { "base": 27, "10": 26 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "X10",
+                            "name": "Anavar (Oxandrolone)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Oxandrolone",
+                            "janoshik_url": "https://janoshik.com/tests/41576-Anavar_10_mg_IBGAWU3RA6FW",
+                            "pricing": { "base": 18, "10": 17 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "X50",
+                            "name": "Anavar (Oxandrolone)",
+                            "specification": "50mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 50mg of pharmaceutical-grade Oxandrolone",
+                            "janoshik_url": "https://janoshik.com/tests/51102-ANAVAR_50mg_GM5FYC6IEZXY",
+                            "pricing": { "base": 42, "10": 40 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "W10",
+                            "name": "Winstrol (Stanozolol)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Stanozolol",
+                            "janoshik_url": "https://janoshik.com/tests/51104-Stanozolol_10mg_TFDX3QTC6LPZ",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "W50",
+                            "name": "Winstrol (Stanozolol)",
+                            "specification": "50mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 50mg of pharmaceutical-grade Stanozolol",
+                            "janoshik_url": "https://janoshik.com/tests/51105-Stanozolol_50mg_BKIMH89TR9CI",
+                            "pricing": { "base": 23, "10": 21 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "D10",
+                            "name": "Dianabol (Methandrostenolone)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Methandrostenolone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 12, "10": 11 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "D50",
+                            "name": "Dianabol (Methandrostenolone)",
+                            "specification": "50mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 50mg of pharmaceutical-grade Methandrostenolone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 23, "10": 22 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "SD10",
+                            "name": "Superdrol (Methyldrostanolone)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Methyldrostanolone",
+                            "janoshik_url": "https://janoshik.com/tests/41538-superdrol_10mg_24K2T1PPLEG7",
+                            "pricing": { "base": 17, "10": 16 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "CT10",
+                            "name": "Turinabol",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Chlordehydromethyltestosterone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 14 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "CT50",
+                            "name": "Turinabol",
+                            "specification": "50mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 50mg of pharmaceutical-grade Chlordehydromethyltestosterone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 43, "10": 42 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "M10",
+                            "name": "Methenolone Acetate (Primobolan)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Methenolone Acetate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 34, "10": 33 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "M25",
+                            "name": "Methenolone Acetate (Primobolan)",
+                            "specification": "25mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Methenolone Acetate",
+                            "janoshik_url": "https://janoshik.com/tests/48619-Methenolonel_Acetate_25mg_LMXN67YQCTDM",
+                            "pricing": { "base": 65, "10": 63 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "M50",
+                            "name": "Methenolone Acetate (Primobolan)",
+                            "specification": "50mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 50mg of pharmaceutical-grade Methenolone Acetate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 115, "10": 110 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "FX40",
+                            "name": "Fluoxymesterone (Halotestin)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Fluoxymesterone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 60, "10": 58 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "1TT10",
+                            "name": "DHB (1-Testosterone cypionate)",
+                            "specification": "10mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade 1-Testosterone Cypionate",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 18, "10": 16 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "SB20",
+                            "name": "SALBUTAMOL",
+                            "specification": "20mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 20mg of pharmaceutical-grade Salbutamol",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 17, "10": 15 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "MSB10",
+                            "name": "Methylstenbolone",
+                            "specification": "10mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Methylstenbolone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "10": 33 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "M1T10",
+                            "name": "17a-Methyl-1-testosterone M1T",
+                            "specification": "10mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade M1T",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 18, "10": 16 },
+                            "category": "oral_tablets",
+                            "subcategory": "anabolic_steroids"
+                        },
+                        {
+                            "cat_no": "pdn10",
+                            "name": "Prednisone",
+                            "specification": "10mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade Prednisone",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 17, "10": 15 },
                             "category": "oral_tablets",
                             "subcategory": "anabolic_steroids"
                         }
@@ -4360,10 +5734,212 @@ body {
                             "name": "T3 (Liothyronine sodium)",
                             "specification": "25mcg*100tabs",
                             "composition": "1 bottle contains 100 tablets, each tablet contains 25mcg of pharmaceutical-grade Liothyronine sodium",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/43556-T3_Liothyronine_sodium_25mcg_QHQU9R5W53SZ",
                             "pricing": { "base": 14, "10": 13 },
                             "category": "oral_tablets",
                             "subcategory": "fat_loss"
+                        },
+                        {
+                            "cat_no": "340",
+                            "name": "T3 (Liothyronine sodium)",
+                            "specification": "40mcg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 40mcg of pharmaceutical-grade Liothyronine sodium",
+                            "janoshik_url": "https://janoshik.com/tests/43556-T3_Liothyronine_sodium_25mcg_QHQU9R5W53SZ",
+                            "pricing": { "base": 16, "10": 15 },
+                            "category": "oral_tablets",
+                            "subcategory": "fat_loss"
+                        },
+                        {
+                            "cat_no": "440",
+                            "name": "T4 (Levothyroxine)",
+                            "specification": "40mcg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 40mcg of pharmaceutical-grade Levothyroxine",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "oral_tablets",
+                            "subcategory": "fat_loss"
+                        },
+                        {
+                            "cat_no": "T500",
+                            "name": "Tesofensine",
+                            "specification": "500mcg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 500mcg of pharmaceutical-grade Tesofensine",
+                            "janoshik_url": "https://janoshik.com/tests/44604-Tesofensine_500mcg_CLUTKT6V7ELK",
+                            "pricing": { "base": 30, "10": 29 },
+                            "category": "oral_tablets",
+                            "subcategory": "fat_loss",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "T3",
+                            "name": "T3 (Liothyronine sodium)",
+                            "specification": "40mcg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 40mcg of pharmaceutical-grade Liothyronine sodium",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 16, "10": 15 },
+                            "category": "oral_tablets",
+                            "subcategory": "fat_loss"
+                        }
+                    ]
+                },
+                "sarms": {
+                    "description": "SARMs (Selective Androgen Receptor Modulators)",
+                    "products": [
+                        {
+                            "cat_no": "G50",
+                            "name": "GW-501516 (Cardarine)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade GW-501516",
+                            "janoshik_url": "https://janoshik.com/tests/51106-GW501516_Cardarine_10mg_H4NURMXK1NSA",
+                            "pricing": { "base": 23, "10": 22 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "L40",
+                            "name": "LGD-4033 (Ligandrol)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade LGD-4033",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 26, "10": 22 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "M6",
+                            "name": "MK-677 (Ibutamoren)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade MK-677",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 30, "10": 29 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "S9",
+                            "name": "SR9009 (Stenabolic)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade SR9009",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 33, "10": 32 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "R14",
+                            "name": "RAD140 (Testolone)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade RAD140",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 41, "10": 37 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "M28",
+                            "name": "Ostarine (MK-2866)",
+                            "specification": "25mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Ostarine",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 30, "10": 29 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "S040",
+                            "name": "Andarine S4",
+                            "specification": "25mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Andarine S4",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 25, "10": 23 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "Y1",
+                            "name": "YK11",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade YK11",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 51, "10": 51 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "GW0742",
+                            "name": "GW0742 (Cardarine II)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade GW0742",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 28, "10": 26 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "SR9009",
+                            "name": "SR9009 (Stenabolic)",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade SR9009",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 32, "10": 30 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "SR9011",
+                            "name": "SR9011",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade SR9011",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "10": 33 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "LGD3303",
+                            "name": "LGD3303",
+                            "specification": "10mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade LGD3303",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "10": 33 },
+                            "category": "oral_tablets",
+                            "subcategory": "sarms"
+                        }
+                    ]
+                },
+                "enhancement": {
+                    "description": "Enhancement & ED Support",
+                    "products": [
+                        {
+                            "cat_no": "SD100",
+                            "name": "Sildenafil (Viagra)",
+                            "specification": "100mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 100mg of pharmaceutical-grade Sildenafil",
+                            "janoshik_url": "https://janoshik.com/tests/53262-Sildenafil_100mg_IG6J8DH5NFVK",
+                            "pricing": { "base": 13, "10": 12 },
+                            "category": "oral_tablets",
+                            "subcategory": "enhancement"
+                        },
+                        {
+                            "cat_no": "DT20",
+                            "name": "Tadalafil (Cialis)",
+                            "specification": "20mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 20mg of pharmaceutical-grade Tadalafil",
+                            "janoshik_url": "https://janoshik.com/tests/44603-Tadanafil_20mg_9MQIIYJ38VC3",
+                            "pricing": { "base": 13, "10": 12 },
+                            "category": "oral_tablets",
+                            "subcategory": "enhancement"
+                        },
+                        {
+                            "cat_no": "B70",
+                            "name": "COCK BOMBS",
+                            "specification": "70mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 70mg of enhancement compound blend",
+                            "janoshik_url": "https://janoshik.com/tests/65299-COCK_Bombs_70mg_XU5C75944GGT",
+                            "pricing": { "base": 20, "10": 19 },
+                            "category": "oral_tablets",
+                            "subcategory": "enhancement"
                         }
                     ]
                 },
@@ -4380,6 +5956,266 @@ body {
                             "category": "oral_tablets",
                             "subcategory": "specialty",
                             "new": true
+                        },
+                        {
+                            "cat_no": "CG25",
+                            "name": "Cabergoline",
+                            "specification": "0.25mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 0.25mg of pharmaceutical-grade Cabergoline",
+                            "janoshik_url": "https://janoshik.com/tests/53329-Cabergoline_025mg_R3AZIH68Y8TH",
+                            "pricing": { "base": 50, "10": 48 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "EC25",
+                            "name": "Androxal (Enclomiphene)",
+                            "specification": "25mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Enclomiphene",
+                            "janoshik_url": "https://janoshik.com/tests/52941-EC25_Enclomiphene_25mg_XF5K2CWWBALJ",
+                            "pricing": { "base": 60, "10": 58 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "SLU250",
+                            "name": "SLU-PP-332",
+                            "specification": "250mcg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 250mcg of pharmaceutical-grade SLU-PP-332",
+                            "janoshik_url": "https://janoshik.com/tests/65291-slupp332_250mcg_59BX6J4K8R3P",
+                            "pricing": { "base": 18, "10": 17 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "SLU20",
+                            "name": "SLU-PP-332",
+                            "specification": "20mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 20mg of pharmaceutical-grade SLU-PP-332",
+                            "janoshik_url": "https://janoshik.com/tests/53260-SluPP332_20mg_3V8KMTRTLSRH",
+                            "pricing": { "base": 70, "10": 68 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "DUT1",
+                            "name": "Dutasteride",
+                            "specification": "1mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 1mg of pharmaceutical-grade Dutasteride",
+                            "janoshik_url": "https://janoshik.com/tests/65293-Dutasteride_1mg_N9KY8YIPQ2BD",
+                            "pricing": { "base": 19, "10": 18 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "MD5",
+                            "name": "Minoxidil",
+                            "specification": "5mg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 5mg of pharmaceutical-grade Minoxidil",
+                            "janoshik_url": "https://janoshik.com/tests/65290-Minoxidil_5mg_ARY1KUPWB6G9",
+                            "pricing": { "base": 15, "10": 14 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "B157",
+                            "name": "BPC-157 Tablets",
+                            "specification": "500mcg*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 500mcg of pharmaceutical-grade BPC-157",
+                            "janoshik_url": "https://janoshik.com/tests/48623-BPC157_500mcg_5MPDD9CUBT66",
+                            "pricing": { "base": 55, "10": 51 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "SM500",
+                            "name": "Semaglutide Tablets",
+                            "specification": "500mcg*25tabs",
+                            "composition": "1 bottle contains 25 tablets, each tablet contains 500mcg of pharmaceutical-grade Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/50512-semaglutide_500mcg_QZ322BDG96AL",
+                            "pricing": { "base": 16, "10": 15 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "AMQ50",
+                            "name": "5-amino-1mq",
+                            "specification": "50mg x 25 tablets",
+                            "composition": "1 bottle contains 25 tablets, each tablet contains 50mg of pharmaceutical-grade 5-amino-1MQ NAD+ booster",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 31, "10": 29 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "BAM50",
+                            "name": "BAM15 (capsule)",
+                            "specification": "50mg x 60pcs",
+                            "composition": "1 bottle contains 60 capsules, each capsule contains 50mg of pharmaceutical-grade BAM15 mitochondrial uncoupler",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "10": 115 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "KP500",
+                            "name": "KPV",
+                            "specification": "500mcg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 500mcg of pharmaceutical-grade KPV anti-inflammatory peptide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 80, "10": 75 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "BB500",
+                            "name": "BPC+TB500",
+                            "specification": "1000mcg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 1000mcg combined BPC-157 and TB-500 healing peptides",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 155, "10": 150 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "MB20",
+                            "name": "Methylene Blue",
+                            "specification": "20mg x 100pcs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 20mg of pharmaceutical-grade Methylene Blue cognitive enhancer",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 31, "10": 29 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "A10",
+                            "name": "AICAR",
+                            "specification": "10mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 10mg of pharmaceutical-grade AICAR metabolic enhancer",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 42, "10": 39 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "MD5",
+                            "name": "Minoxidil",
+                            "specification": "5mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 5mg of pharmaceutical-grade Minoxidil",
+                            "janoshik_url": "https://janoshik.com/tests/65290-Minoxidil_5mg_ARY1KUPWB6G9",
+                            "pricing": { "base": 18, "10": 16 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "EC125",
+                            "name": "Androxal (Enclomiphene)",
+                            "specification": "12.5mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 12.5mg of pharmaceutical-grade Enclomiphene",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 32, "10": 30 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "TM40",
+                            "name": "Telmisartan",
+                            "specification": "40mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 40mg of pharmaceutical-grade Telmisartan",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 18, "10": 16 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "FAN1",
+                            "name": "Finasteride",
+                            "specification": "1mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 1mg of pharmaceutical-grade Finasteride",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 16, "10": 14 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "FS5",
+                            "name": "Finasteride",
+                            "specification": "5mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 5mg of pharmaceutical-grade Finasteride",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 21, "10": 19 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "LV5",
+                            "name": "Ivermectin",
+                            "specification": "5mg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 5mg of pharmaceutical-grade Ivermectin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 16, "10": 14 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "FB100",
+                            "name": "Flibanserin",
+                            "specification": "100mg x 30 tablets",
+                            "composition": "1 bottle contains 30 tablets, each tablet contains 100mg of pharmaceutical-grade Flibanserin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 17, "10": 15 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "SLU1000",
+                            "name": "SLU-PP-332",
+                            "specification": "1000mcg x 100 tablets",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 1000mcg of pharmaceutical-grade SLU-PP-332",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 25, "10": 23 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "SB300",
+                            "name": "Slupp-332+BAM15 capsule",
+                            "specification": "300mcg x 60pcs",
+                            "composition": "1 bottle contains 60 capsules, each capsule contains 300mcg combined SLU-PP-332 and BAM15",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 33, "10": 31 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "TR500",
+                            "name": "Tirzepatide",
+                            "specification": "500mcg x 25 tablets",
+                            "composition": "1 bottle contains 25 tablets, each tablet contains 500mcg of pharmaceutical-grade Tirzepatide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 17, "10": 15 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
+                        },
+                        {
+                            "cat_no": "AICAR",
+                            "name": "AICAR",
+                            "specification": "50mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 50mg of high-purity AICAR for metabolic enhancement research",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 65, "10": 62, "20": 58 },
+                            "category": "peptides",
+                            "subcategory": "research_peptides"
+                        },
+                        {
+                            "cat_no": "ACC10",
+                            "name": "Accutane (Isotretinoin)",
+                            "specification": "10mg x 50 tablets",
+                            "composition": "1 bottle contains 50 tablets, each tablet contains 10mg of pharmaceutical-grade Isotretinoin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 25, "10": 23 },
+                            "category": "oral_tablets",
+                            "subcategory": "specialty"
                         }
                     ]
                 }
@@ -4395,7 +6231,7 @@ body {
                             "name": "TESTOSTERONE CYPIONATE",
                             "specification": "250mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 2500mg of Testosterone Cypionate in MCT oil base",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/64737-Test_Cyp_250mgml_Z1TGAVSXHPD7",
                             "pricing": { "base": 10, "10": 8 },
                             "category": "injectable_oils",
                             "subcategory": "testosterone",
@@ -4407,7 +6243,7 @@ body {
                             "name": "TESTOSTERONE ENANTHATE",
                             "specification": "250mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 2500mg of Testosterone Enanthate in MCT oil base",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/64738-Test_E_250mgml_DDI6QVXLKMBY",
                             "pricing": { "base": 10, "10": 8 },
                             "category": "injectable_oils",
                             "subcategory": "testosterone",
@@ -4418,7 +6254,7 @@ body {
                             "name": "Testosterone Propionate",
                             "specification": "100mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 1000mg of Testosterone Propionate in MCT oil base",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/43276-AAS_oil_P100_Testosterone_propionate_100mgml_IE7XQ7DSLQHU",
                             "pricing": { "base": 8, "10": 6 },
                             "category": "injectable_oils",
                             "subcategory": "testosterone"
@@ -4446,6 +6282,7 @@ body {
                             "name": "Sustanon",
                             "specification": "250mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains mixed testosterone esters (250mg/ml) in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/43275-AAS_oil_S250_Sustanon_250mgml_AX5ENDZCUSPN",
                             "pricing": { "base": 12, "10": 11 },
                             "category": "injectable_oils",
                             "subcategory": "testosterone",
@@ -4456,7 +6293,58 @@ body {
                             "name": "Supertest",
                             "specification": "450mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains mixed testosterone blend (450mg/ml) in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/64740-Supertest_450mg_I4BB5E46JHXG",
                             "pricing": { "base": 16, "10": 15 },
+                            "category": "injectable_oils",
+                            "subcategory": "testosterone"
+                        },
+                        {
+                            "cat_no": "P200",
+                            "name": "Testosterone Propionate",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 2000mg of Testosterone Propionate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/43276-AAS_oil_P200_Testosterone_propionate_200mgml_IE7XQ7DSLQHU",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "testosterone"
+                        },
+                        {
+                            "cat_no": "SP100",
+                            "name": "Testosterone Suspension",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Testosterone Suspension in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/48626-TS_TESTOSTERONE_SUSPENSION_100mgml_10_ml_BLB634I92V93",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "testosterone"
+                        },
+                        {
+                            "cat_no": "BA100",
+                            "name": "Test Base (TNE)",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Testosterone No Ester in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/48627-TEST_BASE_100mg_TNE_testosterone_no_ester_8YV9TF45ZRI3",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "testosterone"
+                        },
+                        {
+                            "cat_no": "S400",
+                            "name": "SU-400",
+                            "specification": "400mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains mixed testosterone esters (400mg/ml) in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/48628-SU400_400mgml_J12E95E13MG5",
+                            "pricing": { "base": 15, "10": 14 },
+                            "category": "injectable_oils",
+                            "subcategory": "testosterone"
+                        },
+                        {
+                            "cat_no": "T600",
+                            "name": "Testo-600",
+                            "specification": "600mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains mixed testosterone blend (600mg/ml) in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/64741-Testo600mg_5CEUCFMG1XRA",
+                            "pricing": { "base": 18, "10": 15 },
                             "category": "injectable_oils",
                             "subcategory": "testosterone"
                         }
@@ -4470,7 +6358,7 @@ body {
                             "name": "Trenbolone Acetate",
                             "specification": "100mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 1000mg of Trenbolone Acetate in MCT oil base",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41581-TRA_100mgml_52HT5YVQUI7T",
                             "pricing": { "base": 15, "10": 13 },
                             "category": "injectable_oils",
                             "subcategory": "trenbolone"
@@ -4480,8 +6368,58 @@ body {
                             "name": "Trenbolone Enanthate",
                             "specification": "100mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 1000mg of Trenbolone Enanthate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/43277-AAS_oil_RY100_Trenbolone_enanthate_100mgml_FQVSGLDFDU6S",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "trenbolone"
+                        },
+                        {
+                            "cat_no": "R200",
+                            "name": "Trenbolone Enanthate",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 2000mg of Trenbolone Enanthate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/43277-AAS_oil_RY100_Trenbolone_enanthate_100mgml_FQVSGLDFDU6S",
+                            "pricing": { "base": 18, "10": 17 },
+                            "category": "injectable_oils",
+                            "subcategory": "trenbolone"
+                        },
+                        {
+                            "cat_no": "3R225",
+                            "name": "TriTren 225",
+                            "specification": "225mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains mixed trenbolone esters (225mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 36, "10": 34 },
+                            "category": "injectable_oils",
+                            "subcategory": "trenbolone"
+                        },
+                        {
+                            "cat_no": "RM200",
+                            "name": "TRENMIX-200",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains mixed trenbolone blend (200mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 21, "10": 19 },
+                            "category": "injectable_oils",
+                            "subcategory": "trenbolone"
+                        },
+                        {
+                            "cat_no": "BR50",
+                            "name": "TRB 50 trenbolone base",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Trenbolone Base in MCT oil base",
                             "janoshik_url": "#",
                             "pricing": { "base": 15, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "trenbolone"
+                        },
+                        {
+                            "cat_no": "H100",
+                            "name": "TrX-100",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains premium trenbolone blend (100mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 36, "10": 34 },
                             "category": "injectable_oils",
                             "subcategory": "trenbolone"
                         }
@@ -4495,7 +6433,7 @@ body {
                             "name": "DECA (NANDROLONE DECANOATE)",
                             "specification": "200mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 2000mg of Nandrolone Decanoate in MCT oil base",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/41582-DECA_200mgml_1ZXGBUN76SKJ",
                             "pricing": { "base": 15, "10": 14 },
                             "category": "injectable_oils",
                             "subcategory": "other",
@@ -4506,8 +6444,298 @@ body {
                             "name": "EQUIPOISE (BOLDENONE UNDECYLENATE)",
                             "specification": "200mg/ml, 10ml vial",
                             "composition": "Each 10ml vial contains 2000mg of Boldenone Undecylenate in MCT oil base",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/64742-BU_Equipoise_200mgml_N1PZAPR61UFW",
                             "pricing": { "base": 14, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "U300",
+                            "name": "BU-300 (EQUIPOISE)",
+                            "specification": "300mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 3000mg of Boldenone Undecylenate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/64743-BU_Equipoise_300mgml_894ZBMDRCIUC",
+                            "pricing": { "base": 16, "10": 15 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "U600",
+                            "name": "BU 600 (BOLDEN-600)",
+                            "specification": "600mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 6000mg of Boldenone Undecylenate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/50515-BOLDEN600_600mgml_D52G188A6BME",
+                            "pricing": { "base": 22, "10": 21 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "PN100",
+                            "name": "NPP-100",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Nandrolone Phenylpropionate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/53461-NPP100_100mgml_6SP1FJE5RD8U",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "M100",
+                            "name": "METHENOLONE ENANTHATE (Primo)",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Methenolone Enanthate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/53456-METHENOLONE_ENANTHATE_100mgml_JQYV785INFD7",
+                            "pricing": { "base": 31, "10": 30 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "M200",
+                            "name": "METHENOLONE ENANTHATE (Primo)",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 2000mg of Methenolone Enanthate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/53460-METHENOLONE_ENANTHATE_200mgml_8VSIJPA3K9I6",
+                            "pricing": { "base": 55, "10": 54 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "D100",
+                            "name": "Masteron 100 (DP)",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Drostanolone Propionate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/41535-masteron_100mgml_7A2DTKG5HW29",
+                            "pricing": { "base": 15, "10": 14 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "DO50",
+                            "name": "Dianabol-50",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Methandrostenolone in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/43278-AAS_oil_DO50_Dianabol50_50mgml_Z7WCNPVIXTJS",
+                            "pricing": { "base": 14, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "1T100",
+                            "name": "DHB (1-Testosterone cypionate)",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of 1-Testosterone Cypionate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/64746-1Testosterone_Cypionate_100mgml_N9FWVMUXP1A6",
+                            "pricing": { "base": 23, "10": 19 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "EC100",
+                            "name": "Estradial Cypionate",
+                            "specification": "10mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 100mg of Estradial Cypionate in MCT oil base",
+                            "janoshik_url": "https://janoshik.com/tests/64745-Estradial_Cypionate_10mg_CJCMZ3L4LUE8",
+                            "pricing": { "base": 15, "10": 14 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "B300",
+                            "name": "BLEND 300",
+                            "specification": "300mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains multi-ester testosterone blend (300mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 26, "10": 24 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "B375",
+                            "name": "BLEND-375",
+                            "specification": "375mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains enhanced testosterone concentration blend (375mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 29, "10": 27 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "B500",
+                            "name": "BLEND-500",
+                            "specification": "500mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains maximum concentration testosterone blend (500mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 42, "10": 39 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "MN50",
+                            "name": "Trestolone acetate (MENT)",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Trestolone Acetate in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 33, "10": 31 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "DM200",
+                            "name": "MAST Blend-200",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains mixed masteron blend (200mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 24, "10": 22 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "RX225",
+                            "name": "Ripex-225",
+                            "specification": "225mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains premium cutting blend (225mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 24, "10": 22 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "BS250",
+                            "name": "BC 250 (boldenone cypionate)",
+                            "specification": "250mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 2500mg of Boldenone Cypionate in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "D200",
+                            "name": "MAST-200",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 2000mg of Masteron in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 19, "10": 17 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "N300",
+                            "name": "DECA 300",
+                            "specification": "300mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 3000mg of Nandrolone Decanoate in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 17, "10": 15 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "NM300",
+                            "name": "NANDROMIX-300",
+                            "specification": "300mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains mixed nandrolone blend (300mg/ml) in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 18, "10": 16 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "PN200",
+                            "name": "NPP-200",
+                            "specification": "200mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 2000mg of Nandrolone Phenylpropionate in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "SO50",
+                            "name": "STANOZOLOL oil base",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Stanozolol in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "SO100",
+                            "name": "STANOZOLOL oil base",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Stanozolol in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "SW50",
+                            "name": "STANOZOLOL suspension",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Stanozolol suspension",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "SW100",
+                            "name": "STANOZOLOL suspension",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of Stanozolol suspension",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 11, "10": 9 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "OXO50",
+                            "name": "Anadrol-50",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Oxymetholone in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "HD50",
+                            "name": "stanolone (DHT)",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Dihydrotestosterone in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 14, "10": 12 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "SDO50",
+                            "name": "Superdrol",
+                            "specification": "50mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 500mg of Methyldrostanolone in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 12, "10": 10 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "BM5",
+                            "name": "metribolone",
+                            "specification": "5mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 50mg of Metribolone in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 13 },
+                            "category": "injectable_oils",
+                            "subcategory": "other"
+                        },
+                        {
+                            "cat_no": "NJ100",
+                            "name": "NAD+ oil",
+                            "specification": "100mg/ml, 10ml vial",
+                            "composition": "Each 10ml vial contains 1000mg of NAD+ in MCT oil base",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 15, "10": 13 },
                             "category": "injectable_oils",
                             "subcategory": "other"
                         }
@@ -4525,7 +6753,7 @@ body {
                             "name": "Lipo-C",
                             "specification": "10ml x 120mg/ml/vial",
                             "composition": "Methionine 15mg, Choline Chloride 50mg, L-Carnitine 50mg, Dexpanthenol 5mg per ml",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/61134-LC120LipoC_CE7V8AY9KF2H",
                             "pricing": { "base": 90, "10": 90, "20": 85 },
                             "category": "specialty_injections",
                             "subcategory": "lipotropic"
@@ -4535,11 +6763,41 @@ body {
                             "name": "SUPER SHRED",
                             "specification": "10ml x 10 vials",
                             "composition": "L-Carnitine 400mg/ml, Mic Blend 100mg/ml, ATP 50mg/ml, Albuterol 2mg/ml, B12 1mg/ml",
-                            "janoshik_url": "#",
+                            "janoshik_url": "https://janoshik.com/tests/67328-SUPER_SHRED_LC553_9R8UEH93WVNH",
                             "pricing": { "base": 165, "10": 160, "20": 155 },
                             "category": "specialty_injections",
                             "subcategory": "lipotropic",
                             "new": true
+                        },
+                        {
+                            "cat_no": "Lipo-C",
+                            "name": "Lipo-C (Original)",
+                            "specification": "10ml x 120mg/ml/vial",
+                            "composition": "Methionine 15mg, Choline Chloride 50mg, L-Carnitine 50mg, Dexpanthenol 5mg per ml",
+                            "janoshik_url": "https://janoshik.com/tests/61134-LC120LipoC_CE7V8AY9KF2H",
+                            "pricing": { "base": 90, "10": 90, "20": 85 },
+                            "category": "specialty_injections",
+                            "subcategory": "lipotropic"
+                        },
+                        {
+                            "cat_no": "Lipo-B",
+                            "name": "Lipo-B Blend",
+                            "specification": "10ml*10vials",
+                            "composition": "L-Carnitine 20mg, L-Arginine 20mg, Methionine 25mg, Inositol 50mg, Choline 50mg, B6 25mg, B5 25mg, B12 1mg",
+                            "janoshik_url": "https://janoshik.com/tests/67327-LipoB_LC216_63ZZGHE2G39P",
+                            "pricing": { "base": 105, "10": 105, "20": 100 },
+                            "category": "specialty_injections",
+                            "subcategory": "lipotropic"
+                        },
+                        {
+                            "cat_no": "LC500",
+                            "name": "L-Carnitine",
+                            "specification": "500mg*10vials",
+                            "composition": "Each vial contains 500mg of high-purity L-Carnitine for injection",
+                            "janoshik_url": "https://janoshik.com/tests/67329-LCarnitine_500mg_LC500_GQRRB859TU13",
+                            "pricing": { "base": 70, "10": 68, "20": 65 },
+                            "category": "specialty_injections",
+                            "subcategory": "lipotropic"
                         }
                     ]
                 },
@@ -4564,6 +6822,56 @@ body {
                             "composition": "Glutathione 200mg/ml, Ascorbic Acid 200mg/ml, Zinc Sulfate 2.5mg/ml",
                             "janoshik_url": "#",
                             "pricing": { "base": 175, "10": 170, "20": 165 },
+                            "category": "specialty_injections",
+                            "subcategory": "wellness"
+                        },
+                        {
+                            "cat_no": "LC216",
+                            "name": "Lipo-B injection",
+                            "specification": "10ml x 10 vials",
+                            "composition": "Advanced lipotropic blend with B-complex vitamins for enhanced fat metabolism",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 140, "10": 135, "20": 130 },
+                            "category": "specialty_injections",
+                            "subcategory": "wellness"
+                        },
+                        {
+                            "cat_no": "B1201",
+                            "name": "Vitamin B12 Injection",
+                            "specification": "1mg*10ML",
+                            "composition": "Each 10ML vial contains 1mg of Vitamin B12 for injection",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 40, "10": 38 },
+                            "category": "specialty_injections",
+                            "subcategory": "wellness"
+                        },
+                        {
+                            "cat_no": "D320",
+                            "name": "Vitamin D3",
+                            "specification": "20000iu/ml, 10ml/vial",
+                            "composition": "Each 10ml vial contains 200,000IU of Vitamin D3 for injection",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 70, "10": 68 },
+                            "category": "specialty_injections",
+                            "subcategory": "wellness"
+                        },
+                        {
+                            "cat_no": "LC1000",
+                            "name": "L-Carnitine",
+                            "specification": "1000mg*10vials",
+                            "composition": "Each vial contains 1000mg of high-purity L-Carnitine for enhanced metabolism",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 135, "10": 130 },
+                            "category": "specialty_injections",
+                            "subcategory": "wellness"
+                        },
+                        {
+                            "cat_no": "GTT",
+                            "name": "Glutathione",
+                            "specification": "1500mg*10vials",
+                            "composition": "Each vial contains 1500mg of high-purity Glutathione for antioxidant support",
+                            "janoshik_url": "https://janoshik.com/tests/66740-Glutathione_1500mg_9BMY5A4V7YZG",
+                            "pricing": { "base": 80, "10": 75 },
                             "category": "specialty_injections",
                             "subcategory": "wellness"
                         }
@@ -4604,6 +6912,46 @@ body {
                             "composition": "High-purity LGD4033 raw powder for research purposes",
                             "janoshik_url": "#",
                             "pricing": { "10g": 340, "50g": 650, "100g": 3600, "500g": 5700 },
+                            "category": "raw_materials",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "YK11-RAW",
+                            "name": "YK11",
+                            "specification": "Available: 10g, 50g, 100g, 500g",
+                            "composition": "High-purity YK11 myostatin inhibitor raw powder",
+                            "janoshik_url": "#",
+                            "pricing": { "10g": 380, "50g": 950, "100g": 4200, "500g": 8500 },
+                            "category": "raw_materials",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "S23-RAW",
+                            "name": "S23",
+                            "specification": "Available: 10g, 50g, 100g, 500g",
+                            "composition": "High-purity S23 SARM raw powder for research",
+                            "janoshik_url": "#",
+                            "pricing": { "10g": 420, "50g": 1100, "100g": 4800, "500g": 9200 },
+                            "category": "raw_materials",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "GW501516-RAW",
+                            "name": "GW501516 (Cardarine)",
+                            "specification": "Available: 10g, 50g, 100g, 500g",
+                            "composition": "High-purity GW501516 PPAR-δ agonist raw powder",
+                            "janoshik_url": "#",
+                            "pricing": { "10g": 280, "50g": 750, "100g": 3200, "500g": 6800 },
+                            "category": "raw_materials",
+                            "subcategory": "sarms"
+                        },
+                        {
+                            "cat_no": "S4-RAW",
+                            "name": "Andarine S4",
+                            "specification": "Available: 10g, 50g, 100g, 500g",
+                            "composition": "High-purity Andarine S4 SARM raw powder",
+                            "janoshik_url": "#",
+                            "pricing": { "10g": 320, "50g": 820, "100g": 3600, "500g": 7400 },
                             "category": "raw_materials",
                             "subcategory": "sarms"
                         }
@@ -5182,7 +7530,16 @@ This is a demo. Please contact us to complete your order.`);
         function setupEventListeners() {
             // Search functionality
             const searchInput = document.getElementById('searchInput');
+            const searchDropdown = document.getElementById('searchDropdown');
+            
             searchInput.addEventListener('input', debounce(handleSearch, 300));
+            
+            // Hide search dropdown when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!searchInput.contains(event.target) && !searchDropdown.contains(event.target)) {
+                    searchDropdown.style.display = 'none';
+                }
+            });
             
             // Filter buttons
             document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -5219,8 +7576,10 @@ This is a demo. Please contact us to complete your order.`);
         // Search functionality
         function handleSearch(event) {
             const searchTerm = event.target.value.toLowerCase().trim();
+            const dropdown = document.getElementById('searchDropdown');
             
             if (searchTerm === '') {
+                dropdown.style.display = 'none';
                 filterProducts();
                 return;
             }
@@ -5233,10 +7592,82 @@ This is a demo. Please contact us to complete your order.`);
                        product.subcategory.toLowerCase().includes(searchTerm);
             });
             
+            // Show dropdown with search results
+            showSearchDropdown(searchResults.slice(0, 8));
+            
+            // Also filter the main product grid
             filteredProducts = sortProducts(searchResults);
             currentPage = 1;
             updateProductCount();
             renderProducts();
+        }
+
+        function showSearchDropdown(results) {
+            const dropdown = document.getElementById('searchDropdown');
+            
+            if (results.length === 0) {
+                dropdown.innerHTML = '<div style="padding: var(--space-3); text-align: center; color: var(--gray-500);">No products found</div>';
+                dropdown.style.display = 'block';
+                return;
+            }
+            
+            dropdown.innerHTML = results.map(product => {
+                const basePrice = getBasePrice(product);
+                const formattedPrice = formatPrice(basePrice);
+                
+                return `
+                    <div class="search-result-item" onclick="selectSearchResult('${product.cat_no}')">
+                        <div class="search-result-info">
+                            <div class="search-result-name">${product.name}</div>
+                            <div class="search-result-details">${product.cat_no} • ${product.specification}</div>
+                        </div>
+                        <div class="search-result-price">${formattedPrice}</div>
+                        <i class="fas fa-chevron-right" style="color: var(--gray-400); margin-left: var(--space-2);"></i>
+                    </div>
+                `;
+            }).join('');
+            
+            dropdown.style.display = 'block';
+        }
+
+        function selectSearchResult(productId) {
+            const dropdown = document.getElementById('searchDropdown');
+            dropdown.style.display = 'none';
+            
+            // Find the selected product
+            const selectedProduct = allProducts.find(p => p.cat_no === productId);
+            if (!selectedProduct) return;
+            
+            // Clear current filters and search
+            selectedCategory = 'all';
+            selectedSubcategory = 'all';
+            currentFilter = 'all';
+            currentPage = 1;
+            
+            // Filter products to show only the selected one
+            filteredProducts = [selectedProduct];
+            displayProducts();
+            
+            // Update active filters
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('onclick').includes('all'));
+            });
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === 'all');
+            });
+            
+            // Scroll to products section
+            setTimeout(() => {
+                const productsSection = document.querySelector('.products-section') || document.querySelector('.products-grid');
+                if (productsSection) {
+                    productsSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }, 100);
+            
+            showNotification(`Found ${selectedProduct.name} - Ready to add to cart!`, 'success');
         }
 
         // Debounce function
@@ -5555,11 +7986,11 @@ This is a demo. Please contact us to complete your order.`);
             let discountPercent = 0.10; // 10% base discount
             let discountLabel = 'Launch Discount (10% OFF)';
             
-            if (originalTotal >= 500) {
-                discountPercent = 0.30; // 30% for $500+
+            if (originalTotal >= 750) {
+                discountPercent = 0.30; // 30% for $750+
                 discountLabel = 'VIP Discount (30% OFF)';
-            } else if (originalTotal >= 250) {
-                discountPercent = 0.20; // 20% for $250+
+            } else if (originalTotal >= 400) {
+                discountPercent = 0.20; // 20% for $400+
                 discountLabel = 'Premium Discount (20% OFF)';
             }
             
@@ -5572,13 +8003,13 @@ This is a demo. Please contact us to complete your order.`);
             const btcDiscountAmount = isBtcSelected ? afterLaunchDiscount * 0.05 : 0;
             const finalTotal = afterLaunchDiscount - btcDiscountAmount;
             
-            // Generate spend notification
+            // Generate spend notification with currency conversion
             let spendNotification = '';
-            if (originalTotal < 250) {
-                const remaining = 250 - originalTotal;
+            if (originalTotal < 400) {
+                const remaining = 400 - originalTotal;
                 spendNotification = `💡 Spend ${formatPrice(remaining)} more for 20% OFF!`;
-            } else if (originalTotal < 500) {
-                const remaining = 500 - originalTotal;
+            } else if (originalTotal < 750) {
+                const remaining = 750 - originalTotal;
                 spendNotification = `💡 Spend ${formatPrice(remaining)} more for 30% OFF!`;
             }
             
@@ -5649,6 +8080,9 @@ This is a demo. Please contact us to complete your order.`);
             // Show spend notification if applicable
             if (spendNotification) {
                 showSpendNotification(spendNotification);
+            } else {
+                // Hide spend notification if thresholds are met
+                hideSpendNotification();
             }
         }
 
@@ -5939,6 +8373,16 @@ This is a demo. Please contact us to complete your order.`);
                         </div>
                     </div>
 
+                    ${orderData.shippingInfo.orderNotes ? `
+                    <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-4); margin-bottom: var(--space-4);">
+                        <h4 style="color: var(--gray-800); margin-bottom: var(--space-3); border-bottom: 1px solid var(--gray-200); padding-bottom: var(--space-2);">
+                            <i class="fas fa-sticky-note"></i> Order Notes
+                        </h4>
+                        <div style="background: var(--gray-50); padding: var(--space-3); border-radius: var(--radius-md); color: var(--gray-700); font-style: italic;">
+                            "${orderData.shippingInfo.orderNotes}"
+                        </div>
+                    </div>` : ''}
+
                     <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: var(--space-4);">
                         <h4 style="color: var(--gray-800); margin-bottom: var(--space-3); border-bottom: 1px solid var(--gray-200); padding-bottom: var(--space-2);">
                             <i class="fas fa-box"></i> Order Items
@@ -6030,9 +8474,316 @@ This is a demo. Please contact us to complete your order.`);
 
         // Contact support
         function contactSupport() {
-            const whatsappMessage = `Hi, I need help with my order #${orderData.orderId}. Could you please assist me?`;
+            const modalHTML = `
+                <div class="modal support-options-modal" id="supportOptionsModal" style="display: flex; z-index: 10001;">
+                    <div class="modal-content" style="max-width: 500px;">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Need Help? Contact Support</h2>
+                            <button class="modal-close" onclick="document.getElementById('supportOptionsModal').style.display='none'">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p style="margin-bottom: 20px; color: var(--gray-700);">Choose your preferred contact method for fastest assistance:</p>
+                            
+                            <div class="support-options">
+                                <div class="support-option" onclick="contactViaWhatsApp()" style="display: flex; align-items: center; padding: 15px; border: 1px solid var(--gray-200); border-radius: 8px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fab fa-whatsapp" style="font-size: 24px; color: #25d366; margin-right: 15px;"></i>
+                                    <div>
+                                        <div style="font-weight: 600; color: var(--gray-800);">WhatsApp (Fastest)</div>
+                                        <div style="font-size: 14px; color: var(--gray-600);">Response in 15-30 minutes</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="support-option" onclick="contactViaDiscord()" style="display: flex; align-items: center; padding: 15px; border: 1px solid var(--gray-200); border-radius: 8px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fab fa-discord" style="font-size: 24px; color: #5865f2; margin-right: 15px;"></i>
+                                    <div>
+                                        <div style="font-weight: 600; color: var(--gray-800);">Discord Server</div>
+                                        <div style="font-size: 14px; color: var(--gray-600);">Web orders - Open support ticket</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="support-option" onclick="contactViaEmail()" style="display: flex; align-items: center; padding: 15px; border: 1px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fas fa-envelope" style="font-size: 24px; color: var(--primary-blue); margin-right: 15px;"></i>
+                                    <div>
+                                        <div style="font-weight: 600; color: var(--gray-800);">Email</div>
+                                        <div style="font-size: 14px; color: var(--gray-600);">Response in 2-6 hours</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing modal if present
+            const existingModal = document.getElementById('supportOptionsModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+            
+            // Add modal to body
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            
+            // Add hover effects
+            document.querySelectorAll('.support-option').forEach(option => {
+                option.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'var(--gray-50)';
+                    this.style.borderColor = 'var(--primary-blue)';
+                });
+                option.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'white';
+                    this.style.borderColor = 'var(--gray-200)';
+                });
+            });
+        }
+        
+        function contactViaWhatsApp() {
+            const orderId = orderData ? orderData.orderId : 'N/A';
+            const whatsappMessage = `Hi, I need help with my order #${orderId}. Could you please assist me?`;
             const whatsappUrl = `https://wa.me/85265628714?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappUrl, '_blank');
+            document.getElementById('supportOptionsModal').style.display = 'none';
+        }
+        
+        function contactViaDiscord() {
+            window.open('https://discord.gg/KbdBxkkN', '_blank');
+            document.getElementById('supportOptionsModal').style.display = 'none';
+            showNotification('Discord server opened! Join and create a ticket for web order support.', 'info');
+        }
+        
+        function contactViaEmail() {
+            const orderId = orderData ? orderData.orderId : 'N/A';
+            const email = 'micli@sigmaaudley.com';
+            const subject = `Order Support Request - #${orderId}`;
+            const body = `Hello,
+
+I need assistance with my order #${orderId}.
+
+Please help me with:
+(Please describe your issue here)
+
+Order Details:
+${orderData ? `- Order ID: ${orderData.orderId}
+- Total: $${orderData.total}
+- Warehouse: ${orderData.warehouse}` : 'Order details not available'}
+
+Thank you for your assistance.`;
+            
+            window.open(`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+            document.getElementById('supportOptionsModal').style.display = 'none';
+        }
+
+        // Mobile search functionality
+        function toggleMobileSearch() {
+            const modalHTML = `
+                <div class="modal mobile-search-modal" id="mobileSearchModal" style="display: flex; z-index: 10001;">
+                    <div class="modal-content" style="max-width: 400px;">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Search Products</h2>
+                            <button class="modal-close" onclick="document.getElementById('mobileSearchModal').style.display='none'">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="search-container" style="display: block; margin-bottom: 20px;">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" class="search-input" placeholder="Search products..." id="mobileSearchInput" style="width: 100%;">
+                            </div>
+                            <div id="mobileSearchResults" style="max-height: 300px; overflow-y: auto;">
+                                <!-- Search results will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing modal if present
+            const existingModal = document.getElementById('mobileSearchModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+            
+            // Add modal to body
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            
+            // Focus the search input
+            setTimeout(() => {
+                const searchInput = document.getElementById('mobileSearchInput');
+                searchInput.focus();
+                
+                // Add search event listener
+                searchInput.addEventListener('input', debounce(handleMobileSearch, 300));
+            }, 100);
+        }
+
+        // Handle mobile search
+        function handleMobileSearch(event) {
+            const searchTerm = event.target.value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('mobileSearchResults');
+            
+            if (searchTerm === '') {
+                resultsContainer.innerHTML = '<p style="color: var(--gray-500); text-align: center; padding: 20px;">Start typing to search products...</p>';
+                return;
+            }
+            
+            const searchResults = allProducts.filter(product => {
+                return product.name.toLowerCase().includes(searchTerm) ||
+                       product.cat_no.toLowerCase().includes(searchTerm) ||
+                       product.specification.toLowerCase().includes(searchTerm) ||
+                       product.category.toLowerCase().includes(searchTerm) ||
+                       product.subcategory.toLowerCase().includes(searchTerm);
+            });
+            
+            if (searchResults.length === 0) {
+                resultsContainer.innerHTML = '<p style="color: var(--gray-500); text-align: center; padding: 20px;">No products found matching your search.</p>';
+                return;
+            }
+            
+            // Display search results
+            resultsContainer.innerHTML = searchResults.slice(0, 10).map(product => {
+                const basePrice = getBasePrice(product);
+                const formattedPrice = formatPrice(basePrice);
+                
+                return `
+                    <div class="mobile-search-result" style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid var(--gray-200); cursor: pointer;" onclick="selectMobileSearchResult('${product.cat_no}')">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: var(--gray-800); font-size: 14px;">${product.name}</div>
+                            <div style="font-size: 12px; color: var(--gray-600);">${product.cat_no} • ${product.specification}</div>
+                            <div style="font-size: 12px; color: var(--primary-blue); font-weight: 600;">${formattedPrice}</div>
+                        </div>
+                        <i class="fas fa-chevron-right" style="color: var(--gray-400);"></i>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Select a product from mobile search
+        function selectMobileSearchResult(productId) {
+            console.log('Mobile search result selected:', productId);
+            document.getElementById('mobileSearchModal').style.display = 'none';
+            
+            // Find the selected product
+            const selectedProduct = allProducts.find(p => p.cat_no === productId);
+            console.log('Selected product:', selectedProduct);
+            if (!selectedProduct) {
+                console.log('Product not found!');
+                return;
+            }
+            
+            // Clear current filters and search
+            selectedCategory = 'all';
+            selectedSubcategory = 'all';
+            currentFilter = 'all';
+            currentPage = 1;
+            
+            // Set search term to match the product
+            const mainSearchInput = document.getElementById('searchInput');
+            if (mainSearchInput) {
+                mainSearchInput.value = selectedProduct.name;
+            }
+            
+            // Filter products to show only the selected one
+            filteredProducts = [selectedProduct];
+            console.log('Filtered products set to:', filteredProducts);
+            displayProducts();
+            
+            // Update active filters - set all categories to active
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.includes('All') || btn.onclick.toString().includes("'all'"));
+            });
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === 'all' || btn.textContent.includes('All'));
+            });
+            
+            // Scroll to products section
+            setTimeout(() => {
+                const productsSection = document.querySelector('.products-section') || document.querySelector('.products-grid');
+                if (productsSection) {
+                    productsSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }, 100);
+            
+            showNotification(`Found ${selectedProduct.name} - Ready to add to cart!`, 'success');
+        }
+
+        // Download order as PDF
+        function downloadOrderAsPDF() {
+            try {
+                const content = document.getElementById('thankYouContent');
+                const warehouse = warehouses[selectedWarehouse];
+                
+                // Create a new window for PDF content
+                const printWindow = window.open('', '_blank');
+                
+                // PDF content styling
+                const pdfHTML = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Sigma Audley Order Confirmation</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.4; }
+                        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #2563eb; padding-bottom: 20px; }
+                        .company-name { color: #2563eb; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+                        .tagline { color: #666; font-size: 14px; }
+                        .success-icon { color: #16a34a; font-size: 48px; margin-bottom: 10px; }
+                        .order-details { margin-bottom: 30px; }
+                        .section { margin-bottom: 25px; }
+                        .section h3 { color: #1d4ed8; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; }
+                        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+                        .info-item { background: #f8fafc; padding: 12px; border-radius: 6px; }
+                        .info-item strong { color: #334155; }
+                        .order-items { width: 100%; border-collapse: collapse; margin-top: 15px; }
+                        .order-items th, .order-items td { padding: 10px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+                        .order-items th { background: #f1f5f9; color: #475569; font-weight: 600; }
+                        .totals { background: #f8fafc; padding: 15px; border-radius: 6px; margin-top: 20px; }
+                        .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+                        .final-total { font-weight: bold; font-size: 18px; color: #16a34a; border-top: 1px solid #cbd5e1; padding-top: 8px; margin-top: 8px; }
+                        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b; }
+                        @media print { body { margin: 0; } }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <div class="success-icon">✓</div>
+                        <div class="company-name">Sigma Audley (SSA)</div>
+                        <div class="tagline">Premium Research Pharmaceuticals</div>
+                        <h2 style="color: #16a34a; margin-top: 15px;">Order Confirmation</h2>
+                    </div>
+                    
+                    <div class="order-details">
+                        ${content.innerHTML}
+                    </div>
+                    
+                    <div class="footer">
+                        <p><strong>Contact Information:</strong></p>
+                        <p>Email: micli@sigmaaudley.com | Discord: https://discord.gg/KbdBxkkN</p>
+                        <p>WhatsApp: +852 6562 8714 | Telegram: @miclix</p>
+                        <p style="margin-top: 15px; font-size: 12px;">
+                            Generated on ${new Date().toLocaleString()}<br>
+                            This is an official order confirmation from Sigma Audley
+                        </p>
+                    </div>
+                </body>
+                </html>
+                `;
+                
+                printWindow.document.write(pdfHTML);
+                printWindow.document.close();
+                
+                // Wait for content to load, then print
+                printWindow.onload = function() {
+                    setTimeout(() => {
+                        printWindow.print();
+                    }, 500);
+                };
+                
+                showNotification('PDF download initiated. Please save or print the document.', 'success');
+                
+            } catch (error) {
+                console.error('PDF download error:', error);
+                showNotification('Unable to generate PDF. Please screenshot this page instead.', 'error');
+            }
         }
 
         // Initialize app when DOM is loaded
@@ -6095,10 +8846,17 @@ This is a demo. Please contact us to complete your order.`);
             document.getElementById('checkoutWarehouseFlag').textContent = warehouse.flag;
             document.getElementById('checkoutWarehouseShipping').textContent = `Ships in ${warehouse.shippingTime}`;
             
+            // Update currency for new warehouse
+            updateWarehouseCurrency(warehouseCode);
+            
             populateOrderReview();
             
             // Hide selector after selection
             document.getElementById('warehouseSelectorContainer').style.display = 'none';
+            
+            // Save warehouse selection
+            saveWarehouseToStorage();
+            showNotification(`Warehouse changed to ${warehouse.flag} ${warehouse.name}`, 'success');
         }
         
         // Update payment method and recalculate totals
@@ -6128,6 +8886,14 @@ This is a demo. Please contact us to complete your order.`);
                 </div>
             `;
             notification.style.display = 'block';
+        }
+
+        // Hide spend notification
+        function hideSpendNotification() {
+            const notification = document.getElementById('spendNotification');
+            if (notification) {
+                notification.style.display = 'none';
+            }
         }
         
         // Add address verification when form is completed
@@ -6307,9 +9073,9 @@ This is a demo. Please contact us to complete your order.`);
             
             // Determine discount tier
             let discountPercent = 0.10;
-            if (originalTotal >= 500) {
+            if (originalTotal >= 750) {
                 discountPercent = 0.30;
-            } else if (originalTotal >= 250) {
+            } else if (originalTotal >= 400) {
                 discountPercent = 0.20;
             }
             
@@ -6520,6 +9286,24 @@ This is a demo. Please contact us to complete your order.`);
             showCheckoutStep(3);
         }
         
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const thankYouModal = document.getElementById('thankYouModal');
+            
+            if (event.target === thankYouModal) {
+                closeModal('thankYouModal');
+            }
+        }
+        
         // Initialize enhanced checkout on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Replace the original processOrder function
@@ -6564,11 +9348,18 @@ This is a demo. Please contact us to complete your order.`);
                     <i class="fas fa-camera"></i>
                     <strong>Please screenshot this page for your records in case we need to contact you.</strong>
                 </div>
-                <button class="btn btn-primary" onclick="closeModal('thankYouModal'); window.location.reload();">
+                <div style="margin-bottom: var(--space-4);">
+                    <button class="btn btn-secondary" onclick="downloadOrderAsPDF()" style="margin-right: var(--space-2);">
+                        <i class="fas fa-file-pdf"></i>
+                        Download as PDF
+                    </button>
+                    <button class="btn btn-primary" onclick="closeModal('thankYouModal'); window.location.reload();">
                     Continue Shopping
                 </button>
             </div>
         </div>
     </div>
+
+
 </body>
 </html>

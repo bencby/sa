@@ -20,8 +20,8 @@
     <meta property="og:site_name" content="Sigma Audley Research Pharmaceuticals">
     <meta property="og:title" content="Refer a Friend - Get 25% OFF - Sigma Audley">
     <meta property="og:description" content="Share Sigma Audley with friends and get 25% OFF your next order! Premium research pharmaceuticals with global shipping.">
-    <meta property="og:url" content="https://sigma-audley.com/refer-a-friend.html">
-    <meta property="og:image" content="https://sigma-audley.com/images/referral-program.png">
+    <meta property="og:url" content="https://sigmaaudley.net/refer-a-friend.html">
+    <meta property="og:image" content="https://sigmaaudley.net/images/referral-program.png">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card Meta Tags -->
@@ -29,10 +29,10 @@
     <meta name="twitter:site" content="@SigmaAudley">
     <meta name="twitter:title" content="Refer a Friend - Get 25% OFF - Sigma Audley">
     <meta name="twitter:description" content="Share Sigma Audley with friends and get 25% OFF your next order!">
-    <meta name="twitter:image" content="https://sigma-audley.com/images/referral-program.png">
+    <meta name="twitter:image" content="https://sigmaaudley.net/images/referral-program.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://sigma-audley.com/refer-a-friend.html">
+    <link rel="canonical" href="https://sigmaaudley.net/refer-a-friend.html">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -41,12 +41,12 @@
         "@type": "WebPage",
         "name": "Refer a Friend Program - Sigma Audley",
         "description": "Refer friends to Sigma Audley and get 25% OFF your next order of premium research pharmaceuticals.",
-        "url": "https://sigma-audley.com/refer-a-friend.html",
+        "url": "https://sigmaaudley.net/refer-a-friend.html",
         "inLanguage": "en-US",
         "isPartOf": {
             "@type": "WebSite",
             "name": "Sigma Audley Research Pharmaceuticals",
-            "url": "https://sigma-audley.com"
+            "url": "https://sigmaaudley.net"
         },
         "about": {
             "@type": "Thing",
@@ -74,7 +74,19 @@
     </script>
     
     <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    
+    <!-- Analytics Tracking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.va) {
+                window.va('track', 'page_view', { page: 'refer-a-friend' });
+            }
+        });
+    </script>
     
     <style>
         * {
@@ -302,6 +314,41 @@
                 </div>
             </div>
             
+            <!-- Alternative way to earn discount -->
+            <div style="margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-radius: 15px; border-left: 4px solid #0ea5e9;">
+                <h3 style="color: #0369a1; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.5em;">💬</span>
+                    <span>Alternative: Forum Posting Rewards</span>
+                </h3>
+                <p style="margin: 0 0 10px 0; line-height: 1.6;">
+                    <strong>Post about the SigmaAudley.net website on forums like Looksmax.org, GLP1Forum, or other relevant communities and get rewarded!</strong>
+                </p>
+                <div style="background: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
+                    <p style="margin: 0 0 10px 0; font-weight: 600;">How it works:</p>
+                    <ol style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Post about the <strong>SigmaAudley.net website</strong> on Looksmax.org, GLP1Forum, or other relevant forums</li>
+                        <li>Take a screenshot showing your post with your username visible</li>
+                        <li>Email the screenshot to <strong>support@sigmaaudley.net</strong></li>
+                        <li>We'll send you a <strong>one-time discount code</strong> within 24 hours</li>
+                    </ol>
+                    <div style="background: linear-gradient(135deg, #fef3c7, #fed7aa); padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #f59e0b;">
+                        <p style="margin: 0; font-weight: 600; color: #92400e;">🎯 Reward Structure:</p>
+                        <ul style="margin: 10px 0 0 0; padding-left: 20px; color: #92400e;">
+                            <li><strong>20% OFF</strong> for posting in 1 forum</li>
+                            <li><strong>21% OFF</strong> for posting in 2 forums</li>
+                            <li><strong>22% OFF</strong> for posting in 3 forums</li>
+                            <li><strong>And so on...</strong> (+1% per additional forum)</li>
+                        </ul>
+                        <p style="margin: 10px 0 0 0; font-size: 0.9em; color: #b45309;">
+                            <strong>Example:</strong> Post in 5 different forums = 24% OFF discount code!
+                        </p>
+                    </div>
+                </div>
+                <p style="margin: 10px 0 0 0; font-size: 0.9em; color: #64748b;">
+                    <strong>Note:</strong> This is separate from the referral program above. You can earn both rewards!
+                </p>
+            </div>
+            
             <div class="warning">
                 ⚠️ <strong>Single Use Only</strong> - Each referral code can only be used once
             </div>
@@ -314,7 +361,7 @@
             <div class="message-box" id="referralMessage">
                 "Hey! I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products. 
                 When you place your first order, just include my email <strong id="emailPlaceholder">your-email@example.com</strong> in the order notes, 
-                and I'll get a 25% discount code! Check them out: <strong>sigma-audley.com</strong>"
+                and I'll get a 25% discount code! Check them out: <strong>sigmaaudley.net</strong>"
             </div>
             
             <div style="text-align: center;">
@@ -344,7 +391,12 @@
         
         function copyMessage() {
             const email = document.getElementById('userEmail').value || 'your-email@example.com';
-            const message = `Hey! I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products. When you place your first order, just include my email ${email} in the order notes, and I'll get a 25% discount code! Check them out: sigma-audley.com`;
+            const message = `Hey! I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products. When you place your first order, just include my email ${email} in the order notes, and I'll get a 25% discount code! Check them out: sigmaaudley.net`;
+            
+            // Track copy event
+            if (window.va) {
+                window.va('track', 'referral_message_copied', { user_email: email });
+            }
             
             navigator.clipboard.writeText(message).then(() => {
                 const button = event.target;
@@ -365,13 +417,18 @@
         function shareViaEmail() {
             const email = document.getElementById('userEmail').value || 'your-email@example.com';
             const subject = 'Check out Sigma Audley - Premium Research Pharmaceuticals';
+            
+            // Track email share event
+            if (window.va) {
+                window.va('track', 'referral_email_shared', { user_email: email });
+            }
             const body = `Hey!
 
 I found this amazing research pharmaceutical company called Sigma Audley with over 200+ tested products.
 
 When you place your first order, just include my email ${email} in the order notes, and I'll get a 25% discount code!
 
-Check them out: sigma-audley.com
+Check them out: sigmaaudley.net
 
 Thanks!`;
             

@@ -8907,8 +8907,43 @@ This is a demo. Please contact us to complete your order.`);
             
             // Show payment instructions
             await showPaymentInstructions();
+            
+            // Send order data to Google Sheets
+            sendToGoogleSheets(orderData);
         }
 
+        // Send order data to Google Sheets
+        function sendToGoogleSheets(orderData) {
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5DuNLQi_KxCsJnv6TaX-HUkTlObmQ3T-D0y92OmOc_aSi69R55_zWzHXJnwxnlHE/exec';
+            
+            const data = {
+                orderId: orderData.orderId,
+                email: orderData.shippingInfo.email,
+                name: orderData.shippingInfo.fullName,
+                phone: orderData.shippingInfo.phone,
+                address: `${orderData.shippingInfo.address}, ${orderData.shippingInfo.address2}`.trim().replace(/,$/, ''),
+                city: orderData.shippingInfo.city,
+                country: orderData.shippingInfo.country,
+                paymentMethod: orderData.paymentMethod,
+                total: orderData.finalTotal || orderData.total,
+                items: orderData.cart.map(item => `${item.name} (${item.quantity}x)`).join(', ')
+            };
+            
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log('Order data sent to Google Sheets:', result);
+            })
+            .catch(error => {
+                console.error('Error sending to Google Sheets:', error);
+            });
+        }
 
         // Copy to clipboard function
         function copyToClipboard(text) {

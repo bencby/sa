@@ -3062,6 +3062,11 @@ body {
         padding: var(--space-1) var(--space-2);
         font-size: var(--font-size-sm);
     }
+    
+    /* Show mobile click hint only on mobile */
+    .mobile-click-hint {
+        display: inline !important;
+    }
 }
 
 /* Mobile small screens (480px and below) */
@@ -9110,7 +9115,7 @@ This is a demo. Please contact us to complete your order.`);
                                 <div class="support-option" onclick="contactViaEmail()" style="display: flex; align-items: center; padding: 15px; border: 2px solid #16a34a; border-radius: 8px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; background: #f0fdf4;">
                                     <i class="fas fa-envelope" style="font-size: 24px; color: #16a34a; margin-right: 15px;"></i>
                                     <div>
-                                        <div style="font-weight: 600; color: var(--gray-800);">Email (fastest - support@sigmaaudley.net)</div>
+                                        <div style="font-weight: 600; color: var(--gray-800);">Email (FASTEST - support@sigmaaudley.net) <span style="display: none; color: #059669; font-size: 12px;" class="mobile-click-hint">📱 Tap to open</span></div>
                                         <div style="font-size: 14px; color: var(--gray-600);"><strong>All order enquiries</strong> - Response within 1 hour</div>
                                     </div>
                                 </div>

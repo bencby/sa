@@ -8001,11 +8001,6 @@ body {
 
         // Toggle cart modal
 
-        // Close modal
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('show');
-        }
 
         // Proceed to checkout
         function proceedToCheckout() {
@@ -8408,6 +8403,9 @@ This is a demo. Please contact us to complete your order.`);
         function showModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
+                // Clear any problematic inline styles first
+                modal.style.display = '';
+                modal.style.visibility = '';
                 modal.classList.add('show');
             } else {
                 console.error(`Modal with ID '${modalId}' not found!`);
@@ -8419,6 +8417,9 @@ This is a demo. Please contact us to complete your order.`);
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.remove('show');
+                // Clear any inline styles that might interfere
+                modal.style.display = '';
+                modal.style.visibility = '';
             }
         }
 
@@ -9096,7 +9097,7 @@ This is a demo. Please contact us to complete your order.`);
         // Contact support
         function contactSupport() {
             const modalHTML = `
-                <div class="modal support-options-modal" id="supportOptionsModal" style="display: flex; z-index: 10001;">
+                <div class="modal support-options-modal show" id="supportOptionsModal" style="z-index: 10001;">
                     <div class="modal-content" style="max-width: 500px;">
                         <div class="modal-header">
                             <h2 class="modal-title">Need Help? Contact Support</h2>
@@ -9109,7 +9110,7 @@ This is a demo. Please contact us to complete your order.`);
                                 <div class="support-option" onclick="contactViaEmail()" style="display: flex; align-items: center; padding: 15px; border: 2px solid #16a34a; border-radius: 8px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; background: #f0fdf4;">
                                     <i class="fas fa-envelope" style="font-size: 24px; color: #16a34a; margin-right: 15px;"></i>
                                     <div>
-                                        <div style="font-weight: 600; color: var(--gray-800);">Email (FASTEST)</div>
+                                        <div style="font-weight: 600; color: var(--gray-800);">Email (fastest - support@sigmaaudley.net)</div>
                                         <div style="font-size: 14px; color: var(--gray-600);"><strong>All order enquiries</strong> - Response within 1 hour</div>
                                     </div>
                                 </div>
@@ -9317,7 +9318,8 @@ Thank you for your assistance.`;
             // Filter products to show only the selected one
             filteredProducts = [selectedProduct];
             console.log('Filtered products set to:', filteredProducts);
-            displayProducts();
+            renderProducts();
+            updateProductCount();
             
             // Update active filters - set all categories to active
             document.querySelectorAll('.category-btn').forEach(btn => {
@@ -9559,50 +9561,115 @@ Thank you for your assistance.`;
             showCheckoutStep(3);
         }
         
-        // Fetch current crypto prices with multiple fallbacks
+        // Bulletproof Bitcoin price fetching with multiple reliable APIs
         async function fetchCryptoPrices() {
-            const fallbackPrices = { btc: 95000, usdt: 1 }; // Updated fallback prices
+            const currentTime = Date.now();
+            console.log('=== FETCHING BITCOIN PRICE ===', new Date().toISOString());
             
-            // Primary API: CoinGecko
-            try {
-                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,tether&vs_currencies=usd', {
-                    timeout: 5000
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.bitcoin?.usd && data.tether?.usd) {
-                        cryptoPrices.btc = data.bitcoin.usd;
-                        cryptoPrices.usdt = data.tether.usd;
-                        console.log('Crypto prices updated successfully from CoinGecko');
-                        return;
+            // Multiple API endpoints for maximum reliability
+            const apiEndpoints = [
+                {
+                    name: 'CoinGecko',
+                    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd',
+                    parsePrice: (data) => data.bitcoin?.usd
+                },
+                {
+                    name: 'Binance',
+                    url: 'https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT',
+                    parsePrice: (data) => parseFloat(data.price)
+                },
+                {
+                    name: 'CoinDesk',
+                    url: 'https://api.coindesk.com/v1/bpi/currentprice/USD.json',
+                    parsePrice: (data) => parseFloat(data.bpi?.USD?.rate_float)
+                },
+                {
+                    name: 'Kraken',
+                    url: 'https://api.kraken.com/0/public/Ticker?pair=XBTUSD',
+                    parsePrice: (data) => {
+                        const ticker = data.result?.XXBTZUSD;
+                        return ticker ? parseFloat(ticker.c[0]) : null;
                     }
+                },
+                {
+                    name: 'CryptoCompare',
+                    url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD',
+                    parsePrice: (data) => data.USD
                 }
-            } catch (error) {
-                console.log('CoinGecko API failed, trying backup API');
-            }
-
-            // Backup API: CoinAPI
-            try {
-                const response = await fetch('https://rest.coinapi.io/v1/exchangerate/BTC/USD', {
-                    timeout: 5000
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.rate) {
-                        cryptoPrices.btc = data.rate;
-                        cryptoPrices.usdt = 1; // USDT is stable at $1
-                        console.log('Crypto prices updated from CoinAPI backup');
-                        return;
+            ];
+            
+            let successfulFetches = [];
+            
+            // Try all APIs simultaneously for speed
+            const fetchPromises = apiEndpoints.map(async (api) => {
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 8000);
+                    
+                    const response = await fetch(api.url, {
+                        signal: controller.signal,
+                        headers: {
+                            'Accept': 'application/json',
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                        }
+                    });
+                    
+                    clearTimeout(timeoutId);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
                     }
+                    
+                    const data = await response.json();
+                    const price = api.parsePrice(data);
+                    
+                    if (price && price > 10000 && price < 1000000) { // Sanity check: BTC should be $10k-$1M
+                        console.log(`✅ ${api.name}: $${price.toFixed(2)}`);
+                        return { name: api.name, price: price, timestamp: currentTime };
+                    } else {
+                        throw new Error(`Invalid price: ${price}`);
+                    }
+                } catch (error) {
+                    console.warn(`❌ ${api.name} failed:`, error.message);
+                    return null;
                 }
-            } catch (error) {
-                console.log('Backup API also failed');
+            });
+            
+            // Wait for all API calls to complete
+            const results = await Promise.allSettled(fetchPromises);
+            successfulFetches = results
+                .filter(result => result.status === 'fulfilled' && result.value)
+                .map(result => result.value);
+            
+            if (successfulFetches.length > 0) {
+                // Use median price for accuracy (removes outliers)
+                const prices = successfulFetches.map(f => f.price).sort((a, b) => a - b);
+                const medianPrice = prices.length % 2 === 0 
+                    ? (prices[prices.length/2 - 1] + prices[prices.length/2]) / 2
+                    : prices[Math.floor(prices.length/2)];
+                
+                cryptoPrices.btc = medianPrice;
+                cryptoPrices.usdt = 1; // USDT is stable
+                cryptoPrices.lastUpdate = currentTime;
+                
+                console.log(`🚀 BITCOIN PRICE SET: $${medianPrice.toFixed(2)}`);
+                console.log(`📊 Used ${successfulFetches.length} APIs:`, successfulFetches.map(f => `${f.name}: $${f.price.toFixed(2)}`));
+                
+                // Test calculation
+                const testAmount = calculateCryptoAmount(85, 'btc');
+                console.log(`🧮 TEST: $85 = ${testAmount} BTC`);
+                
+                return;
             }
-
-            // Final fallback
-            console.log('Using fallback crypto prices');
-            cryptoPrices.btc = fallbackPrices.btc;
-            cryptoPrices.usdt = fallbackPrices.usdt;
+            
+            // Emergency fallback - use a conservative recent price
+            console.error('🚨 ALL APIs FAILED - Using emergency fallback price');
+            cryptoPrices.btc = 98000; // Conservative recent BTC price
+            cryptoPrices.usdt = 1;
+            cryptoPrices.lastUpdate = currentTime;
+            
+            const testAmount = calculateCryptoAmount(85, 'btc');
+            console.log(`⚠️ FALLBACK: $85 = ${testAmount} BTC`);
         }
         
         // Start price updates for crypto
@@ -9704,37 +9771,9 @@ Thank you for your assistance.`;
             const amount = usdAmount / price;
             
             if (cryptoType === 'btc') {
-                // For Bitcoin, use up to 8 decimal places but remove trailing zeros for readability
+                // For Bitcoin, use maximum precision (8 decimal places) for accuracy
                 // Bitcoin's smallest unit (satoshi) is 0.00000001 BTC, so 8 decimals is max precision
-                let btcAmount = amount.toFixed(8);
-                
-                // Remove trailing zeros but keep at least 6 significant decimal places for small amounts
-                btcAmount = parseFloat(btcAmount).toString();
-                
-                // Ensure minimum precision for very small amounts
-                if (amount < 0.001) {
-                    // For amounts less than 0.001 BTC, show full 8 decimal precision
-                    btcAmount = amount.toFixed(8);
-                } else if (amount < 0.01) {
-                    // For amounts less than 0.01 BTC, show 6 decimal places
-                    btcAmount = amount.toFixed(6);
-                } else {
-                    // For larger amounts, show up to 4 decimal places
-                    btcAmount = amount.toFixed(4);
-                }
-                
-                // Remove trailing zeros while keeping at least 4 decimal places for readability
-                btcAmount = parseFloat(btcAmount).toString();
-                if (!btcAmount.includes('.')) {
-                    btcAmount += '.0000';
-                } else {
-                    const decimalPart = btcAmount.split('.')[1];
-                    if (decimalPart.length < 4) {
-                        btcAmount = parseFloat(btcAmount).toFixed(4);
-                    }
-                }
-                
-                return btcAmount;
+                return amount.toFixed(8);
             } else {
                 // For other cryptocurrencies (like USDT), use 2 decimal places
                 return amount.toFixed(2);
@@ -9884,7 +9923,7 @@ Thank you for your assistance.`;
                             <div class="precision-info" style="font-size: 0.8em; color: #666; margin-top: 4px;">
                                 High precision amount - send exactly as displayed
                             </div>
-                            <div class="price-update" style="font-size: 0.9em; color: #888;">Updates every 30 seconds based on live BTC price</div>
+                            <div class="price-update" style="font-size: 0.9em; color: #888;">Updates every 5 minutes based on live BTC price</div>
                         </div>
                         <div class="wallet-address">
                             <strong>Send exactly this amount to:</strong>
@@ -9896,7 +9935,7 @@ Thank you for your assistance.`;
                         <div class="payment-note">
                             <p>💰 You saved an extra 5% with Bitcoin payment!</p>
                             <p style="background: #fff3cd; padding: 8px; border-radius: 4px; border-left: 4px solid #ffc107; margin: 8px 0;">
-                                ⚠️ <strong>CRITICAL:</strong> Send exactly <strong>${btcAmount} BTC</strong><br>
+                                ⚠️ <strong>CRITICAL:</strong> Send exactly <strong id="btcCriticalAmount">${btcAmount}</strong> BTC<br>
                                 <small>Amounts that are even slightly different may not be processed automatically</small>
                             </p>
                             <p>✅ Transaction auto-completes after 1 confirmation (~10 minutes)</p>
@@ -9952,15 +9991,25 @@ Thank you for your assistance.`;
                         
                         if (paymentMethod === 'bitcoin') {
                             const newBtcAmount = calculateCryptoAmount(orderData.finalTotal || orderData.total, 'btc');
+                            
+                            // Update main BTC amount display
                             const btcAmountElement = document.getElementById('btcAmount');
                             if (btcAmountElement) {
                                 btcAmountElement.textContent = newBtcAmount;
                             }
+                            
+                            // Update critical message BTC amount
+                            const btcCriticalElement = document.getElementById('btcCriticalAmount');
+                            if (btcCriticalElement) {
+                                btcCriticalElement.textContent = newBtcAmount;
+                            }
+                            
+                            console.log('Bitcoin amount updated to:', newBtcAmount);
                         }
                     } catch (error) {
                         console.log('Error updating crypto prices:', error);
                     }
-                }, 30000);
+                }, 300000); // Update every 5 minutes (300,000ms)
 
                 // Store interval ID to clear it later if needed
                 window.cryptoUpdateInterval = updateInterval;
@@ -10015,13 +10064,6 @@ Thank you for your assistance.`;
             showCheckoutStep(3);
         }
         
-        
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = 'none';
-            modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
         
         
         // Close modal when clicking outside

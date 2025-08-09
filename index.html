@@ -8408,17 +8408,7 @@ This is a demo. Please contact us to complete your order.`);
         function showModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
-                // Close any other modals first
-                document.querySelectorAll('.modal.show').forEach(m => {
-                    if (m.id !== modalId) {
-                        m.classList.remove('show');
-                    }
-                });
-                
-                // Force a small delay to ensure clean state
-                setTimeout(() => {
-                    modal.classList.add('show');
-                }, 10);
+                modal.classList.add('show');
             } else {
                 console.error(`Modal with ID '${modalId}' not found!`);
             }
@@ -8432,19 +8422,8 @@ This is a demo. Please contact us to complete your order.`);
             }
         }
 
-        // Simple debounce for cart toggle
-        let lastCartToggle = 0;
-        
         // Toggle cart
         function toggleCart() {
-            const now = Date.now();
-            
-            // Simple debounce: prevent rapid clicks (200ms cooldown)
-            if (now - lastCartToggle < 200) {
-                return;
-            }
-            lastCartToggle = now;
-            
             const modal = document.getElementById('cartModal');
             if (!modal) {
                 console.error('Cart modal not found!');

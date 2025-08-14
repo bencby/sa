@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Growth Hormones - HGH & IGF-1 | Sigma Audley</title>
+    <meta name="description" content="Research grade growth hormones including H36 Somatropin HGH 36IU, IGF-1, and growth factors. Pharmaceutical quality with Janoshik testing. Cold chain shipping worldwide.">
+    <meta name="keywords" content="research growth hormones, HGH research, somatropin research, IGF-1 research, growth hormone supplier, research grade HGH, janoshik tested HGH">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sigmaaudley.net/products/growth-hormones/">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hgh-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .hgh-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+        }
+        .hgh-card h3 a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+        .purity {
+            color: #28a745;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .cold-chain {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 2px solid #2196f3;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../../index.html">Home</a> > <a href="../index.html">Products</a> > <span>Growth Hormones</span>
+        </div>
+
+        <div class="hero">
+            <h1>Research Growth Hormones</h1>
+            <p>Pharmaceutical Grade | Cold Chain Shipping | Research Applications</p>
+        </div>
+
+        <div class="cold-chain">
+            <h3>🧊 Cold Chain Maintained</h3>
+            <p>All growth hormones shipped with temperature-controlled packaging to maintain biological activity</p>
+        </div>
+
+        <h2>Premium Growth Hormone Collection</h2>
+        <p>Our growth hormone collection features pharmaceutical-grade compounds for research applications. All products undergo rigorous testing and cold chain maintenance for optimal quality.</p>
+
+        <div class="hgh-grid">
+            <div class="hgh-card">
+                <h3><a href="../h36-somatropin-hgh-36iu.html">H36 Somatropin HGH 36IU</a></h3>
+                <div class="purity">99.5% Purity</div>
+                <p>191 amino acid sequence human growth hormone</p>
+                <p><strong>$85 USD</strong></p>
+                <p>Pharmaceutical grade quality</p>
+            </div>
+
+            <div class="hgh-card">
+                <h3>IGF-1 LR3 1mg</h3>
+                <div class="purity">Coming Soon</div>
+                <p>Long R3 Insulin-like Growth Factor</p>
+                <p>Extended half-life for research</p>
+            </div>
+
+            <div class="hgh-card">
+                <h3>CJC-1295 DAC 5mg</h3>
+                <div class="purity">Coming Soon</div>
+                <p>Growth hormone releasing hormone</p>
+                <p>Extended release formulation</p>
+            </div>
+        </div>
+
+        <h3>Growth Hormone Research Applications</h3>
+        <ul>
+            <li><strong>Growth Studies:</strong> Investigation of growth hormone pathways</li>
+            <li><strong>Metabolic Research:</strong> Studies on protein synthesis and metabolism</li>
+            <li><strong>Cell Culture:</strong> Growth hormone supplementation in research</li>
+            <li><strong>Aging Research:</strong> Age-related growth hormone studies</li>
+            <li><strong>Comparative Studies:</strong> Growth factor interaction research</li>
+        </ul>
+
+        <h3>Quality Assurance</h3>
+        <ul>
+            <li><strong>Pharmaceutical Standards:</strong> GMP manufacturing</li>
+            <li><strong>Cold Storage:</strong> Temperature-controlled warehouses</li>
+            <li><strong>Biological Activity:</strong> Confirmed through bioassays</li>
+            <li><strong>Janoshik Testing:</strong> Third-party verification</li>
+            <li><strong>COA Included:</strong> Complete analytical documentation</li>
+        </ul>
+
+        <p><a href="../../index.html">← Back to Main Site</a></p>
+    </div>
+</body>
+</html>

@@ -119,11 +119,143 @@
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <link rel="alternate" type="application/rss+xml" title="Sigma Audley News" href="/feed.xml">
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Analytics & Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // Enhanced ecommerce tracking
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            custom_map: {
+                'custom_parameter': 'research_peptides'
+            }
+        });
+    </script>
+    
+    <!-- Search Console Verification -->
     <meta name="google-site-verification" content="sigma-audley-verification-code">
     <meta name="msvalidate.01" content="sigma-audley-bing-verification">
     <meta name="yandex-verification" content="sigma-audley-yandex-verification">
     <meta name="p:domain_verify" content="sigma-audley-pinterest-verification">
     
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sigma Audley Research Pharmaceuticals",
+        "alternateName": "Sigma Audley",
+        "url": "https://sigmaaudley.net",
+        "logo": "https://sigmaaudley.net/images/sigma-audley-logo.png",
+        "description": "Premium research pharmaceuticals supplier specializing in peptides, retatrutide, semaglutide, tirzepatide, and research chemicals. All products Janoshik tested with worldwide shipping from 6 global warehouses.",
+        "foundingDate": "2020",
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+852-6562-8855",
+                "contactType": "Customer Service",
+                "availableLanguage": "English",
+                "areaServed": "Worldwide"
+            },
+            {
+                "@type": "ContactPoint",
+                "email": "support@sigmaaudley.net",
+                "contactType": "Customer Support",
+                "availableLanguage": "English"
+            }
+        ],
+        "address": [
+            {
+                "@type": "PostalAddress",
+                "addressCountry": "US",
+                "addressRegion": "Florida",
+                "addressLocality": "Miami"
+            },
+            {
+                "@type": "PostalAddress", 
+                "addressCountry": "GB",
+                "addressRegion": "England",
+                "addressLocality": "London"
+            },
+            {
+                "@type": "PostalAddress",
+                "addressCountry": "CA", 
+                "addressRegion": "Ontario",
+                "addressLocality": "Toronto"
+            }
+        ],
+        "sameAs": [
+            "https://sigmaaudley.net",
+            "https://t.me/sigmaaudley",
+            "https://discord.gg/sigmaaudley"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Research Pharmaceuticals",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Peptides",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Semaglutide 10mg",
+                                "description": "Research grade GLP-1 agonist"
+                            }
+                        },
+                        {
+                            "@type": "Offer", 
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Tirzepatide 15mg",
+                                "description": "Dual GIP/GLP-1 agonist"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product", 
+                                "name": "Retatrutide 5mg",
+                                "description": "Triple agonist peptide"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Growth Hormones",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "H36 Somatropin HGH 36IU",
+                                "description": "Research grade growth hormone"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "0",
+                "longitude": "0"
+            },
+            "geoRadius": "20000000"
+        },
+        "serviceArea": "Worldwide"
+    }
+    </script>
+
     <!-- Advanced SEO Meta Tags -->
     <meta name="page-topic" content="sigma audley research pharmaceuticals reta retatrutide gray market research chemicals">
     <meta name="page-type" content="pharmaceutical research supplier catalog">

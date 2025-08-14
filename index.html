@@ -4495,19 +4495,19 @@ body {
                     
                     <!-- 1A IBAN Xoom -->
                     <div style="background: #f8fffe; border-left: 4px solid #10b981; padding: 20px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
-                        <h4 style="color: #065f46; margin: 0 0 15px 0;">1A — Send to UK Bank from ANYWHERE Worldwide (Use Xoom.com) ✅ RECOMMENDED</h4>
+                        <h4 style="color: #065f46; margin: 0 0 15px 0;">1A — IBAN Transfer to UK Bank via Xoom (PayPal Service) ✅ RECOMMENDED</h4>
                         <p style="margin-bottom: 15px; color: #374151;">
-                            🌍 Works from ANY country! Xoom is owned by PayPal and allows you to send money to UK bank accounts from anywhere in the world.
+                            🌍 International IBAN Transfer to UK! Xoom (owned by PayPal) enables IBAN transfers to UK bank accounts from anywhere in the world.
                         </p>
                         
                         <div style="background: #fef3c7; padding: 12px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #f59e0b;">
-                            <strong>⚠️ IMPORTANT:</strong> Xoom is owned by PayPal - 100% safe and legitimate!
+                            <strong>⚠️ IMPORTANT:</strong> This is an IBAN transfer to a UK bank account. Xoom is owned by PayPal - 100% safe and legitimate!
                         </div>
                         
                         <div style="background: #ecfdf5; padding: 15px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #10b981;">
-                            <strong style="color: #065f46;">🌍 Send to UK from ANY Country via Xoom (PayPal Company):</strong>
+                            <strong style="color: #065f46;">🌍 IBAN Transfer to UK via Xoom (PayPal International Transfer Service):</strong>
                             <div style="margin: 10px 0 0 20px; color: #4b5563;">
-                                <div>→ Go to: <strong><a href="https://www.xoom.com" target="_blank" style="color: #0070ba;">www.xoom.com</a></strong> (PayPal's money transfer service)</div>
+                                <div>→ Go to: <strong><a href="https://www.xoom.com" target="_blank" style="color: #0070ba;">www.xoom.com</a></strong> (PayPal's international IBAN transfer service)</div>
                             </div>
                         </div>
                         
@@ -4517,15 +4517,14 @@ body {
                                 <li>Visit <strong>xoom.com</strong> directly (owned by PayPal, works from any country)</li>
                                 <li>Sign in with your PayPal account</li>
                                 <li>Click <strong>"Send Money"</strong></li>
-                                <li>Choose destination country: <strong>United Kingdom</strong> (even if you're in USA, Canada, etc.)</li>
-                                <li>Select <strong>"Bank Deposit"</strong></li>
+                                <li>Choose destination country: <strong>United Kingdom</strong></li>
+                                <li>Select <strong>"Bank Deposit"</strong> for IBAN transfer</li>
                                 <li>Enter YOUR EXACT ORDER TOTAL (check your checkout page for exact amount)</li>
                                 <li>Choose recipient bank: <strong>Monzo</strong></li>
                                 <li>Enter recipient details:
                                     <ul style="margin-top: 5px;">
-                                        <li>Recipient name: <strong>Kizam</strong> (or use "S Johnston" if system requires full name)</li>
-                                        <li>Sort Code: <strong>04-00-03</strong></li>
-                                        <li>Account Number: <strong>28671061</strong></li>
+                                        <li>IBAN: <strong>GB40 MONZ 0400 0328 6710 61</strong></li>
+                                        <li>Recipient name: <strong>Kizam</strong> (or "S Johnston" if full name required)</li>
                                     </ul>
                                 </li>
                                 <li><strong>IMPORTANT:</strong> Include your order reference number if there's a notes/reference field!</li>
@@ -4909,19 +4908,6 @@ body {
                                     </div>
                                 </div>
                             </label>
-                            <!-- UK Domestic Transfer Option - Only visible for UK warehouse -->
-                            <label class="payment-method" id="ukDomesticPaymentOption" style="display: none;">
-                                <input type="radio" name="paymentMethod" value="ukdomestic" onchange="updatePaymentMethod()">
-                                <div class="payment-option">
-                                    <div class="payment-icon">
-                                        <i class="fas fa-pound-sign"></i>
-                                    </div>
-                                    <div class="payment-info">
-                                        <h4>UK Domestic Transfer</h4>
-                                        <p>UK bank transfer - Fast & secure for UK customers</p>
-                                    </div>
-                                </div>
-                            </label>
                             <!-- PayPal Xoom Option -->
                             <label class="payment-method">
                                 <input type="radio" name="paymentMethod" value="xoom" onchange="updatePaymentMethod()">
@@ -4930,8 +4916,8 @@ body {
                                         <i class="fab fa-paypal"></i>
                                     </div>
                                     <div class="payment-info">
-                                        <h4>Pay with PayPal</h4>
-                                        <p>Send via Xoom.com - Works from ANY country worldwide</p>
+                                        <h4>Pay with PayPal (Xoom)</h4>
+                                        <p>IBAN Transfer to UK via Xoom.com - Works from ANY country worldwide</p>
                                     </div>
                                 </div>
                             </label>
@@ -9129,20 +9115,6 @@ This is a demo. Please contact us to complete your order.`);
             // Update currency for new warehouse
             updateWarehouseCurrency(warehouseCode);
             
-            // Show/hide UK domestic payment option based on warehouse
-            const ukPaymentOption = document.getElementById('ukDomesticPaymentOption');
-            if (ukPaymentOption) {
-                if (warehouseCode === 'UK') {
-                    ukPaymentOption.style.display = 'block';
-                } else {
-                    ukPaymentOption.style.display = 'none';
-                    // Reset payment method if UK domestic was selected but warehouse changed
-                    const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
-                    if (selectedPayment && selectedPayment.value === 'ukdomestic') {
-                        document.querySelector('input[name="paymentMethod"][value="iban"]').checked = true;
-                    }
-                }
-            }
             
             saveWarehouseToStorage();
             showNotification(`Warehouse changed to ${warehouse.flag} ${warehouse.name}`, 'success');
@@ -9668,15 +9640,6 @@ This is a demo. Please contact us to complete your order.`);
             updateCheckoutSteps();
             populateOrderReview();
             
-            // Show/hide UK domestic payment option based on current warehouse
-            const ukPaymentOption = document.getElementById('ukDomesticPaymentOption');
-            if (ukPaymentOption) {
-                if (selectedWarehouse === 'UK') {
-                    ukPaymentOption.style.display = 'block';
-                } else {
-                    ukPaymentOption.style.display = 'none';
-                }
-            }
             
             showCheckoutStep(1);
         }
@@ -10000,7 +9963,6 @@ This is a demo. Please contact us to complete your order.`);
                 'iban': 'Bank Transfer (IBAN)',
                 'crypto': 'Cryptocurrency',
                 'bitcoin': 'Bitcoin (BTC)',
-                'ukdomestic': 'UK Domestic Transfer',
                 'xoom': 'PayPal (via Xoom)',
                 'usdt': 'USDT (Tether)'
             };
@@ -10545,20 +10507,6 @@ Thank you for your assistance.`;
             // Update currency for new warehouse
             updateWarehouseCurrency(warehouseCode);
             
-            // Show/hide UK domestic payment option based on warehouse
-            const ukPaymentOption = document.getElementById('ukDomesticPaymentOption');
-            if (ukPaymentOption) {
-                if (warehouseCode === 'UK') {
-                    ukPaymentOption.style.display = 'block';
-                } else {
-                    ukPaymentOption.style.display = 'none';
-                    // Reset payment method if UK domestic was selected but warehouse changed
-                    const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
-                    if (selectedPayment && selectedPayment.value === 'ukdomestic') {
-                        document.querySelector('input[name="paymentMethod"][value="iban"]').checked = true;
-                    }
-                }
-            }
             
             populateOrderReview();
             
@@ -11028,69 +10976,30 @@ Thank you for your assistance.`;
                         <p class="payment-note">⚠️ Please include the reference number in your transfer</p>
                     </div>
                 `;
-            } else if (paymentMethod === 'ukdomestic') {
-                const referenceNumber = `REF${currentOrderId}`;
-                instructionsHTML = `
-                    <div class="payment-details">
-                        <h4>🇬🇧 UK Domestic Transfer Details</h4>
-                        <div class="payment-info">
-                            <div class="payment-row">
-                                <strong>Account Type:</strong> Business Account
-                            </div>
-                            <div class="payment-row">
-                                <strong>Account Name:</strong> Kizam
-                            </div>
-                            <div class="payment-row">
-                                <strong>Sort Code:</strong> 04-00-03
-                            </div>
-                            <div class="payment-row">
-                                <strong>Account Number:</strong> 28671061
-                            </div>
-                            <div class="payment-row">
-                                <strong>Reference:</strong> <span class="reference-number">${referenceNumber}</span>
-                            </div>
-                            <div class="payment-row" style="background: #f3f4f6; padding: 10px; border-radius: 5px; margin-top: 10px;">
-                                <strong>Amount to Send:</strong> <span style="color: #16a34a; font-size: 1.2em;">£${(orderData.finalTotal || orderData.total).toFixed(2)}</span>
-                            </div>
-                            <p style="margin-top: 15px; padding: 10px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
-                                <strong>Important:</strong> UK domestic transfers typically clear within 2 hours during business days. Please use Faster Payments for instant processing.
-                            </p>
-                        </div>
-                        <div class="payment-instructions">
-                            <h5>📋 Instructions:</h5>
-                            <ol>
-                                <li>Open your UK banking app or online banking</li>
-                                <li>Add the payee details shown above</li>
-                                <li>Send exactly <strong>£${(orderData.finalTotal || orderData.total).toFixed(2)}</strong></li>
-                                <li>Use reference: <strong>${referenceNumber}</strong></li>
-                                <li>Email confirmation to: <strong>support@sigmaaudley.net</strong></li>
-                            </ol>
-                        </div>
-                    </div>
-                `;
             } else if (paymentMethod === 'xoom') {
                 const referenceNumber = `REF${currentOrderId}`;
                 instructionsHTML = `
                     <div class="payment-details">
-                        <h4>🌍 Send to UK Bank from ANYWHERE Worldwide (Use Xoom.com)</h4>
+                        <h4>🌍 IBAN Transfer to UK via Xoom (PayPal Service)</h4>
                         <p style="background: #ecfdf5; padding: 12px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #10b981;">
-                            <strong>⚠️ IMPORTANT:</strong> Xoom is owned by PayPal - 100% safe and legitimate!<br>
-                            🌍 Works from ANY country! Xoom allows you to send money to UK bank accounts from anywhere in the world.
+                            <strong>⚠️ IMPORTANT:</strong> This is an IBAN transfer to a UK bank account.<br>
+                            🏦 Xoom (owned by PayPal) enables international IBAN transfers to UK - 100% safe and legitimate!<br>
+                            🌍 Works from ANY country! Send money to UK IBAN from anywhere in the world.
                         </p>
                         
                         <div class="payment-info" style="background: #f9fafb; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
-                            <h5 style="color: #1f2937; margin: 0 0 15px 0;">📍 UK Bank Account Details:</h5>
+                            <h5 style="color: #1f2937; margin: 0 0 15px 0;">📍 UK IBAN Transfer Details:</h5>
                             <div class="payment-row">
                                 <strong>Recipient Name:</strong> <span style="color: #059669;">Kizam</span> (or use "S Johnston" if system requires full name)
                             </div>
                             <div class="payment-row">
-                                <strong>Bank:</strong> Monzo
+                                <strong>Bank:</strong> Monzo Bank (UK)
                             </div>
                             <div class="payment-row">
-                                <strong>Sort Code:</strong> <span class="reference-number">04-00-03</span>
+                                <strong>IBAN:</strong> <span class="reference-number">GB40 MONZ 0400 0328 6710 61</span>
                             </div>
                             <div class="payment-row">
-                                <strong>Account Number:</strong> <span class="reference-number">28671061</span>
+                                <strong>BIC/SWIFT:</strong> <span class="reference-number">MONZGB2L</span>
                             </div>
                             <div class="payment-row">
                                 <strong>Order Reference:</strong> <span class="reference-number">${referenceNumber}</span>
@@ -11101,20 +11010,19 @@ Thank you for your assistance.`;
                         </div>
                         
                         <div class="payment-instructions" style="margin-top: 20px;">
-                            <h5 style="color: #1f2937; margin-bottom: 15px;">📋 Step-by-Step Instructions:</h5>
+                            <h5 style="color: #1f2937; margin-bottom: 15px;">📋 Step-by-Step IBAN Transfer Instructions:</h5>
                             <ol style="line-height: 1.8;">
-                                <li>→ Go to: <strong><a href="https://www.xoom.com" target="_blank" style="color: #0070ba;">www.xoom.com</a></strong> (PayPal's money transfer service)</li>
+                                <li>→ Go to: <strong><a href="https://www.xoom.com" target="_blank" style="color: #0070ba;">www.xoom.com</a></strong> (PayPal's international transfer service)</li>
                                 <li>Sign in with your PayPal account</li>
                                 <li>Click <strong>"Send Money"</strong></li>
-                                <li>Choose destination country: <strong>United Kingdom</strong> (even if you're in USA, Canada, etc.)</li>
-                                <li>Select <strong>"Bank Deposit"</strong></li>
+                                <li>Choose destination country: <strong>United Kingdom</strong></li>
+                                <li>Select <strong>"Bank Deposit"</strong> for IBAN transfer</li>
                                 <li>Enter YOUR EXACT ORDER TOTAL: <strong style="color: #dc2626;">$${(orderData.finalTotal || orderData.total).toFixed(2)}</strong> (check your checkout page for exact amount)</li>
                                 <li>Choose recipient bank: <strong>Monzo</strong></li>
                                 <li>Enter recipient details:
                                     <ul style="margin-top: 5px;">
-                                        <li>Recipient name: <strong>Kizam</strong> (or use "S Johnston" if system requires full name)</li>
-                                        <li>Sort Code: <strong>04-00-03</strong></li>
-                                        <li>Account Number: <strong>28671061</strong></li>
+                                        <li>IBAN: <strong>GB40 MONZ 0400 0328 6710 61</strong></li>
+                                        <li>Recipient name: <strong>Kizam</strong> (or "S Johnston" if full name required)</li>
                                     </ul>
                                 </li>
                                 <li><strong style="color: #dc2626;">IMPORTANT:</strong> Include your order reference number <strong>${referenceNumber}</strong> if there's a notes/reference field!</li>

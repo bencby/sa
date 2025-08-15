@@ -4032,11 +4032,14 @@ body {
                 </h1>
                 <p class="hero-subtitle">
                     Welcome to the new Sigma Audley experience! 
-                    <span class="hero-discount-badge">UP TO 30% OFF</span>
+                    <span class="hero-discount-badge">UP TO 38% OFF</span>
                     Plus FREE SHIPPING on any order
                 </p>
                 <p style="margin-top: 8px; font-size: 14px; opacity: 0.9; font-style: italic;" id="discountBanner">
-                    🎉 20% OFF orders $250+ • 30% OFF orders $500+ • FREE SHIPPING PROMO • Discounts applied at checkout!
+                    🎉 20% OFF orders $250+ • 30% OFF orders $500+ • 10% CRYPTO BONUS • FREE SHIPPING • Discounts applied at checkout!
+                </p>
+                <p style="margin-top: 6px; font-size: 12px; opacity: 0.95; color: white;">
+                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Save up to 38% when combining $500+ orders with crypto payment!
                 </p>
                 <div style="margin-top: 12px; padding: 8px 16px; background: linear-gradient(135deg, #dc2626, #991b1b); border-radius: 8px; display: inline-block;">
                     <div style="color: white; font-weight: 600; font-size: 13px; margin-bottom: 4px;">
@@ -4605,6 +4608,8 @@ body {
                             <div style="margin-top: 8px; font-size: 0.9em; color: #4b5563;">
                                 • <strong>Recipient:</strong> Miss S Johnston (Kizam)<br>
                                 • <strong>IBAN:</strong> GB40 MONZ 0400 0328 6710 61<br>
+                                • <strong>BIC/SWIFT:</strong> MONZGB2L<br>
+                                • <strong>Sort Code:</strong> 04-00-03 (if needed)<br>
                                 • <strong>Bank:</strong> Monzo Bank, United Kingdom
                             </div>
                         </div>
@@ -4652,6 +4657,8 @@ body {
                                 • <strong>Recipient:</strong> Miss S Johnston<br>
                                 • <strong>Business:</strong> Kizam<br>
                                 • <strong>IBAN:</strong> GB40 MONZ 0400 0328 6710 61<br>
+                                • <strong>BIC/SWIFT:</strong> MONZGB2L<br>
+                                • <strong>Sort Code:</strong> 04-00-03 (if needed)<br>
                                 • <strong>Bank:</strong> Monzo Bank<br>
                                 • <strong>Address:</strong> 1 Winchester Avenue, London, NW6 7TU, UK<br>
                                 • <strong>Note:</strong> Include your order reference number
@@ -4810,7 +4817,7 @@ body {
                                     <span id="checkoutSubtotal">$0.00</span>
                                 </div>
                                 <div class="total-row btc-discount-row" id="btcDiscountRow" style="display: none;">
-                                    <span>💰 Crypto Extra Discount (5% OFF):</span>
+                                    <span>💰 Crypto Extra Discount (10% OFF):</span>
                                     <span id="checkoutBtcDiscount" class="discount-amount">-$0.00</span>
                                 </div>
                                 <div class="total-row">
@@ -4906,7 +4913,7 @@ body {
                                         <i class="fab fa-bitcoin"></i>
                                     </div>
                                     <div class="payment-info">
-                                        <h4>Cryptocurrency <span class="discount-badge">5% EXTRA OFF!</span></h4>
+                                        <h4>Cryptocurrency <span class="discount-badge">10% EXTRA OFF!</span></h4>
                                         <p>BTC, ETH, LTC, SOL, USDT - Fast & anonymous</p>
                                     </div>
                                 </div>
@@ -9558,7 +9565,7 @@ This is a demo. Please contact us to complete your order.`);
             
             const banner = document.getElementById('discountBanner');
             if (banner) {
-                banner.textContent = `🎉 20% OFF orders ${warehouse.symbol}${threshold250}+ • 30% OFF orders ${warehouse.symbol}${threshold500}+ • Discounts applied at checkout!`;
+                banner.textContent = `🎉 20% OFF orders ${warehouse.symbol}${threshold250}+ • 30% OFF orders ${warehouse.symbol}${threshold500}+ • 10% CRYPTO BONUS • Discounts applied at checkout!`;
             }
         }
 
@@ -9711,10 +9718,10 @@ This is a demo. Please contact us to complete your order.`);
             const launchDiscountAmount = originalTotal * discountPercent;
             const afterLaunchDiscount = originalTotal - launchDiscountAmount;
             
-            // Calculate crypto discount if applicable (5% off discounted price)
+            // Calculate crypto discount if applicable (10% off discounted price)
             const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
             const isCryptoSelected = paymentMethod === 'crypto' || paymentMethod === 'bitcoin';
-            const btcDiscountAmount = isCryptoSelected ? afterLaunchDiscount * 0.05 : 0;
+            const btcDiscountAmount = isCryptoSelected ? afterLaunchDiscount * 0.10 : 0;
             const finalTotal = afterLaunchDiscount - btcDiscountAmount;
             
             // Debug logging
@@ -10882,8 +10889,8 @@ Thank you for your assistance.`;
             
             const launchDiscountAmount = originalTotal * discountPercent;
             const afterLaunchDiscount = originalTotal - launchDiscountAmount;
-            // Apply 5% crypto discount for both 'crypto' and 'bitcoin' payment methods
-            const btcDiscountAmount = (paymentMethod === 'crypto' || paymentMethod === 'bitcoin') ? afterLaunchDiscount * 0.05 : 0;
+            // Apply 10% crypto discount for both 'crypto' and 'bitcoin' payment methods
+            const btcDiscountAmount = (paymentMethod === 'crypto' || paymentMethod === 'bitcoin') ? afterLaunchDiscount * 0.10 : 0;
             const finalTotal = afterLaunchDiscount - btcDiscountAmount;
             
             currentOrderId = generateOrderId();
@@ -10952,6 +10959,9 @@ Thank you for your assistance.`;
                             </div>
                             <div class="payment-row">
                                 <strong>BIC/SWIFT:</strong> MONZGB2L
+                            </div>
+                            <div class="payment-row">
+                                <strong>Sort Code:</strong> 04-00-03 (if needed by your bank)
                             </div>
                             <div class="payment-row">
                                 <strong>Amount:</strong> <span id="ibanPaymentAmount2">${formatPrice(orderData.finalTotal || orderData.total)}</span>
@@ -11130,7 +11140,7 @@ Thank you for your assistance.`;
                         
                         <!-- Discount Badge -->
                         <div style="background: #10b981; color: white; padding: 12px; text-align: center;">
-                            <p style="margin: 0; font-weight: 600; font-size: 0.95em;">✓ 5% Crypto Discount Applied - Total: $${totalAmount.toFixed(2)}</p>
+                            <p style="margin: 0; font-weight: 600; font-size: 0.95em;">✓ 10% Crypto Discount Applied - Total: $${totalAmount.toFixed(2)}</p>
                         </div>
                         
                         <!-- Payment Method Selection -->

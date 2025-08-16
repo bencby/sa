@@ -9420,7 +9420,7 @@ This is a demo. Please contact us to complete your order.`);
             return false; // No warehouse found
         }
 
-        // Promo timer function
+        // Promo timer function - Auto-renewing 24-hour countdown
         function initPromoTimer() {
             // Add small delay to ensure DOM is ready
             setTimeout(() => {
@@ -9430,17 +9430,59 @@ This is a demo. Please contact us to complete your order.`);
                     return;
                 }
             
-            // End date: August 15th, 2025 at midnight PT (8am UTC on August 16th)
-            const endDate = new Date('2025-08-16T08:00:00Z'); // 11:59:59 PM PT on Aug 15 = 8:00 AM UTC on Aug 16 (2025)
+            // Get or set the promo end time - LIVE 6-hour cycles
+            function getPromoEndTime() {
+                // Clear old localStorage keys to avoid conflicts
+                if (localStorage.getItem('promoEndTime')) {
+                    localStorage.removeItem('promoEndTime');
+                    localStorage.removeItem('initialTimerSet');
+                    localStorage.removeItem('promoEndTimeV2');
+                }
+                
+                const now = new Date().getTime();
+                
+                // Base time: August 16, 2025 at 9am BST (8am UTC)
+                // BST = UTC+1 in August
+                const baseTime = new Date('2025-08-16T08:00:00Z').getTime();
+                
+                // 6-hour cycle in milliseconds
+                const sixHours = 6 * 60 * 60 * 1000;
+                
+                // Calculate current position in cycle
+                // This works both for future dates and when the cycles have started
+                let timeDiff;
+                if (now < baseTime) {
+                    // Before the first deadline - count down to it
+                    return baseTime;
+                } else {
+                    // After first deadline - calculate which 6-hour period we're in
+                    timeDiff = now - baseTime;
+                    const cyclesPassed = Math.floor(timeDiff / sixHours);
+                    const nextCycleEnd = baseTime + ((cyclesPassed + 1) * sixHours);
+                    return nextCycleEnd;
+                }
+            }
+            
+            let promoEndTime = getPromoEndTime();
             
             function updateTimer() {
-                const now = new Date();
-                const timeLeft = endDate - now;
+                const now = new Date().getTime();
+                const timeLeft = promoEndTime - now;
                 
                 if (timeLeft <= 0) {
-                    timerElement.textContent = 'PROMO ENDED';
-                    timerElement.style.color = '#fca5a5';
-                    return;
+                    // Timer expired - get next promo time from schedule
+                    promoEndTime = getPromoEndTime();
+                    
+                    // Flash a quick "Renewed!" message before continuing
+                    timerElement.textContent = '🎉 PROMO RENEWED - 6 HOURS!';
+                    timerElement.style.color = '#10b981';
+                    
+                    setTimeout(() => {
+                        timerElement.style.color = '#fbbf24'; // Reset to yellow color
+                        updateTimer(); // Update immediately to show new countdown
+                    }, 2000);
+                    
+                    return; // Will update after message
                 }
                 
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -9449,15 +9491,17 @@ This is a demo. Please contact us to complete your order.`);
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 
                 let timerText = '';
-                if (days > 0) {
-                    timerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                } else if (hours > 0) {
+                // Since cycles are 16 hours max, we won't show days
+                if (hours > 0) {
                     timerText = `${hours}h ${minutes}m ${seconds}s`;
-                } else {
+                } else if (minutes > 0) {
                     timerText = `${minutes}m ${seconds}s`;
+                } else {
+                    timerText = `${seconds}s`;
                 }
                 
                 timerElement.textContent = timerText;
+                timerElement.style.color = '#fbbf24'; // Keep yellow color
             }
             
                 // Update immediately and then every second

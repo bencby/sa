@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigma Audley - Product Price List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin: 20px 0 15px 0;
+            font-size: 1.5em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f9f9ff;
+        }
+        
+        tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .cat-no {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warehouse-section {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .warehouse-header {
+            background: #2196F3;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .bulk-note {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sigma Audley (SSA)</h1>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Premium Research Pharmaceuticals Price List</p>
+            <div class="contact-info">
+                <p><strong>Website:</strong> https://sigmaaudley.net</p>
+                <p><strong>Email:</strong> support@sigmaaudley.net</p>
+                <p><strong>Global OEM Service</strong> | <strong>Worldwide Dropshipping Available</strong></p>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="note">
+                <strong>📌 Important Notes:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>All prices in USD</li>
+                    <li>Bulk discounts available for 20+ and 50+ kits</li>
+                    <li>Third-party lab testing available for all products</li>
+                    <li>Custom packaging and OEM services for bulk orders</li>
+                    <li>Visit https://sigmaaudley.net for complete product information</li>
+                </ul>
+            </div>
+
+            <h2>💉 Peptides (1 Box = 10 Vials)</h2>
+            
+            <h3>Growth Hormone (GH 191AA - Somatropin)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>20+ Kits</th>
+                        <th>50+ Kits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">H06</td><td>GH 191AA (Somatropin)</td><td>6iu×10vials</td><td class="price">$38</td><td class="price">$36</td><td class="price">$34</td></tr>
+                    <tr><td class="cat-no">H08</td><td>GH 191AA (Somatropin)</td><td>8iu×10vials</td><td class="price">$42</td><td class="price">$41</td><td class="price">$38</td></tr>
+                    <tr><td class="cat-no">H10</td><td>GH 191AA (Somatropin)</td><td>10iu×10vials</td><td class="price">$48</td><td class="price">$47</td><td class="price">$45</td></tr>
+                    <tr><td class="cat-no">H12</td><td>GH 191AA (Somatropin)</td><td>12iu×10vials</td><td class="price">$58</td><td class="price">$57</td><td class="price">$55</td></tr>
+                    <tr><td class="cat-no">H15</td><td>GH 191AA (Somatropin)</td><td>15iu×10vials</td><td class="price">$70</td><td class="price">$65</td><td class="price">$60</td></tr>
+                    <tr><td class="cat-no">H24</td><td>GH 191AA (Somatropin)</td><td>24iu×10vials</td><td class="price">$88</td><td class="price">$85</td><td class="price">$82</td></tr>
+                    <tr><td class="cat-no">H36</td><td>GH 191AA (Somatropin)</td><td>36iu×10vials</td><td class="price">$130</td><td class="price">$128</td><td class="price">$125</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Semaglutide</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>20+ Kits</th>
+                        <th>50+ Kits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">SM5</td><td>Semaglutide</td><td>5mg×10vials</td><td class="price">$48</td><td class="price">$45</td><td class="price">$43</td></tr>
+                    <tr><td class="cat-no">SM10</td><td>Semaglutide</td><td>10mg×10vials</td><td class="price">$60</td><td class="price">$55</td><td class="price">$50</td></tr>
+                    <tr><td class="cat-no">SM15</td><td>Semaglutide</td><td>15mg×10vials</td><td class="price">$75</td><td class="price">$70</td><td class="price">$65</td></tr>
+                    <tr><td class="cat-no">SM20</td><td>Semaglutide</td><td>20mg×10vials</td><td class="price">$85</td><td class="price">$80</td><td class="price">$75</td></tr>
+                    <tr><td class="cat-no">SM30</td><td>Semaglutide</td><td>30mg×10vials</td><td class="price">$110</td><td class="price">$105</td><td class="price">$100</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Tirzepatide</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>20+ Kits</th>
+                        <th>50+ Kits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">TR5</td><td>Tirzepatide</td><td>5mg×10vials</td><td class="price">$48</td><td class="price">$45</td><td class="price">$43</td></tr>
+                    <tr><td class="cat-no">TR10</td><td>Tirzepatide</td><td>10mg×10vials</td><td class="price">$70</td><td class="price">$68</td><td class="price">$65</td></tr>
+                    <tr><td class="cat-no">TR15</td><td>Tirzepatide</td><td>15mg×10vials</td><td class="price">$85</td><td class="price">$80</td><td class="price">$75</td></tr>
+                    <tr><td class="cat-no">TR20</td><td>Tirzepatide</td><td>20mg×10vials</td><td class="price">$95</td><td class="price">$92</td><td class="price">$90</td></tr>
+                    <tr><td class="cat-no">TR30</td><td>Tirzepatide</td><td>30mg×10vials</td><td class="price">$110</td><td class="price">$100</td><td class="price">$100</td></tr>
+                    <tr><td class="cat-no">TR40</td><td>Tirzepatide</td><td>40mg×10vials</td><td class="price">$145</td><td class="price">$140</td><td class="price">$135</td></tr>
+                    <tr><td class="cat-no">TR50</td><td>Tirzepatide</td><td>50mg×10vials</td><td class="price">$180</td><td class="price">$175</td><td class="price">$170</td></tr>
+                    <tr><td class="cat-no">TR60</td><td>Tirzepatide</td><td>60mg×10vials</td><td class="price">$200</td><td class="price">$195</td><td class="price">$190</td></tr>
+                    <tr><td class="cat-no">TR100</td><td>Tirzepatide (10ml)</td><td>100mg×10vials</td><td class="price">$350</td><td class="price">$345</td><td class="price">$340</td></tr>
+                    <tr><td class="cat-no">TR120</td><td>Tirzepatide (10ml)</td><td>120mg×10vials</td><td class="price">$380</td><td class="price">$375</td><td class="price">$370</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Retatrutide</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>20+ Kits</th>
+                        <th>50+ Kits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">RT5</td><td>Retatrutide</td><td>5mg×10vials</td><td class="price">$70</td><td class="price">$68</td><td class="price">$65</td></tr>
+                    <tr><td class="cat-no">RT10</td><td>Retatrutide</td><td>10mg×10vials</td><td class="price">$100</td><td class="price">$95</td><td class="price">$90</td></tr>
+                    <tr><td class="cat-no">RT12</td><td>Retatrutide</td><td>12mg×10vials</td><td class="price">$130</td><td class="price">$125</td><td class="price">$120</td></tr>
+                    <tr><td class="cat-no">RT15</td><td>Retatrutide</td><td>15mg×10vials</td><td class="price">$140</td><td class="price">$135</td><td class="price">$130</td></tr>
+                    <tr><td class="cat-no">RT20</td><td>Retatrutide</td><td>20mg×10vials</td><td class="price">$180</td><td class="price">$175</td><td class="price">$170</td></tr>
+                    <tr><td class="cat-no">RT24</td><td>Retatrutide</td><td>24mg×10vials</td><td class="price">$210</td><td class="price">$205</td><td class="price">$200</td></tr>
+                    <tr><td class="cat-no">RT30</td><td>Retatrutide</td><td>30mg×10vials</td><td class="price">$225</td><td class="price">$220</td><td class="price">$215</td></tr>
+                    <tr><td class="cat-no">RT36</td><td>Retatrutide</td><td>36mg×10vials</td><td class="price">$275</td><td class="price">$270</td><td class="price">$265</td></tr>
+                    <tr><td class="cat-no">RT40</td><td>Retatrutide</td><td>40mg×10vials</td><td class="price">$285</td><td class="price">$280</td><td class="price">$275</td></tr>
+                    <tr><td class="cat-no">RT50</td><td>Retatrutide</td><td>50mg×10vials</td><td class="price">$305</td><td class="price">$300</td><td class="price">$295</td></tr>
+                    <tr><td class="cat-no">RT60</td><td>Retatrutide (10ml)</td><td>60mg×10vials</td><td class="price">$360</td><td class="price">$355</td><td class="price">$350</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Research Peptides</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>20+ Kits</th>
+                        <th>50+ Kits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">BC5</td><td>BPC-157</td><td>5mg×10vials</td><td class="price">$30</td><td class="price">$30</td><td class="price">$30</td></tr>
+                    <tr><td class="cat-no">BC10</td><td>BPC-157</td><td>10mg×10vials</td><td class="price">$50</td><td class="price">$48</td><td class="price">$47</td></tr>
+                    <tr><td class="cat-no">BT5</td><td>TB500</td><td>5mg×10vials</td><td class="price">$60</td><td class="price">$58</td><td class="price">$55</td></tr>
+                    <tr><td class="cat-no">BT10</td><td>TB500</td><td>10mg×10vials</td><td class="price">$110</td><td class="price">$105</td><td class="price">$100</td></tr>
+                    <tr><td class="cat-no">2S10</td><td>SS-31</td><td>10mg×10vials</td><td class="price">$90</td><td class="price">$87</td><td class="price">$85</td></tr>
+                    <tr><td class="cat-no">2S50</td><td>SS-31</td><td>50mg×10vials</td><td class="price">$345</td><td class="price">$340</td><td class="price">$335</td></tr>
+                    <tr><td class="cat-no">MS10</td><td>MOTS-c</td><td>10mg×10vials</td><td class="price">$55</td><td class="price">$53</td><td class="price">$50</td></tr>
+                    <tr><td class="cat-no">IP10</td><td>Ipamorelin</td><td>10mg×10vials</td><td class="price">$70</td><td class="price">$65</td><td class="price">$60</td></tr>
+                    <tr><td class="cat-no">CU50</td><td>GHK-CU</td><td>50mg×10vials</td><td class="price">$32</td><td class="price">$30</td><td class="price">$29</td></tr>
+                    <tr><td class="cat-no">CU100</td><td>GHK-CU</td><td>100mg×10vials</td><td class="price">$48</td><td class="price">$45</td><td class="price">$43</td></tr>
+                </tbody>
+            </table>
+
+            <h2>💊 Oral Tablets</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>10+ Boxes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">X10</td><td>ANAVAR (Oxandrolone)</td><td>10mg × 100 tablets</td><td class="price">$18</td><td class="price">$17</td></tr>
+                    <tr><td class="cat-no">X25</td><td>ANAVAR (Oxandrolone)</td><td>25mg × 100 tablets</td><td class="price">$27</td><td class="price">$26</td></tr>
+                    <tr><td class="cat-no">X50</td><td>ANAVAR (Oxandrolone)</td><td>50mg × 100 tablets</td><td class="price">$42</td><td class="price">$40</td></tr>
+                    <tr><td class="cat-no">D20</td><td>DIANABOL</td><td>20mg × 100 tablets</td><td class="price">$17</td><td class="price">$15</td></tr>
+                    <tr><td class="cat-no">W20</td><td>Winstrol (Stanozolol)</td><td>20mg × 100 tablets</td><td class="price">$17</td><td class="price">$15</td></tr>
+                    <tr><td class="cat-no">CB40</td><td>CLEN</td><td>40mcg × 100 tablets</td><td class="price">$13</td><td class="price">$12</td></tr>
+                    <tr><td class="cat-no">T20</td><td>Tamoxifen (Nolvadex)</td><td>20mg × 100 tablets</td><td class="price">$17</td><td class="price">$14</td></tr>
+                    <tr><td class="cat-no">CD50</td><td>Clomiphene (Clomid)</td><td>50mg × 100 tablets</td><td class="price">$17</td><td class="price">$16</td></tr>
+                    <tr><td class="cat-no">SD100</td><td>Sildenafil</td><td>100mg × 100 tablets</td><td class="price">$13</td><td class="price">$12</td></tr>
+                    <tr><td class="cat-no">DT20</td><td>Tadalafil</td><td>20mg × 100 tablets</td><td class="price">$13</td><td class="price">$12</td></tr>
+                </tbody>
+            </table>
+
+            <h2>🧪 Injectable Oils</h2>
+            
+            <h3>Testosterone Products</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>10+ Vials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">C250</td><td>TESTOSTERONE CYPIONATE</td><td>250mg/ml, 10ml</td><td class="price">$11</td><td class="price">$10</td></tr>
+                    <tr><td class="cat-no">E250</td><td>TESTOSTERONE ENANTHATE</td><td>250mg/ml, 10ml</td><td class="price">$11</td><td class="price">$10</td></tr>
+                    <tr><td class="cat-no">E300</td><td>TESTOSTERONE ENANTHATE</td><td>300mg/ml, 10ml</td><td class="price">$13</td><td class="price">$12</td></tr>
+                    <tr><td class="cat-no">S250</td><td>Sustanon</td><td>250mg/ml, 10ml</td><td class="price">$12</td><td class="price">$11</td></tr>
+                    <tr><td class="cat-no">P100</td><td>TESTOSTERONE PROPIONATE</td><td>100mg/ml, 10ml</td><td class="price">$9</td><td class="price">$8</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Other Anabolic Compounds</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat. No.</th>
+                        <th>Product</th>
+                        <th>Specification</th>
+                        <th>Price/USD</th>
+                        <th>10+ Vials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="cat-no">R100</td><td>TRENBOLONE ACETATE</td><td>100mg/ml, 10ml</td><td class="price">$15</td><td class="price">$13</td></tr>
+                    <tr><td class="cat-no">R200</td><td>TRENBOLONE ENANTHATE</td><td>200mg/ml, 10ml</td><td class="price">$18</td><td class="price">$17</td></tr>
+                    <tr><td class="cat-no">M100</td><td>PRIMOBOLAN</td><td>100mg/ml, 10ml</td><td class="price">$31</td><td class="price">$30</td></tr>
+                    <tr><td class="cat-no">M200</td><td>PRIMOBOLAN</td><td>200mg/ml, 10ml</td><td class="price">$55</td><td class="price">$54</td></tr>
+                    <tr><td class="cat-no">N200</td><td>DECA (Nandrolone)</td><td>200mg/ml, 10ml</td><td class="price">$15</td><td class="price">$14</td></tr>
+                    <tr><td class="cat-no">D100</td><td>Masteron</td><td>100mg/ml, 10ml</td><td class="price">$15</td><td class="price">$14</td></tr>
+                    <tr><td class="cat-no">U300</td><td>EQUIPOISE</td><td>300mg/ml, 10ml</td><td class="price">$16</td><td class="price">$15</td></tr>
+                </tbody>
+            </table>
+
+            <div class="warehouse-section">
+                <div class="warehouse-header">
+                    <h2 style="color: white; border: none; margin: 0;">🌍 International Warehouse Inventory</h2>
+                </div>
+                
+                <h3>🇺🇸 USA Warehouse (2-4 days delivery)</h3>
+                <p><strong>Minimum Order:</strong> 2 Kits | <strong>Free Shipping</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Product</th>
+                            <th>Specification</th>
+                            <th>Price/USD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="cat-no">SM10</td><td>Semaglutide</td><td>10mg×10vials</td><td class="price">$80</td></tr>
+                        <tr><td class="cat-no">SM20</td><td>Semaglutide</td><td>20mg×10vials</td><td class="price">$105</td></tr>
+                        <tr><td class="cat-no">TR10</td><td>Tirzepatide</td><td>10mg×10vials</td><td class="price">$90</td></tr>
+                        <tr><td class="cat-no">TR30</td><td>Tirzepatide</td><td>30mg×10vials</td><td class="price">$130</td></tr>
+                        <tr><td class="cat-no">RT10</td><td>Retatrutide</td><td>10mg×10vials</td><td class="price">$125</td></tr>
+                        <tr><td class="cat-no">RT20</td><td>Retatrutide</td><td>20mg×10vials</td><td class="price">$205</td></tr>
+                        <tr><td class="cat-no">H10</td><td>HGH</td><td>10iu×10vials</td><td class="price">$55</td></tr>
+                        <tr><td class="cat-no">H36</td><td>HGH</td><td>36iu×10vials</td><td class="price">$150</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>🇩🇪 Germany Warehouse (2-4 days EU delivery)</h3>
+                <p><strong>Minimum Order:</strong> 5 Kits | <strong>Free Shipping</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Product</th>
+                            <th>Specification</th>
+                            <th>Price/USD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="cat-no">H10</td><td>HGH</td><td>10iu×10vials</td><td class="price">$55</td></tr>
+                        <tr><td class="cat-no">H36</td><td>HGH</td><td>36iu×10vials</td><td class="price">$155</td></tr>
+                        <tr><td class="cat-no">SM20</td><td>Semaglutide</td><td>20mg×10vials</td><td class="price">$120</td></tr>
+                        <tr><td class="cat-no">TR30</td><td>Tirzepatide</td><td>30mg×10vials</td><td class="price">$135</td></tr>
+                        <tr><td class="cat-no">RT10</td><td>Retatrutide</td><td>10mg×10vials</td><td class="price">$145</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>🇨🇦 Canada Warehouse (2-4 days delivery)</h3>
+                <p><strong>Minimum Order:</strong> 5 Kits | <strong>Free Shipping</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Product</th>
+                            <th>Specification</th>
+                            <th>Price/USD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="cat-no">H10</td><td>HGH</td><td>10iu×10vials</td><td class="price">$60</td></tr>
+                        <tr><td class="cat-no">SM20</td><td>Semaglutide</td><td>20mg×10vials</td><td class="price">$130</td></tr>
+                        <tr><td class="cat-no">TR10</td><td>Tirzepatide</td><td>10mg×10vials</td><td class="price">$105</td></tr>
+                        <tr><td class="cat-no">RT10</td><td>Retatrutide</td><td>10mg×10vials</td><td class="price">$145</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>🔬 Raw Materials (Research Grade)</h2>
+            
+            <h3>Popular Peptide Raw Materials</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Minimum Order</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Semaglutide</td><td>5g</td><td class="price">$150/gram</td></tr>
+                    <tr><td>Tirzepatide</td><td>5g</td><td class="price">$180/gram</td></tr>
+                    <tr><td>Retatrutide</td><td>5g</td><td class="price">$390/gram</td></tr>
+                    <tr><td>SS-31</td><td>1g</td><td class="price">$520/gram</td></tr>
+                    <tr><td>MOTS-c</td><td>1g</td><td class="price">$340/gram</td></tr>
+                    <tr><td>GHK-CU</td><td>20g</td><td class="price">$180/20g</td></tr>
+                    <tr><td>5-Amino-1MQ</td><td>20g</td><td class="price">$150/20g</td></tr>
+                </tbody>
+            </table>
+
+            <h3>SARMS Raw Materials</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>10g</th>
+                        <th>50g</th>
+                        <th>100g</th>
+                        <th>1kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>MK-677</td><td class="price">$160</td><td class="price">$400</td><td class="price">$730</td><td class="price">$6,300</td></tr>
+                    <tr><td>RAD-140</td><td class="price">$145</td><td class="price">$680</td><td class="price">$1,200</td><td class="price">$11,400</td></tr>
+                    <tr><td>LGD-4033</td><td class="price">-</td><td class="price">$340</td><td class="price">$650</td><td class="price">$5,700</td></tr>
+                    <tr><td>MK-2866</td><td class="price">-</td><td class="price">$120</td><td class="price">$230</td><td class="price">$2,000</td></tr>
+                    <tr><td>GW-501516</td><td class="price">-</td><td class="price">$200</td><td class="price">$380</td><td class="price">$3,400</td></tr>
+                    <tr><td>YK-11</td><td class="price">$190</td><td class="price">$880</td><td class="price">$1,600</td><td class="price">$14,000</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note" style="background: #e8f5e9; border-color: #4caf50;">
+                <strong>✅ Quality Assurance:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>All products undergo third-party laboratory testing</li>
+                    <li>Purity standards exceed 98% for peptides</li>
+                    <li>GMP-compliant manufacturing facilities</li>
+                    <li>Certificate of Analysis available upon request</li>
+                    <li>Visit https://sigmaaudley.net for detailed product specifications</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                <strong>📧 How to Order:</strong>
+                <ol style="margin-top: 10px; margin-left: 20px;">
+                    <li>Visit https://sigmaaudley.net</li>
+                    <li>Email: support@sigmaaudley.net with product codes and quantities</li>
+                    <li>Receive invoice with payment instructions</li>
+                    <li>Multiple payment methods accepted</li>
+                    <li>Discreet worldwide shipping available</li>
+                </ol>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Sigma Audley (SSA)</strong></p>
+            <p>Premium Research Pharmaceuticals Since 2019</p>
+            <p>Website: <a href="https://sigmaaudley.net">https://sigmaaudley.net</a></p>
+            <p>Email: support@sigmaaudley.net</p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
+                © 2025 Sigma Audley. All products are for research purposes only.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

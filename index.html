@@ -4032,14 +4032,14 @@ body {
                 </h1>
                 <p class="hero-subtitle">
                     Welcome to the new Sigma Audley experience! 
-                    <span class="hero-discount-badge">UP TO 38% OFF</span>
+                    <span class="hero-discount-badge">UP TO 57.5% OFF</span>
                     Plus FREE SHIPPING on any order
                 </p>
                 <p style="margin-top: 8px; font-size: 14px; opacity: 0.9; font-style: italic;" id="discountBanner">
-                    🎉 20% OFF orders $250+ • 30% OFF orders $500+ • 10% CRYPTO BONUS • FREE SHIPPING • Discounts applied at checkout!
+                    🎉 20% OFF $250+ • 30% OFF $500+ • 35% OFF $1000+ • 40% OFF $1500+ • 50% OFF $2500+ • 15% CRYPTO BONUS • Up to 57.5% OFF with crypto!
                 </p>
                 <p style="margin-top: 6px; font-size: 12px; opacity: 0.95; color: white;">
-                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Save up to 38% when combining $500+ orders with crypto payment!
+                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Save up to 57.5% when combining $2500+ orders with crypto payment!
                 </p>
                 <div style="margin-top: 12px; padding: 8px 16px; background: linear-gradient(135deg, #dc2626, #991b1b); border-radius: 8px; display: inline-block;">
                     <div style="color: white; font-weight: 600; font-size: 13px; margin-bottom: 4px;">
@@ -4504,10 +4504,6 @@ body {
                             <strong>✨ FASTEST OPTION • LOWEST FEES • WORKS WORLDWIDE</strong>
                         </div>
                         
-                        <div style="background: #fef3c7; padding: 12px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #f59e0b;">
-                            <strong>⚠️ XOOM TRANSFER (NOT IBAN):</strong> Direct Xoom money transfer to UK<br>
-                            • Bank details ONLY for Xoom.com • Pay in YOUR currency • Works from ANY country
-                        </div>
                         
                         <div style="background: white; border: 2px solid #e5e7eb; border-radius: 8px; padding: 15px; margin-top: 15px;">
                             <strong style="color: #065f46; display: block; margin-bottom: 15px;">📋 Simple Steps:</strong>
@@ -4817,7 +4813,7 @@ body {
                                     <span id="checkoutSubtotal">$0.00</span>
                                 </div>
                                 <div class="total-row btc-discount-row" id="btcDiscountRow" style="display: none;">
-                                    <span>💰 Crypto Extra Discount (10% OFF):</span>
+                                    <span>💰 Crypto Extra Discount (15% OFF):</span>
                                     <span id="checkoutBtcDiscount" class="discount-amount">-$0.00</span>
                                 </div>
                                 <div class="total-row">
@@ -4913,7 +4909,7 @@ body {
                                         <i class="fab fa-bitcoin"></i>
                                     </div>
                                     <div class="payment-info">
-                                        <h4>Cryptocurrency <span class="discount-badge">10% EXTRA OFF!</span></h4>
+                                        <h4>Cryptocurrency <span class="discount-badge">15% EXTRA OFF!</span></h4>
                                         <p>BTC, ETH, LTC, SOL, USDT - Fast & anonymous</p>
                                     </div>
                                 </div>
@@ -5021,11 +5017,14 @@ body {
             const details = document.getElementById('cryptoDetails');
             
             const cryptoInfo = {
-                btc: { name: 'Bitcoin', symbol: 'BTC', color: '#f59e0b', network: '' },
-                eth: { name: 'Ethereum', symbol: 'ETH', color: '#6366f1', network: 'Ethereum Network' },
-                ltc: { name: 'Litecoin', symbol: 'LTC', color: '#94a3b8', network: 'Litecoin Network' },
-                sol: { name: 'Solana', symbol: 'SOL', color: '#a78bfa', network: 'Solana Network' },
-                usdt: { name: 'Tether', symbol: 'USDT', color: '#16a34a', network: 'BSC Network ONLY' }
+                btc: { name: 'Bitcoin', symbol: 'BTC', color: '#f59e0b', network: 'BTC Network', qrCode: 'BTC QR CODE.png' },
+                eth: { name: 'Ethereum', symbol: 'ETH', color: '#6366f1', network: 'Ethereum Network', qrCode: 'ETH QR CODE.png' },
+                xrp: { name: 'XRP', symbol: 'XRP', color: '#1f2937', network: 'XRP Network', qrCode: 'XRP QR CODE.png' },
+                sol: { name: 'Solana', symbol: 'SOL', color: '#a78bfa', network: 'Solana Network', qrCode: 'SOLANA QR CODE.png' },
+                usdt: { name: 'Tether USDT', symbol: 'USDT', color: '#16a34a', network: 'Ethereum Network', qrCode: 'TETHER QR CODE.png' },
+                usdc: { name: 'USD Coin', symbol: 'USDC', color: '#3b82f6', network: 'Ethereum Network', qrCode: 'USDC QR CODE.png' },
+                ada: { name: 'Cardano', symbol: 'ADA', color: '#0ea5e9', network: 'Cardano Network', qrCode: 'CARDANO QR CODE.png' },
+                bnb: { name: 'BNB', symbol: 'BNB', color: '#eab308', network: 'BSC Network', qrCode: 'BSC QR CODE.png' }
             };
             
             const info = cryptoInfo[crypto];
@@ -5038,33 +5037,61 @@ body {
                 <div style="border: 2px solid ${info.color}; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
                     <h5 style="margin: 0 0 15px 0; color: #1f2937; font-size: 1.1em; font-weight: 600;">${info.name} Payment Details</h5>
                     
+                    <!-- QR Code Section -->
+                    ${info.qrCode ? `
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="${info.qrCode}" alt="${info.name} QR Code" style="max-width: 200px; height: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; background: white;">
+                            <p style="margin: 10px 0 0 0; font-size: 0.85em; color: #6b7280;">Scan QR code to get wallet address</p>
+                        </div>
+                    ` : ''}
+                    
                     <!-- Amount Section -->
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-size: 0.85em; color: #6b7280; margin-bottom: 8px; font-weight: 500;">AMOUNT TO SEND:</label>
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <input type="text" value="${amount} ${info.symbol}" readonly style="flex: 1; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: monospace; font-size: 1em; background: #f9fafb;"/>
-                            <button onclick="copyCryptoAmount('${amount} ${info.symbol}')" style="padding: 10px 15px; background: #1f2937; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em; white-space: nowrap;">📋 Copy</button>
+                        <div style="display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap;">
+                            <input type="text" value="${amount} ${info.symbol}" readonly style="flex: 1; min-width: 200px; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-family: monospace; font-size: 1em; background: #f9fafb; -webkit-user-select: all; user-select: all;"/>
+                            <button onclick="copyCryptoAmount('${amount} ${info.symbol}')" style="padding: 12px 20px; background: #1f2937; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em; white-space: nowrap; -webkit-tap-highlight-color: transparent;">📋 Copy Amount</button>
                         </div>
                         <p style="margin: 5px 0 0 0; font-size: 0.85em; color: #6b7280;">≈ $${usdAmount} USD</p>
                     </div>
                     
                     <!-- Address Section -->
-                    <div>
+                    <div style="margin-bottom: 15px;">
                         <label style="display: block; font-size: 0.85em; color: #6b7280; margin-bottom: 8px; font-weight: 500;">
                             WALLET ADDRESS${info.network ? ' (' + info.network + ')' : ''}:
                         </label>
-                        <div style="background: #f9fafb; padding: 12px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #e5e7eb;">
-                            <code style="word-break: break-all; font-size: 0.85em; color: #1f2937; line-height: 1.4;">${address}</code>
+                        <div style="background: #f9fafb; padding: 14px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #e5e7eb; cursor: text; -webkit-user-select: all; user-select: all;">
+                            <code style="word-break: break-all; font-size: 0.9em; color: #1f2937; line-height: 1.5; font-family: 'Courier New', monospace;">${address}</code>
                         </div>
-                        <button onclick="copyCryptoAddress('${address}')" style="width: 100%; padding: 10px; background: #1f2937; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em;">📋 Copy Address</button>
+                        <button onclick="copyCryptoAddress('${address}')" style="width: 100%; padding: 12px; background: #1f2937; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: 500; -webkit-tap-highlight-color: transparent;">📋 Copy Wallet Address</button>
                     </div>
                     
-                    ${crypto === 'usdt' ? `
+                    <!-- Wallet Information -->
+                    <div style="background: #f0f9ff; padding: 12px; border-radius: 6px; margin-bottom: 15px; border-left: 3px solid #3b82f6;">
+                        <p style="margin: 0; font-size: 0.85em; color: #1e40af; font-weight: 600;">ℹ️ Wallet Information</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #1e40af;">Wallet Type: Self-custody (non-custodial)</p>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8em; color: #1e40af;">Wallet Name: Exodus</p>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8em; color: #1e40af;">Receiver Name (if needed): S Johnston</p>
+                    </div>
+                    
+                    ${crypto === 'usdt' || crypto === 'usdc' ? `
+                        <div style="background: #fef2f2; padding: 10px; border-radius: 6px; margin-top: 15px; border-left: 3px solid #dc2626;">
+                            <p style="margin: 0; font-size: 0.85em; color: #dc2626; font-weight: 600;">⚠️ Important: Use Ethereum Network ONLY</p>
+                            <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #991b1b;">Do not send using other networks or your funds may be lost</p>
+                        </div>
+                    ` : crypto === 'bnb' ? `
                         <div style="background: #fef2f2; padding: 10px; border-radius: 6px; margin-top: 15px; border-left: 3px solid #dc2626;">
                             <p style="margin: 0; font-size: 0.85em; color: #dc2626; font-weight: 600;">⚠️ Important: Use BSC Network ONLY</p>
-                            <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #991b1b;">Do not send using ERC-20 or other networks</p>
+                            <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #991b1b;">Do not send using other networks or your funds may be lost</p>
                         </div>
                     ` : ''}
+                    
+                    <!-- Payment Confirmation Info -->
+                    <div style="background: #ecfdf5; padding: 12px; border-radius: 6px; margin-top: 15px; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; font-size: 0.85em; color: #065f46; font-weight: 600;">✅ After Payment:</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #065f46;">• Email confirmation sent after 1 network confirmation</p>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8em; color: #065f46;">• Tracking details emailed when order ships</p>
+                    </div>
                 </div>
                 
                 <button onclick="confirmPaymentSent()" style="width: 100%; padding: 12px; background: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 1em; margin-top: 10px;">
@@ -9550,6 +9577,22 @@ This is a demo. Please contact us to complete your order.`);
                 modal.style.display = '';
                 modal.style.visibility = '';
                 modal.classList.add('show');
+                
+                // Scroll modal content to top (especially important for mobile)
+                const modalContent = modal.querySelector('.modal-content');
+                if (modalContent) {
+                    modalContent.scrollTop = 0;
+                }
+                
+                // For checkout modal, ensure we're at the top of the current step
+                if (modalId === 'checkoutModal') {
+                    setTimeout(() => {
+                        const activeStep = modal.querySelector('.checkout-step[style*="block"]');
+                        if (activeStep) {
+                            activeStep.scrollIntoView({ behavior: 'auto', block: 'start' });
+                        }
+                    }, 100);
+                }
             } else {
                 console.error(`Modal with ID '${modalId}' not found!`);
             }
@@ -9572,7 +9615,17 @@ This is a demo. Please contact us to complete your order.`);
         let currentCheckoutStep = 1;
         let orderData = {};
         let currentOrderId = '';
-        let cryptoPrices = { btc: 0, usdt: 1 };
+        // Initialize with reasonable fallback prices
+        let cryptoPrices = { 
+            btc: 95000,  // Bitcoin fallback
+            eth: 3200,   // Ethereum fallback
+            xrp: 2.5,    // XRP fallback
+            sol: 180,    // Solana fallback
+            usdt: 1,     // USDT (stable)
+            usdc: 1,     // USDC (stable)
+            ada: 1.0,    // Cardano fallback
+            bnb: 600     // BNB fallback
+        };
         let priceUpdateInterval;
         let paymentTimers = {};
         let paymentStartTime = null;
@@ -9659,10 +9712,13 @@ This is a demo. Please contact us to complete your order.`);
             const rate = currencyRates[warehouse.currency] || 1.0;
             const threshold250 = Math.round(250 / rate);
             const threshold500 = Math.round(500 / rate);
+            const threshold1000 = Math.round(1000 / rate);
+            const threshold1500 = Math.round(1500 / rate);
+            const threshold2500 = Math.round(2500 / rate);
             
             const banner = document.getElementById('discountBanner');
             if (banner) {
-                banner.textContent = `🎉 20% OFF orders ${warehouse.symbol}${threshold250}+ • 30% OFF orders ${warehouse.symbol}${threshold500}+ • 10% CRYPTO BONUS • Discounts applied at checkout!`;
+                banner.textContent = `🎉 20% OFF ${warehouse.symbol}${threshold250}+ • 30% OFF ${warehouse.symbol}${threshold500}+ • 35% OFF ${warehouse.symbol}${threshold1000}+ • 40% OFF ${warehouse.symbol}${threshold1500}+ • 50% OFF ${warehouse.symbol}${threshold2500}+ • 15% CRYPTO BONUS • Up to 57.5% OFF with crypto!`;
             }
         }
 
@@ -9771,6 +9827,30 @@ This is a demo. Please contact us to complete your order.`);
                 step.style.display = 'none';
             });
             document.getElementById(`checkoutStep${stepNumber}`).style.display = 'block';
+            
+            // Scroll to top of checkout modal for better mobile experience
+            const checkoutModal = document.getElementById('checkoutModal');
+            if (checkoutModal) {
+                const modalContent = checkoutModal.querySelector('.modal-content');
+                if (modalContent) {
+                    modalContent.scrollTop = 0;
+                }
+            }
+            
+            // Also scroll the step itself into view (backup for different layouts)
+            const currentStep = document.getElementById(`checkoutStep${stepNumber}`);
+            if (currentStep) {
+                currentStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Focus on first input field for better mobile UX (after a small delay)
+                setTimeout(() => {
+                    const firstInput = currentStep.querySelector('input:not([type="radio"]):not([type="checkbox"]), select');
+                    if (firstInput && window.innerWidth <= 768) {
+                        // Only focus on mobile to avoid unexpected behavior on desktop
+                        firstInput.focus({ preventScroll: true });
+                    }
+                }, 300);
+            }
         }
 
         // Populate order review with discount breakdown
@@ -9797,13 +9877,25 @@ This is a demo. Please contact us to complete your order.`);
             const rate = currencyRates[warehouse.currency] || 1.0;
             const threshold250 = 250 / rate; // $250 equivalent in local currency
             const threshold500 = 500 / rate; // $500 equivalent in local currency
+            const threshold1000 = 1000 / rate; // $1000 equivalent in local currency
+            const threshold1500 = 1500 / rate; // $1500 equivalent in local currency
+            const threshold2500 = 2500 / rate; // $2500 equivalent in local currency
             
             // Determine discount tier based on original total in USD
             const originalTotalUSD = originalTotal * rate; // Convert to USD for threshold comparison
             let discountPercent = 0;
             let discountLabel = '';
             
-            if (originalTotalUSD >= 500) {
+            if (originalTotalUSD >= 2500) {
+                discountPercent = 0.50; // 50% for $2500+ equivalent
+                discountLabel = 'Mega Discount (50% OFF)';
+            } else if (originalTotalUSD >= 1500) {
+                discountPercent = 0.40; // 40% for $1500+ equivalent
+                discountLabel = 'Elite Discount (40% OFF)';
+            } else if (originalTotalUSD >= 1000) {
+                discountPercent = 0.35; // 35% for $1000+ equivalent
+                discountLabel = 'Premium Discount (35% OFF)';
+            } else if (originalTotalUSD >= 500) {
                 discountPercent = 0.30; // 30% for $500+ equivalent
                 discountLabel = 'Volume Discount (30% OFF)';
             } else if (originalTotalUSD >= 250) {
@@ -9815,10 +9907,10 @@ This is a demo. Please contact us to complete your order.`);
             const launchDiscountAmount = originalTotal * discountPercent;
             const afterLaunchDiscount = originalTotal - launchDiscountAmount;
             
-            // Calculate crypto discount if applicable (10% off discounted price)
+            // Calculate crypto discount if applicable (15% off discounted price)
             const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
             const isCryptoSelected = paymentMethod === 'crypto' || paymentMethod === 'bitcoin';
-            const btcDiscountAmount = isCryptoSelected ? afterLaunchDiscount * 0.10 : 0;
+            const btcDiscountAmount = isCryptoSelected ? afterLaunchDiscount * 0.15 : 0;
             const finalTotal = afterLaunchDiscount - btcDiscountAmount;
             
             // Debug logging
@@ -9840,6 +9932,15 @@ This is a demo. Please contact us to complete your order.`);
             } else if (originalTotalUSD < 500) {
                 const remaining = threshold500 - originalTotal;
                 spendNotification = `💡 Spend ${formatPrice(remaining)} more for 30% OFF!`;
+            } else if (originalTotalUSD < 1000) {
+                const remaining = threshold1000 - originalTotal;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 35% OFF!`;
+            } else if (originalTotalUSD < 1500) {
+                const remaining = threshold1500 - originalTotal;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 40% OFF!`;
+            } else if (originalTotalUSD < 2500) {
+                const remaining = threshold2500 - originalTotal;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 50% OFF!`;
             }
             
             // Update warehouse info  
@@ -9988,7 +10089,16 @@ This is a demo. Please contact us to complete your order.`);
             // Determine discount tier based on USD equivalent
             let discountPercent = 0;
             let discountAmount = 0;
-            if (originalTotalUSD >= 500) {
+            if (originalTotalUSD >= 2500) {
+                discountPercent = 0.50; // 50% for $2500+ equivalent
+                discountAmount = totalPrice * discountPercent;
+            } else if (originalTotalUSD >= 1500) {
+                discountPercent = 0.40; // 40% for $1500+ equivalent
+                discountAmount = totalPrice * discountPercent;
+            } else if (originalTotalUSD >= 1000) {
+                discountPercent = 0.35; // 35% for $1000+ equivalent
+                discountAmount = totalPrice * discountPercent;
+            } else if (originalTotalUSD >= 500) {
                 discountPercent = 0.30; // 30% for $500+ equivalent
                 discountAmount = totalPrice * discountPercent;
             } else if (originalTotalUSD >= 250) {
@@ -10550,6 +10660,8 @@ Thank you for your assistance.`;
             fetchExchangeRates();
             updateWarehouseCurrency(selectedWarehouse);
             
+            // Initialize crypto prices on page load
+            fetchCryptoPrices();
             
             // Show warehouse selection modal if no warehouse is selected
             if (!hasWarehouse) {
@@ -10687,41 +10799,79 @@ Thank you for your assistance.`;
             const apiEndpoints = [
                 {
                     name: 'CoinGecko',
-                    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin,solana&vs_currencies=usd',
+                    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,solana,cardano,binancecoin&vs_currencies=usd',
                     parsePrice: (data) => ({
                         btc: data.bitcoin?.usd,
                         eth: data.ethereum?.usd,
-                        ltc: data.litecoin?.usd,
-                        sol: data.solana?.usd
+                        xrp: data.ripple?.usd,
+                        sol: data.solana?.usd,
+                        ada: data.cardano?.usd,
+                        bnb: data.binancecoin?.usd
                     })
                 },
                 {
-                    name: 'Binance',
-                    url: 'https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT',
-                    parsePrice: (data) => parseFloat(data.price)
-                },
-                {
-                    name: 'CoinDesk',
-                    url: 'https://api.coindesk.com/v1/bpi/currentprice/USD.json',
-                    parsePrice: (data) => parseFloat(data.bpi?.USD?.rate_float)
-                },
-                {
-                    name: 'Kraken',
-                    url: 'https://api.kraken.com/0/public/Ticker?pair=XBTUSD',
+                    name: 'Binance-Multi',
+                    url: 'https://api.binance.com/api/v3/ticker/price?symbols=["BTCUSDT","ETHUSDT","XRPUSDT","SOLUSDT","ADAUSDT","BNBUSDT"]',
                     parsePrice: (data) => {
-                        const ticker = data.result?.XXBTZUSD;
-                        return ticker ? parseFloat(ticker.c[0]) : null;
+                        const prices = {};
+                        if (Array.isArray(data)) {
+                            data.forEach(ticker => {
+                                const symbol = ticker.symbol.replace('USDT', '').toLowerCase();
+                                prices[symbol] = parseFloat(ticker.price);
+                            });
+                        }
+                        return prices;
                     }
                 },
                 {
                     name: 'CryptoCompare',
-                    url: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,SOL&tsyms=USD',
+                    url: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,XRP,SOL,ADA,BNB&tsyms=USD',
                     parsePrice: (data) => ({
                         btc: data.BTC?.USD,
                         eth: data.ETH?.USD,
-                        ltc: data.LTC?.USD,
-                        sol: data.SOL?.USD
+                        xrp: data.XRP?.USD,
+                        sol: data.SOL?.USD,
+                        ada: data.ADA?.USD,
+                        bnb: data.BNB?.USD
                     })
+                },
+                {
+                    name: 'CoinCap',
+                    url: 'https://api.coincap.io/v2/assets?ids=bitcoin,ethereum,xrp,solana,cardano,binance-coin',
+                    parsePrice: (data) => {
+                        const prices = {};
+                        if (data.data && Array.isArray(data.data)) {
+                            const mapping = {
+                                'bitcoin': 'btc',
+                                'ethereum': 'eth',
+                                'xrp': 'xrp',
+                                'solana': 'sol',
+                                'cardano': 'ada',
+                                'binance-coin': 'bnb'
+                            };
+                            data.data.forEach(asset => {
+                                const key = mapping[asset.id];
+                                if (key) prices[key] = parseFloat(asset.priceUsd);
+                            });
+                        }
+                        return prices;
+                    }
+                },
+                {
+                    name: 'CoinRanking',
+                    url: 'https://api.coinranking.com/v2/coins?symbols=BTC,ETH,XRP,SOL,ADA,BNB&limit=10',
+                    parsePrice: (data) => {
+                        const prices = {};
+                        if (data.data && data.data.coins && Array.isArray(data.data.coins)) {
+                            data.data.coins.forEach(coin => {
+                                const symbol = coin.symbol.toLowerCase();
+                                if (symbol && coin.price) {
+                                    prices[symbol] = parseFloat(coin.price);
+                                }
+                            });
+                        }
+                        return prices;
+                    }
                 }
             ];
             
@@ -10751,9 +10901,16 @@ Thank you for your assistance.`;
                     const prices = api.parsePrice(data);
                     
                     // Handle both single price (old BTC APIs) and multi-price responses
-                    if (typeof prices === 'object' && prices.btc) {
-                        // Multi-currency response
-                        console.log(`✅ ${api.name}: BTC=$${prices.btc?.toFixed(2)}, ETH=$${prices.eth?.toFixed(2)}, LTC=$${prices.ltc?.toFixed(2)}, SOL=$${prices.sol?.toFixed(2)}`);
+                    if (typeof prices === 'object' && (prices.btc || prices.eth || prices.xrp || prices.sol || prices.ada || prices.bnb)) {
+                        // Multi-currency response - log available prices
+                        const priceLog = [];
+                        if (prices.btc) priceLog.push(`BTC=$${prices.btc.toFixed(2)}`);
+                        if (prices.eth) priceLog.push(`ETH=$${prices.eth.toFixed(2)}`);
+                        if (prices.xrp) priceLog.push(`XRP=$${prices.xrp.toFixed(4)}`);
+                        if (prices.sol) priceLog.push(`SOL=$${prices.sol.toFixed(2)}`);
+                        if (prices.ada) priceLog.push(`ADA=$${prices.ada.toFixed(4)}`);
+                        if (prices.bnb) priceLog.push(`BNB=$${prices.bnb.toFixed(2)}`);
+                        console.log(`✅ ${api.name}: ${priceLog.join(', ')}`);
                         return { name: api.name, prices: prices, timestamp: currentTime };
                     } else if (typeof prices === 'number' && prices > 10000 && prices < 1000000) {
                         // Single BTC price response
@@ -10776,7 +10933,7 @@ Thank you for your assistance.`;
             
             if (successfulFetches.length > 0) {
                 // Aggregate prices for each cryptocurrency
-                const cryptoList = ['btc', 'eth', 'ltc', 'sol'];
+                const cryptoList = ['btc', 'eth', 'xrp', 'sol', 'ada', 'bnb'];
                 
                 cryptoList.forEach(crypto => {
                     const pricesForCrypto = successfulFetches
@@ -10795,8 +10952,9 @@ Thank you for your assistance.`;
                     }
                 });
                 
-                // Always set USDT to 1 (stable coin)
+                // Always set USDT and USDC to 1 (stable coins)
                 cryptoPrices.usdt = 1;
+                cryptoPrices.usdc = 1;
                 cryptoPrices.lastUpdate = currentTime;
                 
                 console.log(`📊 Used ${successfulFetches.length} API sources`);
@@ -10805,8 +10963,10 @@ Thank you for your assistance.`;
                 console.log(`🧮 TEST $100 conversions:`);
                 console.log(`  BTC: ${calculateCryptoAmount(100, 'btc')} BTC`);
                 console.log(`  ETH: ${calculateCryptoAmount(100, 'eth')} ETH`);
-                console.log(`  LTC: ${calculateCryptoAmount(100, 'ltc')} LTC`);
+                console.log(`  XRP: ${calculateCryptoAmount(100, 'xrp')} XRP`);
                 console.log(`  SOL: ${calculateCryptoAmount(100, 'sol')} SOL`);
+                console.log(`  ADA: ${calculateCryptoAmount(100, 'ada')} ADA`);
+                console.log(`  BNB: ${calculateCryptoAmount(100, 'bnb')} BNB`);
                 
                 return;
             }
@@ -10912,7 +11072,7 @@ Thank you for your assistance.`;
         // Calculate crypto amount needed with high precision
         function calculateCryptoAmount(usdAmount, cryptoType) {
             if (!usdAmount || usdAmount <= 0) {
-                const decimals = { btc: 8, eth: 6, ltc: 6, sol: 4, usdt: 2 };
+                const decimals = { btc: 8, eth: 6, xrp: 4, sol: 4, usdt: 2, usdc: 2, ada: 2, bnb: 4 };
                 return '0.' + '0'.repeat(decimals[cryptoType] || 2);
             }
             
@@ -10922,13 +11082,16 @@ Thank you for your assistance.`;
                 const fallbacks = { 
                     btc: 95000, 
                     eth: 3200, 
-                    ltc: 100, 
+                    xrp: 2.5, 
                     sol: 180, 
-                    usdt: 1 
+                    usdt: 1,
+                    usdc: 1,
+                    ada: 1.0,
+                    bnb: 600
                 };
                 const fallback = fallbacks[cryptoType] || 1;
                 const amount = usdAmount / fallback;
-                const decimals = { btc: 8, eth: 6, ltc: 6, sol: 4, usdt: 2 };
+                const decimals = { btc: 8, eth: 6, xrp: 4, sol: 4, usdt: 2, usdc: 2, ada: 2, bnb: 4 };
                 return amount.toFixed(decimals[cryptoType] || 2);
             }
             
@@ -10939,9 +11102,12 @@ Thank you for your assistance.`;
             const decimalPlaces = {
                 btc: 8,  // Bitcoin: 8 decimals (satoshi precision)
                 eth: 6,  // Ethereum: 6 decimals
-                ltc: 6,  // Litecoin: 6 decimals
+                xrp: 4,  // XRP: 4 decimals
                 sol: 4,  // Solana: 4 decimals
-                usdt: 2  // USDT: 2 decimals
+                usdt: 2,  // USDT: 2 decimals
+                usdc: 2,  // USDC: 2 decimals
+                ada: 2,  // Cardano: 2 decimals
+                bnb: 4   // BNB: 4 decimals
             };
             
             return amount.toFixed(decimalPlaces[cryptoType] || 2);
@@ -10974,10 +11140,19 @@ Thank you for your assistance.`;
             const rate = currencyRates[warehouse.currency] || 1.0;
             const threshold250 = 250 / rate; // $250 equivalent in local currency
             const threshold500 = 500 / rate; // $500 equivalent in local currency
+            const threshold1000 = 1000 / rate; // $1000 equivalent in local currency
+            const threshold1500 = 1500 / rate; // $1500 equivalent in local currency
+            const threshold2500 = 2500 / rate; // $2500 equivalent in local currency
             
             // Determine discount tier based on LOCAL currency thresholds
             let discountPercent = 0;
-            if (originalTotal >= threshold500) {
+            if (originalTotal >= threshold2500) {
+                discountPercent = 0.50; // 50% for $2500+ equivalent
+            } else if (originalTotal >= threshold1500) {
+                discountPercent = 0.40; // 40% for $1500+ equivalent
+            } else if (originalTotal >= threshold1000) {
+                discountPercent = 0.35; // 35% for $1000+ equivalent
+            } else if (originalTotal >= threshold500) {
                 discountPercent = 0.30; // 30% for $500+ equivalent
             } else if (originalTotal >= threshold250) {
                 discountPercent = 0.20; // 20% for $250+ equivalent
@@ -10986,8 +11161,8 @@ Thank you for your assistance.`;
             
             const launchDiscountAmount = originalTotal * discountPercent;
             const afterLaunchDiscount = originalTotal - launchDiscountAmount;
-            // Apply 10% crypto discount for both 'crypto' and 'bitcoin' payment methods
-            const btcDiscountAmount = (paymentMethod === 'crypto' || paymentMethod === 'bitcoin') ? afterLaunchDiscount * 0.10 : 0;
+            // Apply 15% crypto discount for both 'crypto' and 'bitcoin' payment methods
+            const btcDiscountAmount = (paymentMethod === 'crypto' || paymentMethod === 'bitcoin') ? afterLaunchDiscount * 0.15 : 0;
             const finalTotal = afterLaunchDiscount - btcDiscountAmount;
             
             currentOrderId = generateOrderId();
@@ -11017,7 +11192,7 @@ Thank you for your assistance.`;
             };
             
             // Start crypto price updates and payment timer if needed
-            if (paymentMethod === 'bitcoin' || paymentMethod === 'usdt') {
+            if (paymentMethod === 'crypto' || paymentMethod === 'bitcoin' || paymentMethod === 'usdt') {
                 startCryptoPriceUpdates();
                 startPaymentTimer(paymentMethod);
             }
@@ -11082,6 +11257,10 @@ Thank you for your assistance.`;
                                 Postcode: EC2A 2AG<br>
                                 Country: United Kingdom</small>
                             </div>
+                            <div class="payment-row" style="background: #fef3c7; padding: 10px; border-radius: 6px; margin-top: 10px;">
+                                <strong>Phone Number Needed?</strong><br>
+                                <small style="color: #92400e;">+447787466676</small>
+                            </div>
                         </div>
                         <p class="payment-note">⚠️ Please include the reference number in your transfer</p>
                     </div>
@@ -11097,13 +11276,6 @@ Thank you for your assistance.`;
                             <strong style="font-size: 1.2em;">✨ INSTANT PAYMENT • LOWEST FEES • WORKS WORLDWIDE</strong>
                         </div>
                         
-                        <!-- Important Notice -->
-                        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #f59e0b;">
-                            <strong>⚠️ XOOM TRANSFER (NOT IBAN):</strong> This is a direct Xoom money transfer to UK.<br>
-                            • These bank details are ONLY for Xoom.com transfers<br>
-                            • Pay in YOUR local currency - Xoom handles conversion<br>
-                            • Works from ANY country worldwide
-                        </div>
                         
                         <!-- Amount Box -->
                         <div style="background: #1f2937; color: white; padding: 20px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
@@ -11214,17 +11386,23 @@ Thank you for your assistance.`;
                 // Calculate amounts for all cryptocurrencies
                 const btcAmount = calculateCryptoAmount(totalAmount, 'btc');
                 const ethAmount = calculateCryptoAmount(totalAmount, 'eth');
-                const ltcAmount = calculateCryptoAmount(totalAmount, 'ltc');
+                const xrpAmount = calculateCryptoAmount(totalAmount, 'xrp');
                 const solAmount = calculateCryptoAmount(totalAmount, 'sol');
+                const adaAmount = calculateCryptoAmount(totalAmount, 'ada');
+                const bnbAmount = calculateCryptoAmount(totalAmount, 'bnb');
                 const usdtAmount = totalAmount.toFixed(2); // USDT is 1:1 with USD
+                const usdcAmount = totalAmount.toFixed(2); // USDC is 1:1 with USD
                 
                 // Wallet addresses
                 const wallets = {
-                    btc: '12Sqq9GLXLG55FMpmSDA8ZQfmqnu4Fe3Lw',
-                    eth: '0x089ff496bcfa240ccfe6695612555e2b2e1f9332',
-                    ltc: 'LYK1osPGS6AwYJc8bcWu1BfzJBHXp1PQkD',
-                    sol: '8TyimNz47Rp4Z5ymzMGqPT5U3t4CpRepeEnz7DWzETcc',
-                    usdt: '0x089ff496bcfa240ccfe6695612555e2b2e1f9332' // Same as ETH address for USDT on BSC
+                    btc: 'bc1qpzqshfnqmmuqj0qmnvhensuq92xx4t2slrzs9e', // Bitcoin (BTC Network)
+                    eth: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1', // Ethereum (ETH Network)
+                    xrp: 'rDV4QdZqXugC15dxq5c3x7Gj9YXAMnkQxN', // XRP (XRP Network)
+                    usdt: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1', // USDT (Ethereum Network)
+                    sol: '62AyK5pCwFNuZFnwUEZjvTFG2hVa7uiQKxEym2rXthYq', // Solana (SOL Network)
+                    usdc: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1', // USDC (Ethereum Network)
+                    ada: 'addr1qxel2mu57vcy4qmeyhgdx309nzl88nz7uspksxqxthehv3dn74hefuesf2phjfws6dz7tx97w0x9aeqrdqvqvh0nwezs5yf0h4', // Cardano (ADA Network)
+                    bnb: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1' // BNB (BSC Network)
                 };
                 
                 instructionsHTML = `
@@ -11237,7 +11415,7 @@ Thank you for your assistance.`;
                         
                         <!-- Discount Badge -->
                         <div style="background: #10b981; color: white; padding: 12px; text-align: center;">
-                            <p style="margin: 0; font-weight: 600; font-size: 0.95em;">✓ 10% Crypto Discount Applied - Total: $${totalAmount.toFixed(2)}</p>
+                            <p style="margin: 0; font-weight: 600; font-size: 0.95em;">✓ 15% Crypto Discount Applied - Total: $${totalAmount.toFixed(2)}</p>
                         </div>
                         
                         <!-- Payment Method Selection -->
@@ -11245,37 +11423,49 @@ Thank you for your assistance.`;
                             <h4 style="margin: 0 0 15px 0; color: #1f2937; font-size: 1.1em; font-weight: 600;">Select Payment Method:</h4>
                             
                             <div style="display: grid; gap: 10px;">
-                                <!-- Bitcoin Button -->
+                                <!-- Bitcoin Button (BTC Network) -->
                                 <button onclick="showCryptoDetails('btc', '${btcAmount}', '${wallets.btc}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#f59e0b'; this.style.background='#fffbeb'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
                                     <div style="display: flex; align-items: center; gap: 12px;">
                                         <span style="font-size: 1.5em;">₿</span>
                                         <div style="text-align: left;">
-                                            <div style="font-weight: 600; color: #1f2937;">Bitcoin</div>
+                                            <div style="font-weight: 600; color: #1f2937;">Bitcoin (BTC Network)</div>
                                             <div style="font-size: 0.85em; color: #6b7280;">${btcAmount} BTC</div>
                                         </div>
                                     </div>
                                     <span style="color: #9ca3af;">→</span>
                                 </button>
                                 
-                                <!-- Ethereum Button -->
+                                <!-- Ethereum Button (ETH Network) -->
                                 <button onclick="showCryptoDetails('eth', '${ethAmount}', '${wallets.eth}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#6366f1'; this.style.background='#eef2ff'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
                                     <div style="display: flex; align-items: center; gap: 12px;">
                                         <span style="font-size: 1.5em;">Ξ</span>
                                         <div style="text-align: left;">
-                                            <div style="font-weight: 600; color: #1f2937;">Ethereum</div>
+                                            <div style="font-weight: 600; color: #1f2937;">Ethereum (ETH Network)</div>
                                             <div style="font-size: 0.85em; color: #6b7280;">${ethAmount} ETH</div>
                                         </div>
                                     </div>
                                     <span style="color: #9ca3af;">→</span>
                                 </button>
                                 
-                                <!-- Litecoin Button -->
-                                <button onclick="showCryptoDetails('ltc', '${ltcAmount}', '${wallets.ltc}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#94a3b8'; this.style.background='#f8fafc'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                <!-- XRP Button -->
+                                <button onclick="showCryptoDetails('xrp', '${xrpAmount}', '${wallets.xrp}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#1f2937'; this.style.background='#f9fafb'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <span style="font-size: 1.5em;">Ł</span>
+                                        <span style="font-size: 1.5em;">✕</span>
                                         <div style="text-align: left;">
-                                            <div style="font-weight: 600; color: #1f2937;">Litecoin</div>
-                                            <div style="font-size: 0.85em; color: #6b7280;">${ltcAmount} LTC</div>
+                                            <div style="font-weight: 600; color: #1f2937;">XRP</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${xrpAmount} XRP</div>
+                                        </div>
+                                    </div>
+                                    <span style="color: #9ca3af;">→</span>
+                                </button>
+                                
+                                <!-- USDT Button (Ethereum Network) -->
+                                <button onclick="showCryptoDetails('usdt', '${usdtAmount}', '${wallets.usdt}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#16a34a'; this.style.background='#f0fdf4'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 1.5em;">₮</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-weight: 600; color: #1f2937;">Tether USDT (ETH Network)</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${usdtAmount} USDT</div>
                                         </div>
                                     </div>
                                     <span style="color: #9ca3af;">→</span>
@@ -11293,13 +11483,37 @@ Thank you for your assistance.`;
                                     <span style="color: #9ca3af;">→</span>
                                 </button>
                                 
-                                <!-- USDT Button -->
-                                <button onclick="showCryptoDetails('usdt', '${usdtAmount}', '${wallets.usdt}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#16a34a'; this.style.background='#f0fdf4'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                <!-- USDC Button (Ethereum Network) -->
+                                <button onclick="showCryptoDetails('usdc', '${usdcAmount}', '${wallets.usdc}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#3b82f6'; this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <span style="font-size: 1.5em;">₮</span>
+                                        <span style="font-size: 1.5em;">◉</span>
                                         <div style="text-align: left;">
-                                            <div style="font-weight: 600; color: #1f2937;">Tether USDT</div>
-                                            <div style="font-size: 0.85em; color: #6b7280;">${usdtAmount} USDT (BSC)</div>
+                                            <div style="font-weight: 600; color: #1f2937;">USDC (ETH Network)</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${usdcAmount} USDC</div>
+                                        </div>
+                                    </div>
+                                    <span style="color: #9ca3af;">→</span>
+                                </button>
+                                
+                                <!-- Cardano Button (ADA Network) -->
+                                <button onclick="showCryptoDetails('ada', '${adaAmount}', '${wallets.ada}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#0ea5e9'; this.style.background='#f0f9ff'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 1.5em;">₳</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-weight: 600; color: #1f2937;">Cardano (ADA Network)</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${adaAmount} ADA</div>
+                                        </div>
+                                    </div>
+                                    <span style="color: #9ca3af;">→</span>
+                                </button>
+                                
+                                <!-- BNB Button (BSC Network) -->
+                                <button onclick="showCryptoDetails('bnb', '${bnbAmount}', '${wallets.bnb}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#eab308'; this.style.background='#fef3c7'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 1.5em;">🟡</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-weight: 600; color: #1f2937;">BNB (BSC Network)</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${bnbAmount} BNB</div>
                                         </div>
                                     </div>
                                     <span style="color: #9ca3af;">→</span>
@@ -11369,7 +11583,26 @@ Thank you for your assistance.`;
 
         // Copy crypto amount to clipboard
         function copyCryptoAmount(amount) {
-            navigator.clipboard.writeText(amount.split(' ')[0]).then(() => {
+            // Fallback for mobile devices
+            if (!navigator.clipboard) {
+                const textArea = document.createElement("textarea");
+                textArea.value = amount;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showNotification('Amount copied to clipboard!', 'success');
+                } catch (err) {
+                    showNotification('Please manually copy the amount', 'error');
+                }
+                document.body.removeChild(textArea);
+                return;
+            }
+            
+            navigator.clipboard.writeText(amount).then(() => {
                 showNotification('Amount copied to clipboard!', 'success');
             }).catch(err => {
                 console.error('Failed to copy:', err);
@@ -11379,6 +11612,25 @@ Thank you for your assistance.`;
         
         // Copy crypto address to clipboard
         function copyCryptoAddress(address) {
+            // Fallback for mobile devices
+            if (!navigator.clipboard) {
+                const textArea = document.createElement("textarea");
+                textArea.value = address;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showNotification('Address copied to clipboard!', 'success');
+                } catch (err) {
+                    showNotification('Please manually copy the address', 'error');
+                }
+                document.body.removeChild(textArea);
+                return;
+            }
+            
             navigator.clipboard.writeText(address).then(() => {
                 showNotification('Address copied to clipboard!', 'success');
             }).catch(err => {

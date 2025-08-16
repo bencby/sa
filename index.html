@@ -5020,6 +5020,7 @@ body {
                 btc: { name: 'Bitcoin', symbol: 'BTC', color: '#f59e0b', network: 'BTC Network', qrCode: 'BTC QR CODE.png' },
                 eth: { name: 'Ethereum', symbol: 'ETH', color: '#6366f1', network: 'Ethereum Network', qrCode: 'ETH QR CODE.png' },
                 xrp: { name: 'XRP', symbol: 'XRP', color: '#1f2937', network: 'XRP Network', qrCode: 'XRP QR CODE.png' },
+                ltc: { name: 'Litecoin', symbol: 'LTC', color: '#94a3b8', network: 'Litecoin Network', qrCode: 'LTC QR CODE.png' },
                 sol: { name: 'Solana', symbol: 'SOL', color: '#a78bfa', network: 'Solana Network', qrCode: 'SOLANA QR CODE.png' },
                 usdt: { name: 'Tether USDT', symbol: 'USDT', color: '#16a34a', network: 'Ethereum Network', qrCode: 'TETHER QR CODE.png' },
                 usdc: { name: 'USD Coin', symbol: 'USDC', color: '#3b82f6', network: 'Ethereum Network', qrCode: 'USDC QR CODE.png' },
@@ -9624,7 +9625,8 @@ This is a demo. Please contact us to complete your order.`);
             usdt: 1,     // USDT (stable)
             usdc: 1,     // USDC (stable)
             ada: 1.0,    // Cardano fallback
-            bnb: 600     // BNB fallback
+            bnb: 600,    // BNB fallback
+            ltc: 100     // Litecoin fallback
         };
         let priceUpdateInterval;
         let paymentTimers = {};
@@ -10799,11 +10801,12 @@ Thank you for your assistance.`;
             const apiEndpoints = [
                 {
                     name: 'CoinGecko',
-                    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,solana,cardano,binancecoin&vs_currencies=usd',
+                    url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,litecoin,solana,cardano,binancecoin&vs_currencies=usd',
                     parsePrice: (data) => ({
                         btc: data.bitcoin?.usd,
                         eth: data.ethereum?.usd,
                         xrp: data.ripple?.usd,
+                        ltc: data.litecoin?.usd,
                         sol: data.solana?.usd,
                         ada: data.cardano?.usd,
                         bnb: data.binancecoin?.usd
@@ -10811,7 +10814,7 @@ Thank you for your assistance.`;
                 },
                 {
                     name: 'Binance-Multi',
-                    url: 'https://api.binance.com/api/v3/ticker/price?symbols=["BTCUSDT","ETHUSDT","XRPUSDT","SOLUSDT","ADAUSDT","BNBUSDT"]',
+                    url: 'https://api.binance.com/api/v3/ticker/price?symbols=["BTCUSDT","ETHUSDT","XRPUSDT","LTCUSDT","SOLUSDT","ADAUSDT","BNBUSDT"]',
                     parsePrice: (data) => {
                         const prices = {};
                         if (Array.isArray(data)) {
@@ -10825,11 +10828,12 @@ Thank you for your assistance.`;
                 },
                 {
                     name: 'CryptoCompare',
-                    url: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,XRP,SOL,ADA,BNB&tsyms=USD',
+                    url: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,XRP,LTC,SOL,ADA,BNB&tsyms=USD',
                     parsePrice: (data) => ({
                         btc: data.BTC?.USD,
                         eth: data.ETH?.USD,
                         xrp: data.XRP?.USD,
+                        ltc: data.LTC?.USD,
                         sol: data.SOL?.USD,
                         ada: data.ADA?.USD,
                         bnb: data.BNB?.USD
@@ -10837,7 +10841,7 @@ Thank you for your assistance.`;
                 },
                 {
                     name: 'CoinCap',
-                    url: 'https://api.coincap.io/v2/assets?ids=bitcoin,ethereum,xrp,solana,cardano,binance-coin',
+                    url: 'https://api.coincap.io/v2/assets?ids=bitcoin,ethereum,xrp,litecoin,solana,cardano,binance-coin',
                     parsePrice: (data) => {
                         const prices = {};
                         if (data.data && Array.isArray(data.data)) {
@@ -10845,6 +10849,7 @@ Thank you for your assistance.`;
                                 'bitcoin': 'btc',
                                 'ethereum': 'eth',
                                 'xrp': 'xrp',
+                                'litecoin': 'ltc',
                                 'solana': 'sol',
                                 'cardano': 'ada',
                                 'binance-coin': 'bnb'
@@ -10859,7 +10864,7 @@ Thank you for your assistance.`;
                 },
                 {
                     name: 'CoinRanking',
-                    url: 'https://api.coinranking.com/v2/coins?symbols=BTC,ETH,XRP,SOL,ADA,BNB&limit=10',
+                    url: 'https://api.coinranking.com/v2/coins?symbols=BTC,ETH,XRP,LTC,SOL,ADA,BNB&limit=10',
                     parsePrice: (data) => {
                         const prices = {};
                         if (data.data && data.data.coins && Array.isArray(data.data.coins)) {
@@ -10933,7 +10938,7 @@ Thank you for your assistance.`;
             
             if (successfulFetches.length > 0) {
                 // Aggregate prices for each cryptocurrency
-                const cryptoList = ['btc', 'eth', 'xrp', 'sol', 'ada', 'bnb'];
+                const cryptoList = ['btc', 'eth', 'xrp', 'ltc', 'sol', 'ada', 'bnb'];
                 
                 cryptoList.forEach(crypto => {
                     const pricesForCrypto = successfulFetches
@@ -10964,6 +10969,7 @@ Thank you for your assistance.`;
                 console.log(`  BTC: ${calculateCryptoAmount(100, 'btc')} BTC`);
                 console.log(`  ETH: ${calculateCryptoAmount(100, 'eth')} ETH`);
                 console.log(`  XRP: ${calculateCryptoAmount(100, 'xrp')} XRP`);
+                console.log(`  LTC: ${calculateCryptoAmount(100, 'ltc')} LTC`);
                 console.log(`  SOL: ${calculateCryptoAmount(100, 'sol')} SOL`);
                 console.log(`  ADA: ${calculateCryptoAmount(100, 'ada')} ADA`);
                 console.log(`  BNB: ${calculateCryptoAmount(100, 'bnb')} BNB`);
@@ -11072,7 +11078,7 @@ Thank you for your assistance.`;
         // Calculate crypto amount needed with high precision
         function calculateCryptoAmount(usdAmount, cryptoType) {
             if (!usdAmount || usdAmount <= 0) {
-                const decimals = { btc: 8, eth: 6, xrp: 4, sol: 4, usdt: 2, usdc: 2, ada: 2, bnb: 4 };
+                const decimals = { btc: 8, eth: 6, xrp: 4, sol: 4, usdt: 2, usdc: 2, ada: 2, bnb: 4, ltc: 6 };
                 return '0.' + '0'.repeat(decimals[cryptoType] || 2);
             }
             
@@ -11087,11 +11093,12 @@ Thank you for your assistance.`;
                     usdt: 1,
                     usdc: 1,
                     ada: 1.0,
-                    bnb: 600
+                    bnb: 600,
+                    ltc: 100
                 };
                 const fallback = fallbacks[cryptoType] || 1;
                 const amount = usdAmount / fallback;
-                const decimals = { btc: 8, eth: 6, xrp: 4, sol: 4, usdt: 2, usdc: 2, ada: 2, bnb: 4 };
+                const decimals = { btc: 8, eth: 6, xrp: 4, sol: 4, usdt: 2, usdc: 2, ada: 2, bnb: 4, ltc: 6 };
                 return amount.toFixed(decimals[cryptoType] || 2);
             }
             
@@ -11107,7 +11114,8 @@ Thank you for your assistance.`;
                 usdt: 2,  // USDT: 2 decimals
                 usdc: 2,  // USDC: 2 decimals
                 ada: 2,  // Cardano: 2 decimals
-                bnb: 4   // BNB: 4 decimals
+                bnb: 4,  // BNB: 4 decimals
+                ltc: 6   // Litecoin: 6 decimals
             };
             
             return amount.toFixed(decimalPlaces[cryptoType] || 2);
@@ -11390,6 +11398,7 @@ Thank you for your assistance.`;
                 const solAmount = calculateCryptoAmount(totalAmount, 'sol');
                 const adaAmount = calculateCryptoAmount(totalAmount, 'ada');
                 const bnbAmount = calculateCryptoAmount(totalAmount, 'bnb');
+                const ltcAmount = calculateCryptoAmount(totalAmount, 'ltc');
                 const usdtAmount = totalAmount.toFixed(2); // USDT is 1:1 with USD
                 const usdcAmount = totalAmount.toFixed(2); // USDC is 1:1 with USD
                 
@@ -11402,7 +11411,8 @@ Thank you for your assistance.`;
                     sol: '62AyK5pCwFNuZFnwUEZjvTFG2hVa7uiQKxEym2rXthYq', // Solana (SOL Network)
                     usdc: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1', // USDC (Ethereum Network)
                     ada: 'addr1qxel2mu57vcy4qmeyhgdx309nzl88nz7uspksxqxthehv3dn74hefuesf2phjfws6dz7tx97w0x9aeqrdqvqvh0nwezs5yf0h4', // Cardano (ADA Network)
-                    bnb: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1' // BNB (BSC Network)
+                    bnb: '0x4eb32cD8777cFB68E351Ce9F59fE222883F59ce1', // BNB (BSC Network)
+                    ltc: 'LfQKGVFQG9qEq3mx7DozkGTQWXnbJvT6zu' // Litecoin (LTC Network)
                 };
                 
                 instructionsHTML = `
@@ -11454,6 +11464,18 @@ Thank you for your assistance.`;
                                         <div style="text-align: left;">
                                             <div style="font-weight: 600; color: #1f2937;">XRP</div>
                                             <div style="font-size: 0.85em; color: #6b7280;">${xrpAmount} XRP</div>
+                                        </div>
+                                    </div>
+                                    <span style="color: #9ca3af;">→</span>
+                                </button>
+                                
+                                <!-- Litecoin Button -->
+                                <button onclick="showCryptoDetails('ltc', '${ltcAmount}', '${wallets.ltc}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#94a3b8'; this.style.background='#f8fafc'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 1.5em;">Ł</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-weight: 600; color: #1f2937;">Litecoin (LTC Network)</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${ltcAmount} LTC</div>
                                         </div>
                                     </div>
                                     <span style="color: #9ca3af;">→</span>

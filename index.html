@@ -11711,6 +11711,18 @@ Thank you for your assistance.`;
                                     <span style="color: #9ca3af;">→</span>
                                 </button>
                                 
+                                <!-- USDC Button (Ethereum Network) -->
+                                <button onclick="showCryptoDetails('usdc', '${usdcAmount}', '${wallets.usdc}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#3b82f6'; this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 1.5em;">◉</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-weight: 600; color: #1f2937;">USDC (ETH Network)</div>
+                                            <div style="font-size: 0.85em; color: #6b7280;">${usdcAmount} USDC</div>
+                                        </div>
+                                    </div>
+                                    <span style="color: #9ca3af;">→</span>
+                                </button>
+                                
                                 <!-- Ethereum Button (ETH Network) -->
                                 <button onclick="showCryptoDetails('eth', '${ethAmount}', '${wallets.eth}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#6366f1'; this.style.background='#eef2ff'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
                                     <div style="display: flex; align-items: center; gap: 12px;">
@@ -11766,18 +11778,6 @@ Thank you for your assistance.`;
                                         <div style="text-align: left;">
                                             <div style="font-weight: 600; color: #1f2937;">Solana</div>
                                             <div style="font-size: 0.85em; color: #6b7280;">${solAmount} SOL</div>
-                                        </div>
-                                    </div>
-                                    <span style="color: #9ca3af;">→</span>
-                                </button>
-                                
-                                <!-- USDC Button (Ethereum Network) -->
-                                <button onclick="showCryptoDetails('usdc', '${usdcAmount}', '${wallets.usdc}', '${totalAmount.toFixed(2)}')" style="background: white; border: 2px solid #e5e7eb; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between;" onmouseover="this.style.borderColor='#3b82f6'; this.style.background='#eff6ff'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.background='white'">
-                                    <div style="display: flex; align-items: center; gap: 12px;">
-                                        <span style="font-size: 1.5em;">◉</span>
-                                        <div style="text-align: left;">
-                                            <div style="font-weight: 600; color: #1f2937;">USDC (ETH Network)</div>
-                                            <div style="font-size: 0.85em; color: #6b7280;">${usdcAmount} USDC</div>
                                         </div>
                                     </div>
                                     <span style="color: #9ca3af;">→</span>

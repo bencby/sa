@@ -4335,6 +4335,124 @@ body {
         </div>
     </div>
 
+    <!-- Crypto Guide Modal -->
+    <div class="modal" id="cryptoGuideModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <i class="fas fa-coins" style="margin-right: 10px; color: #0284c7;"></i>
+                    How to Buy & Send Crypto
+                </h2>
+                <button class="modal-close" onclick="closeModal('cryptoGuideModal'); setTimeout(() => showModal('checkoutModal'), 300);">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" style="padding: 30px;">
+                <h3 style="color: #075985; margin: 0 0 20px 0; font-size: 1.4em; font-weight: 600; text-align: center;">
+                    📖 How to Buy & Send USDC Easily
+                </h3>
+                
+                <!-- Easiest Option -->
+                <div style="background: white; border: 2px solid #10b981; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h4 style="color: #059669; margin: 0 0 20px 0; font-size: 1.2em; font-weight: 600;">
+                        🚀 Easiest Option: Exodus Wallet (No ID Required)
+                    </h4>
+                    
+                    <div style="display: grid; gap: 20px;">
+                        <!-- Step 1 -->
+                        <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 20px; border-radius: 10px; border-left: 5px solid #0284c7;">
+                            <strong style="color: #0c4a6e; font-size: 1.1em; display: block; margin-bottom: 12px;">
+                                1️⃣ Download Exodus Wallet
+                            </strong>
+                            <ul style="margin: 0; padding-left: 25px; color: #334155; font-size: 1em; line-height: 1.8;">
+                                <li>Go to <a href="https://papaporgy.com/exodus-wallet/" target="_blank" style="color: #0284c7; font-weight: 600; text-decoration: underline;">papaporgy.com/exodus-wallet</a></li>
+                                <li>Install on your phone or computer</li>
+                                <li>Open app → create new wallet</li>
+                                <li style="color: #dc2626; font-weight: 600;">⚠️ Write down 12-word recovery phrase & keep safe!</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 20px; border-radius: 10px; border-left: 5px solid #f59e0b;">
+                            <strong style="color: #78350f; font-size: 1.1em; display: block; margin-bottom: 12px;">
+                                2️⃣ Buy Crypto Inside Exodus
+                            </strong>
+                            <ul style="margin: 0; padding-left: 25px; color: #451a03; font-size: 1em; line-height: 1.8;">
+                                <li>In Exodus, tap <strong>Buy Crypto</strong></li>
+                                <li>Choose <strong>MoonPay</strong> or <strong>PayPal</strong> as payment</li>
+                                <li>Select <strong>USDC (USD Coin)</strong> & enter amount</li>
+                                <li>Pay with card, Apple Pay, Google Pay, or PayPal</li>
+                                <li style="color: #059669; font-weight: 600;">USDC appears directly in your wallet! 🎉</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 20px; border-radius: 10px; border-left: 5px solid #10b981;">
+                            <strong style="color: #14532d; font-size: 1.1em; display: block; margin-bottom: 12px;">
+                                3️⃣ Send USDC from Exodus
+                            </strong>
+                            <ul style="margin: 0; padding-left: 25px; color: #166534; font-size: 1em; line-height: 1.8;">
+                                <li>Open Exodus → go to <strong>USDC balance</strong></li>
+                                <li>Tap <strong>Send</strong></li>
+                                <li>Paste recipient's wallet address</li>
+                                <li>Confirm → your USDC is sent! ✅</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefits -->
+                    <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-left: 5px solid #10b981; padding: 15px 20px; border-radius: 8px; margin-top: 20px;">
+                        <p style="margin: 0; color: #065f46; font-size: 1em; line-height: 1.8; font-weight: 500;">
+                            ✅ <strong>No ID required</strong> for small/medium purchases<br>
+                            ✅ <strong>Fast and simple</strong> — everything in one app<br>
+                            ✅ <strong>Works globally</strong> — available in most countries
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Other Options -->
+                <div style="background: #f9fafb; border-radius: 12px; padding: 25px; border: 2px solid #e5e7eb;">
+                    <h4 style="color: #374151; margin: 0 0 20px 0; font-size: 1.1em; font-weight: 600;">
+                        🌐 Other Options (Require ID Verification)
+                    </h4>
+                    
+                    <div style="display: grid; gap: 20px;">
+                        <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                            <strong style="color: #1e293b; font-size: 1em; display: block; margin-bottom: 10px;">
+                                <i class="fab fa-bitcoin" style="color: #0052ff; margin-right: 8px;"></i>
+                                Coinbase.com + Coinbase Wallet:
+                            </strong>
+                            <ol style="margin: 8px 0 0 30px; color: #475569; font-size: 0.95em; line-height: 1.8;">
+                                <li>Create account at <a href="https://www.coinbase.com" target="_blank" style="color: #0284c7; font-weight: 600;">coinbase.com</a> (ID required)</li>
+                                <li>Buy USDC directly with bank/card</li>
+                                <li>Download Coinbase Wallet app</li>
+                                <li>Send USDC: Coinbase → Wallet → Recipient</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                            <strong style="color: #1e293b; font-size: 1em; display: block; margin-bottom: 10px;">
+                                <i class="fab fa-paypal" style="color: #0070ba; margin-right: 8px;"></i>
+                                PayPal Crypto Transfer:
+                            </strong>
+                            <p style="margin: 8px 0 0 0; color: #475569; font-size: 0.95em; line-height: 1.8;">
+                                Available in select regions for verified PayPal accounts. 
+                                Buy crypto directly in PayPal app and transfer to external wallets.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button onclick="closeModal('cryptoGuideModal'); setTimeout(() => showModal('checkoutModal'), 300);" style="background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+                        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
+                        Back to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Modal -->
     <div class="modal contact-modal" id="contactModal">
         <div class="modal-content">
@@ -4926,7 +5044,11 @@ body {
                                     </div>
                                     <div class="payment-info">
                                         <h4>Cryptocurrency <span class="discount-badge">15% EXTRA OFF!</span></h4>
-                                        <p>BTC, ETH, LTC, SOL, USDT - Fast & anonymous</p>
+                                        <p>BTC, ETH, LTC, SOL, USDT, USDC, XRP, ADA, BNB - Fast & anonymous</p>
+                                        <button type="button" onclick="event.stopPropagation(); showCryptoGuideModal();" style="margin-top: 10px; background: linear-gradient(135deg, #0284c7, #0369a1); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; cursor: pointer; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
+                                            <i class="fas fa-question-circle" style="margin-right: 6px;"></i>
+                                            How to pay with crypto?
+                                        </button>
                                     </div>
                                 </div>
                             </label>
@@ -5024,6 +5146,22 @@ body {
             } else {
                 showModal('cartModal');
                 updateCartDisplay();
+            }
+        }
+        
+        // Toggle crypto guide
+        function toggleCryptoGuide() {
+            const guide = document.getElementById('cryptoGuide');
+            const arrow = document.getElementById('cryptoGuideArrow');
+            
+            if (guide && arrow) {
+                if (guide.style.display === 'none') {
+                    guide.style.display = 'block';
+                    arrow.style.transform = 'rotate(180deg)';
+                } else {
+                    guide.style.display = 'none';
+                    arrow.style.transform = 'rotate(0deg)';
+                }
             }
         }
         
@@ -9586,6 +9724,16 @@ This is a demo. Please contact us to complete your order.`);
             }
         }
 
+        // Show crypto guide modal
+        function showCryptoGuideModal() {
+            // Close checkout modal first if it's open
+            closeModal('checkoutModal');
+            // Small delay to ensure smooth transition
+            setTimeout(() => {
+                showModal('cryptoGuideModal');
+            }, 300);
+        }
+        
         // Show modal function
         function showModal(modalId) {
             const modal = document.getElementById(modalId);
@@ -11449,109 +11597,106 @@ Thank you for your assistance.`;
                             <h4 style="margin: 0 0 15px 0; color: #1f2937; font-size: 1.1em; font-weight: 600;">Select Payment Method:</h4>
                             
                             <!-- How to Pay with Crypto Guide -->
-                            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #0284c7; border-radius: 8px; padding: 12px; margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleCryptoGuide()">
-                                    <span style="color: #0c4a6e; font-weight: 600; font-size: 0.9em;">
-                                        <i class="fas fa-question-circle" style="margin-right: 6px;"></i>
-                                        How to pay with crypto?
+                            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #0284c7; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 5px;" onclick="toggleCryptoGuide()">
+                                    <span style="color: #0c4a6e; font-weight: 600; font-size: 1em;">
+                                        <i class="fas fa-question-circle" style="margin-right: 8px;"></i>
+                                        How to pay with crypto? Click here for easy guide
                                     </span>
-                                    <i id="cryptoGuideArrow" class="fas fa-chevron-down" style="color: #0284c7; transition: transform 0.3s;"></i>
+                                    <i id="cryptoGuideArrow" class="fas fa-chevron-down" style="color: #0284c7; transition: transform 0.3s; font-size: 1.2em;"></i>
                                 </div>
                                 
-                                <div id="cryptoGuide" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #0284c7;">
-                                    <h5 style="color: #075985; margin: 0 0 12px 0; font-size: 1em;">
+                                <div id="cryptoGuide" style="display: none; margin-top: 20px; padding-top: 20px; border-top: 2px solid #0284c7; max-width: 100%;">
+                                    <h5 style="color: #075985; margin: 0 0 15px 0; font-size: 1.2em; font-weight: 600;">
                                         📖 How to Buy & Send USDC Easily
                                     </h5>
                                     
                                     <!-- Easiest Option -->
-                                    <div style="background: white; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                                        <h6 style="color: #059669; margin: 0 0 10px 0; font-size: 0.95em;">
+                                    <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                                        <h6 style="color: #059669; margin: 0 0 15px 0; font-size: 1.1em; font-weight: 600;">
                                             🚀 Easiest Option: Exodus Wallet (No ID Required)
                                         </h6>
                                         
-                                        <!-- Step 1 -->
-                                        <div style="margin-bottom: 12px;">
-                                            <strong style="color: #1f2937; font-size: 0.9em;">1️⃣ Download Exodus Wallet</strong>
-                                            <ul style="margin: 5px 0 0 20px; color: #4b5563; font-size: 0.85em;">
-                                                <li>Go to <a href="https://papaporgy.com/exodus-wallet/" target="_blank" style="color: #0284c7;">papaporgy.com/exodus-wallet</a></li>
-                                                <li>Install on your phone or computer</li>
-                                                <li>Open app → create new wallet</li>
-                                                <li>⚠️ Write down 12-word recovery phrase & keep safe!</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Step 2 -->
-                                        <div style="margin-bottom: 12px;">
-                                            <strong style="color: #1f2937; font-size: 0.9em;">2️⃣ Buy Crypto Inside Exodus</strong>
-                                            <ul style="margin: 5px 0 0 20px; color: #4b5563; font-size: 0.85em;">
-                                                <li>In Exodus, tap <strong>Buy Crypto</strong></li>
-                                                <li>Choose MoonPay or PayPal as payment</li>
-                                                <li>Select <strong>USDC (USD Coin)</strong> & enter amount</li>
-                                                <li>Pay with card, Apple Pay, Google Pay, or PayPal</li>
-                                                <li>USDC appears directly in your wallet! 🎉</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!-- Step 3 -->
-                                        <div style="margin-bottom: 12px;">
-                                            <strong style="color: #1f2937; font-size: 0.9em;">3️⃣ Send USDC from Exodus</strong>
-                                            <ul style="margin: 5px 0 0 20px; color: #4b5563; font-size: 0.85em;">
-                                                <li>Open Exodus → go to USDC balance</li>
-                                                <li>Tap <strong>Send</strong></li>
-                                                <li>Paste recipient's wallet address</li>
-                                                <li>Confirm → your USDC is sent!</li>
-                                            </ul>
+                                        <div style="display: grid; gap: 15px;">
+                                            <!-- Step 1 -->
+                                            <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0284c7;">
+                                                <strong style="color: #1f2937; font-size: 1em; display: block; margin-bottom: 8px;">1️⃣ Download Exodus Wallet</strong>
+                                                <ul style="margin: 0; padding-left: 20px; color: #4b5563; font-size: 0.95em; line-height: 1.6;">
+                                                    <li>Go to <a href="https://papaporgy.com/exodus-wallet/" target="_blank" style="color: #0284c7; font-weight: 500;">papaporgy.com/exodus-wallet</a></li>
+                                                    <li>Install on your phone or computer</li>
+                                                    <li>Open app → create new wallet</li>
+                                                    <li style="color: #dc2626; font-weight: 500;">⚠️ Write down 12-word recovery phrase & keep safe!</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <!-- Step 2 -->
+                                            <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                                                <strong style="color: #1f2937; font-size: 1em; display: block; margin-bottom: 8px;">2️⃣ Buy Crypto Inside Exodus</strong>
+                                                <ul style="margin: 0; padding-left: 20px; color: #4b5563; font-size: 0.95em; line-height: 1.6;">
+                                                    <li>In Exodus, tap <strong>Buy Crypto</strong></li>
+                                                    <li>Choose MoonPay or PayPal as payment</li>
+                                                    <li>Select <strong>USDC (USD Coin)</strong> & enter amount</li>
+                                                    <li>Pay with card, Apple Pay, Google Pay, or PayPal</li>
+                                                    <li style="color: #059669; font-weight: 500;">USDC appears directly in your wallet! 🎉</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <!-- Step 3 -->
+                                            <div style="background: #ecfdf5; padding: 15px; border-radius: 8px; border-left: 4px solid #10b981;">
+                                                <strong style="color: #1f2937; font-size: 1em; display: block; margin-bottom: 8px;">3️⃣ Send USDC from Exodus</strong>
+                                                <ul style="margin: 0; padding-left: 20px; color: #4b5563; font-size: 0.95em; line-height: 1.6;">
+                                                    <li>Open Exodus → go to USDC balance</li>
+                                                    <li>Tap <strong>Send</strong></li>
+                                                    <li>Paste recipient's wallet address</li>
+                                                    <li>Confirm → your USDC is sent!</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         
                                         <!-- Benefits -->
-                                        <div style="background: #f0fdf4; border-left: 3px solid #10b981; padding: 8px 12px; border-radius: 4px; margin-top: 10px;">
-                                            <p style="margin: 0; color: #065f46; font-size: 0.85em;">
-                                                ✅ No ID required for small/medium purchases<br>
-                                                ✅ Fast and simple — everything in one app
+                                        <div style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 12px 15px; border-radius: 6px; margin-top: 15px;">
+                                            <p style="margin: 0; color: #065f46; font-size: 0.95em; line-height: 1.5;">
+                                                ✅ <strong>No ID required</strong> for small/medium purchases<br>
+                                                ✅ <strong>Fast and simple</strong> — everything in one app<br>
+                                                ✅ <strong>Works globally</strong> — available in most countries
                                             </p>
                                         </div>
                                     </div>
                                     
                                     <!-- Other Options -->
-                                    <div style="background: #f9fafb; border-radius: 8px; padding: 12px;">
-                                        <h6 style="color: #374151; margin: 0 0 8px 0; font-size: 0.9em;">
-                                            🌐 Other Options (Require ID)
+                                    <div style="background: #f9fafb; border-radius: 10px; padding: 20px; border: 1px solid #e5e7eb;">
+                                        <h6 style="color: #374151; margin: 0 0 12px 0; font-size: 1em; font-weight: 600;">
+                                            🌐 Other Options (Require ID Verification)
                                         </h6>
                                         
-                                        <div style="margin-bottom: 8px;">
-                                            <strong style="color: #4b5563; font-size: 0.85em;">Coinbase.com + Coinbase Wallet:</strong>
-                                            <ol style="margin: 3px 0 0 25px; color: #6b7280; font-size: 0.8em;">
-                                                <li>Create account at <a href="https://www.coinbase.com" target="_blank" style="color: #0284c7;">coinbase.com</a> (ID required)</li>
-                                                <li>Buy USDC</li>
-                                                <li>Download Coinbase Wallet</li>
-                                                <li>Send USDC from Coinbase → Coinbase Wallet</li>
-                                            </ol>
-                                        </div>
-                                        
-                                        <div>
-                                            <strong style="color: #4b5563; font-size: 0.85em;">PayPal Crypto Transfer:</strong>
-                                            <p style="margin: 3px 0 0 0; color: #6b7280; font-size: 0.8em;">
-                                                Available in select regions for verified PayPal accounts
-                                            </p>
+                                        <div style="display: grid; gap: 15px;">
+                                            <div style="background: white; padding: 12px; border-radius: 6px; border: 1px solid #e5e7eb;">
+                                                <strong style="color: #4b5563; font-size: 0.95em; display: block; margin-bottom: 5px;">
+                                                    <i class="fab fa-bitcoin" style="color: #0052ff; margin-right: 5px;"></i>
+                                                    Coinbase.com + Coinbase Wallet:
+                                                </strong>
+                                                <ol style="margin: 5px 0 0 25px; color: #6b7280; font-size: 0.9em; line-height: 1.5;">
+                                                    <li>Create account at <a href="https://www.coinbase.com" target="_blank" style="color: #0284c7;">coinbase.com</a> (ID required)</li>
+                                                    <li>Buy USDC directly with bank/card</li>
+                                                    <li>Download Coinbase Wallet app</li>
+                                                    <li>Send USDC from Coinbase → Coinbase Wallet → Recipient</li>
+                                                </ol>
+                                            </div>
+                                            
+                                            <div style="background: white; padding: 12px; border-radius: 6px; border: 1px solid #e5e7eb;">
+                                                <strong style="color: #4b5563; font-size: 0.95em; display: block; margin-bottom: 5px;">
+                                                    <i class="fab fa-paypal" style="color: #0070ba; margin-right: 5px;"></i>
+                                                    PayPal Crypto Transfer:
+                                                </strong>
+                                                <p style="margin: 5px 0 0 0; color: #6b7280; font-size: 0.9em; line-height: 1.5;">
+                                                    Available in select regions for verified PayPal accounts. 
+                                                    Buy crypto directly in PayPal app and transfer to external wallets.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <script>
-                                function toggleCryptoGuide() {
-                                    const guide = document.getElementById('cryptoGuide');
-                                    const arrow = document.getElementById('cryptoGuideArrow');
-                                    
-                                    if (guide.style.display === 'none') {
-                                        guide.style.display = 'block';
-                                        arrow.style.transform = 'rotate(180deg)';
-                                    } else {
-                                        guide.style.display = 'none';
-                                        arrow.style.transform = 'rotate(0deg)';
-                                    }
-                                }
-                            </script>
                             
                             <div style="display: grid; gap: 10px;">
                                 <!-- Bitcoin Button (BTC Network) -->

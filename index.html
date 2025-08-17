@@ -1167,6 +1167,9 @@ body {
     background-color: var(--gray-50);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 /* === UTILITY CLASSES === */
@@ -1364,7 +1367,7 @@ body {
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-fast);
-    min-width: 180px;
+    min-width: 160px;
     color: var(--gray-900);
     font-size: var(--font-size-sm);
 }
@@ -1546,44 +1549,64 @@ body {
 
 @media (max-width: 768px) {
     .header-actions {
-        flex-direction: column;
-        gap: var(--space-2);
-        align-items: stretch;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .warehouse-selector {
         order: -1;
         width: 100%;
+        margin-bottom: 8px;
     }
     
     .warehouse-current {
         min-width: auto;
-        padding: var(--space-2);
-        font-size: 12px;
+        padding: 8px 10px;
+        font-size: 11px;
+        width: 100%;
     }
     
     .warehouse-info strong {
-        font-size: 11px;
+        font-size: 10px;
+        line-height: 1.2;
     }
     
     .warehouse-info small {
-        font-size: 10px;
+        font-size: 9px;
+        line-height: 1.1;
+    }
+    
+    .warehouse-flag {
+        font-size: 14px;
     }
     
     .cart-btn {
-        padding: var(--space-2) var(--space-3);
-        font-size: var(--font-size-sm);
+        padding: 8px 12px;
+        font-size: 13px;
+        flex: 1;
+        max-width: calc(50% - 4px);
+        min-height: 40px;
+        justify-content: center;
+    }
+    
+    /* Hide TikTok button on mobile to save space */
+    .header-actions > a[href*="tiktok"] {
+        display: none;
     }
     
     .mobile-search-btn {
         display: flex; /* Show on mobile */
-        padding: var(--space-2) var(--space-3);
-        font-size: var(--font-size-sm);
+        padding: 8px 12px;
+        font-size: 13px;
         flex: 1;
-        min-height: 44px; /* Better touch target */
+        max-width: calc(50% - 4px);
+        min-height: 40px;
         align-items: center;
         justify-content: center;
-        gap: var(--space-2);
+        gap: 6px;
     }
     
     /* Better mobile navigation */
@@ -3792,7 +3815,9 @@ body {
     }
     
     .container {
-        padding: 0 var(--space-2); /* Reduced from space-3 */
+        padding: 0 12px; /* Fixed padding for mobile */
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
     /* More compact mobile navigation */

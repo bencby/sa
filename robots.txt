@@ -1,27 +1,64 @@
 User-agent: *
 Allow: /
+Crawl-delay: 0
 
-# Main pages
+# Priority Pages - Trust & Authority
 Allow: /index.html
-Allow: /faq.html  
+Allow: /telegram-scam-warning.html
+Allow: /official-website-verification.html
+Allow: /sigma-audley-vs-competitors.html
+Allow: /why-choose-sigma-audley.html
+Allow: /usa-peptide-supplier.html
+Allow: /uk-peptide-supplier.html
+Allow: /canada-peptide-supplier.html
+Allow: /australia-peptide-supplier.html
+Allow: /bulk-orders-institutions.html
+Allow: /certificate-of-analysis.html
+Allow: /shipping-authenticity-guarantee.html
+Allow: /how-to-spot-fake-peptides.html
+Allow: /research-institution-partnership.html
+Allow: /peptide-storage-handling-guide.html
+Allow: /faq.html
 Allow: /refer-a-friend.html
+
+# Product Pages - High Priority
+Allow: /products/
+Allow: /products/semaglutide-10mg-research.html
+Allow: /products/tirzepatide-15mg-research.html
+Allow: /products/retatrutide-5mg-peptide.html
+Allow: /products/h36-somatropin-hgh-36iu.html
+Allow: /products/bpc-157-5mg-healing.html
+Allow: /products/tb500-10mg-research.html
+Allow: /products/peptides/
+Allow: /products/growth-hormones/
+
+# Trust & Comparison Pages
+Allow: /research-grade-peptides-comparison.html
+Allow: /fast-shipping-research-peptides.html
+Allow: /usa-research-peptides-supplier.html
 
 # Allow important assets
 Allow: /_vercel/insights/script.js
 Allow: /images/
 Allow: /css/
 Allow: /js/
+Allow: /assets/
+Allow: /janoshik-results/
+Allow: /certificates/
 
 # Block sensitive areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
+Disallow: /wp-admin/
+Disallow: /temp/
+Disallow: /cache/
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://sigmaaudley.net/sitemap.xml
-
-# Crawl delay for polite crawling
-Crawl-delay: 1
+Sitemap: https://sigmaaudley.net/sitemap-products.xml
+Sitemap: https://sigmaaudley.net/sitemap-trust.xml
+Sitemap: https://sigmaaudley.net/sitemap-locations.xml
 
 # Specific bot instructions
 User-agent: Googlebot

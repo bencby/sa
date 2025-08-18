@@ -7353,7 +7353,7 @@ body {
                             <div style="background: #fff4e6; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
                                 <strong>3. Bank:</strong> Select "<strong>Other</strong>" → Type "<strong>Monzo</strong>"<br>
                                 • Sort Code: <strong style="font-family: monospace;">040003</strong><br>
-                                • Account: <strong style="font-family: monospace;">28671061</strong>
+                                • Account: <strong style="font-family: monospace;">48279640</strong>
                             </div>
                             
                             <div style="background: #f0fdf4; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
@@ -12313,7 +12313,7 @@ This is a demo. Please contact us to complete your order.`);
                     return;
                 }
             
-            // Get or set the promo end time - LIVE 6-hour cycles
+            // Get or set the promo end time - Fixed to August 19, 2025 at 5pm BST
             function getPromoEndTime() {
                 // Clear old localStorage keys to avoid conflicts
                 if (localStorage.getItem('promoEndTime')) {
@@ -12322,28 +12322,11 @@ This is a demo. Please contact us to complete your order.`);
                     localStorage.removeItem('promoEndTimeV2');
                 }
                 
-                const now = new Date().getTime();
-                
-                // Base time: August 16, 2025 at 9am BST (8am UTC)
+                // Fixed end time: August 19, 2025 at 5pm BST (4pm UTC)
                 // BST = UTC+1 in August
-                const baseTime = new Date('2025-08-16T08:00:00Z').getTime();
+                const endTime = new Date('2025-08-19T16:00:00Z').getTime();
                 
-                // 6-hour cycle in milliseconds
-                const sixHours = 6 * 60 * 60 * 1000;
-                
-                // Calculate current position in cycle
-                // This works both for future dates and when the cycles have started
-                let timeDiff;
-                if (now < baseTime) {
-                    // Before the first deadline - count down to it
-                    return baseTime;
-                } else {
-                    // After first deadline - calculate which 6-hour period we're in
-                    timeDiff = now - baseTime;
-                    const cyclesPassed = Math.floor(timeDiff / sixHours);
-                    const nextCycleEnd = baseTime + ((cyclesPassed + 1) * sixHours);
-                    return nextCycleEnd;
-                }
+                return endTime;
             }
             
             let promoEndTime = getPromoEndTime();
@@ -12353,19 +12336,10 @@ This is a demo. Please contact us to complete your order.`);
                 const timeLeft = promoEndTime - now;
                 
                 if (timeLeft <= 0) {
-                    // Timer expired - get next promo time from schedule
-                    promoEndTime = getPromoEndTime();
-                    
-                    // Flash a quick "Renewed!" message before continuing
-                    timerElement.textContent = '🎉 PROMO RENEWED - 6 HOURS!';
-                    timerElement.style.color = '#10b981';
-                    
-                    setTimeout(() => {
-                        timerElement.style.color = '#fbbf24'; // Reset to yellow color
-                        updateTimer(); // Update immediately to show new countdown
-                    }, 2000);
-                    
-                    return; // Will update after message
+                    // Timer expired - promo has ended
+                    timerElement.textContent = 'PROMO ENDED';
+                    timerElement.style.color = '#ef4444'; // Red color for ended
+                    return;
                 }
                 
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -12374,8 +12348,10 @@ This is a demo. Please contact us to complete your order.`);
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 
                 let timerText = '';
-                // Since cycles are 16 hours max, we won't show days
-                if (hours > 0) {
+                // Show days if present
+                if (days > 0) {
+                    timerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                } else if (hours > 0) {
                     timerText = `${hours}h ${minutes}m ${seconds}s`;
                 } else if (minutes > 0) {
                     timerText = `${minutes}m ${seconds}s`;
@@ -14207,7 +14183,7 @@ Thank you for your assistance.`;
                                         <div style="background: #fff4e6; padding: 12px; border-radius: 6px; margin-top: 8px; border: 1px solid #fbbf24;">
                                             • Bank: Select <strong>"Other"</strong> → Type <strong>"Monzo"</strong><br>
                                             • Sort Code: <strong style="font-family: monospace; font-size: 1.1em;">040003</strong><br>
-                                            • Account: <strong style="font-family: monospace; font-size: 1.1em;">28671061</strong>
+                                            • Account: <strong style="font-family: monospace; font-size: 1.1em;">48279640</strong>
                                         </div>
                                     </div>
                                 </div>

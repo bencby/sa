@@ -12388,7 +12388,7 @@ This is a demo. Please contact us to complete your order.`);
                     return;
                 }
             
-            // Get or set the promo end time - Fixed to August 19, 2025 at 5pm BST
+            // Get or set the promo end time - Fixed to August 20, 2025 at 7am BST
             function getPromoEndTime() {
                 // Clear old localStorage keys to avoid conflicts
                 if (localStorage.getItem('promoEndTime')) {
@@ -12397,9 +12397,9 @@ This is a demo. Please contact us to complete your order.`);
                     localStorage.removeItem('promoEndTimeV2');
                 }
                 
-                // Fixed end time: August 19, 2025 at 5pm BST (4pm UTC)
+                // Fixed end time: August 20, 2025 at 7am BST (6am UTC)
                 // BST = UTC+1 in August
-                const endTime = new Date('2025-08-19T16:00:00Z').getTime();
+                const endTime = new Date('2025-08-20T06:00:00Z').getTime();
                 
                 return endTime;
             }

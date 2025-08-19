@@ -8028,8 +8028,10 @@ body {
             document.getElementById('cryptoDetails').style.display = 'none';
         }
         
-        function confirmPaymentSent() {
-            alert('Thank you! Your payment is being confirmed. You will receive an email once the transaction is verified.');
+        // Note: This function is overridden by the main confirmPaymentSent function below
+        // Keeping for compatibility but redirecting to the main function
+        function confirmPaymentSentLegacy() {
+            confirmPaymentSent();
         }
         
         function showModal(modalId) {
@@ -12687,7 +12689,7 @@ This is a demo. Please contact us to complete your order.`);
                 return;
             }
 
-            // Track checkout start
+            // Track checkout start (existing analytics only - no Google Ads yet)
             if (window.trackAnalyticsEvent) {
                 const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
                 window.trackAnalyticsEvent('checkout_started', {
@@ -13075,7 +13077,60 @@ This is a demo. Please contact us to complete your order.`);
                 return;
             }
 
-            // Close checkout modal and show thank you page
+            // Ensure orderData exists, if not create it with current order details
+            if (!orderData || !orderData.orderId) {
+                // Get form data if orderData wasn't set
+                const form = document.getElementById('shippingForm');
+                const formData = new FormData(form);
+                const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || 'unknown';
+                const warehouse = warehouses[selectedWarehouse];
+                
+                orderData = {
+                    orderId: currentOrderId || generateOrderId(),
+                    cart: [...cart],
+                    warehouse: warehouse,
+                    total: calculateTotal(),
+                    finalTotal: calculateTotal(),
+                    paymentMethod: paymentMethod,
+                    shippingInfo: {
+                        fullName: formData.get('fullName') || '',
+                        email: formData.get('email') || '',
+                        phone: formData.get('phone') || '',
+                        address: formData.get('address') || '',
+                        address2: formData.get('address2') || '',
+                        city: formData.get('city') || '',
+                        state: formData.get('state') || '',
+                        zipCode: formData.get('zipCode') || '',
+                        country: formData.get('country') || '',
+                        orderNotes: formData.get('orderNotes') || ''
+                    },
+                    timestamp: new Date().toISOString()
+                };
+            }
+
+            // Get order details for tracking
+            const orderTotal = orderData.finalTotal || orderData.total || calculateTotal();
+            const orderId = orderData.orderId;
+            
+            // Add URL parameter for Google Ads purchase conversion tracking (without amount as requested)
+            const newUrl = window.location.pathname + `?purchase=completed&order=${encodeURIComponent(orderId)}`;
+            window.history.pushState({purchase: true}, '', newUrl);
+            
+            // Fire Google Ads purchase event if gtag is available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'purchase', {
+                    'transaction_id': orderId,
+                    'value': orderTotal,
+                    'currency': 'USD',
+                    'items': cart.map(item => ({
+                        'item_name': item.product.name,
+                        'quantity': item.quantity,
+                        'price': calculateItemPrice(item) / item.quantity
+                    }))
+                });
+            }
+            
+            // Close checkout modal and show original thank you page
             closeModal('checkoutModal');
             showThankYouPage();
         }
@@ -13645,8 +13700,33 @@ Thank you for your assistance.`;
             showNotification(`Warehouse changed to ${warehouse.flag} ${warehouse.name}`, 'success');
         }
         
-        // Update payment method and recalculate totals
+        // Update payment method and proceed to payment instructions
         function updatePaymentMethod() {
+            // Get selected payment method
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
+            
+            // Track checkout start for Google Ads when payment method is selected
+            if (paymentMethod) {
+                // Update URL to include checkout parameter
+                const newUrl = window.location.pathname + `?checkout=started&method=${paymentMethod}`;
+                window.history.pushState({checkout: true}, '', newUrl);
+                
+                // Fire Google Ads begin checkout event
+                if (typeof gtag !== 'undefined') {
+                    const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
+                    gtag('event', 'begin_checkout', {
+                        'currency': 'USD',
+                        'value': cartTotal,
+                        'payment_method': paymentMethod,
+                        'items': cart.map(item => ({
+                            'item_name': item.product.name,
+                            'quantity': item.quantity,
+                            'price': calculateItemPrice(item) / item.quantity
+                        }))
+                    });
+                }
+            }
+            
             populateOrderReview();
         }
         
@@ -13693,6 +13773,26 @@ Thank you for your assistance.`;
 
         // Proceed to payment selection after address verification
         function proceedToPaymentSelection() {
+            // Track "Continue to Payment" for Google Ads
+            const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
+            
+            // Update URL to include continue-to-payment parameter
+            const newUrl = window.location.pathname + '?continue_to_payment=true';
+            window.history.pushState({continueToPayment: true}, '', newUrl);
+            
+            // Fire Google Ads event for continuing to payment
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'add_payment_info', {
+                    'currency': 'USD',
+                    'value': cartTotal,
+                    'items': cart.map(item => ({
+                        'item_name': item.product.name,
+                        'quantity': item.quantity,
+                        'price': calculateItemPrice(item) / item.quantity
+                    }))
+                });
+            }
+            
             currentCheckoutStep = 3;
             updateCheckoutSteps();
             showCheckoutStep(3);
@@ -14688,6 +14788,65 @@ Thank you for your assistance.`;
             });
         }
         
+        // Initialize tracking for Google Ads - 3 conversion points
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // TRACKING POINT 1: Continue to Payment clicked (after shipping info)
+            if (urlParams.get('continue_to_payment') === 'true') {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'add_payment_info', {
+                        'page_title': 'Continue to Payment - Shipping Completed',
+                        'page_location': window.location.href,
+                        'send_to': 'AW-XXXXXXXXX' // Replace with your Google Ads ID for Add Payment Info
+                    });
+                }
+            }
+            
+            // TRACKING POINT 2: Payment method selected (PayPal/IBAN/Crypto)
+            if (urlParams.get('checkout') === 'started') {
+                const method = urlParams.get('method');
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'begin_checkout', {
+                        'page_title': 'Begin Checkout - Payment Method Selected',
+                        'page_location': window.location.href,
+                        'payment_method': method,
+                        'send_to': 'AW-XXXXXXXXX' // Replace with your Google Ads ID for Begin Checkout
+                    });
+                }
+            }
+            
+            // TRACKING POINT 3: Purchase completed (I've sent payment clicked)
+            if (urlParams.get('purchase') === 'completed') {
+                const orderId = urlParams.get('order');
+                const amount = parseFloat(urlParams.get('amount')) || 0;
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'purchase', {
+                        'send_to': 'AW-XXXXXXXXX/XXXXXXXXX', // Replace with your Purchase conversion label
+                        'transaction_id': orderId,
+                        'value': amount,
+                        'currency': 'USD'
+                    });
+                }
+            }
+            
+            // Clean up URL after tracking (remove all tracking parameters)
+            if (urlParams.has('continue_to_payment') || urlParams.has('checkout') || urlParams.has('purchase') || 
+                urlParams.has('method') || urlParams.has('order') || urlParams.has('amount')) {
+                // Remove all tracking parameters
+                urlParams.delete('continue_to_payment');
+                urlParams.delete('checkout');
+                urlParams.delete('purchase');
+                urlParams.delete('method');
+                urlParams.delete('order');
+                urlParams.delete('amount');
+                
+                // Update URL without reload
+                const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+                window.history.replaceState({}, '', newUrl);
+            }
+        });
+        
         // Specialized function to copy Bitcoin amount with high precision
         function copyBtcAmount() {
             const element = document.getElementById('btcAmount');
@@ -15268,7 +15427,55 @@ Thank you for your assistance.`;
         <h3>Research Market Leadership</h3>
         <p>Research chemical market leader, research pharmaceutical authority, research compound specialist, research material expert, research grade supplier, research quality standards, research testing protocols, research documentation standards, research regulatory compliance, research safety standards, research handling procedures, research storage conditions, research shipping requirements.</p>
         
-        <!-- MASSIVE LONG-TAIL KEYWORD EXPANSION -->
+        <!-- MASSIVE BUYER-INTENT LONG-TAIL SEO EXPANSION -->
+        <h2>BUYER-INTENT LONG-TAIL KEYWORDS - WHAT PEOPLE SEARCH BEFORE BUYING</h2>
+        
+        <h3>BEST PEPTIDES FOR BEGINNERS - SIGMA AUDLEY</h3>
+        <p>Best peptides for beginners sigma audley, best semaglutide for beginners, best tirzepatide for first time users, best retatrutide for beginners guide, best BPC-157 for beginners dosage, best TB-500 for beginners protocol, best growth hormone for beginners, best peptide stack for beginners, best research peptides for beginners 2025, best peptide source for beginners, best peptide supplier for beginners, safest peptides for beginners, easiest peptides for beginners, beginner friendly peptides sigma audley, peptides for beginners complete guide, how to start with peptides beginners, peptide beginner starter kit, first time peptide buyer guide sigma audley.</p>
+        
+        <h3>TRUSTED SOURCE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Trusted source retatrutide, trusted source semaglutide, trusted source tirzepatide, trusted source BPC-157, trusted source TB-500, trusted source peptides, trusted source research chemicals, trusted source growth hormone, trusted source HGH, trusted source IGF-1, most trusted peptide source, most trusted peptide supplier, most trusted peptide vendor, reliable source peptides, reliable peptide supplier, legitimate peptide source, verified peptide source, authentic peptide supplier, genuine peptide vendor, real peptide source sigma audley.</p>
+        
+        <h3>WHERE TO BUY SEARCHES - SIGMA AUDLEY</h3>
+        <p>Where to buy retatrutide online, where to buy semaglutide peptide, where to buy tirzepatide research, where to buy BPC-157 genuine, where to buy TB-500 authentic, where to buy peptides online safely, where to buy research chemicals legitimate, where to buy growth hormone real, where to buy HGH peptide, where to buy IGF-1 research, where can I buy peptides, where can I find real peptides, where to get legitimate peptides, where to purchase authentic peptides, where to order genuine peptides sigma audley.</p>
+        
+        <h3>BEST QUALITY SEARCHES - SIGMA AUDLEY</h3>
+        <p>Best quality retatrutide supplier, best quality semaglutide vendor, best quality tirzepatide source, best quality BPC-157 provider, best quality TB-500 seller, best quality peptides online, best quality research chemicals, highest quality peptides, highest purity peptides, purest peptides available, cleanest peptides source, pharmaceutical grade peptides, research grade peptides, laboratory tested peptides, third party tested peptides, janoshik tested peptides sigma audley.</p>
+        
+        <h3>CHEAPEST AND BEST VALUE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Cheapest retatrutide online, cheapest semaglutide peptide, cheapest tirzepatide supplier, best value peptides, best price peptides, affordable peptides source, discount peptides supplier, wholesale peptides prices, bulk peptides discount, peptides coupon code, peptides promo code, peptides sale, peptides deal, best peptide deals, lowest price peptides, competitive peptide pricing, cost effective peptides sigma audley.</p>
+        
+        <h3>SAFE AND LEGITIMATE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Is sigma audley safe, is sigma audley legitimate, is sigma audley real, is sigma audley trusted, is sigma audley reliable, is sigma audley authentic, is sigma audley genuine, is sigma audley verified, safe peptide source, safe place to buy peptides, legitimate peptide supplier, legitimate research chemical vendor, real peptide company, authentic peptide provider, genuine peptide seller, verified peptide source, FDA registered peptide supplier, licensed peptide vendor.</p>
+        
+        <h3>HOW TO BUY SEARCHES - SIGMA AUDLEY</h3>
+        <p>How to buy retatrutide online, how to buy semaglutide peptide, how to buy tirzepatide safely, how to order peptides online, how to purchase research chemicals, how to get peptides delivered, how to find legitimate peptide supplier, how to verify peptide authenticity, how to check peptide quality, how to test peptide purity, how to store peptides properly, how to reconstitute peptides, how to dose peptides correctly, how to use peptides safely sigma audley.</p>
+        
+        <h3>REVIEWS AND RATINGS SEARCHES - SIGMA AUDLEY</h3>
+        <p>Sigma audley reviews, sigma audley review reddit, sigma audley reviews 2025, sigma audley customer reviews, sigma audley testimonials, sigma audley ratings, sigma audley feedback, sigma audley experiences, sigma audley review forum, sigma audley review meso rx, sigma audley review eroids, sigma audley trustpilot, sigma audley review bodybuilding, is sigma audley legit reddit, sigma audley reddit review, sigma audley forum review, sigma audley real reviews.</p>
+        
+        <h3>COMPARISON SEARCHES - SIGMA AUDLEY VS COMPETITORS</h3>
+        <p>Sigma audley vs peptide sciences, sigma audley vs science bio, sigma audley vs chemyo, sigma audley vs swiss chems, sigma audley vs amino asylum, sigma audley vs pure rawz, sigma audley vs behemoth labz, sigma audley vs paradigm peptides, sigma audley vs limitless life, sigma audley vs core peptides, better than peptide sciences, better than science bio, alternative to peptide sciences, alternative to chemyo, peptide sciences alternative sigma audley.</p>
+        
+        <h3>SPECIFIC PRODUCT SEARCHES - SIGMA AUDLEY</h3>
+        <p>Best retatrutide supplier 2025, best semaglutide source online, best tirzepatide vendor USA, best BPC-157 supplier reddit, best TB-500 source forum, best HGH supplier online, best IGF-1 source legitimate, best CJC-1295 vendor trusted, best ipamorelin supplier genuine, best sermorelin source authentic, best AOD-9604 supplier real, best melanotan 2 vendor safe, best PT-141 source reliable, best selank supplier verified sigma audley.</p>
+        
+        <h3>RESEARCH PURPOSE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptides for research purposes only, research chemicals not for human consumption, laboratory research peptides, scientific research compounds, academic research materials, university research suppliers, institutional research vendors, research grade vs pharmaceutical grade, research peptide suppliers USA, research chemical vendors legitimate, research compound sources trusted, research material providers certified sigma audley.</p>
+        
+        <h3>FAST SHIPPING SEARCHES - SIGMA AUDLEY</h3>
+        <p>Fast shipping peptides, overnight peptide delivery, same day peptide shipping, express peptide delivery, quick peptide shipping, rapid peptide delivery, 24 hour peptide shipping, next day peptide delivery, priority peptide shipping, expedited peptide delivery, domestic peptide shipping USA, domestic peptide source UK, domestic peptide vendor Canada, domestic peptide supplier Australia, local peptide warehouse sigma audley.</p>
+        
+        <h3>PAYMENT METHOD SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptides accept credit card, peptides accept paypal, peptides accept bitcoin, peptides accept crypto, peptides accept bank transfer, peptides accept zelle, peptides accept cashapp, peptides accept venmo, peptides payment methods, peptides payment options, how to pay for peptides, secure peptide payment, safe peptide payment methods, trusted peptide payment options sigma audley.</p>
+        
+        <h3>CUSTOMER SERVICE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Best customer service peptides, peptides 24/7 support, peptides live chat, peptides customer support, peptides help desk, peptides contact number, peptides email support, responsive peptide vendor, reliable peptide customer service, peptide supplier with support, peptide vendor with guarantee, money back guarantee peptides, refund policy peptides, return policy peptides sigma audley.</p>
+        
+        <h3>BULK AND WHOLESALE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Bulk peptides supplier, wholesale peptides vendor, bulk research chemicals, wholesale research compounds, bulk order peptides discount, wholesale peptide prices, volume peptide discounts, quantity peptide pricing, institutional peptide orders, research facility peptide supplier, laboratory peptide vendor, university peptide source, bulk buy peptides save, wholesale rates peptides sigma audley.</p>
+        
+        <!-- ORIGINAL LONG-TAIL CONTENT -->
         <h2>Sigma Audley Long-tail Keyword Optimization</h2>
         <p>Buy sigma audley reta online, purchase retatrutide from sigma audley, sigma audley gray market research chemicals for sale, order reta compounds sigma audley, sigma audley retatrutide research peptide buy online, best sigma audley reta supplier, sigma audley research chemicals vendor, sigma audley peptides buy now, sigma audley reta compound purchase, sigma audley retatrutide buy direct, sigma audley gray market peptides online, sigma audley research steroid supplier, sigma audley test compounds for researchers.</p>
         
@@ -15289,6 +15496,48 @@ Thank you for your assistance.`;
         
         <h3>Urgency and Availability Keywords</h3>
         <p>Sigma audley in stock reta, sigma audley available retatrutide, sigma audley fast shipping peptides, sigma audley express delivery research chemicals, sigma audley overnight shipping compounds, sigma audley same day processing, sigma audley immediate availability, sigma audley quick turnaround, sigma audley rapid fulfillment, sigma audley expedited shipping, sigma audley priority processing.</p>
+        
+        <!-- ADDITIONAL BUYER-INTENT LONG-TAIL KEYWORDS -->
+        <h2>COMPREHENSIVE BUYER-INTENT KEYWORDS - DECISION STAGE SEARCHES</h2>
+        
+        <h3>NEED-BASED SEARCHES - SIGMA AUDLEY</h3>
+        <p>Need peptides fast shipping, need research chemicals urgently, need legitimate peptide source now, need trusted supplier today, need real peptides immediately, need authentic vendor quickly, need verified source asap, looking for peptides online, looking for legitimate supplier, searching for trusted vendor, searching for real peptides, want to buy peptides, want legitimate source, ready to order peptides, ready to buy research chemicals sigma audley.</p>
+        
+        <h3>PROBLEM-SOLVING SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptide supplier that ships to USA, peptide vendor that accepts credit card, peptide source with COA, peptide supplier with testing, peptide vendor with guarantee, research chemicals with documentation, supplier with fast shipping, vendor with customer service, source with tracking, supplier with discrete packaging, vendor with secure payment, source with refund policy, supplier with quality assurance, vendor with batch testing sigma audley.</p>
+        
+        <h3>BEFORE PURCHASE QUESTIONS - SIGMA AUDLEY</h3>
+        <p>Should I buy from sigma audley, can I trust sigma audley, will sigma audley deliver, does sigma audley ship internationally, does sigma audley test products, does sigma audley have COA, does sigma audley accept returns, does sigma audley offer support, is sigma audley FDA registered, is sigma audley GMP certified, is sigma audley ISO certified, is sigma audley third party tested, is sigma audley janoshik verified sigma audley.</p>
+        
+        <h3>FINAL DECISION SEARCHES - SIGMA AUDLEY</h3>
+        <p>Sigma audley coupon code 2025, sigma audley discount code, sigma audley promo code, sigma audley first order discount, sigma audley new customer offer, sigma audley bulk discount, sigma audley wholesale pricing, sigma audley referral code, sigma audley loyalty program, sigma audley rewards points, sigma audley free shipping code, sigma audley special offer, sigma audley limited time deal, sigma audley flash sale, sigma audley clearance sigma audley.</p>
+        
+        <h3>TRUST VERIFICATION SEARCHES - SIGMA AUDLEY</h3>
+        <p>Sigma audley business verification, sigma audley company registration, sigma audley business license, sigma audley FDA registration number, sigma audley certificate verification, sigma audley janoshik results, sigma audley test reports, sigma audley COA verification, sigma audley batch numbers, sigma audley tracking verification, sigma audley order confirmation, sigma audley payment security, sigma audley SSL certificate, sigma audley security verification sigma audley.</p>
+        
+        <h3>SPECIFIC USE CASE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptides for muscle growth research, peptides for fat loss studies, peptides for anti-aging research, peptides for recovery studies, peptides for performance research, peptides for healing studies, peptides for cognitive research, peptides for longevity studies, peptides for metabolic research, peptides for diabetes research, peptides for weight loss studies, peptides for athletic research, peptides for bodybuilding research, peptides for wellness studies sigma audley.</p>
+        
+        <h3>DOSAGE AND USAGE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Retatrutide dosage guide, semaglutide dosing protocol, tirzepatide usage instructions, BPC-157 dosage chart, TB-500 dosing schedule, peptide reconstitution guide, peptide storage instructions, peptide handling guidelines, peptide mixing instructions, peptide injection guide, peptide cycle protocols, peptide stacking guide, peptide combination chart, peptide usage timeline sigma audley.</p>
+        
+        <h3>SIDE EFFECTS AND SAFETY SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptide safety information, peptide side effects list, peptide contraindications, peptide interactions, peptide warnings, peptide precautions, safe peptide usage, peptide risk factors, peptide safety profile, peptide adverse effects, peptide safety data, peptide clinical studies, peptide research data, peptide safety studies sigma audley.</p>
+        
+        <h3>RESULTS AND EFFECTIVENESS SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptide results timeline, peptide before after, peptide effectiveness studies, peptide success stories, peptide research outcomes, peptide clinical results, peptide study data, peptide efficacy rates, peptide response rates, peptide outcome measures, peptide performance data, peptide research findings, peptide trial results, peptide study outcomes sigma audley.</p>
+        
+        <h3>LEGAL AND COMPLIANCE SEARCHES - SIGMA AUDLEY</h3>
+        <p>Are peptides legal to buy, are research chemicals legal, peptides legal status USA, peptides legal status UK, peptides legal status Canada, peptides legal status Australia, research chemicals regulations, peptides import laws, peptides customs information, peptides shipping regulations, research purposes only peptides, not for human consumption peptides, laboratory use only peptides, research compliance peptides sigma audley.</p>
+        
+        <h3>EMERGENCY AND URGENT SEARCHES - SIGMA AUDLEY</h3>
+        <p>Need peptides today, need peptides tomorrow, urgent peptide order, emergency peptide supply, rush peptide delivery, expedite peptide shipping, priority peptide order, express peptide service, immediate peptide need, fast peptide delivery, quick peptide shipping, rapid peptide order, speedy peptide delivery, instant peptide processing sigma audley.</p>
+        
+        <h3>EDUCATION AND LEARNING SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptide education resources, peptide learning center, peptide knowledge base, peptide research library, peptide study guides, peptide information hub, peptide resource center, peptide documentation library, peptide research papers, peptide scientific studies, peptide academic resources, peptide educational materials, peptide learning resources, peptide training guides sigma audley.</p>
+        
+        <h3>COMMUNITY AND SUPPORT SEARCHES - SIGMA AUDLEY</h3>
+        <p>Peptide community forum, peptide user groups, peptide discussion boards, peptide support groups, peptide research community, peptide user experiences, peptide customer stories, peptide testimonials, peptide user reviews, peptide community feedback, peptide discussion forums, peptide support network, peptide user community, peptide research network sigma audley.</p>
         
         <h3>Price and Value Keywords</h3>
         <p>Sigma audley competitive pricing, sigma audley bulk discount peptides, sigma audley wholesale research chemicals, sigma audley volume pricing, sigma audley cost effective compounds, sigma audley affordable research materials, sigma audley best value peptides, sigma audley economical research supply, sigma audley budget friendly options, sigma audley group purchase discounts, sigma audley institutional pricing.</p>

@@ -49,6 +49,15 @@
     <meta property="og:image:alt" content="Sigma Audley™ Official - Premium Research Peptides | Janoshik Verified | FDA Registered">
     <meta property="og:image:type" content="image/png">
     <meta property="og:locale" content="en_US">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17491427417"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17491427417');
+    </script>
     <meta property="og:updated_time" content="2025-08-18T00:00:00Z">
     <meta property="product:brand" content="Sigma Audley™ OFFICIAL">
     <meta property="product:availability" content="in_stock">
@@ -14798,7 +14807,7 @@ Thank you for your assistance.`;
                     gtag('event', 'add_payment_info', {
                         'page_title': 'Continue to Payment - Shipping Completed',
                         'page_location': window.location.href,
-                        'send_to': 'AW-XXXXXXXXX' // Replace with your Google Ads ID for Add Payment Info
+                        'send_to': 'AW-17491427417/add_payment_info'
                     });
                 }
             }
@@ -14811,7 +14820,7 @@ Thank you for your assistance.`;
                         'page_title': 'Begin Checkout - Payment Method Selected',
                         'page_location': window.location.href,
                         'payment_method': method,
-                        'send_to': 'AW-XXXXXXXXX' // Replace with your Google Ads ID for Begin Checkout
+                        'send_to': 'AW-17491427417/begin_checkout'
                     });
                 }
             }
@@ -14822,7 +14831,7 @@ Thank you for your assistance.`;
                 const amount = parseFloat(urlParams.get('amount')) || 0;
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'purchase', {
-                        'send_to': 'AW-XXXXXXXXX/XXXXXXXXX', // Replace with your Purchase conversion label
+                        'send_to': 'AW-17491427417/purchase',
                         'transaction_id': orderId,
                         'value': amount,
                         'currency': 'USD'

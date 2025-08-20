@@ -7223,7 +7223,7 @@ body {
                         Loading...
                     </div>
                     <div style="color: #fecaca; font-size: 8px; margin-top: 2px; opacity: 0.8; font-style: italic;">
-                        Promo extended by 5 hours due to website downtime
+                        Promo ending soon!!! Next promo at Christmas
                     </div>
                 </div>
                 <div class="hero-offers">
@@ -12806,9 +12806,33 @@ This is a demo. Please contact us to complete your order.`);
                     localStorage.removeItem('promoEndTimeV2');
                 }
                 
-                // Fixed end time: August 20, 2025 at 12pm GMT (12pm UTC)
-                // Extended by 5 hours due to website downtime
-                const endTime = new Date('2025-08-20T12:00:00Z').getTime();
+                // Daily reset at 7am BST (6am UTC in winter, 7am UTC in summer)
+                // Get current time in UTC
+                const now = new Date();
+                const currentUTC = now.getTime();
+                
+                // Calculate next 7am BST
+                let nextReset = new Date();
+                
+                // Check if we're in BST (last Sunday in March to last Sunday in October)
+                const year = now.getFullYear();
+                const marchLastSunday = new Date(year, 2, 31);
+                marchLastSunday.setDate(31 - marchLastSunday.getDay());
+                const octoberLastSunday = new Date(year, 9, 31);
+                octoberLastSunday.setDate(31 - octoberLastSunday.getDay());
+                
+                const isBST = now >= marchLastSunday && now < octoberLastSunday;
+                const bstOffset = isBST ? 1 : 0; // BST is UTC+1, GMT is UTC+0
+                
+                // Set to 7am BST (which is 6am UTC in winter, 7am UTC in summer)
+                nextReset.setUTCHours(7 - bstOffset, 0, 0, 0);
+                
+                // If we've already passed 7am BST today, set for tomorrow
+                if (currentUTC >= nextReset.getTime()) {
+                    nextReset.setUTCDate(nextReset.getUTCDate() + 1);
+                }
+                
+                const endTime = nextReset.getTime();
                 
                 return endTime;
             }

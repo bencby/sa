@@ -7234,6 +7234,9 @@ body {
                     <div id="promoTimer" style="color: #fef2f2; font-weight: bold; font-size: 16px; font-family: monospace;">
                         Loading...
                     </div>
+                    <div style="color: #fecaca; font-size: 8px; margin-top: 2px; opacity: 0.8; font-style: italic;">
+                        Promo extended by 5 hours due to website downtime
+                    </div>
                 </div>
                 <div class="hero-offers">
                     <div class="offer-item">
@@ -12826,9 +12829,9 @@ This is a demo. Please contact us to complete your order.`);
                     localStorage.removeItem('promoEndTimeV2');
                 }
                 
-                // Fixed end time: August 20, 2025 at 7am BST (6am UTC)
-                // BST = UTC+1 in August
-                const endTime = new Date('2025-08-20T06:00:00Z').getTime();
+                // Fixed end time: August 20, 2025 at 12pm GMT (12pm UTC)
+                // Extended by 5 hours due to website downtime
+                const endTime = new Date('2025-08-20T12:00:00Z').getTime();
                 
                 return endTime;
             }

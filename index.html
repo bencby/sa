@@ -4119,6 +4119,39 @@ body {
         margin: 16px;
     }
     
+    /* Mobile Price List Visibility and Styling */
+    .price-list-section {
+        display: block !important;
+        margin: var(--space-4) 0 !important;
+    }
+    
+    .footer-price-list {
+        display: block !important;
+        padding: var(--space-4) var(--space-2) !important;
+    }
+    
+    /* Mobile responsive price list buttons */
+    .price-list-section h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .price-list-section a {
+        padding: 10px 16px !important;
+        font-size: 0.9rem !important;
+        width: auto !important;
+        max-width: 280px !important;
+    }
+    
+    .footer-price-list h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .footer-price-list a {
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+        max-width: 320px !important;
+    }
+    
     /* Better mobile form elements */
     input, select, textarea {
         min-height: 44px;
@@ -7454,9 +7487,17 @@ body {
     <section class="categories">
         <div class="container">
             <div class="category-grid" id="product-categories">
-                <button class="category-btn active" onclick="showProducts('all')" id="all-products">
+                <button class="category-btn" onclick="showProducts('all')" id="all-products">
                     <i class="fas fa-th-large category-icon"></i>
                     <span>All Products</span>
+                </button>
+                <button class="category-btn active" onclick="showProducts('featured_products')" id="featured-products">
+                    <i class="fas fa-star category-icon"></i>
+                    <span>Featured Products</span>
+                </button>
+                <button class="category-btn" onclick="showProducts('weight_loss')" id="weight-loss">
+                    <i class="fas fa-weight category-icon"></i>
+                    <span>Weight Loss</span>
                 </button>
                 <button class="category-btn" onclick="showProducts('peptides')" id="peptides-section">
                     <i class="fas fa-dna category-icon"></i>
@@ -7499,7 +7540,7 @@ body {
                             <option value="name">Sort by Name</option>
                             <option value="price-low">Price: Low to High</option>
                             <option value="price-high">Price: High to Low</option>
-                            <option value="popular">Most Popular</option>
+                            <option value="popular" selected>Most Popular</option>
                         </select>
                     </div>
                 </div>
@@ -7525,6 +7566,27 @@ body {
                 <button class="btn btn-secondary" id="loadMoreBtn" onclick="loadMoreProducts()" style="display: none;">
                     Load More Products
                 </button>
+            </div>
+            
+            <!-- Price List Download Option -->
+            <div class="price-list-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: var(--space-6); margin-top: var(--space-6); border-radius: 12px; text-align: center; border: 2px dashed #cbd5e1;">
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <h3 style="color: var(--primary-600); font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-2);">
+                        🔍 Can't find what you are looking for?
+                    </h3>
+                    <p style="color: var(--gray-600); margin-bottom: var(--space-4); line-height: 1.6;">
+                        View our complete product catalog with detailed specifications and pricing information.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-3); align-items: center;">
+                        <a href="pricelist.pdf" download="Sigma_Audley_Price_List.pdf" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #000000; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333333'" onmouseout="this.style.background='#000000'">
+                            <i class="fas fa-download"></i>
+                            View Full Price List (PDF)
+                        </a>
+                        <p style="color: var(--gray-500); font-size: 0.9rem;">
+                            📧 For enquiries: <a href="mailto:support@sigmaaudley.net" style="color: var(--primary-600); text-decoration: none; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">support@sigmaaudley.net</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -7936,6 +7998,21 @@ body {
                     <div class="contact-section">
                         <h3>🔒 Privacy & Security</h3>
                         <p>All communications are handled with strict confidentiality. We use encrypted channels for sensitive information and maintain complete customer privacy in accordance with international data protection standards.</p>
+                    </div>
+                    
+                    <!-- Contact Modal Price List Section -->
+                    <div class="contact-section" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: var(--space-4); border-radius: 8px; border: 2px solid #bfdbfe; margin-top: var(--space-4);">
+                        <h3 style="color: var(--primary-700);">📋 Complete Product Catalog</h3>
+                        <p style="margin-bottom: var(--space-3);">Can't find what you are looking for? Download our comprehensive price list with detailed specifications, dosages, and pricing information for our entire product range.</p>
+                        <div style="text-align: center;">
+                            <a href="pricelist.pdf" download="Sigma_Audley_Price_List.pdf" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: #000000; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin-bottom: var(--space-2); transition: all 0.3s ease;" onmouseover="this.style.background='#333333'" onmouseout="this.style.background='#000000'">
+                                <i class="fas fa-download"></i>
+                                Download Full Price List (PDF)
+                            </a>
+                            <p style="color: var(--gray-600); font-size: 0.9rem;">
+                                Complete specifications • Bulk pricing • Custom formulations available
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -8485,7 +8562,7 @@ body {
         let selectedWarehouse = 'US';
         let currentCategory = 'all';
         let currentFilter = 'all';
-        let currentSort = 'name';
+        let currentSort = 'popular';
         let currentPage = 1;
         let productsPerPage = 12;
         let allProducts = [];
@@ -12173,6 +12250,923 @@ body {
                         }
                     ]
                 }
+            },
+
+            "featured_products": {
+                "description": "Featured Products - Special Deals & Top Sellers",
+                "products": [
+                    // 💉 Peptides & Injectables (Weight-Loss / Longevity Core) - Priority Order (First 8)
+                    // 1. Retatrutide - MOVED TO #1 PRIORITY
+                    {
+                        "cat_no": "RT20-FEATURED",
+                        "name": "Retatrutide",
+                        "specification": "20mg*10vials - 25% OFF!",
+                        "composition": "Triple receptor agonist (GLP-1/GIP/Glucagon) - 1 kit contains 10 vials, each vial contains 20mg of high-purity Retatrutide - BEST VALUE",
+                        "janoshik_url": "https://janoshik.com/tests/55662-RT20Retatrutide_20mg_2vials_6JGKGWYKZ8A4",
+                        "pricing": { "base": 105, "20": 101.25, "50": 97.50, "original": 140, "discount": 25 },
+                        "category": "peptides",
+                        "subcategory": "weight_loss",
+                        "featured": true,
+                        "best_value": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 2. Tirzepatide - UPDATED TO 20MG
+                    {
+                        "cat_no": "TR20-FEATURED",
+                        "name": "Tirzepatide",
+                        "specification": "20mg*10vials - 20% OFF!",
+                        "composition": "Dual GLP-1/GIP receptor agonist - 1 kit contains 10 vials, each vial contains 20mg of high-purity Tirzepatide for maximum weight loss",
+                        "janoshik_url": "https://janoshik.com/tests/58082-TR20Tirzepatide_20mg_4HEIEI19V7BK",
+                        "pricing": { "base": 66.4, "10": 56, "20": 53.6, "50": 50.4, "original": 83, "discount": 20 },
+                        "category": "peptides",
+                        "subcategory": "weight_loss",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 3. GHK-CU
+                    {
+                        "cat_no": "CU100-FEATURED",
+                        "name": "GHK-CU",
+                        "specification": "100mg*10vials - 20% OFF!",
+                        "composition": "Copper peptide complex - 1 kit contains 10 vials, each vial contains 100mg of high-purity GHK-CU for skin regeneration and anti-aging",
+                        "janoshik_url": "https://janoshik.com/tests/60324-GHKCU_100mg_S6UDD83R4MV9",
+                        "pricing": { "base": 38.4, "20": 36, "50": 34.4, "original": 48, "discount": 20 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 4. Semaglutide - UPDATED TO 10MG
+                    {
+                        "cat_no": "SM10-FEATURED",
+                        "name": "Semaglutide",
+                        "specification": "10mg*10vials - 22% OFF!",
+                        "composition": "Premium GLP-1 receptor agonist - 1 kit contains 10 vials, each vial contains 10mg of high-purity Semaglutide for advanced weight management",
+                        "janoshik_url": "https://janoshik.com/tests/54823-SM10semaglutude_10mg_GYXIMDQTLVP5",
+                        "pricing": { "base": 40.56, "10": 34.32, "20": 32.76, "50": 30.42, "original": 52, "discount": 22 },
+                        "category": "peptides",
+                        "subcategory": "weight_loss",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 5. GLOW (GHK-CU blend)
+                    {
+                        "cat_no": "GLOW50-FEATURED",
+                        "name": "GHK-CU Blend (GLOW50)",
+                        "specification": "BPC-157 5mg+GHK-CU 35mg+TB500 10mg - 21% OFF!",
+                        "composition": "Premium skin/fat loss blend - 1 kit contains 10 vials of synergistic peptide combination for enhanced results",
+                        "janoshik_url": "https://janoshik.com/tests/58024-GLOW50BPC157_5mgGHKCU_35mgTB500_10mg_9CWF77623DHW",
+                        "pricing": { "base": 114.55, "20": 110.60, "50": 106.65, "original": 145, "discount": 21 },
+                        "category": "peptides",
+                        "subcategory": "blends",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 6. HGH - UPDATED TO 36IU
+                    {
+                        "cat_no": "H36-FEATURED",
+                        "name": "GH 191AA (Somatropin)",
+                        "specification": "36iu*10vials - 19% OFF!",
+                        "composition": "Premium Human Growth Hormone - 1 kit contains 10 vials, each vial contains 36iu of pharmaceutical-grade Somatropin",
+                        "janoshik_url": "https://janoshik.com/tests/58038-H36HGH_36iu_Z3WH5Q6EF1BJ",
+                        "pricing": { "base": 105.30, "10": 87.48, "20": 84.24, "50": 79.42, "original": 130, "discount": 19 },
+                        "category": "peptides",
+                        "subcategory": "growth_hormones",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 7. MOTS-C - UPDATED TO 40MG (HIGHEST DOSE)
+                    {
+                        "cat_no": "MS40-FEATURED",
+                        "name": "MOTS-c",
+                        "specification": "40mg*10vials - 22% OFF!",
+                        "composition": "Mitochondrial peptide - 1 kit contains 10 vials, each vial contains 40mg of high-purity MOTS-c for metabolic enhancement",
+                        "janoshik_url": "https://janoshik.com/tests/42650-MS10_cleargold_top_vial_I27UCAXRCDSJ",
+                        "pricing": { "base": 140.40, "20": 136.50, "50": 132.60, "original": 180, "discount": 22 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 8. SS31 - UPDATED TO 50MG (HIGHEST DOSE)
+                    {
+                        "cat_no": "2S50-FEATURED",
+                        "name": "SS-31 (Elamipretide)",
+                        "specification": "50mg*10vials - 17% OFF!",
+                        "composition": "Mitochondrial-targeted peptide - 1 kit contains 10 vials, each vial contains 50mg of high-purity SS-31 for cellular energy",
+                        "janoshik_url": "https://janoshik.com/tests/64751-SS31_10mg_D8BRQL11PV7T",
+                        "pricing": { "base": 286.35, "20": 282.20, "50": 278.05, "original": 345, "discount": 17 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // Rest of featured products (Cagrilintide, BPC-157, Epithalon, etc.)
+                    {
+                        "cat_no": "CGL5-FEATURED",
+                        "name": "Cagrilintide",
+                        "specification": "5mg*10vials - 18% OFF!",
+                        "composition": "Amylin receptor agonist - 1 kit contains 10 vials, each vial contains 5mg of high-purity Cagrilintide for appetite suppression",
+                        "janoshik_url": "https://janoshik.com/tests/60670-Cagrilintide_5mg_M18CSTPXS57E",
+                        "pricing": { "base": 65.60, "20": 63.96, "50": 61.50, "original": 80, "discount": 18 },
+                        "category": "peptides",
+                        "subcategory": "weight_loss",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "BC5-FEATURED",
+                        "name": "BPC-157",
+                        "specification": "5mg*10vials - 19% OFF!",
+                        "composition": "Body protection compound - 1 kit contains 10 vials, each vial contains 5mg of high-purity BPC-157 for tissue repair",
+                        "janoshik_url": "https://janoshik.com/tests/58027-BPC157BPC157_5mg_BSM3HYTX3VYM",
+                        "pricing": { "base": 24.30, "20": 24.30, "50": 24.30, "original": 30, "discount": 19 },
+                        "category": "peptides",
+                        "subcategory": "healing_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 21–30 (Supportive / Longevity Stack)
+                    {
+                        "cat_no": "ET5-FEATURED",
+                        "name": "Epithalon",
+                        "specification": "5mg*10vials - 16% OFF!",
+                        "composition": "Longevity peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Epithalon for anti-aging research",
+                        "janoshik_url": "https://janoshik.com/tests/44876-Epithalon_10mg_W1RXSGRXH428",
+                        "pricing": { "base": 26.88, "20": 25.20, "50": 24.36, "original": 32, "discount": 16 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "SK5-FEATURED",
+                        "name": "Selank",
+                        "specification": "5mg*10vials - 18% OFF!",
+                        "composition": "Anxiolytic peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Selank for cognitive enhancement",
+                        "janoshik_url": "https://janoshik.com/tests/63163-Selank_10mg_8RAX9YA6M7VB",
+                        "pricing": { "base": 28.70, "20": 26.24, "50": 24.60, "original": 35, "discount": 18 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "XA5-FEATURED",
+                        "name": "Semax",
+                        "specification": "5mg*10vials - 20% OFF!",
+                        "composition": "Nootropic peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity Semax for cognitive function",
+                        "janoshik_url": "https://janoshik.com/tests/55422-Semax_10mg_Y3B6VTHWXXFL",
+                        "pricing": { "base": 28, "20": 25.60, "50": 24, "original": 35, "discount": 20 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "OT5-FEATURED",
+                        "name": "Oxytocin",
+                        "specification": "5mg*10vials - 17% OFF!",
+                        "composition": "Social bonding hormone - 1 kit contains 10 vials, each vial contains 5mg of high-purity Oxytocin for wellness research",
+                        "janoshik_url": "https://janoshik.com/tests/48191-Oxytocin_5mg_1vials_9E9AVRBVPAEM",
+                        "pricing": { "base": 31.54, "20": 29.88, "50": 29.05, "original": 38, "discount": 17 },
+                        "category": "peptides",
+                        "subcategory": "research_peptides",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "2AD5-FEATURED",
+                        "name": "AOD-9604",
+                        "specification": "5mg*10vials - 24% OFF!",
+                        "composition": "Fat-burning peptide fragment - 1 kit contains 10 vials, each vial contains 5mg of high-purity AOD-9604 for targeted fat loss",
+                        "janoshik_url": "https://janoshik.com/tests/62997-aod5_5mg_5CZLQ38SRE3N",
+                        "pricing": { "base": 91, "original": 120, "discount": 24 },
+                        "category": "peptides",
+                        "subcategory": "weight_loss",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "TSM2-FEATURED",
+                        "name": "Tesamorelin",
+                        "specification": "2mg*10vials - 18% OFF!",
+                        "composition": "GHRH analog - 1 kit contains 10 vials, each vial contains 2mg of high-purity Tesamorelin for visceral fat reduction",
+                        "janoshik_url": "https://janoshik.com/tests/58860-Tesa_5_Y96Q2JHKQT7H",
+                        "pricing": { "base": 28.70, "20": 26.24, "50": 24.60, "original": 35, "discount": 18 },
+                        "category": "peptides",
+                        "subcategory": "growth_hormones",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "IP2-FEATURED",
+                        "name": "Ipamorelin",
+                        "specification": "2mg*10vials - 17% OFF!",
+                        "composition": "GHRP-6 analog - 1 kit contains 10 vials, each vial contains 2mg of high-purity Ipamorelin for natural GH boost",
+                        "janoshik_url": "https://janoshik.com/tests/42649-IP10_cleargold_top_vial_QD7QLRIFEP6J",
+                        "pricing": { "base": 14.94, "20": 14.11, "50": 13.28, "original": 18, "discount": 17 },
+                        "category": "peptides",
+                        "subcategory": "growth_hormones",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    {
+                        "cat_no": "VB12-FEATURED",
+                        "name": "Vitamin B12 / Lipo-C Injection",
+                        "specification": "B12 + Lipo Complex*10vials - 19% OFF!",
+                        "composition": "Energy and fat metabolism blend - 1 kit contains 10 vials of B12 and lipotropic compounds for enhanced energy and metabolism",
+                        "janoshik_url": "https://janoshik.com/tests/61134-LC120LipoC_CE7V8AY9KF2H",
+                        "pricing": { "base": 65, "original": 80, "discount": 19 },
+                        "category": "peptides",
+                        "subcategory": "wellness",
+                        "featured": true,
+                        "filter_type": "peptides-injectables"
+                    },
+                    // 💊 Steroids & SARMs (Performance / Hybrid Demand) - 1–10 (Classic Steroids)
+                    {
+                        "cat_no": "D20-FEATURED",
+                        "name": "Dianabol (Methandrostenolone)",
+                        "specification": "20mg*100tablets - 24% OFF!",
+                        "composition": "Premium anabolic steroid - 1 bottle contains 100 tablets, each tablet contains 20mg of high-purity Methandrostenolone",
+                        "janoshik_url": "https://janoshik.com/tests/41537-DIANABOL_20mg_7UVJ15L318PP",
+                        "pricing": { "base": 12.92, "10": 11.40, "original": 17, "discount": 24 },
+                        "category": "oral_tablets",
+                        "subcategory": "anabolic_steroids",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "CB40-FEATURED",
+                        "name": "Clenbuterol",
+                        "specification": "40mcg*100tablets - 21% OFF!",
+                        "composition": "Beta-2 agonist fat burner - 1 bottle contains 100 tablets, each tablet contains 40mcg of pharmaceutical-grade Clenbuterol",
+                        "janoshik_url": "https://janoshik.com/tests/43554-CLENBUTEROL_40MCG_SUI629T9I352",
+                        "pricing": { "base": 10.27, "10": 9.48, "original": 13, "discount": 21 },
+                        "category": "oral_tablets",
+                        "subcategory": "fat_burners",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "W20-FEATURED",
+                        "name": "Winstrol (Stanozolol)",
+                        "specification": "20mg*100tablets - 23% OFF!",
+                        "composition": "Premium cutting agent - 1 bottle contains 100 tablets, each tablet contains 20mg of high-purity Stanozolol for lean muscle",
+                        "janoshik_url": "https://janoshik.com/tests/43557-Winstrol_Or_Stanozolol_20mg_FZ2UXGAH68TD",
+                        "pricing": { "base": 13.09, "10": 11.55, "original": 17, "discount": 23 },
+                        "category": "oral_tablets",
+                        "subcategory": "anabolic_steroids",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "X25-FEATURED",
+                        "name": "Anavar (Oxandrolone)",
+                        "specification": "25mg*100tablets - 20% OFF!",
+                        "composition": "Premium lean muscle builder - 1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Oxandrolone",
+                        "janoshik_url": "https://janoshik.com/tests/51101-ANAVAR_25mg_HRIRS4X67U19",
+                        "pricing": { "base": 21.60, "10": 20.80, "original": 27, "discount": 20 },
+                        "category": "oral_tablets",
+                        "subcategory": "anabolic_steroids",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "OXP50-FEATURED",
+                        "name": "Anadrol (Oxymetholone)",
+                        "specification": "50mg*100tablets - 18% OFF!",
+                        "composition": "Powerful mass builder - 1 bottle contains 100 tablets, each tablet contains 50mg of high-purity Oxymetholone for extreme gains",
+                        "janoshik_url": "https://janoshik.com/tests/41577-Anadrol_50_mg_12Z2IPAC4UW5",
+                        "pricing": { "base": 14.76, "10": 13.94, "original": 18, "discount": 18 },
+                        "category": "oral_tablets",
+                        "subcategory": "anabolic_steroids",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "SD10-FEATURED",
+                        "name": "Superdrol (Methyldrostanolone)",
+                        "specification": "10mg*100tablets - 25% OFF!",
+                        "composition": "Powerful oral steroid - 1 bottle contains 100 tablets, each tablet contains 10mg of high-purity Methyldrostanolone",
+                        "janoshik_url": "https://janoshik.com/tests/41538-superdrol_10mg_24K2T1PPLEG7",
+                        "pricing": { "base": 12.75, "10": 12, "original": 17, "discount": 25 },
+                        "category": "oral_tablets",
+                        "subcategory": "anabolic_steroids",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "CT25-FEATURED",
+                        "name": "Turinabol (Chlorodehydromethyltestosterone)",
+                        "specification": "25mg*100tablets - 20% OFF!",
+                        "composition": "Clean muscle builder - 1 bottle contains 100 tablets, each tablet contains 25mg of pharmaceutical-grade Turinabol",
+                        "janoshik_url": "https://janoshik.com/tests/41536-turinabol_25mg_GMLHJY1GGZPA",
+                        "pricing": { "base": 21.60, "10": 20.80, "original": 27, "discount": 20 },
+                        "category": "oral_tablets",
+                        "subcategory": "anabolic_steroids",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    // 11–20 (SARMs/Research)
+                    {
+                        "cat_no": "G50-FEATURED",
+                        "name": "GW-501516 (Cardarine)",
+                        "specification": "10mg*100tablets - 18% OFF!",
+                        "composition": "PPAR-delta agonist SARM - 1 bottle contains 100 tablets, each tablet contains 10mg of high-purity GW-501516 for endurance",
+                        "janoshik_url": "https://janoshik.com/tests/51106-GW501516_Cardarine_10mg_H4NURMXK1NSA",
+                        "pricing": { "base": 18.86, "10": 18.04, "original": 23, "discount": 18 },
+                        "category": "oral_tablets",
+                        "subcategory": "sarms",
+                        "featured": true,
+                        "popular": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "R14-FEATURED",
+                        "name": "RAD-140 (Testolone)",
+                        "specification": "10mg*100tablets - 22% OFF!",
+                        "composition": "Selective androgen receptor modulator - 1 bottle contains 100 tablets, each tablet contains 10mg of high-purity RAD-140",
+                        "janoshik_url": "https://janoshik.com/tests/51106-GW501516_Cardarine_10mg_H4NURMXK1NSA",
+                        "pricing": { "base": 31.98, "10": 28.86, "original": 41, "discount": 22 },
+                        "category": "oral_tablets",
+                        "subcategory": "sarms",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "M6-FEATURED",
+                        "name": "MK-677 (Ibutamoren)",
+                        "specification": "25mg*100tablets - 19% OFF!",
+                        "composition": "Growth hormone secretagogue - 1 bottle contains 100 tablets, each tablet contains 25mg of high-purity MK-677",
+                        "janoshik_url": "https://janoshik.com/tests/51106-GW501516_Cardarine_10mg_H4NURMXK1NSA",
+                        "pricing": { "base": 24.30, "10": 23.49, "original": 30, "discount": 19 },
+                        "category": "oral_tablets",
+                        "subcategory": "sarms",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    },
+                    {
+                        "cat_no": "L40-FEATURED",
+                        "name": "LGD-4033 (Ligandrol)",
+                        "specification": "10mg*100tablets - 21% OFF!",
+                        "composition": "Potent SARM - 1 bottle contains 100 tablets, each tablet contains 10mg of high-purity LGD-4033 for lean mass",
+                        "janoshik_url": "https://janoshik.com/tests/51106-GW501516_Cardarine_10mg_H4NURMXK1NSA",
+                        "pricing": { "base": 20.54, "10": 17.38, "original": 26, "discount": 21 },
+                        "category": "oral_tablets",
+                        "subcategory": "sarms",
+                        "featured": true,
+                        "filter_type": "steroids-sarms"
+                    }
+                ]
+            },
+
+            "weight_loss": {
+                "description": "Comprehensive Weight Loss Products - All GLP-1 Agonists, Fat Loss Peptides & Oral Fat Burners",
+                "glp1_agonists": {
+                    "description": "GLP-1 Receptor Agonists - Priority Products",
+                    "products": [
+                        // Priority Order: Big 3 Weight Loss Peptides
+                        
+                        // TIRZEPATIDE - ALL TR SERIES (Priority #1)
+                        {
+                            "cat_no": "TR5",
+                            "name": "Tirzepatide",
+                            "specification": "5mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 5mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/41527-Tirzepatide_5mg_7BEM159VJ6TG",
+                            "pricing": { "base": 42, "10": 36, "20": 34, "50": 32 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "new": true
+                        },
+                        {
+                            "cat_no": "TR10",
+                            "name": "Tirzepatide",
+                            "specification": "10mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 10mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/54821-TR10Tirzepatide_10mg_7DZBCAVVGYCF",
+                            "pricing": { "base": 61, "10": 51, "20": 49, "50": 46 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "popular": true,
+                            "best_value": true
+                        },
+                        {
+                            "cat_no": "TR15",
+                            "name": "Tirzepatide",
+                            "specification": "15mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 15mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/58744-Tirzepatide_15mg_7ALCD53BVQU9",
+                            "pricing": { "base": 74, "10": 62, "20": 59, "50": 56 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "TR20",
+                            "name": "Tirzepatide",
+                            "specification": "20mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 20mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/58082-TR20Tirzepatide_20mg_4HEIEI19V7BK",
+                            "pricing": { "base": 83, "10": 70, "20": 67, "50": 63 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "TR30",
+                            "name": "Tirzepatide",
+                            "specification": "30mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 30mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/70330-TR30Tirzepatide_30mg_3WCUE49DQVWM",
+                            "pricing": { "base": 110, "20": 100, "50": 100 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "TR40",
+                            "name": "Tirzepatide",
+                            "specification": "40mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 40mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/55828-Tirzepatide_40mg_LGTPNRWYA4GU",
+                            "pricing": { "base": 145, "20": 140, "50": 135 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "TR50",
+                            "name": "Tirzepatide",
+                            "specification": "50mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 50mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/69784-Tirzepatide_50mg_AZCXH5ZM1YCF",
+                            "pricing": { "base": 180, "20": 175, "50": 170 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "TR60",
+                            "name": "Tirzepatide",
+                            "specification": "60mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 60mg of high-purity Tirzepatide",
+                            "janoshik_url": "https://janoshik.com/tests/70331-TR60Tirzepatide_60mg_LPB1IP5XT5FA",
+                            "pricing": { "base": 200, "20": 195, "50": 190 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "TR100",
+                            "name": "Tirzepatide (10ml)",
+                            "specification": "100mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 100mg of high-purity Tirzepatide in 10ml format",
+                            "janoshik_url": "https://janoshik.com/tests/62371-Tirzepatide_100mg_T21AR1Y57MIG",
+                            "pricing": { "base": 350, "20": 345, "50": 340 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "TR120",
+                            "name": "Tirzepatide (10ml)",
+                            "specification": "120mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 120mg of high-purity Tirzepatide in 10ml format",
+                            "janoshik_url": "https://janoshik.com/tests/68621-Tirzepatide_120mg_FRD1B4TNCKFW",
+                            "pricing": { "base": 380, "20": 375, "50": 370 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        
+                        // RETATRUTIDE - ALL RT SERIES (Priority #2)
+                        {
+                            "cat_no": "RT5",
+                            "name": "Retatrutide",
+                            "specification": "5mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 5mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/41528-Retatrutide_5mg_JV8U1KI7RH8K",
+                            "pricing": { "base": 70, "20": 68, "50": 65 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT10",
+                            "name": "Retatrutide",
+                            "specification": "10mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 10mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/54825-RT10Retatrutide_10mg_WY1PVKJEVGLU",
+                            "pricing": { "base": 87, "10": 73, "20": 70, "50": 66 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "new": true
+                        },
+                        {
+                            "cat_no": "RT12",
+                            "name": "Retatrutide",
+                            "specification": "12mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 12mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/64654-Retatrutide_12mg_2vials_ERBH49ZK3LGJ",
+                            "pricing": { "base": 95, "20": 90, "50": 85 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT15",
+                            "name": "Retatrutide",
+                            "specification": "15mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 15mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/49526-Retatrutide_15mg_PD3ZMJGX9T7D",
+                            "pricing": { "base": 108, "20": 103, "50": 98 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT20",
+                            "name": "Retatrutide",
+                            "specification": "20mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 20mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/55662-RT20Retatrutide_20mg_2vials_6JGKGWYKZ8A4",
+                            "pricing": { "base": 140, "20": 135, "50": 130 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "RT24",
+                            "name": "Retatrutide",
+                            "specification": "24mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 24mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/64653-Retatrutide_24mg_2vials_MAQEUKNXCH8L",
+                            "pricing": { "base": 155, "20": 150, "50": 145 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT30",
+                            "name": "Retatrutide",
+                            "specification": "30mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 30mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/70329-RT30Retatrutide_30mg_U175GV5BWWZ6",
+                            "pricing": { "base": 180, "20": 175, "50": 170 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT36",
+                            "name": "Retatrutide",
+                            "specification": "36mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 36mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/64652-Retatrutide_36mg_2vials_86W8YR1QXHNU",
+                            "pricing": { "base": 200, "20": 195, "50": 190 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT40",
+                            "name": "Retatrutide",
+                            "specification": "40mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 40mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/70976-Retatrutide_40mg_Q2GR5SIKTW4K",
+                            "pricing": { "base": 220, "20": 215, "50": 210 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT50",
+                            "name": "Retatrutide",
+                            "specification": "50mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 50mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/67501-Retatrutide_50mg_8FU65T59AMLY",
+                            "pricing": { "base": 250, "20": 245, "50": 240 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "RT60",
+                            "name": "Retatrutide",
+                            "specification": "60mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 60mg of high-purity Retatrutide",
+                            "janoshik_url": "https://janoshik.com/tests/63893-Retatrutide_60mg_2vials_R7TLA3JFBESA",
+                            "pricing": { "base": 280, "20": 275, "50": 270 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        
+                        // SEMAGLUTIDE - ALL SM SERIES (Priority #3)
+                        {
+                            "cat_no": "SM5",
+                            "name": "Semaglutide",
+                            "specification": "5mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 5mg of high-purity Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/58022-SM5semaglutide_5mg_GZY1YNSFAFPC",
+                            "pricing": { "base": 42, "10": 36, "20": 34, "50": 32 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "new": true
+                        },
+                        {
+                            "cat_no": "SM10",
+                            "name": "Semaglutide",
+                            "specification": "10mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 10mg of high-purity Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/54823-SM10semaglutude_10mg_GYXIMDQTLVP5",
+                            "pricing": { "base": 52, "10": 44, "20": 42, "50": 39 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "popular": true,
+                            "best_value": true
+                        },
+                        {
+                            "cat_no": "SM15",
+                            "name": "Semaglutide",
+                            "specification": "15mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 15mg of high-purity Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/41561-semaglutide_10mg_T1R9E8ESR2RN",
+                            "pricing": { "base": 65, "10": 54, "20": 52, "50": 49 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        },
+                        {
+                            "cat_no": "SM20",
+                            "name": "Semaglutide",
+                            "specification": "20mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 20mg of high-purity Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/54824-SM20Semaglutide_20mg_BIEZ8KMJ7AAL",
+                            "pricing": { "base": 74, "10": 62, "20": 59, "50": 56 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "SM30",
+                            "name": "Semaglutide",
+                            "specification": "30mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 30mg of high-purity Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/60538-Semaglutide_30mg_9FHU73TLY8BA",
+                            "pricing": { "base": 96, "10": 80, "20": 77, "50": 73 },
+                            "category": "weight_loss",
+                            "subcategory": "glp1_agonists"
+                        }
+                    ]
+                },
+                "fat_loss_peptides": {
+                    "description": "Fat Loss & Metabolic Peptides",
+                    "products": [
+                        // CAGRILINTIDE & COMBINATIONS
+                        {
+                            "cat_no": "CGL5",
+                            "name": "Cagrilintide",
+                            "specification": "5mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 5mg of high-purity Cagrilintide",
+                            "janoshik_url": "https://janoshik.com/tests/60670-Cagrilintide_5mg_M18CSTPXS57E",
+                            "pricing": { "base": 80, "20": 78, "50": 75 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "CGL10",
+                            "name": "Cagrilintide",
+                            "specification": "10mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains 10mg of high-purity Cagrilintide",
+                            "janoshik_url": "https://janoshik.com/tests/54826-CGL10Cagrilintide_10mg_BWTV9SUJA5QQ",
+                            "pricing": { "base": 135, "20": 130, "50": 128 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "CS5",
+                            "name": "Cagrilintide + Semaglutide Combo",
+                            "specification": "10mg*10vials (5mg+5mg)",
+                            "composition": "1 kit contains 10 vials, each vial contains 5mg Cagrilintide + 5mg Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/65461-Cagrilintide_5mg_semaglutide_5mg_UG6RQDGKJKAY",
+                            "pricing": { "base": 105, "20": 100, "50": 95 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        
+                        // MOTS-C - ALL MS SERIES
+                        {
+                            "cat_no": "MS5",
+                            "name": "MOTS-c",
+                            "specification": "5mg*10vials",
+                            "composition": "Mitochondrial-derived peptide - 1 kit contains 10 vials, each vial contains 5mg of high-purity MOTS-c for metabolic enhancement",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 30, "20": 28, "50": 27 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "MS10",
+                            "name": "MOTS-c",
+                            "specification": "10mg*10vials",
+                            "composition": "Mitochondrial-derived peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity MOTS-c for metabolic enhancement",
+                            "janoshik_url": "https://janoshik.com/tests/42650-MS10_cleargold_top_vial_I27UCAXRCDSJ",
+                            "pricing": { "base": 55, "20": 53, "50": 50 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "MS40",
+                            "name": "MOTS-c",
+                            "specification": "40mg*10vials",
+                            "composition": "Mitochondrial-derived peptide - 1 kit contains 10 vials, each vial contains 40mg of high-purity MOTS-c for metabolic enhancement",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 180, "20": 175, "50": 170 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        
+                        // SS-31/ELAMIPRETIDE - ALL 2S SERIES
+                        {
+                            "cat_no": "2S10",
+                            "name": "SS-31 (Elamipretide)",
+                            "specification": "10mg*10vials",
+                            "composition": "Mitochondrial-targeted peptide - 1 kit contains 10 vials, each vial contains 10mg of high-purity SS-31 for mitochondrial protection and energy production",
+                            "janoshik_url": "https://janoshik.com/tests/64751-SS31_10mg_D8BRQL11PV7T",
+                            "pricing": { "base": 90, "20": 87, "50": 85 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides",
+                            "new": true
+                        },
+                        {
+                            "cat_no": "2S50",
+                            "name": "SS-31 (Elamipretide)",
+                            "specification": "50mg*10vials",
+                            "composition": "Mitochondrial-targeted peptide - 1 kit contains 10 vials, each vial contains 50mg of high-purity SS-31 for mitochondrial protection and energy production",
+                            "janoshik_url": "",
+                            "pricing": { "base": 345, "20": 340, "50": 335 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides",
+                            "new": true
+                        },
+                        
+                        // AOD-9604 - ALL WEIGHT LOSS VARIANTS
+                        {
+                            "cat_no": "2AD",
+                            "name": "AOD9604",
+                            "specification": "2mg*10vials",
+                            "composition": "Anti-Obesity Drug - 1 kit contains 10 vials, each vial contains 2mg of high-purity AOD9604 for targeted fat loss",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 46, "20": 45, "50": 43 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "5AD",
+                            "name": "AOD9604",
+                            "specification": "5mg*10vials",
+                            "composition": "Anti-Obesity Drug - 1 kit contains 10 vials, each vial contains 5mg of high-purity AOD9604 for targeted fat loss",
+                            "janoshik_url": "https://janoshik.com/tests/62997-aod5_5mg_5CZLQ38SRE3N",
+                            "pricing": { "base": 90, "20": 88, "50": 85 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "10AD",
+                            "name": "AOD9604",
+                            "specification": "10mg*10vials",
+                            "composition": "Anti-Obesity Drug - 1 kit contains 10 vials, each vial contains 10mg of high-purity AOD9604 for targeted fat loss",
+                            "janoshik_url": "https://janoshik.com/tests/65458-Aod9604_10mg_1IWIBPFV1Q8N",
+                            "pricing": { "base": 160, "20": 158, "50": 155 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        
+                        // TESAMORELIN - ALL TSM SERIES
+                        {
+                            "cat_no": "TSM2",
+                            "name": "Tesamorelin",
+                            "specification": "2mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog - 1 kit contains 10 vials, each vial contains 2mg of high-purity Tesamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 35, "20": 32, "50": 30 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "TSM10",
+                            "name": "Tesamorelin",
+                            "specification": "10mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog - 1 kit contains 10 vials, each vial contains 10mg of high-purity Tesamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 80, "20": 75, "50": 70 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        },
+                        {
+                            "cat_no": "TSM20",
+                            "name": "Tesamorelin",
+                            "specification": "20mg*10vials",
+                            "composition": "Growth Hormone Releasing Hormone analog - 1 kit contains 10 vials, each vial contains 20mg of high-purity Tesamorelin",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 120, "20": 110, "50": 100 },
+                            "category": "weight_loss",
+                            "subcategory": "fat_loss_peptides"
+                        }
+                    ]
+                },
+                "glow_blends": {
+                    "description": "GHK-CU & GLOW Blend Products",
+                    "products": [
+                        // GHK-CU PRODUCTS
+                        {
+                            "cat_no": "CU50",
+                            "name": "GHK-CU",
+                            "specification": "50mg*10vials",
+                            "composition": "Copper tripeptide - 1 kit contains 10 vials, each vial contains 50mg of high-purity GHK-CU for tissue regeneration and anti-aging",
+                            "janoshik_url": "https://janoshik.com/tests/62996-GHKCu_50mg_4K5X43P319YQ",
+                            "pricing": { "base": 32, "20": 30, "50": 28 },
+                            "category": "weight_loss",
+                            "subcategory": "glow_blends"
+                        },
+                        {
+                            "cat_no": "CU100",
+                            "name": "GHK-CU",
+                            "specification": "100mg*10vials",
+                            "composition": "Copper tripeptide - 1 kit contains 10 vials, each vial contains 100mg of high-purity GHK-CU for tissue regeneration and anti-aging",
+                            "janoshik_url": "https://janoshik.com/tests/60324-GHKCU_100mg_S6UDD83R4MV9",
+                            "pricing": { "base": 48, "20": 45, "50": 43 },
+                            "category": "weight_loss",
+                            "subcategory": "glow_blends"
+                        },
+                        
+                        // GLOW BLENDS
+                        {
+                            "cat_no": "GLOW50",
+                            "name": "GLOW50 (BPC-157 + GHK-CU + TB500)",
+                            "specification": "50mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains BPC-157 5mg + GHK-CU 35mg + TB500 10mg",
+                            "janoshik_url": "https://janoshik.com/tests/58024-GLOW50BPC157_5mgGHKCU_35mgTB500_10mg_9CWF77623DHW",
+                            "pricing": { "base": 145, "20": 140, "50": 135 },
+                            "category": "weight_loss",
+                            "subcategory": "glow_blends"
+                        },
+                        {
+                            "cat_no": "GLOW70",
+                            "name": "GLOW70 (BPC-157 + GHK-CU + TB500)",
+                            "specification": "70mg*10vials",
+                            "composition": "1 kit contains 10 vials, each vial contains BPC-157 10mg + GHK-CU 50mg + TB500 10mg",
+                            "janoshik_url": "https://janoshik.com/tests/58861-Glow70_JU2BFDL9HNP9",
+                            "pricing": { "base": 175, "20": 170, "50": 165 },
+                            "category": "weight_loss",
+                            "subcategory": "glow_blends"
+                        }
+                    ]
+                },
+                "oral_fat_burners": {
+                    "description": "Oral Tablets for Fat Loss & Weight Management",
+                    "products": [
+                        // ORAL SEMAGLUTIDE & TIRZEPATIDE TABLETS
+                        {
+                            "cat_no": "SM500",
+                            "name": "Semaglutide Tablets",
+                            "specification": "500mcg*25tabs",
+                            "composition": "1 bottle contains 25 tablets, each tablet contains 500mcg of pharmaceutical-grade Semaglutide",
+                            "janoshik_url": "https://janoshik.com/tests/50512-semaglutide_500mcg_QZ322BDG96AL",
+                            "pricing": { "base": 16, "10": 15 },
+                            "category": "weight_loss",
+                            "subcategory": "oral_fat_burners"
+                        },
+                        {
+                            "cat_no": "TR500",
+                            "name": "Tirzepatide Tablets",
+                            "specification": "500mcg x 25 tablets",
+                            "composition": "1 bottle contains 25 tablets, each tablet contains 500mcg of pharmaceutical-grade Tirzepatide",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 17, "10": 15 },
+                            "category": "weight_loss",
+                            "subcategory": "oral_fat_burners"
+                        },
+                        
+                        // CLENBUTEROL
+                        {
+                            "cat_no": "CB40",
+                            "name": "CLEN (Clenbuterol)",
+                            "specification": "40MCG*100tabs",
+                            "composition": "1 bottle contains 100 tablets, each tablet contains 40mcg of pharmaceutical-grade Clenbuterol",
+                            "janoshik_url": "#",
+                            "pricing": { "base": 13, "10": 12 },
+                            "category": "weight_loss",
+                            "subcategory": "oral_fat_burners",
+                            "popular": true
+                        },
+                        {
+                            "cat_no": "LC553",
+                            "name": "SUPER SHRED",
+                            "specification": "10ml x 10 vials",
+                            "composition": "L-Carnitine 400mg/ml, Mic Blend 100mg/ml, ATP 50mg/ml, Albuterol 2mg/ml, B12 1mg/ml",
+                            "janoshik_url": "https://janoshik.com/tests/67328-SUPER_SHRED_LC553_9R8UEH93WVNH",
+                            "pricing": { "base": 165, "10": 160, "20": 155 },
+                            "category": "weight_loss",
+                            "subcategory": "oral_fat_burners",
+                            "new": true
+                        }
+                    ]
+                }
             }
         };
 
@@ -12182,7 +13176,7 @@ body {
             loadCartFromStorage();
             updateCartDisplay();
             setupEventListeners();
-            showProducts('all');
+            showProducts('featured_products');
             initPromoTimer();
             console.log('Sigma Audley website initialized successfully');
         }
@@ -12195,6 +13189,19 @@ body {
                 if (categoryKey === 'company_info') continue;
                 
                 const category = productsData[categoryKey];
+                
+                // Special handling for featured_products which has products directly
+                if (categoryKey === 'featured_products' && category.products) {
+                    category.products.forEach(product => {
+                        allProducts.push({
+                            ...product,
+                            category: 'featured_products'
+                        });
+                    });
+                    continue;
+                }
+                
+                // Regular category processing
                 for (const subcategoryKey in category) {
                     if (subcategoryKey === 'description') continue;
                     
@@ -12225,13 +13232,58 @@ body {
             });
             
             const activeBtn = [...document.querySelectorAll('.category-btn')]
-                .find(btn => btn.textContent.toLowerCase().includes(category) || 
-                           (category === 'all' && btn.textContent === 'All Products'));
+                .find(btn => btn.textContent.toLowerCase().includes(category.replace('_', ' ')) || 
+                           (category === 'all' && btn.textContent === 'All Products') ||
+                           (category === 'featured_products' && btn.textContent === 'Featured Products') ||
+                           (category === 'weight_loss' && btn.textContent === 'Weight Loss'));
             if (activeBtn) {
                 activeBtn.classList.add('active');
             }
             
+            // Update filter buttons based on category
+            updateFilterButtons(category);
+            
             filterProducts();
+        }
+
+        // Update filter buttons based on current category
+        function updateFilterButtons(category) {
+            const filterGroup = document.querySelector('.filter-group');
+            if (!filterGroup) return;
+            
+            if (category === 'featured_products') {
+                // Custom filters for featured products
+                filterGroup.innerHTML = `
+                    <button class="filter-btn" data-filter="all">All</button>
+                    <button class="filter-btn active" data-filter="peptides-injectables">💉 Peptides & Injectables</button>
+                    <button class="filter-btn" data-filter="steroids-sarms">💊 Steroids & SARMs</button>
+                `;
+            } else {
+                // Default filters for other categories
+                filterGroup.innerHTML = `
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="popular">Popular</button>
+                    <button class="filter-btn" data-filter="new">New</button>
+                    <button class="filter-btn" data-filter="best-value">Best Value</button>
+                `;
+            }
+            
+            // Reset current filter and reattach event listeners
+            currentFilter = (category === 'featured_products') ? 'peptides-injectables' : 'all';
+            attachFilterListeners();
+        }
+
+        // Attach event listeners to filter buttons
+        function attachFilterListeners() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    currentPage = 1;
+                    filterProducts();
+                });
+            });
         }
 
         // Filter products based on current filters
@@ -12240,7 +13292,12 @@ body {
             
             // Filter by category
             if (currentCategory !== 'all') {
-                products = products.filter(product => product.category === currentCategory);
+                if (currentCategory === 'featured_products') {
+                    // Special handling for featured products
+                    products = products.filter(product => product.featured === true);
+                } else {
+                    products = products.filter(product => product.category === currentCategory);
+                }
             }
             
             // Filter by type
@@ -12253,6 +13310,35 @@ body {
                             return product.new === true;
                         case 'best-value':
                             return product.best_value === true;
+                        case 'peptides-injectables':
+                            return product.featured === true && 
+                                   (product.category === 'peptides' || 
+                                    product.name.toLowerCase().includes('peptide') ||
+                                    product.name.toLowerCase().includes('hgh') ||
+                                    product.name.toLowerCase().includes('semaglutide') ||
+                                    product.name.toLowerCase().includes('tirzepatide') ||
+                                    product.name.toLowerCase().includes('retatrutide') ||
+                                    product.name.toLowerCase().includes('cagrilintide') ||
+                                    product.name.toLowerCase().includes('mots') ||
+                                    product.name.toLowerCase().includes('ss-31') ||
+                                    product.name.toLowerCase().includes('bpc') ||
+                                    product.name.toLowerCase().includes('ghk') ||
+                                    product.name.toLowerCase().includes('epithalon') ||
+                                    product.name.toLowerCase().includes('tesamorelin') ||
+                                    product.name.toLowerCase().includes('ipamorelin'));
+                        case 'steroids-sarms':
+                            return product.featured === true && 
+                                   (product.name.toLowerCase().includes('dianabol') ||
+                                    product.name.toLowerCase().includes('clenbuterol') ||
+                                    product.name.toLowerCase().includes('winstrol') ||
+                                    product.name.toLowerCase().includes('anavar') ||
+                                    product.name.toLowerCase().includes('anadrol') ||
+                                    product.name.toLowerCase().includes('superdrol') ||
+                                    product.name.toLowerCase().includes('turinabol') ||
+                                    product.name.toLowerCase().includes('gw-501516') ||
+                                    product.name.toLowerCase().includes('rad-140') ||
+                                    product.name.toLowerCase().includes('mk-677') ||
+                                    product.name.toLowerCase().includes('lgd-4033'));
                         default:
                             return true;
                     }
@@ -12313,10 +13399,29 @@ body {
             
             if (productsToShow.length === 0 && currentPage === 1) {
                 grid.innerHTML = `
-                    <div class="loading">
+                    <div class="loading" style="padding: var(--space-8);">
                         <i class="fas fa-search" style="font-size: 3rem; color: var(--gray-400); margin-bottom: 1rem;"></i>
-                        <p>No products found matching your criteria</p>
-                        <p class="text-sm text-gray-500">Try adjusting your filters or search terms</p>
+                        <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: var(--space-2);">No products found matching your criteria</p>
+                        <p class="text-sm text-gray-500" style="margin-bottom: var(--space-4);">Try adjusting your filters or search terms</p>
+                        
+                        <!-- Price List Option -->
+                        <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); padding: var(--space-4); margin-top: var(--space-4); border-radius: 8px; border: 1px solid #cbd5e1;">
+                            <h4 style="color: var(--primary-600); font-size: 1rem; font-weight: 700; margin-bottom: var(--space-2);">
+                                🔍 Can't find what you are looking for?
+                            </h4>
+                            <p style="color: var(--gray-600); margin-bottom: var(--space-3); font-size: 0.9rem; line-height: 1.5;">
+                                View our complete product catalog with detailed specifications.
+                            </p>
+                            <div style="display: flex; flex-direction: column; gap: var(--space-2); align-items: center;">
+                                <a href="pricelist.pdf" download="Sigma_Audley_Price_List.pdf" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #000000; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#333333'" onmouseout="this.style.background='#000000'">
+                                    <i class="fas fa-download"></i>
+                                    View Full Price List (PDF)
+                                </a>
+                                <p style="color: var(--gray-500); font-size: 0.8rem;">
+                                    📧 For enquiries: <a href="mailto:support@sigmaaudley.net" style="color: var(--primary-600); text-decoration: none; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">support@sigmaaudley.net</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 `;
                 return;
@@ -12374,7 +13479,9 @@ body {
             }
             
             // Check if product has Janoshik URL in our comprehensive mapping
-            const janoshikUrl = janoshikMapping[product.cat_no];
+            // For featured products, strip "-FEATURED" suffix to find the base product
+            const baseCatNo = product.cat_no.replace('-FEATURED', '');
+            const janoshikUrl = janoshikMapping[baseCatNo] || product.janoshik_url;
             if (janoshikUrl) {
                 enhancedSpec += ` <a href="${janoshikUrl}" target="_blank" class="janoshik-link" title="View Janoshik Test Report">📋 Test Report</a>`;
             }
@@ -12748,16 +13855,8 @@ This is a demo. Please contact us to complete your order.`);
                 }
             });
             
-            // Filter buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    currentPage = 1;
-                    filterProducts();
-                });
-            });
+            // Filter buttons - use dynamic attachment
+            attachFilterListeners();
             
             // Sort select
             const sortSelect = document.getElementById('sortSelect');
@@ -14066,7 +15165,28 @@ Thank you for your assistance.`;
             const resultsContainer = document.getElementById('mobileSearchResults');
             
             if (searchTerm === '') {
-                resultsContainer.innerHTML = '<p style="color: var(--gray-500); text-align: center; padding: 20px;">Start typing to search products...</p>';
+                resultsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <p style="color: var(--gray-500); margin-bottom: 16px;">Start typing to search products...</p>
+                        
+                        <!-- Mobile Price List Option -->
+                        <div style="background: var(--gray-50); padding: 16px; border-radius: 8px; border: 1px solid var(--gray-200);">
+                            <h4 style="color: var(--primary-600); font-size: 14px; font-weight: 600; margin-bottom: 8px;">
+                                🔍 Can't find what you need?
+                            </h4>
+                            <p style="color: var(--gray-600); margin-bottom: 12px; font-size: 12px;">
+                                View our complete product catalog
+                            </p>
+                            <a href="pricelist.pdf" download="Sigma_Audley_Price_List.pdf" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #000000; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 12px; transition: all 0.3s ease;" onmouseover="this.style.background='#333333'" onmouseout="this.style.background='#000000'">
+                                <i class="fas fa-download"></i>
+                                Download Price List
+                            </a>
+                            <p style="color: var(--gray-500); font-size: 11px; margin-top: 8px;">
+                                📧 <a href="mailto:support@sigmaaudley.net" style="color: var(--primary-600); text-decoration: none;">support@sigmaaudley.net</a>
+                            </p>
+                        </div>
+                    </div>
+                `;
                 return;
             }
             
@@ -14079,7 +15199,13 @@ Thank you for your assistance.`;
             });
             
             if (searchResults.length === 0) {
-                resultsContainer.innerHTML = '<p style="color: var(--gray-500); text-align: center; padding: 20px;">No products found matching your search.</p>';
+                resultsContainer.innerHTML = `
+                    <div style="color: var(--gray-500); text-align: center; padding: 20px;">
+                        <p style="margin-bottom: 15px;">No products found matching your search.</p>
+                        <p style="margin-bottom: 15px; font-size: 14px;">Can't find what you are looking for? View our full price list, contact support@sigmaaudley.net for enquiries</p>
+                        <a href="pricelist.pdf" download style="background-color: #000000 !important; color: white !important; padding: 10px 20px !important; border-radius: 4px !important; text-decoration: none !important; font-weight: 500 !important; display: inline-block !important; margin-top: 10px !important;">Download Price List</a>
+                    </div>
+                `;
                 return;
             }
             
@@ -16845,6 +17971,33 @@ Thank you for your assistance.`;
     </span>
 
     </noscript>
+    
+    <!-- Footer Price List Section -->
+    <div class="footer-price-list" style="background: var(--dark); color: white; padding: var(--space-8) 0; margin-top: var(--space-8);">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h3 style="color: var(--primary-400); font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-3);">
+                🔍 Complete Product Catalog Available
+            </h3>
+            <p style="color: var(--gray-300); margin-bottom: var(--space-4); line-height: 1.6;">
+                Can't find what you are looking for? Download our comprehensive price list with detailed specifications, dosages, and pricing information for our entire product range.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: var(--space-4); align-items: center;">
+                <a href="pricelist.pdf" download="Sigma_Audley_Price_List.pdf" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: #000000; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 2px solid #000000;" onmouseover="this.style.background='#333333'; this.style.borderColor='#333333'" onmouseout="this.style.background='#000000'; this.style.borderColor='#000000'">
+                    <i class="fas fa-download"></i>
+                    Download Full Price List (PDF)
+                </a>
+                <div style="color: var(--gray-400); font-size: 1rem; line-height: 1.5;">
+                    <p>📧 For enquiries and custom orders:</p>
+                    <a href="mailto:support@sigmaaudley.net" style="color: var(--primary-400); text-decoration: none; font-weight: 700; font-size: 1.1rem;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                        support@sigmaaudley.net
+                    </a>
+                </div>
+                <p style="color: var(--gray-500); font-size: 0.9rem; font-style: italic;">
+                    ✓ Complete product specifications ✓ Bulk pricing available ✓ Custom formulations
+                </p>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

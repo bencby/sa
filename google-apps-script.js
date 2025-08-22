@@ -11,8 +11,8 @@
 
 function doPost(e) {
   try {
-    // Replace with your actual Google Sheet ID
-    const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
+    // Your actual Google Sheet ID
+    const SPREADSHEET_ID = '1TeV1oVnMzZXI9Rqj1QQNMZQo6AhjcbM79TpQ1e9mhSg';
     
     // Parse the request data
     const data = JSON.parse(e.postData.contents);
@@ -66,7 +66,7 @@ function doGet(e) {
 
 // Optional: Function to get email statistics
 function getEmailStats() {
-  const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
+  const SPREADSHEET_ID = '1TeV1oVnMzZXI9Rqj1QQNMZQo6AhjcbM79TpQ1e9mhSg';
   const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getActiveSheet();
   
   const totalEmails = sheet.getLastRow() - 1; // Subtract header row

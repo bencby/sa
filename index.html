@@ -16842,6 +16842,74 @@ This is a demo. Please contact us to complete your order.`);
                 });
             }
             
+            // Fire Reddit Pixel Conversion Event with Deduplication
+            try {
+                // Check if conversion already tracked to prevent duplicates
+                if (!isRedditConversionTracked(orderId)) {
+                    // Generate unique conversion ID for deduplication
+                    const conversionId = `${orderId}_${Date.now()}_reddit`;
+                    
+                    // Prepare user data for better attribution matching
+                    const userData = {
+                        email: orderData.shippingInfo.email,
+                        phone_number: orderData.shippingInfo.phone,
+                        external_id: orderId,
+                        ip_address: null, // Will be filled by server
+                        user_agent: navigator.userAgent
+                    };
+                    
+                    // Add screen dimensions if available
+                    if (screen.width && screen.height) {
+                        userData.screen_dimensions = {
+                            width: screen.width,
+                            height: screen.height
+                        };
+                    }
+                    
+                    // Prepare conversion event data
+                    const redditConversionData = {
+                        test_mode: false, // Set to true for testing
+                        events: [{
+                            event_at: new Date().toISOString(),
+                            event_type: {
+                                tracking_type: "Purchase"
+                            },
+                            event_metadata: {
+                                conversion_id: conversionId,
+                                value: parseFloat(orderTotal),
+                                currency: orderData.warehouse?.currency || 'USD',
+                                order_id: orderId,
+                                item_count: cart.reduce((sum, item) => sum + item.quantity, 0),
+                                custom_data: {
+                                    products: cart.map(item => ({
+                                        name: item.product.name,
+                                        category: item.product.category || 'Research Peptides',
+                                        quantity: item.quantity,
+                                        price: calculateItemPrice(item) / item.quantity,
+                                        sku: item.product.cat_no
+                                    })),
+                                    payment_method: orderData.paymentMethod,
+                                    warehouse: orderData.warehouse?.name,
+                                    shipping_country: orderData.shippingInfo.country,
+                                    source: 'website_direct',
+                                    platform: 'sigmaaudley.net'
+                                }
+                            },
+                            user: userData
+                        }]
+                    };
+                    
+                    // Send Reddit conversion using helper function
+                    sendRedditConversion(redditConversionData, orderId);
+                    
+                } else {
+                    console.log('Reddit conversion already tracked for order:', orderId);
+                }
+                
+            } catch (error) {
+                console.warn('Reddit conversion tracking setup error:', error);
+            }
+            
             // Close checkout modal and show original thank you page
             closeModal('checkoutModal');
             showThankYouPage();
@@ -18585,6 +18653,301 @@ Thank you for your assistance.`;
                 window.history.replaceState({}, '', newUrl);
             }
         });
+        
+        // ======= REDDIT CONVERSION TRACKING HELPER FUNCTIONS =======
+        
+        // Retry failed Reddit conversions on page load
+        function retryFailedRedditConversions() {
+            try {
+                const keys = Object.keys(localStorage).filter(key => key.startsWith('reddit_conversion_retry_'));
+                
+                keys.forEach(key => {
+                    try {
+                        const failedConversion = JSON.parse(localStorage.getItem(key));
+                        const daysSinceFailure = (Date.now() - failedConversion.timestamp) / (1000 * 60 * 60 * 24);
+                        
+                        // Only retry if failure was within 7 days (Reddit's limit)
+                        if (daysSinceFailure <= 7) {
+                            sendRedditConversion(failedConversion.conversionData, failedConversion.orderId, key);
+                        } else {
+                            // Remove expired retry data
+                            localStorage.removeItem(key);
+                        }
+                    } catch (error) {
+                        console.warn('Error retrying Reddit conversion:', error);
+                        localStorage.removeItem(key);
+                    }
+                });
+            } catch (error) {
+                console.warn('Error in retry mechanism:', error);
+            }
+        }
+        
+        // Send Reddit conversion with proper error handling
+        function sendRedditConversion(conversionData, orderId, retryKey = null) {
+            return fetch('https://ads-api.reddit.com/api/v2.0/conversions/events/a2_hn97sop776ly', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IlNIQTI1NjpzS3dsMnlsV…',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(conversionData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Reddit conversion tracked successfully', {
+                        orderId: orderId,
+                        conversionId: conversionData.events[0]?.event_metadata?.conversion_id,
+                        value: conversionData.events[0]?.event_metadata?.value
+                    });
+                    
+                    // Store successful conversion
+                    localStorage.setItem(`reddit_conversion_${orderId}`, conversionData.events[0]?.event_metadata?.conversion_id);
+                    
+                    // Remove retry data if this was a retry
+                    if (retryKey) {
+                        localStorage.removeItem(retryKey);
+                    }
+                    
+                    return true;
+                } else {
+                    throw new Error(`Reddit API responded with status: ${response.status}`);
+                }
+            })
+            .catch(error => {
+                console.warn('Reddit conversion tracking failed:', error);
+                
+                // Store for retry if not already a retry
+                if (!retryKey) {
+                    const failedConversion = {
+                        orderId: orderId,
+                        conversionData: conversionData,
+                        timestamp: Date.now()
+                    };
+                    localStorage.setItem(`reddit_conversion_retry_${orderId}`, JSON.stringify(failedConversion));
+                }
+                
+                return false;
+            });
+        }
+        
+        // Check if conversion already tracked to prevent duplicates
+        function isRedditConversionTracked(orderId) {
+            return localStorage.getItem(`reddit_conversion_${orderId}`) !== null;
+        }
+        
+        // Clean up old conversion tracking data (older than 30 days)
+        function cleanupOldRedditConversions() {
+            try {
+                const keys = Object.keys(localStorage).filter(key => 
+                    key.startsWith('reddit_conversion_') || key.startsWith('reddit_conversion_retry_')
+                );
+                
+                keys.forEach(key => {
+                    try {
+                        const data = localStorage.getItem(key);
+                        if (key.includes('retry_')) {
+                            const failedConversion = JSON.parse(data);
+                            const daysSince = (Date.now() - failedConversion.timestamp) / (1000 * 60 * 60 * 24);
+                            if (daysSince > 30) {
+                                localStorage.removeItem(key);
+                            }
+                        } else if (key.startsWith('reddit_conversion_')) {
+                            // Keep successful conversions for 30 days for deduplication
+                            const thirtyDaysAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
+                            const item = localStorage.getItem(key);
+                            if (item && !item.includes(thirtyDaysAgo.toString().substring(0, 8))) {
+                                // Simple check - remove if likely old
+                                localStorage.removeItem(key);
+                            }
+                        }
+                    } catch (error) {
+                        // Remove corrupted data
+                        localStorage.removeItem(key);
+                    }
+                });
+            } catch (error) {
+                console.warn('Error cleaning up Reddit conversion data:', error);
+            }
+        }
+        
+        // Initialize Reddit conversion tracking on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Clean up old tracking data
+            cleanupOldRedditConversions();
+            
+            // Retry failed conversions
+            retryFailedRedditConversions();
+        });
+        
+        // Debug and Testing Functions for Reddit Conversion Tracking
+        window.redditConversionDebug = {
+            // Test Reddit conversion with sample data
+            testConversion: function() {
+                const testOrderData = {
+                    orderId: `TEST_${Date.now()}`,
+                    total: 299.99,
+                    warehouse: { currency: 'USD', name: 'USA Warehouse' },
+                    paymentMethod: 'crypto',
+                    shippingInfo: {
+                        email: 'test@example.com',
+                        phone: '+1234567890',
+                        country: 'United States'
+                    }
+                };
+                
+                const testCart = [{
+                    product: { name: 'Test Peptide', cat_no: 'TEST-001', category: 'Research Peptides' },
+                    quantity: 1
+                }];
+                
+                // Mock calculateItemPrice function for test
+                window.testCalculateItemPrice = () => 299.99;
+                
+                console.log('Testing Reddit conversion with test data:', testOrderData);
+                
+                // Use the same conversion logic as the main function
+                const conversionId = `${testOrderData.orderId}_${Date.now()}_reddit`;
+                const userData = {
+                    email: testOrderData.shippingInfo.email,
+                    phone_number: testOrderData.shippingInfo.phone,
+                    external_id: testOrderData.orderId,
+                    user_agent: navigator.userAgent
+                };
+                
+                if (screen.width && screen.height) {
+                    userData.screen_dimensions = {
+                        width: screen.width,
+                        height: screen.height
+                    };
+                }
+                
+                const redditConversionData = {
+                    test_mode: true, // Enable test mode for testing
+                    events: [{
+                        event_at: new Date().toISOString(),
+                        event_type: {
+                            tracking_type: "Purchase"
+                        },
+                        event_metadata: {
+                            conversion_id: conversionId,
+                            value: parseFloat(testOrderData.total),
+                            currency: testOrderData.warehouse.currency,
+                            order_id: testOrderData.orderId,
+                            item_count: testCart.length,
+                            custom_data: {
+                                products: testCart.map(item => ({
+                                    name: item.product.name,
+                                    category: item.product.category,
+                                    quantity: item.quantity,
+                                    price: window.testCalculateItemPrice(),
+                                    sku: item.product.cat_no
+                                })),
+                                payment_method: testOrderData.paymentMethod,
+                                warehouse: testOrderData.warehouse.name,
+                                shipping_country: testOrderData.shippingInfo.country,
+                                source: 'test_mode',
+                                platform: 'sigmaaudley.net'
+                            }
+                        },
+                        user: userData
+                    }]
+                };
+                
+                return sendRedditConversion(redditConversionData, testOrderData.orderId);
+            },
+            
+            // Check conversion tracking status
+            checkStatus: function() {
+                const conversions = Object.keys(localStorage).filter(key => 
+                    key.startsWith('reddit_conversion_')
+                );
+                const retries = Object.keys(localStorage).filter(key => 
+                    key.startsWith('reddit_conversion_retry_')
+                );
+                
+                console.log('Reddit Conversion Tracking Status:');
+                console.log('- Successful conversions:', conversions.length);
+                console.log('- Failed conversions (pending retry):', retries.length);
+                console.log('- Conversion details:', conversions.map(key => ({
+                    orderId: key.replace('reddit_conversion_', ''),
+                    conversionId: localStorage.getItem(key)
+                })));
+                console.log('- Retry details:', retries.map(key => {
+                    try {
+                        return JSON.parse(localStorage.getItem(key));
+                    } catch {
+                        return { error: 'Invalid retry data', key };
+                    }
+                }));
+            },
+            
+            // Clear all Reddit conversion tracking data
+            clearAll: function() {
+                const keys = Object.keys(localStorage).filter(key => 
+                    key.startsWith('reddit_conversion_') || key.startsWith('reddit_conversion_retry_')
+                );
+                keys.forEach(key => localStorage.removeItem(key));
+                console.log(`Cleared ${keys.length} Reddit conversion tracking entries`);
+            },
+            
+            // Manually retry failed conversions
+            retryFailed: function() {
+                console.log('Manually retrying failed Reddit conversions...');
+                retryFailedRedditConversions();
+            },
+            
+            // Verify Reddit API endpoint is accessible
+            checkApiEndpoint: function() {
+                console.log('Checking Reddit Conversions API endpoint...');
+                
+                return fetch('https://ads-api.reddit.com/api/v2.0/conversions/events/a2_hn97sop776ly', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IlNIQTI1NjpzS3dsMnlsV…',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        test_mode: true,
+                        events: [{
+                            event_at: new Date().toISOString(),
+                            event_type: { tracking_type: "Custom" },
+                            event_metadata: {
+                                conversion_id: `api_test_${Date.now()}`,
+                                custom_event_name: "api_connectivity_test"
+                            }
+                        }]
+                    })
+                })
+                .then(response => {
+                    console.log('API Response Status:', response.status);
+                    if (response.ok) {
+                        console.log('✅ Reddit API endpoint is accessible and working');
+                        return true;
+                    } else {
+                        console.warn('⚠️ Reddit API responded with error status:', response.status);
+                        return response.text().then(text => {
+                            console.warn('Error response:', text);
+                            return false;
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('❌ Reddit API endpoint test failed:', error);
+                    return false;
+                });
+            }
+        };
+        
+        // Make debug functions available in console
+        console.log('Reddit Conversion Tracking Debug Functions Available:');
+        console.log('- redditConversionDebug.testConversion() - Test with sample data');
+        console.log('- redditConversionDebug.checkStatus() - Check tracking status');
+        console.log('- redditConversionDebug.clearAll() - Clear all tracking data');
+        console.log('- redditConversionDebug.retryFailed() - Retry failed conversions');
+        console.log('- redditConversionDebug.checkApiEndpoint() - Test API connectivity');
+        
+        // ======= END REDDIT CONVERSION TRACKING =======
         
         // Specialized function to copy Bitcoin amount with high precision
         function copyBtcAmount() {

@@ -1,0 +1,207 @@
+{
+  "local_search_optimization": {
+    "usa": {
+      "near_me_keywords": [
+        "peptides near me USA",
+        "research peptides near me america",
+        "semaglutide near me USA",
+        "tirzepatide near me america",
+        "peptide supplier near me US",
+        "local peptides USA",
+        "peptides in my area america",
+        "nearby peptides USA",
+        "close peptides america",
+        "peptides around me USA"
+      ],
+      "location_modifiers": [
+        "in USA", "in America", "in United States", "in my state", "in my city",
+        "domestic USA", "local USA", "nearby USA", "around USA", "close USA"
+      ],
+      "urgent_keywords": [
+        "same day peptides USA",
+        "next day peptides america",
+        "urgent peptides USA",
+        "fast peptides america", 
+        "quick peptides USA",
+        "rush peptides america",
+        "immediate peptides USA"
+      ],
+      "quality_local_keywords": [
+        "best peptides in USA",
+        "top peptides in america",
+        "highest quality USA peptides",
+        "premium american peptides",
+        "elite USA peptides",
+        "professional peptides america"
+      ]
+    },
+    "uk": {
+      "near_me_keywords": [
+        "peptides near me UK",
+        "research peptides near me britain",
+        "semaglutide near me UK",
+        "tirzepatide near me britain",
+        "peptide supplier near me UK",
+        "local peptides UK",
+        "peptides in my area britain",
+        "nearby peptides UK",
+        "close peptides britain",
+        "peptides around me UK"
+      ],
+      "location_modifiers": [
+        "in UK", "in Britain", "in United Kingdom", "in my county", "in my town",
+        "domestic UK", "local UK", "nearby UK", "around UK", "close UK"
+      ],
+      "urgent_keywords": [
+        "same day peptides UK",
+        "next day peptides britain",
+        "urgent peptides UK",
+        "fast peptides britain",
+        "quick peptides UK", 
+        "rush peptides britain",
+        "immediate peptides UK"
+      ],
+      "quality_local_keywords": [
+        "best peptides in UK",
+        "top peptides in britain",
+        "highest quality UK peptides",
+        "premium british peptides",
+        "elite UK peptides",
+        "professional peptides britain"
+      ]
+    },
+    "germany": {
+      "near_me_keywords": [
+        "Peptide in der Nähe Deutschland",
+        "Forschungspeptide in der Nähe",
+        "Semaglutid in der Nähe Deutschland",
+        "Tirzepatid in der Nähe",
+        "Peptid Lieferant in der Nähe",
+        "lokale Peptide Deutschland",
+        "Peptide in meiner Nähe",
+        "nahe Peptide Deutschland",
+        "Peptide um mich herum"
+      ],
+      "location_modifiers": [
+        "in Deutschland", "in Germany", "in meiner Stadt", "in meinem Bundesland",
+        "inländisch Deutschland", "lokal Deutschland", "nah Deutschland"
+      ],
+      "urgent_keywords": [
+        "sofort Peptide Deutschland",
+        "schnelle Peptide Germany",
+        "eilige Peptide Deutschland",
+        "schnell Peptide Germany",
+        "rush Peptide Deutschland"
+      ],
+      "quality_local_keywords": [
+        "beste Peptide in Deutschland",
+        "top Peptide in Germany",
+        "höchste Qualität Deutschland Peptide",
+        "premium deutsche Peptide",
+        "elite Deutschland Peptide"
+      ]
+    },
+    "australia": {
+      "near_me_keywords": [
+        "peptides near me Australia",
+        "research peptides near me aussie",
+        "semaglutide near me Australia",
+        "tirzepatide near me aussie",
+        "peptide supplier near me AU",
+        "local peptides Australia",
+        "peptides in my area aussie",
+        "nearby peptides Australia",
+        "close peptides aussie",
+        "peptides around me Australia"
+      ],
+      "location_modifiers": [
+        "in Australia", "in Aussie", "in AU", "in my state", "in my city",
+        "domestic Australia", "local Australia", "nearby Australia", "around Australia"
+      ],
+      "urgent_keywords": [
+        "same day peptides Australia",
+        "next day peptides aussie",
+        "urgent peptides Australia",
+        "fast peptides aussie",
+        "quick peptides Australia",
+        "rush peptides aussie",
+        "immediate peptides Australia"
+      ],
+      "quality_local_keywords": [
+        "best peptides in Australia",
+        "top peptides in aussie",
+        "highest quality Australia peptides",
+        "premium aussie peptides",
+        "elite Australia peptides",
+        "ripper peptides Australia"
+      ]
+    },
+    "canada": {
+      "near_me_keywords": [
+        "peptides near me Canada",
+        "research peptides near me canadian",
+        "semaglutide near me Canada",
+        "tirzepatide near me canadian",
+        "peptide supplier near me CA",
+        "local peptides Canada",
+        "peptides in my area canadian",
+        "nearby peptides Canada",
+        "close peptides canadian",
+        "peptides around me Canada"
+      ],
+      "location_modifiers": [
+        "in Canada", "in Canadian", "in CA", "in my province", "in my city",
+        "domestic Canada", "local Canada", "nearby Canada", "around Canada"
+      ],
+      "urgent_keywords": [
+        "same day peptides Canada",
+        "next day peptides canadian",
+        "urgent peptides Canada",
+        "fast peptides canadian",
+        "quick peptides Canada",
+        "rush peptides canadian",
+        "immediate peptides Canada"
+      ],
+      "quality_local_keywords": [
+        "best peptides in Canada",
+        "top peptides in canadian",
+        "highest quality Canada peptides", 
+        "premium canadian peptides",
+        "elite Canada peptides",
+        "grade A peptides Canada eh"
+      ]
+    }
+  },
+  "local_business_optimization": {
+    "hours_keywords": [
+      "24/7 peptides", "open now peptides", "peptides open late",
+      "peptides open early", "weekend peptides", "holiday peptides"
+    ],
+    "service_keywords": [
+      "peptide consultation", "peptide advice", "peptide support",
+      "peptide guidance", "peptide help", "peptide assistance"
+    ],
+    "delivery_keywords": [
+      "peptide delivery", "peptide courier", "peptide shipping",
+      "peptide logistics", "peptide transport", "peptide dispatch"
+    ]
+  },
+  "voice_search_optimization": {
+    "natural_language_queries": [
+      "where can I buy peptides",
+      "who sells research peptides",
+      "how do I get semaglutide",
+      "what's the best peptide supplier",
+      "where to find tirzepatide",
+      "which peptide company is reliable"
+    ],
+    "question_based_keywords": [
+      "what are the best peptides",
+      "how much do peptides cost",
+      "where to buy research peptides",
+      "why choose sigma audley",
+      "when will peptides arrive",
+      "how to order peptides"
+    ]
+  }
+}

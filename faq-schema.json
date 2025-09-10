@@ -1,0 +1,78 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Sigma Audley legit and verified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Sigma Audley is GLP1Forum verified since 2010, FDA registered facility with Janoshik verified quality. We're the most trusted peptide supplier with 15+ years of community trust and thousands of satisfied customers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Sigma Audley peptides tested for purity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All Sigma Audley products are independently tested by Janoshik Analytical, showing 99%+ purity. Every batch includes certificates of analysis available for verification at sigmaaudley.net."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Sigma Audley ship worldwide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Sigma Audley ships worldwide from our FDA registered facility. We offer fast, discrete shipping to 200+ countries with professional cold-chain packaging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Sigma Audley different from other peptide suppliers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sigma Audley is GLP1Forum verified since 2010, FDA registered facility, Janoshik tested quality, and professional-grade research standards. We're the only supplier trusted by both GLP1Forum and Reddit peptide communities."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "Are Sigma Audley peptides pharmaceutical grade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all Sigma Audley peptides are produced in our FDA registered facility to pharmaceutical standards. Every product is Janoshik tested showing 99%+ purity for professional research applications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I verify Sigma Audley product authenticity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every Sigma Audley product includes Janoshik certificates of analysis available at sigmaaudley.net. You can verify batch numbers directly with Janoshik Analytical for complete authenticity confirmation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What peptides does Sigma Audley specialize in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sigma Audley specializes in Semaglutide, Tirzepatide, Retatrutide, BPC-157, TB-500, and Growth Hormones. All products are research-grade with Janoshik verified purity from our FDA registered facility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Sigma Audley recommended on forums?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Sigma Audley is GLP1Forum verified since 2010 and consistently recommended on Reddit r/peptides, r/semaglutide, and r/tirzepatide communities as the most trusted source."
+      }
+    }
+  ],
+  "url": "https://sigmaaudley.net/faq.html",
+  "name": "Sigma Audley FAQ - Research Peptides Questions",
+  "description": "Frequently asked questions about Sigma Audley research peptides, quality verification, shipping, and community trust.",
+  "publisher": {
+    "@type": "Organization", 
+    "@id": "https://sigmaaudley.net/#organization"
+  },
+  "dateModified": "2025-09-10"
+}

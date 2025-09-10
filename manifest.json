@@ -1,0 +1,108 @@
+{
+  "name": "Sigma Audley - Research Peptides Authority Since 2010",
+  "short_name": "Sigma Audley",
+  "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0050",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["health", "medical", "shopping", "business", "science", "research", "pharmaceutical"],
+  "id": "/?homescreen=1",
+  "start_url": "/?utm_source=homescreen",
+  "screenshots": [
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/images/screenshot-mobile.png", 
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-96x96.png",
+      "sizes": "96x96", 
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png", 
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Complete Peptide Catalog",
+      "short_name": "Catalog",
+      "description": "Browse all research peptides",
+      "url": "/complete-research-peptide-catalog.html",
+      "icons": [{ "src": "/images/catalog-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Semaglutide Research",
+      "short_name": "Semaglutide", 
+      "description": "Semaglutide research peptides",
+      "url": "/products/semaglutide-10mg-research.html",
+      "icons": [{ "src": "/images/semaglutide-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Tirzepatide Research",
+      "short_name": "Tirzepatide",
+      "description": "Tirzepatide research peptides",
+      "url": "/products/tirzepatide-15mg-research.html",
+      "icons": [{ "src": "/images/tirzepatide-icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

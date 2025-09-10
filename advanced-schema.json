@@ -1,0 +1,174 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sigmaaudley.net/#website",
+      "url": "https://sigmaaudley.net/",
+      "name": "Sigma Audley - Official - Premium Research Peptides, SARMs & Compounds",
+      "alternateName": ["Sigma Audley Official", "SigmaAudley.net", "Sigma Audley Research"],
+      "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+      "publisher": {
+        "@id": "https://sigmaaudley.net/#organization"
+      },
+      "inLanguage": ["en-US", "en-GB", "en-CA", "en-AU"],
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://sigmaaudley.net/search?q={search_term_string}",
+            "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ],
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "@id": "https://sigmaaudley.net/#homepage",
+          "url": "https://sigmaaudley.net/",
+          "name": "Homepage - Sigma Audley Official",
+          "isPartOf": {"@id": "https://sigmaaudley.net/#website"},
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://sigmaaudley.net/images/sigma-audley-banner.jpg",
+            "width": 1200,
+            "height": 630
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sigmaaudley.net/#organization",
+      "name": "Sigma Audley",
+      "legalName": "Sigma Audley New Material Technology Co., Ltd.",
+      "url": "https://sigmaaudley.net/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sigmaaudley.net/images/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+      "foundingDate": "2010",
+      "slogan": "Research Excellence Since 2010",
+      "keywords": "research peptides, semaglutide research, tirzepatide research, bpc-157, peptide supplier, janoshik tested, glp1forum verified, finnrick verified, reddit verified, iso certified, fda registered, sigma audley, professional grade, premium peptides, sarms compounds",
+      "knowsAbout": [
+        "Research Peptides", "Semaglutide Research", "Tirzepatide Research", "Retatrutide Research",
+        "BPC-157 Research", "TB-500 Research", "Growth Hormone Research", "HGH Research",
+        "SARMs Research", "Research Compounds", "Peptide Synthesis", "Quality Assurance",
+        "Janoshik Testing", "Third-Party Testing", "FDA Registration", "ISO Certification",
+        "GLP1 Research", "Metabolic Research", "Healing Peptides", "Performance Research",
+        "Laboratory Testing", "Research Protocols", "Peptide Storage", "Cold Chain Management",
+        "Pharmaceutical Research", "Bioanalytical Testing", "Quality Control", "Purity Testing",
+        "Research Chemical Supply", "Academic Research Support", "Professional Research"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN",
+        "addressRegion": "Shanghai",
+        "addressLocality": "Shanghai"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Chinese"],
+          "areaServed": ["Worldwide"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "availableLanguage": ["English", "Chinese"],
+          "areaServed": ["Worldwide"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "availableLanguage": ["English", "Chinese"],
+          "areaServed": ["Worldwide"]
+        }
+      ],
+      "sameAs": [
+        "https://sigmaaudley.net/official-website-verification.html",
+        "https://sigmaaudley.net/glp1-forum-verified-excellence.html",
+        "https://sigmaaudley.net/reddit-peptides-trusted-supplier.html",
+        "https://sigmaaudley.net/sigma-audley-official.html"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "FDA Registration",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "U.S. Food and Drug Administration"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "credentialCategory": "GLP1Forum Verification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "GLP1Forum Community"
+          },
+          "validFrom": "2010"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Finnrick Forum Verification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Finnrick Forum Community"  
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Reddit Community Verification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Reddit Peptides Community"
+          }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Research Peptides Catalog",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Semaglutide Research Kits",
+              "category": "GLP1 Agonist Research"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product", 
+              "name": "Tirzepatide Research Kits",
+              "category": "Dual Agonist Research"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Retatrutide Research Kits", 
+              "category": "Triple Agonist Research"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "2247",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+  ]
+}

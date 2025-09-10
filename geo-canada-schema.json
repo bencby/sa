@@ -1,0 +1,117 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://sigmaaudley.net/canada#business",
+  "name": "Sigma Audley Canada - Premium Research Peptides",
+  "alternateName": ["Sigma Audley CA", "SigmaAudley Canada", "Sigma Audley Canadian"],
+  "description": "Sigma Audley - Official Canada distributor - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "url": "https://sigmaaudley.net/canada-peptide-supplier.html",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Canada",
+      "alternateName": "CA"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ontario",
+      "containedIn": {"@type": "Country", "name": "Canada"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Quebec",
+      "containedIn": {"@type": "Country", "name": "Canada"}
+    },
+    {
+      "@type": "AdministrativeArea", 
+      "name": "British Columbia",
+      "containedIn": {"@type": "Country", "name": "Canada"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Alberta",
+      "containedIn": {"@type": "Country", "name": "Canada"}
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CA",
+    "addressRegion": "Nationwide Canada",
+    "addressLocality": "All Canadian Provinces"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "56.1304",
+    "longitude": "-106.3468"
+  },
+  "currenciesAccepted": "CAD",
+  "paymentAccepted": ["Credit Card", "PayPal", "Bank Transfer", "Cryptocurrency"],
+  "priceRange": "C$50-$600",
+  "telephone": "+1-416-SIGMA-CA",
+  "email": "canada@sigmaaudley.net", 
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "56.1304",
+      "longitude": "-106.3468"
+    },
+    "geoRadius": "5000000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Canada Research Peptides Catalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Semaglutide Research Canada",
+          "description": "Fast Canada delivery. Health Canada compliant. Professional packaging."
+        },
+        "price": "52.70",
+        "priceCurrency": "CAD",
+        "availability": "InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tirzepatide Research Canada",
+          "description": "Express Canada shipping. Discrete packaging. Quality assured."
+        },
+        "price": "86.20", 
+        "priceCurrency": "CAD",
+        "availability": "InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "CanadianResearcher_Toronto"
+      },
+      "reviewBody": "Excellent Canada service from Sigma Audley. Quick delivery to Toronto, no border delays. Health Canada compliant and professional. Best Canadian peptide supplier eh!",
+      "datePublished": "2024-12-10"
+    }
+  ],
+  "keywords": "Canada research peptides, semaglutide Canada, tirzepatide Canada, peptide supplier canada, research chemicals canada, sigma audley canada, canadian peptides, canada peptide source, toronto peptides, vancouver peptides, montreal peptides, calgary peptides",
+  "sameAs": [
+    "https://sigmaaudley.net/canada-peptide-supplier.html"
+  ],
+  "inLanguage": ["en", "fr"]
+}

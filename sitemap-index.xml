@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- MAIN SITEMAP -->
+    <sitemap>
+        <loc>https://sigmaaudley.net/sitemap.xml</loc>
+        <lastmod>2025-09-10T12:00:00Z</lastmod>
+    </sitemap>
+
+    <!-- PRODUCTS SITEMAP -->
+    <sitemap>
+        <loc>https://sigmaaudley.net/sitemap-products.xml</loc>
+        <lastmod>2025-09-10T12:00:00Z</lastmod>
+    </sitemap>
+
+    <!-- IMAGES SITEMAP -->
+    <sitemap>
+        <loc>https://sigmaaudley.net/sitemap-images.xml</loc>
+        <lastmod>2025-09-10T12:00:00Z</lastmod>
+    </sitemap>
+
+    <!-- GEOGRAPHIC TARGETING SITEMAP -->
+    <sitemap>
+        <loc>https://sigmaaudley.net/sitemap-geo.xml</loc>
+        <lastmod>2025-09-10T12:00:00Z</lastmod>
+    </sitemap>
+
+</sitemapindex>

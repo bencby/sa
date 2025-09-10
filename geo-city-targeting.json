@@ -1,0 +1,223 @@
+{
+  "city_specific_targeting": {
+    "usa": {
+      "new_york": {
+        "nicknames": ["NYC", "Big Apple", "The City", "Manhattan", "Brooklyn"],
+        "keywords": [
+          "NYC peptides", "new york peptides", "manhattan peptides", "brooklyn peptides",
+          "queens peptides", "bronx peptides", "staten island peptides", "big apple peptides",
+          "wall street peptides", "times square peptides", "central park peptides"
+        ],
+        "local_landmarks": [
+          "peptides near statue of liberty", "peptides near empire state building",
+          "peptides near central park", "peptides near broadway", "peptides near wall street"
+        ],
+        "neighborhoods": [
+          "soho peptides", "tribeca peptides", "chelsea peptides", "midtown peptides",
+          "upper east side peptides", "lower east side peptides", "williamsburg peptides"
+        ]
+      },
+      "los_angeles": {
+        "nicknames": ["LA", "City of Angels", "Hollywood", "Tinseltown"],
+        "keywords": [
+          "LA peptides", "los angeles peptides", "hollywood peptides", "beverly hills peptides",
+          "santa monica peptides", "venice beach peptides", "west hollywood peptides",
+          "city of angels peptides", "california peptides"
+        ],
+        "local_landmarks": [
+          "peptides near hollywood sign", "peptides near walk of fame",
+          "peptides near santa monica pier", "peptides near rodeo drive"
+        ],
+        "neighborhoods": [
+          "west side peptides", "east side peptides", "downtown la peptides",
+          "the valley peptides", "south bay peptides"
+        ]
+      },
+      "chicago": {
+        "nicknames": ["Chi-town", "Windy City", "Second City"],
+        "keywords": [
+          "chicago peptides", "chi-town peptides", "windy city peptides",
+          "second city peptides", "illinois peptides", "midwest peptides"
+        ],
+        "local_landmarks": [
+          "peptides near millennium park", "peptides near navy pier",
+          "peptides near wrigley field", "peptides near soldier field"
+        ],
+        "neighborhoods": [
+          "loop peptides", "north side peptides", "south side peptides",
+          "lincoln park peptides", "wicker park peptides"
+        ]
+      }
+    },
+    "uk": {
+      "london": {
+        "nicknames": ["The Big Smoke", "The Capital", "Greater London"],
+        "keywords": [
+          "london peptides", "big smoke peptides", "capital peptides",
+          "greater london peptides", "city of london peptides", "west end peptides"
+        ],
+        "local_landmarks": [
+          "peptides near big ben", "peptides near london eye",
+          "peptides near tower bridge", "peptides near buckingham palace"
+        ],
+        "boroughs": [
+          "westminster peptides", "camden peptides", "islington peptides",
+          "hackney peptides", "tower hamlets peptides", "greenwich peptides"
+        ]
+      },
+      "manchester": {
+        "nicknames": ["Manc", "Madchester", "The Northern Capital"],
+        "keywords": [
+          "manchester peptides", "manc peptides", "madchester peptides",
+          "northern capital peptides", "greater manchester peptides"
+        ],
+        "local_landmarks": [
+          "peptides near old trafford", "peptides near etihad stadium",
+          "peptides near manchester town hall", "peptides near northern quarter"
+        ],
+        "areas": [
+          "city centre peptides", "northern quarter peptides", "spinningfields peptides",
+          "castlefield peptides", "deansgate peptides"
+        ]
+      },
+      "birmingham": {
+        "nicknames": ["Brum", "The Second City"],
+        "keywords": [
+          "birmingham peptides", "brum peptides", "second city peptides",
+          "west midlands peptides", "brummie peptides"
+        ],
+        "local_landmarks": [
+          "peptides near bullring", "peptides near birmingham town hall",
+          "peptides near cadbury world", "peptides near jewellery quarter"
+        ],
+        "areas": [
+          "city centre peptides", "jewellery quarter peptides", "digbeth peptides",
+          "aston peptides", "edgbaston peptides"
+        ]
+      }
+    },
+    "germany": {
+      "berlin": {
+        "nicknames": ["Hauptstadt", "Spreeathen", "Capital"],
+        "keywords": [
+          "Berlin Peptide", "Hauptstadt Peptide", "Spreeathen Peptide",
+          "deutsche Hauptstadt Peptide", "Berlin Mitte Peptide"
+        ],
+        "local_landmarks": [
+          "Peptide nahe Brandenburger Tor", "Peptide nahe Reichstag",
+          "Peptide nahe Alexanderplatz", "Peptide nahe Potsdamer Platz"
+        ],
+        "districts": [
+          "Mitte Peptide", "Kreuzberg Peptide", "Charlottenburg Peptide",
+          "Prenzlauer Berg Peptide", "Friedrichshain Peptide"
+        ]
+      },
+      "muenchen": {
+        "nicknames": ["München", "Munich", "Bayerische Hauptstadt"],
+        "keywords": [
+          "München Peptide", "Munich Peptide", "bayerische Hauptstadt Peptide",
+          "Oktoberfest Peptide", "Isar Peptide"
+        ],
+        "local_landmarks": [
+          "Peptide nahe Marienplatz", "Peptide nahe Oktoberfest",
+          "Peptide nahe BMW Welt", "Peptide nahe Englischer Garten"
+        ],
+        "areas": [
+          "Altstadt Peptide", "Maxvorstadt Peptide", "Schwabing Peptide",
+          "Glockenbachviertel Peptide", "Haidhausen Peptide"
+        ]
+      }
+    },
+    "australia": {
+      "sydney": {
+        "nicknames": ["Harbour City", "Emerald City", "Sin City"],
+        "keywords": [
+          "sydney peptides", "harbour city peptides", "emerald city peptides",
+          "NSW peptides", "new south wales peptides"
+        ],
+        "local_landmarks": [
+          "peptides near opera house", "peptides near harbour bridge",
+          "peptides near bondi beach", "peptides near circular quay"
+        ],
+        "areas": [
+          "CBD peptides", "eastern suburbs peptides", "northern beaches peptides",
+          "inner west peptides", "western suburbs peptides"
+        ]
+      },
+      "melbourne": {
+        "nicknames": ["Melbs", "The Garden City", "Cultural Capital"],
+        "keywords": [
+          "melbourne peptides", "melbs peptides", "garden city peptides",
+          "cultural capital peptides", "VIC peptides"
+        ],
+        "local_landmarks": [
+          "peptides near federation square", "peptides near flinders street",
+          "peptides near queen victoria market", "peptides near MCG"
+        ],
+        "areas": [
+          "CBD peptides", "south yarra peptides", "richmond peptides",
+          "fitzroy peptides", "st kilda peptides"
+        ]
+      }
+    },
+    "canada": {
+      "toronto": {
+        "nicknames": ["The Six", "T-Dot", "Hogtown", "The Big Smoke"],
+        "keywords": [
+          "toronto peptides", "the six peptides", "t-dot peptides",
+          "GTA peptides", "ontario peptides"
+        ],
+        "local_landmarks": [
+          "peptides near CN tower", "peptides near rogers centre",
+          "peptides near casa loma", "peptides near harbourfront"
+        ],
+        "areas": [
+          "downtown peptides", "midtown peptides", "north york peptides",
+          "scarborough peptides", "etobicoke peptides"
+        ]
+      },
+      "vancouver": {
+        "nicknames": ["Van City", "Rain City", "Terminal City"],
+        "keywords": [
+          "vancouver peptides", "van city peptides", "rain city peptides",
+          "BC peptides", "british columbia peptides"
+        ],
+        "local_landmarks": [
+          "peptides near stanley park", "peptides near granville island",
+          "peptides near english bay", "peptides near capilano bridge"
+        ],
+        "areas": [
+          "downtown peptides", "west end peptides", "kitsilano peptides",
+          "richmond peptides", "burnaby peptides"
+        ]
+      }
+    }
+  },
+  "metropolitan_area_targeting": {
+    "usa": {
+      "greater_nyc": ["New York", "New Jersey", "Connecticut", "Long Island"],
+      "greater_la": ["Los Angeles", "Orange County", "Riverside", "Ventura"],
+      "greater_chicago": ["Chicago", "Illinois suburbs", "Indiana suburbs", "Wisconsin suburbs"]
+    },
+    "uk": {
+      "greater_london": ["Central London", "Greater London", "Home Counties"],
+      "greater_manchester": ["Manchester", "Salford", "Stockport", "Oldham"],
+      "west_midlands": ["Birmingham", "Wolverhampton", "Coventry", "Dudley"]
+    },
+    "germany": {
+      "berlin_brandenburg": ["Berlin", "Brandenburg", "Potsdam"],
+      "rhine_ruhr": ["Düsseldorf", "Cologne", "Dortmund", "Essen"],
+      "munich_region": ["München", "Augsburg", "Ingolstadt"]
+    },
+    "australia": {
+      "greater_sydney": ["Sydney", "Blue Mountains", "Central Coast", "Wollongong"],
+      "greater_melbourne": ["Melbourne", "Geelong", "Ballarat", "Bendigo"],
+      "greater_brisbane": ["Brisbane", "Gold Coast", "Sunshine Coast", "Ipswich"]
+    },
+    "canada": {
+      "greater_toronto": ["Toronto", "Mississauga", "Brampton", "Markham"],
+      "greater_vancouver": ["Vancouver", "Burnaby", "Richmond", "Surrey"],
+      "greater_montreal": ["Montreal", "Laval", "Longueuil", "Terrebonne"]
+    }
+  }
+}

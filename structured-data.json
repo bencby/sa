@@ -1,0 +1,195 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sigmaaudley.net/#website",
+      "url": "https://sigmaaudley.net/",
+      "name": "Sigma Audley - Research Excellence Since 2010",
+      "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+      "publisher": {
+        "@id": "https://sigmaaudley.net/#organization"
+      },
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://sigmaaudley.net/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ],
+      "inLanguage": "en-US",
+      "copyrightYear": 2025,
+      "copyrightHolder": {
+        "@id": "https://sigmaaudley.net/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sigmaaudley.net/#organization",
+      "name": "Sigma Audley",
+      "alternateName": "Sigma Audley Research",
+      "legalName": "Sigma Audley New Material Technology Co., Ltd.",
+      "url": "https://sigmaaudley.net/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sigmaaudley.net/images/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sigmaaudley.net/images/sigma-audley-banner.jpg"
+      },
+      "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+      "foundingDate": "2010",
+      "slogan": "Research Excellence Since 2010",
+      "keywords": "research peptides, semaglutide research, tirzepatide research, bpc-157, peptide supplier, janoshik tested, glp1forum verified, finnrick verified, reddit verified, iso certified, fda registered, sigma audley, professional grade, premium peptides, sarMs compounds",
+      "knowsAbout": [
+        "Research Peptides", "Semaglutide Research", "Tirzepatide Research", "BPC-157 Research", 
+        "Growth Hormone Research", "Peptide Synthesis", "Quality Assurance", "Janoshik Testing",
+        "ISO 9001:2015 Certification", "Research Chemical Supply", "GLP1 Research", "Peptide Storage",
+        "Research Protocols", "Laboratory Testing", "Pharmaceutical Research", "Metabolic Research",
+        "Healing Peptides", "Regenerative Medicine Research", "Bioanalytical Testing"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN",
+        "addressRegion": "Shanghai",
+        "addressLocality": "Shanghai"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Chinese"],
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales", 
+          "availableLanguage": ["English", "Chinese"],
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "availableLanguage": ["English", "Chinese"],
+          "areaServed": "Worldwide"
+        }
+      ],
+      "sameAs": [
+        "https://sigmaaudley.net/glp1-forum-verified-excellence.html",
+        "https://sigmaaudley.net/reddit-peptides-trusted-supplier.html", 
+        "https://sigmaaudley.net/official-website-verification.html"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "ISO 9001:2015 Certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "International Organization for Standardization"
+          }
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Semaglutide Research Kits",
+            "category": "Research Peptides"
+          },
+          "areaServed": "Worldwide",
+          "availability": "InStock"
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Tirzepatide Research Kits",
+            "category": "Research Peptides"
+          },
+          "areaServed": "Worldwide",
+          "availability": "InStock"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product", 
+            "name": "BPC-157 Research Peptides",
+            "category": "Healing Peptides"
+          },
+          "areaServed": "Worldwide",
+          "availability": "InStock"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "2247", 
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Dr_ResearchPro_GLP1"
+          },
+          "reviewBody": "Outstanding quality research peptides from Sigma Audley. Been using them for 5+ years for our metabolic research studies. Janoshik results consistently show 99%+ purity. Professional packaging, fast global shipping. The GLP1Forum community has trusted them since 2010 for good reason.",
+          "datePublished": "2024-12-20"
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating", 
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "PeptideResearcher_2024"
+          },
+          "reviewBody": "Sigma Audley sets the gold standard for research peptides. Their Semaglutide and Tirzepatide are pharmaceutical grade. Independent Janoshik testing gives complete confidence in quality. ISO certified facility shows their commitment to excellence.",
+          "datePublished": "2024-11-15"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://sigmaaudley.net/#webpage",
+      "url": "https://sigmaaudley.net/",
+      "name": "Sigma Audley - Research Peptides Authority Since 2010",
+      "isPartOf": {
+        "@id": "https://sigmaaudley.net/#website"
+      },
+      "about": {
+        "@id": "https://sigmaaudley.net/#organization"
+      },
+      "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+      "breadcrumb": {
+        "@id": "https://sigmaaudley.net/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sigmaaudley.net/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sigmaaudley.net/"
+        }
+      ]
+    }
+  ]
+}

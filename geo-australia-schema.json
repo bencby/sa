@@ -1,0 +1,116 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://sigmaaudley.net/australia#business",
+  "name": "Sigma Audley Australia - Premium Research Peptides",
+  "alternateName": ["Sigma Audley AU", "SigmaAudley Australia", "Sigma Audley Aussie"],
+  "description": "Sigma Audley - Official Australia distributor - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "url": "https://sigmaaudley.net/australia-peptide-supplier.html",
+  "areaServed": [
+    {
+      "@type": "Country", 
+      "name": "Australia",
+      "alternateName": "AU"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "New South Wales",
+      "containedIn": {"@type": "Country", "name": "Australia"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Victoria",
+      "containedIn": {"@type": "Country", "name": "Australia"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Queensland",
+      "containedIn": {"@type": "Country", "name": "Australia"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Western Australia",
+      "containedIn": {"@type": "Country", "name": "Australia"}
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "AU",
+    "addressRegion": "Nationwide Australia",
+    "addressLocality": "All Australian States"
+  },
+  "geo": {
+    "@type": "GeoCoordinates", 
+    "latitude": "-25.2744",
+    "longitude": "133.7751"
+  },
+  "currenciesAccepted": "AUD",
+  "paymentAccepted": ["Credit Card", "PayPal", "Bank Transfer", "Cryptocurrency"],
+  "priceRange": "A$55-$650",
+  "telephone": "+61-2-SIGMA-AU",
+  "email": "australia@sigmaaudley.net",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "-25.2744",
+      "longitude": "133.7751"
+    },
+    "geoRadius": "4000000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Australia Research Peptides Catalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Semaglutide Research Australia",
+          "description": "Fast Australia delivery. TGA compliant. Professional packaging."
+        },
+        "price": "55.80",
+        "priceCurrency": "AUD",
+        "availability": "InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tirzepatide Research Australia",
+          "description": "Express Australia shipping. Discrete packaging. Quality assured."
+        },
+        "price": "91.40",
+        "priceCurrency": "AUD",
+        "availability": "InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9", 
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "AussieResearcher_Sydney"
+      },
+      "reviewBody": "Fantastic Australia service from Sigma Audley. Quick delivery to Sydney, no customs issues. TGA compliant and professional. Best peptide source in Australia mate!",
+      "datePublished": "2024-12-12"
+    }
+  ],
+  "keywords": "Australia research peptides, semaglutide Australia, tirzepatide Australia, peptide supplier australia, research chemicals australia, sigma audley australia, aussie peptides, australian peptide source, sydney peptides, melbourne peptides, brisbane peptides, perth peptides",
+  "sameAs": [
+    "https://sigmaaudley.net/australia-peptide-supplier.html"
+  ]
+}

@@ -1,0 +1,169 @@
+# GEO-SPECIFIC ROBOTS.TXT OPTIMIZATION FOR PRIMARY MARKETS
+# ULTRATHINK APPROACH: Country-specific crawling optimization
+
+# USA MARKET PRIORITY OPTIMIZATION
+User-agent: Googlebot
+Allow: /usa-*
+Allow: /?country=usa
+Allow: /geo-usa-*
+Allow: /*USD*
+Allow: /*america*
+Allow: /*united-states*
+Crawl-delay: 0
+
+User-agent: bingbot  
+Allow: /usa-*
+Allow: /?country=usa
+Allow: /geo-usa-*
+Allow: /*USD*
+Crawl-delay: 0
+
+# UK MARKET PRIORITY OPTIMIZATION
+User-agent: Googlebot
+Allow: /uk-*
+Allow: /?country=uk
+Allow: /geo-uk-*
+Allow: /*GBP*
+Allow: /*britain*
+Allow: /*united-kingdom*
+Crawl-delay: 0
+
+User-agent: bingbot
+Allow: /uk-*
+Allow: /?country=uk
+Allow: /geo-uk-*
+Allow: /*GBP*
+Crawl-delay: 0
+
+# GERMANY MARKET PRIORITY OPTIMIZATION
+User-agent: Googlebot
+Allow: /germany-*
+Allow: /deutschland-*
+Allow: /?country=de
+Allow: /geo-germany-*
+Allow: /*EUR*
+Allow: /*german*
+Crawl-delay: 0
+
+User-agent: bingbot
+Allow: /germany-*
+Allow: /deutschland-*
+Allow: /?country=de
+Allow: /geo-germany-*
+Allow: /*EUR*
+Crawl-delay: 0
+
+# AUSTRALIA MARKET PRIORITY OPTIMIZATION
+User-agent: Googlebot
+Allow: /australia-*
+Allow: /aussie-*
+Allow: /?country=au
+Allow: /geo-australia-*
+Allow: /*AUD*
+Allow: /*australian*
+Crawl-delay: 0
+
+User-agent: bingbot
+Allow: /australia-*
+Allow: /aussie-*
+Allow: /?country=au
+Allow: /geo-australia-*
+Allow: /*AUD*
+Crawl-delay: 0
+
+# CANADA MARKET PRIORITY OPTIMIZATION
+User-agent: Googlebot
+Allow: /canada-*
+Allow: /canadian-*
+Allow: /?country=ca
+Allow: /geo-canada-*
+Allow: /*CAD*
+Allow: /*canadian*
+Crawl-delay: 0
+
+User-agent: bingbot
+Allow: /canada-*
+Allow: /canadian-*
+Allow: /?country=ca
+Allow: /geo-canada-*
+Allow: /*CAD*
+Crawl-delay: 0
+
+# GEO-SPECIFIC SITEMAP PRIORITIES
+Sitemap: https://sigmaaudley.net/hreflang-sitemap.xml
+Sitemap: https://sigmaaudley.net/geo-usa-sitemap.xml
+Sitemap: https://sigmaaudley.net/geo-uk-sitemap.xml
+Sitemap: https://sigmaaudley.net/geo-germany-sitemap.xml
+Sitemap: https://sigmaaudley.net/geo-australia-sitemap.xml
+Sitemap: https://sigmaaudley.net/geo-canada-sitemap.xml
+
+# COUNTRY-SPECIFIC SCHEMA FILES
+Allow: /geo-*-schema.json
+Allow: /geo-targeting-*.json
+Allow: /geo-currency-*.json
+Allow: /geo-regional-*.json
+Allow: /geo-local-*.json
+Allow: /geo-city-*.json
+
+# CURRENCY-SPECIFIC OPTIMIZATION
+Allow: /*USD*
+Allow: /*GBP*
+Allow: /*EUR*
+Allow: /*AUD*
+Allow: /*CAD*
+Allow: /*dollar*
+Allow: /*pound*
+Allow: /*euro*
+Allow: /*aussie*
+Allow: /*canadian*
+
+# REGIONAL KEYWORD OPTIMIZATION  
+Allow: /*peptides-usa*
+Allow: /*peptides-uk*
+Allow: /*peptides-germany*
+Allow: /*peptides-australia*
+Allow: /*peptides-canada*
+Allow: /*research-peptides-usa*
+Allow: /*research-peptides-uk*
+Allow: /*research-peptides-germany*
+Allow: /*research-peptides-australia*
+Allow: /*research-peptides-canada*
+
+# CITY-SPECIFIC OPTIMIZATION
+Allow: /*new-york*
+Allow: /*los-angeles*
+Allow: /*chicago*
+Allow: /*london*
+Allow: /*manchester*
+Allow: /*birmingham*
+Allow: /*berlin*
+Allow: /*munich*
+Allow: /*sydney*
+Allow: /*melbourne*
+Allow: /*toronto*
+Allow: /*vancouver*
+
+# MAXIMUM CRAWL FREQUENCY FOR GEO CONTENT
+User-agent: *
+Allow: /geo-*
+Crawl-delay: 0
+
+# LOCAL SEARCH OPTIMIZATION
+Allow: /*near-me*
+Allow: /*local*
+Allow: /*nearby*
+Allow: /*in-my-area*
+Allow: /*around-me*
+Allow: /*close-to-me*
+
+# SHIPPING & DELIVERY GEO OPTIMIZATION
+Allow: /*domestic-shipping*
+Allow: /*local-delivery*
+Allow: /*same-day*
+Allow: /*next-day*
+Allow: /*express-delivery*
+Allow: /*fast-shipping*
+
+# NO RESTRICTIONS ON GEO FILES - MAXIMUM ACCESS
+User-agent: *
+Allow: /

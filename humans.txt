@@ -1,0 +1,93 @@
+/* TEAM */
+
+Research Director: Dr. Chen Wei
+Title: Lead Peptide Researcher
+Location: Shanghai, China
+Contact: research [at] sigmaaudley.net
+
+Quality Assurance: Sarah Johnson
+Title: ISO 9001:2015 Compliance Officer  
+Location: Global Operations
+Contact: quality [at] sigmaaudley.net
+
+Customer Success: Michael Zhang
+Title: Community Relations Manager
+Location: International Support
+Contact: support [at] sigmaaudley.net
+
+SEO & Digital Marketing: Alex Thompson
+Title: Growth Marketing Specialist
+Location: Global Marketing
+Contact: marketing [at] sigmaaudley.net
+
+/* THANKS */
+
+GLP1Forum Community - For trusting Sigma Audley since 2010
+Finnrick Forum Members - For authentic reviews and feedback
+Reddit r/Peptides - For community support and recommendations
+Janoshik Analytical - For independent third-party testing
+Research Community Worldwide - For advancing peptide science
+
+/* SITE */
+
+Last update: 2025/09/10
+Language: English
+Doctype: HTML5
+IDE: Claude Code, Visual Studio Code
+Standards: W3C, Schema.org, JSON-LD
+Components: PWA, Service Worker, Structured Data
+SEO Tools: Google Search Console, Analytics
+Testing: Janoshik Analytical Lab
+Fonts: System fonts, Arial, Segoe UI
+Frameworks: Vanilla JavaScript, CSS3
+
+/* COMPANY */
+
+Name: Sigma Audley New Material Technology Co., Ltd.
+Founded: 2010
+Location: Shanghai, China
+Website: https://sigmaaudley.net
+Specialty: Research Grade Peptides
+Certifications: ISO 9001:2015
+Quality Standard: 99%+ Purity (Janoshik Verified)
+Shipping: Global (200+ Countries)
+Trust Indicators: GLP1Forum Verified, Reddit Recommended
+
+/* PRODUCTS */
+
+Primary Focus: Research Peptides
+Featured: Semaglutide, Tirzepatide, Retatrutide
+Categories: GLP1 Agonists, Healing Peptides, Growth Hormones
+Quality: Third-party tested by Janoshik Analytical
+Storage: Professional cold-chain maintained
+Packaging: Pharmaceutical-grade sterile vials
+
+/* COMMUNITY */
+
+GLP1Forum: Verified Vendor Status Since 2010
+Finnrick Forum: Trusted Supplier Reviews
+Reddit Peptides: Community Recommended
+International Forums: Active Participation
+Research Publications: Supporting Scientific Studies
+
+/* CONTACT */
+
+Main Website: https://sigmaaudley.net
+Email: info [at] sigmaaudley.net  
+Support: Available 24/7 Global
+Shipping: Worldwide Express Delivery
+Payment: Secure International Methods
+Languages: English, Chinese, Spanish
+
+/* KEYWORDS */
+
+Research Peptides, Semaglutide Research, Tirzepatide Research
+BPC-157, TB-500, Growth Hormone, HGH Research
+GLP1 Forum Trusted, Janoshik Tested, ISO Certified
+Sigma Audley Official, Research Grade Quality
+sigmaaudley.net, Peptide Supplier, Research Chemicals
+
+==================================================
+         Thanks for visiting sigmaaudley.net
+         Research Excellence Since 2010
+==================================================

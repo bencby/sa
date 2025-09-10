@@ -1,0 +1,195 @@
+{
+  "geo_analytics_optimization": {
+    "conversion_tracking": {
+      "usa": {
+        "goal_names": [
+          "USA Peptide Purchase",
+          "USA Semaglutide Order",
+          "USA Tirzepatide Order", 
+          "USA Customer Registration",
+          "USA Newsletter Signup"
+        ],
+        "conversion_values": {
+          "semaglutide": 40.56,
+          "tirzepatide": 66.40,
+          "average_order": 85.50
+        },
+        "funnel_tracking": [
+          "USA Landing Page View",
+          "USA Product Page View",
+          "USA Add to Cart",
+          "USA Checkout Start",
+          "USA Order Complete"
+        ]
+      },
+      "uk": {
+        "goal_names": [
+          "UK Peptide Purchase",
+          "UK Semaglutide Order",
+          "UK Tirzepatide Order",
+          "UK Customer Registration", 
+          "UK Newsletter Signup"
+        ],
+        "conversion_values": {
+          "semaglutide": 31.20,
+          "tirzepatide": 51.10,
+          "average_order": 65.80
+        },
+        "funnel_tracking": [
+          "UK Landing Page View",
+          "UK Product Page View",
+          "UK Add to Cart",
+          "UK Checkout Start",
+          "UK Order Complete"
+        ]
+      },
+      "germany": {
+        "goal_names": [
+          "Germany Peptid Kauf",
+          "Germany Semaglutid Bestellung",
+          "Germany Tirzepatid Bestellung",
+          "Germany Kunden Registrierung",
+          "Germany Newsletter Anmeldung"
+        ],
+        "conversion_values": {
+          "semaglutide": 34.60,
+          "tirzepatide": 56.70,
+          "average_order": 72.30
+        },
+        "funnel_tracking": [
+          "Germany Landingpage Ansicht",
+          "Germany Produktseite Ansicht",
+          "Germany In Warenkorb",
+          "Germany Kasse Start",
+          "Germany Bestellung Abgeschlossen"
+        ]
+      },
+      "australia": {
+        "goal_names": [
+          "Australia Peptide Purchase",
+          "Australia Semaglutide Order",
+          "Australia Tirzepatide Order",
+          "Australia Customer Registration",
+          "Australia Newsletter Signup"
+        ],
+        "conversion_values": {
+          "semaglutide": 55.80,
+          "tirzepatide": 91.40,
+          "average_order": 112.50
+        },
+        "funnel_tracking": [
+          "Australia Landing Page View",
+          "Australia Product Page View",
+          "Australia Add to Cart",
+          "Australia Checkout Start",
+          "Australia Order Complete"
+        ]
+      },
+      "canada": {
+        "goal_names": [
+          "Canada Peptide Purchase",
+          "Canada Semaglutide Order",
+          "Canada Tirzepatide Order",
+          "Canada Customer Registration",
+          "Canada Newsletter Signup"
+        ],
+        "conversion_values": {
+          "semaglutide": 52.70,
+          "tirzepatide": 86.20,
+          "average_order": 98.40
+        },
+        "funnel_tracking": [
+          "Canada Landing Page View",
+          "Canada Product Page View",
+          "Canada Add to Cart",
+          "Canada Checkout Start",
+          "Canada Order Complete"
+        ]
+      }
+    },
+    "geo_specific_metrics": {
+      "traffic_sources": {
+        "usa": ["google.com", "bing.com", "yahoo.com", "reddit.com", "facebook.com"],
+        "uk": ["google.co.uk", "bing.com", "yahoo.co.uk", "reddit.com", "facebook.com"],
+        "germany": ["google.de", "bing.de", "yahoo.de", "reddit.com", "facebook.com"],
+        "australia": ["google.com.au", "bing.com", "yahoo.com.au", "reddit.com", "facebook.com"],
+        "canada": ["google.ca", "bing.com", "yahoo.ca", "reddit.com", "facebook.com"]
+      },
+      "search_terms_priority": {
+        "usa": ["semaglutide USA", "tirzepatide USA", "peptides america", "research peptides USA"],
+        "uk": ["semaglutide UK", "tirzepatide UK", "peptides britain", "research peptides UK"],
+        "germany": ["Semaglutid Deutschland", "Tirzepatid Deutschland", "Peptide Deutschland"],
+        "australia": ["semaglutide Australia", "tirzepatide Australia", "peptides aussie"],
+        "canada": ["semaglutide Canada", "tirzepatide Canada", "peptides canadian"]
+      }
+    },
+    "regional_performance_tracking": {
+      "bounce_rate_targets": {
+        "usa": "< 45%",
+        "uk": "< 40%",
+        "germany": "< 42%",
+        "australia": "< 38%", 
+        "canada": "< 41%"
+      },
+      "conversion_rate_targets": {
+        "usa": "> 3.2%",
+        "uk": "> 3.8%",
+        "germany": "> 3.5%",
+        "australia": "> 4.1%",
+        "canada": "> 3.6%"
+      },
+      "average_session_duration_targets": {
+        "usa": "> 4:30",
+        "uk": "> 5:15",
+        "germany": "> 4:45",
+        "australia": "> 5:30",
+        "canada": "> 4:55"
+      }
+    }
+  },
+  "geo_heatmap_optimization": {
+    "priority_regions": {
+      "usa": {
+        "high_value": ["California", "New York", "Texas", "Florida", "Illinois"],
+        "medium_value": ["Pennsylvania", "Ohio", "Georgia", "North Carolina", "New Jersey"],
+        "growth_targets": ["Washington", "Colorado", "Arizona", "Virginia", "Massachusetts"]
+      },
+      "uk": {
+        "high_value": ["Greater London", "South East", "North West", "West Midlands"],
+        "medium_value": ["Yorkshire", "East Midlands", "South West", "Scotland"],
+        "growth_targets": ["Wales", "North East", "East of England", "Northern Ireland"]
+      },
+      "germany": {
+        "high_value": ["Nordrhein-Westfalen", "Bayern", "Baden-Württemberg", "Berlin"],
+        "medium_value": ["Niedersachsen", "Hessen", "Rheinland-Pfalz", "Sachsen"],
+        "growth_targets": ["Hamburg", "Schleswig-Holstein", "Brandenburg", "Thüringen"]
+      },
+      "australia": {
+        "high_value": ["New South Wales", "Victoria", "Queensland", "Western Australia"],
+        "medium_value": ["South Australia", "Australian Capital Territory"],
+        "growth_targets": ["Tasmania", "Northern Territory"]
+      },
+      "canada": {
+        "high_value": ["Ontario", "Quebec", "British Columbia", "Alberta"],
+        "medium_value": ["Manitoba", "Saskatchewan", "Nova Scotia"],
+        "growth_targets": ["New Brunswick", "Newfoundland", "Prince Edward Island"]
+      }
+    }
+  },
+  "competitive_geo_analysis": {
+    "competitor_keywords": {
+      "usa": ["usa peptides competitor", "american peptide suppliers", "domestic peptide source"],
+      "uk": ["uk peptides competitor", "british peptide suppliers", "uk peptide source"],
+      "germany": ["deutschland peptide konkurrenten", "deutsche peptid lieferanten"],
+      "australia": ["australia peptides competitor", "aussie peptide suppliers"],
+      "canada": ["canada peptides competitor", "canadian peptide suppliers"]
+    },
+    "market_share_targets": {
+      "usa": "12%",
+      "uk": "18%",
+      "germany": "15%",
+      "australia": "22%",
+      "canada": "16%"
+    }
+  }
+}

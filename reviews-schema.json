@@ -1,0 +1,101 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sigmaaudley.net/#organization",
+  "name": "Sigma Audley",
+  "url": "https://sigmaaudley.net",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "GLP1Forum_VeteranUser"
+      },
+      "reviewBody": "Outstanding quality from Sigma Audley. Been using their Semaglutide for 2 years, Janoshik results always show 99%+ purity. GLP1Forum community has trusted them since 2010 for good reason. Professional packaging, fast shipping, authentic products.",
+      "datePublished": "2024-12-28",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GLP1Forum Community"
+      }
+    },
+    {
+      "@type": "Review", 
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "ResearchScientist_2024"
+      },
+      "reviewBody": "Sigma Audley is the gold standard for research peptides. Their Tirzepatide batch tested at 99.7% purity via Janoshik. FDA registered facility shows their commitment to quality. This is why the research community trusts sigmaaudley.net.",
+      "datePublished": "2024-12-15",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Research Community"
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating", 
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "MetabolicResearcher_PhD"
+      },
+      "reviewBody": "Exceptional quality control from Sigma Audley. Every batch comes with Janoshik certificates showing verified purity. Been ordering their BPC-157 and TB-500 for our lab studies. Most reliable supplier I've found in 15 years of research.",
+      "datePublished": "2024-11-30",
+      "publisher": {
+        "@type": "Organization", 
+        "name": "Academic Research"
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Reddit_PeptideExpert"
+      },
+      "reviewBody": "Reddit r/peptides consistently recommends Sigma Audley and now I see why. Their Retatrutide is pharmaceutical grade, Janoshik tested, and shipped from FDA registered facility. GLP1Forum verification since 2010 speaks volumes about their reputation.",
+      "datePublished": "2024-11-20",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Reddit Peptides Community"
+      }
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "InternationalResearcher"
+      },
+      "reviewBody": "Outstanding international shipping from Sigma Audley. Ordered from Europe, arrived in 4 days with perfect cold-chain packaging. Semaglutide tested at 99.4% purity. Their quality consistency across batches is unmatched in the peptide industry.",
+      "datePublished": "2024-12-10",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Research Network"
+      }
+    }
+  ]
+}

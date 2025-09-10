@@ -1,0 +1,120 @@
+{
+  "monitoring_config": {
+    "site_name": "Sigma Audley - Official",
+    "domain": "sigmaaudley.net",
+    "primary_keywords": [
+      "sigma audley",
+      "research peptides",
+      "semaglutide research", 
+      "tirzepatide research",
+      "peptide supplier",
+      "glp1forum verified",
+      "janoshik tested"
+    ],
+    "brand_keywords": [
+      "sigmaaudley.net",
+      "sigma audley official",
+      "sigma audley peptides",
+      "sigma audley research"
+    ],
+    "competitor_keywords": [
+      "research peptide suppliers",
+      "peptide companies",
+      "semaglutide suppliers",
+      "tirzepatide suppliers"
+    ]
+  },
+  "tracking_pages": [
+    {
+      "url": "https://sigmaaudley.net/",
+      "title": "Homepage",
+      "priority": "high",
+      "target_keywords": ["sigma audley", "research peptides", "peptide supplier"]
+    },
+    {
+      "url": "https://sigmaaudley.net/complete-research-peptide-catalog.html",
+      "title": "Product Catalog", 
+      "priority": "high",
+      "target_keywords": ["research peptide catalog", "peptide products"]
+    },
+    {
+      "url": "https://sigmaaudley.net/glp1-forum-verified-excellence.html",
+      "title": "GLP1Forum Verification",
+      "priority": "high", 
+      "target_keywords": ["glp1forum verified", "trusted peptide supplier"]
+    }
+  ],
+  "technical_monitoring": {
+    "core_web_vitals": true,
+    "lighthouse_scores": true,
+    "mobile_friendliness": true,
+    "page_speed": true,
+    "ssl_certificate": true,
+    "schema_validation": true,
+    "sitemap_status": true,
+    "robots_txt_status": true,
+    "canonical_urls": true,
+    "meta_descriptions": true,
+    "title_tags": true,
+    "heading_structure": true,
+    "internal_linking": true,
+    "image_optimization": true
+  },
+  "serp_monitoring": {
+    "google": {
+      "regions": ["US", "UK", "CA", "AU", "DE"],
+      "devices": ["desktop", "mobile"],
+      "check_frequency": "daily"
+    },
+    "bing": {
+      "regions": ["US", "UK", "CA"],
+      "devices": ["desktop", "mobile"],
+      "check_frequency": "weekly"  
+    },
+    "yahoo": {
+      "regions": ["US"],
+      "devices": ["desktop", "mobile"],
+      "check_frequency": "weekly"
+    }
+  },
+  "community_monitoring": {
+    "glp1forum": {
+      "mentions": true,
+      "sentiment": true,
+      "links": true
+    },
+    "reddit": {
+      "subreddits": ["peptides", "semaglutide", "tirzepatide", "researchchemicals"],
+      "mentions": true,
+      "sentiment": true,
+      "links": true
+    },
+    "finnrick": {
+      "mentions": true,
+      "reviews": true,
+      "ratings": true
+    }
+  },
+  "alerts": {
+    "ranking_drops": {
+      "threshold": 3,
+      "keywords": ["sigma audley", "sigmaaudley.net"]
+    },
+    "technical_issues": {
+      "core_web_vitals": true,
+      "404_errors": true,
+      "ssl_issues": true
+    },
+    "competitor_activity": {
+      "new_content": true,
+      "ranking_changes": true,
+      "backlink_gains": true
+    }
+  },
+  "reporting": {
+    "frequency": "weekly",
+    "stakeholders": ["seo@sigmaaudley.net", "marketing@sigmaaudley.net"],
+    "include_recommendations": true,
+    "automated_insights": true
+  }
+}

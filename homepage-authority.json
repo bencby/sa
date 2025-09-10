@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://sigmaaudley.net/#homepage",
+  "url": "https://sigmaaudley.net/",
+  "name": "Sigma Audley - Official - Premium Research Peptides, SARMs & Compounds",
+  "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://sigmaaudley.net/#website"
+  },
+  "about": {
+    "@id": "https://sigmaaudley.net/#organization"
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": "https://sigmaaudley.net/#organization",
+    "name": "Sigma Audley",
+    "url": "https://sigmaaudley.net/",
+    "sameAs": [
+      "https://sigmaaudley.net/",
+      "https://sigmaaudley.net/index.html",
+      "https://sigmaaudley.net/official-website-verification.html",
+      "https://sigmaaudley.net/sigma-audley-official.html"
+    ]
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://sigmaaudley.net/images/sigma-audley-banner.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "significantLink": [
+    "https://sigmaaudley.net/complete-research-peptide-catalog.html",
+    "https://sigmaaudley.net/glp1-forum-verified-excellence.html",
+    "https://sigmaaudley.net/reddit-peptides-trusted-supplier.html",
+    "https://sigmaaudley.net/certificate-of-analysis.html"
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://sigmaaudley.net/"
+      }
+    ]
+  },
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://sigmaaudley.net/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    {
+      "@type": "ViewAction",
+      "target": "https://sigmaaudley.net/",
+      "name": "View Sigma Audley Homepage"
+    }
+  ],
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".hero h1", ".trust-indicators", ".main-description"]
+  },
+  "lastReviewed": "2025-09-10",
+  "reviewedBy": {
+    "@type": "Organization",
+    "name": "Sigma Audley SEO Team"
+  }
+}

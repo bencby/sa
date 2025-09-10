@@ -1,0 +1,190 @@
+{
+  "geo_targeting": {
+    "primary_markets": {
+      "usa": {
+        "country_code": "US",
+        "language": "en-US",
+        "currency": "USD", 
+        "timezone": "America/New_York",
+        "target_keywords": [
+          "USA research peptides",
+          "semaglutide USA",
+          "tirzepatide USA", 
+          "peptide supplier america",
+          "research chemicals USA",
+          "FDA registered peptides",
+          "domestic peptides USA",
+          "american peptide source"
+        ],
+        "local_search_terms": [
+          "peptides near me USA",
+          "research peptides united states",
+          "american peptide company",
+          "USA domestic shipping",
+          "FDA approved peptides"
+        ],
+        "major_cities": [
+          "New York", "Los Angeles", "Chicago", "Houston", "Phoenix",
+          "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin"
+        ],
+        "shipping_info": "2-3 business days domestic",
+        "payment_methods": ["Credit Card", "PayPal", "ACH", "Cryptocurrency"],
+        "regulatory_notes": "FDA registered facility"
+      },
+      "uk": {
+        "country_code": "GB",
+        "language": "en-GB", 
+        "currency": "GBP",
+        "timezone": "Europe/London",
+        "target_keywords": [
+          "UK research peptides",
+          "semaglutide UK",
+          "tirzepatide UK",
+          "peptide supplier britain",
+          "research chemicals UK",
+          "british peptides",
+          "england peptides",
+          "scotland peptides"
+        ],
+        "local_search_terms": [
+          "peptides near me UK",
+          "research peptides britain",
+          "british peptide company",
+          "UK domestic shipping",
+          "MHRA compliant peptides"
+        ],
+        "major_cities": [
+          "London", "Birmingham", "Manchester", "Glasgow", "Liverpool",
+          "Edinburgh", "Bristol", "Cardiff", "Leicester", "Coventry"
+        ],
+        "shipping_info": "1-2 business days UK wide",
+        "payment_methods": ["Credit Card", "PayPal", "Bank Transfer", "Cryptocurrency"],
+        "regulatory_notes": "MHRA guidelines followed"
+      },
+      "germany": {
+        "country_code": "DE",
+        "language": "de-DE",
+        "currency": "EUR",
+        "timezone": "Europe/Berlin",
+        "target_keywords": [
+          "Deutschland Forschungspeptide",
+          "Semaglutid Deutschland", 
+          "Tirzepatid Deutschland",
+          "Peptid Lieferant Deutschland",
+          "Forschungschemikalien Deutschland",
+          "deutsche Peptide",
+          "EU Peptide",
+          "Berlin Peptide"
+        ],
+        "local_search_terms": [
+          "Peptide in der Nähe Deutschland",
+          "Forschungspeptide Deutschland",
+          "deutsche Peptid-Firma",
+          "Deutschland Inlandsversand",
+          "EU-konforme Peptide"
+        ],
+        "major_cities": [
+          "Berlin", "Hamburg", "München", "Köln", "Frankfurt",
+          "Stuttgart", "Düsseldorf", "Leipzig", "Dortmund", "Essen"
+        ],
+        "shipping_info": "1-3 Werktage EU-weit",
+        "payment_methods": ["Credit Card", "PayPal", "SEPA", "Bank Transfer"],
+        "regulatory_notes": "EU-Vorschriften eingehalten"
+      },
+      "australia": {
+        "country_code": "AU", 
+        "language": "en-AU",
+        "currency": "AUD",
+        "timezone": "Australia/Sydney",
+        "target_keywords": [
+          "Australia research peptides",
+          "semaglutide Australia",
+          "tirzepatide Australia",
+          "peptide supplier australia",
+          "research chemicals australia",
+          "aussie peptides",
+          "australian peptides",
+          "sydney peptides"
+        ],
+        "local_search_terms": [
+          "peptides near me Australia",
+          "research peptides australia",
+          "australian peptide company",
+          "Australia domestic shipping", 
+          "TGA compliant peptides"
+        ],
+        "major_cities": [
+          "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide",
+          "Gold Coast", "Newcastle", "Canberra", "Wollongong", "Darwin"
+        ],
+        "shipping_info": "2-4 business days Australia wide",
+        "payment_methods": ["Credit Card", "PayPal", "Bank Transfer", "Cryptocurrency"],
+        "regulatory_notes": "TGA guidelines followed"
+      },
+      "canada": {
+        "country_code": "CA",
+        "language": "en-CA",
+        "currency": "CAD",
+        "timezone": "America/Toronto", 
+        "target_keywords": [
+          "Canada research peptides",
+          "semaglutide Canada",
+          "tirzepatide Canada",
+          "peptide supplier canada",
+          "research chemicals canada",
+          "canadian peptides",
+          "toronto peptides",
+          "vancouver peptides"
+        ],
+        "local_search_terms": [
+          "peptides near me Canada",
+          "research peptides canada",
+          "canadian peptide company",
+          "Canada domestic shipping",
+          "Health Canada approved"
+        ],
+        "major_cities": [
+          "Toronto", "Montreal", "Vancouver", "Calgary", "Edmonton",
+          "Ottawa", "Winnipeg", "Quebec City", "Hamilton", "Halifax"
+        ],
+        "shipping_info": "2-5 business days Canada wide",
+        "payment_methods": ["Credit Card", "PayPal", "Bank Transfer", "Cryptocurrency"],
+        "regulatory_notes": "Health Canada guidelines followed"
+      }
+    },
+    "search_engine_targeting": {
+      "google": {
+        "geo_targeting": true,
+        "country_specific_results": true,
+        "local_business_listings": true
+      },
+      "bing": {
+        "geo_targeting": true,
+        "country_specific_results": true
+      },
+      "yandex": {
+        "geo_targeting": false,
+        "enabled": false
+      },
+      "baidu": {
+        "geo_targeting": false,
+        "enabled": false
+      }
+    },
+    "currency_targeting": {
+      "auto_detect": true,
+      "currency_preference": {
+        "US": "USD",
+        "GB": "GBP", 
+        "DE": "EUR",
+        "AU": "AUD",
+        "CA": "CAD"
+      }
+    },
+    "language_targeting": {
+      "auto_detect": true,
+      "fallback": "en",
+      "supported": ["en", "en-US", "en-GB", "en-AU", "en-CA", "de-DE"]
+    }
+  }
+}

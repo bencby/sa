@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- Homepage Images -->
+    <url>
+        <loc>https://sigmaaudley.net/</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/sigma-audley-banner.jpg</image:loc>
+            <image:caption>Sigma Audley - Research Excellence Since 2010 - GLP1Forum Verified Peptide Supplier</image:caption>
+            <image:title>Sigma Audley Official Banner</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/janoshik-certificate-showcase.jpg</image:loc>
+            <image:caption>Janoshik Analytical Certificate showing 99.2% purity for Sigma Audley research peptides</image:caption>
+            <image:title>Janoshik Quality Certificate</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/iso-certification.jpg</image:loc>
+            <image:caption>ISO 9001:2015 Certification for Sigma Audley manufacturing facility</image:caption>
+            <image:title>ISO 9001:2015 Certificate</image:title>
+        </image:image>
+    </url>
+
+    <!-- Semaglutide Product Images -->
+    <url>
+        <loc>https://sigmaaudley.net/products/semaglutide-10mg-research.html</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/products/semaglutide-10mg-kit.jpg</image:loc>
+            <image:caption>Semaglutide 10mg Research Kit - 10 vials per kit, Janoshik tested 99.2% purity</image:caption>
+            <image:title>Semaglutide Research Kit</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/janoshik/semaglutide-test-results.jpg</image:loc>
+            <image:caption>Janoshik Analytical test results for Semaglutide showing 99.2% purity verification</image:caption>
+            <image:title>Semaglutide Janoshik Test Results</image:title>
+        </image:image>
+    </url>
+
+    <!-- Tirzepatide Product Images -->
+    <url>
+        <loc>https://sigmaaudley.net/products/tirzepatide-15mg-research.html</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/products/tirzepatide-15mg-kit.jpg</image:loc>
+            <image:caption>Tirzepatide 15mg Research Kit - Triple agonist peptide for advanced metabolic research</image:caption>
+            <image:title>Tirzepatide Research Kit</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/janoshik/tirzepatide-certificate.jpg</image:loc>
+            <image:caption>Tirzepatide Janoshik certificate showing verified purity and quality testing</image:caption>
+            <image:title>Tirzepatide Quality Certificate</image:title>
+        </image:image>
+    </url>
+
+    <!-- Retatrutide Product Images -->
+    <url>
+        <loc>https://sigmaaudley.net/products/retatrutide-5mg-peptide.html</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/products/retatrutide-5mg-vials.jpg</image:loc>
+            <image:caption>Retatrutide 5mg Research Peptide - Next-generation triple agonist for cutting-edge research</image:caption>
+            <image:title>Retatrutide Research Peptide</image:title>
+        </image:image>
+    </url>
+
+    <!-- BPC-157 Product Images -->
+    <url>
+        <loc>https://sigmaaudley.net/products/bpc-157-5mg-healing.html</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/products/bpc-157-healing-peptide.jpg</image:loc>
+            <image:caption>BPC-157 5mg Healing Research Peptide - Body Protection Compound for regenerative studies</image:caption>
+            <image:title>BPC-157 Healing Peptide</image:title>
+        </image:image>
+    </url>
+
+    <!-- Facility and Quality Images -->
+    <url>
+        <loc>https://sigmaaudley.net/certificate-of-analysis.html</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/facility/sigma-audley-laboratory.jpg</image:loc>
+            <image:caption>Sigma Audley ISO 9001:2015 certified manufacturing facility in Shanghai</image:caption>
+            <image:title>Sigma Audley Laboratory Facility</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/quality/janoshik-testing-process.jpg</image:loc>
+            <image:caption>Independent third-party testing process by Janoshik Analytical for quality assurance</image:caption>
+            <image:title>Janoshik Testing Process</image:title>
+        </image:image>
+    </url>
+
+    <!-- Community Trust Images -->
+    <url>
+        <loc>https://sigmaaudley.net/glp1-forum-verified-excellence.html</loc>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/community/glp1-forum-reviews.jpg</image:loc>
+            <image:caption>GLP1Forum community reviews showcasing 15+ years of trust in Sigma Audley</image:caption>
+            <image:title>GLP1Forum Community Reviews</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sigmaaudley.net/images/community/reddit-peptides-recommendations.jpg</image:loc>
+            <image:caption>Reddit r/Peptides community recommendations for Sigma Audley as trusted supplier</image:caption>
+            <image:title>Reddit Peptides Community Trust</image:title>
+        </image:image>
+    </url>
+
+</urlset>

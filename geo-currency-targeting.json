@@ -1,0 +1,161 @@
+{
+  "currency_targeting": {
+    "USD": {
+      "country": "USA",
+      "symbol": "$",
+      "locale": "en-US",
+      "format": "${amount}",
+      "keywords": [
+        "USD peptides",
+        "dollar peptides", 
+        "american dollar peptides",
+        "US currency peptides",
+        "cheap USD peptides",
+        "discount dollar peptides",
+        "$40 semaglutide",
+        "$66 tirzepatide",
+        "peptides under $100"
+      ],
+      "search_terms": [
+        "peptides USD price",
+        "dollar peptide cost",
+        "US pricing peptides",
+        "american currency peptides"
+      ],
+      "pricing_phrases": [
+        "Starting from $40.56",
+        "Best USD value",
+        "Dollar for dollar quality",
+        "American pricing advantage"
+      ]
+    },
+    "GBP": {
+      "country": "UK",
+      "symbol": "£",
+      "locale": "en-GB", 
+      "format": "£{amount}",
+      "keywords": [
+        "GBP peptides",
+        "pound peptides",
+        "british pound peptides",
+        "UK currency peptides",
+        "cheap GBP peptides",
+        "discount pound peptides",
+        "£31 semaglutide",
+        "£51 tirzepatide",
+        "peptides under £100"
+      ],
+      "search_terms": [
+        "peptides GBP price",
+        "pound peptide cost",
+        "UK pricing peptides",
+        "british currency peptides"
+      ],
+      "pricing_phrases": [
+        "Starting from £31.20",
+        "Best GBP value",
+        "Pound for pound quality",
+        "British pricing advantage"
+      ]
+    },
+    "EUR": {
+      "country": "Germany",
+      "symbol": "€",
+      "locale": "de-DE",
+      "format": "€{amount}",
+      "keywords": [
+        "EUR Peptide",
+        "Euro Peptide",
+        "deutsche Euro Peptide",
+        "EU Währung Peptide",
+        "günstige EUR Peptide",
+        "Rabatt Euro Peptide",
+        "€34 Semaglutid",
+        "€56 Tirzepatid",
+        "Peptide unter €100"
+      ],
+      "search_terms": [
+        "Peptide EUR Preis",
+        "Euro Peptid Kosten",
+        "Deutschland Preise Peptide",
+        "deutsche Währung Peptide"
+      ],
+      "pricing_phrases": [
+        "Ab €34.60",
+        "Bester EUR Wert",
+        "Euro für Euro Qualität",
+        "Deutsche Preisvorteil"
+      ]
+    },
+    "AUD": {
+      "country": "Australia",
+      "symbol": "A$",
+      "locale": "en-AU",
+      "format": "A${amount}",
+      "keywords": [
+        "AUD peptides",
+        "aussie dollar peptides",
+        "australian dollar peptides", 
+        "AU currency peptides",
+        "cheap AUD peptides",
+        "discount aussie peptides",
+        "A$55 semaglutide",
+        "A$91 tirzepatide",
+        "peptides under A$150"
+      ],
+      "search_terms": [
+        "peptides AUD price",
+        "aussie dollar peptide cost",
+        "australia pricing peptides",
+        "australian currency peptides"
+      ],
+      "pricing_phrases": [
+        "Starting from A$55.80",
+        "Best AUD value",
+        "Dollar for dollar quality mate",
+        "Aussie pricing advantage"
+      ]
+    },
+    "CAD": {
+      "country": "Canada",
+      "symbol": "C$",
+      "locale": "en-CA",
+      "format": "C${amount}",
+      "keywords": [
+        "CAD peptides",
+        "canadian dollar peptides",
+        "loonie peptides",
+        "CA currency peptides", 
+        "cheap CAD peptides",
+        "discount canadian peptides",
+        "C$52 semaglutide",
+        "C$86 tirzepatide",
+        "peptides under C$120"
+      ],
+      "search_terms": [
+        "peptides CAD price",
+        "canadian dollar peptide cost",
+        "canada pricing peptides",
+        "canadian currency peptides"
+      ],
+      "pricing_phrases": [
+        "Starting from C$52.70",
+        "Best CAD value",
+        "Loonie for loonie quality",
+        "Canadian pricing advantage eh"
+      ]
+    }
+  },
+  "cross_currency_targeting": {
+    "comparison_keywords": [
+      "USD vs GBP peptides",
+      "euro vs dollar peptides",
+      "cheapest currency peptides",
+      "best exchange rate peptides",
+      "currency conversion peptides"
+    ],
+    "multi_currency_support": true,
+    "auto_currency_detection": true,
+    "exchange_rate_optimization": true
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://sigmaaudley.net/usa#business",
+  "name": "Sigma Audley USA - Premium Research Peptides",
+  "alternateName": ["Sigma Audley US", "SigmaAudley America", "Sigma Audley United States"],
+  "description": "Sigma Audley - Official USA distributor - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "url": "https://sigmaaudley.net/usa-research-peptides-supplier.html",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United States",
+      "alternateName": "USA"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "California",
+      "containedIn": {"@type": "Country", "name": "United States"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "New York",
+      "containedIn": {"@type": "Country", "name": "United States"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Texas",
+      "containedIn": {"@type": "Country", "name": "United States"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Florida",
+      "containedIn": {"@type": "Country", "name": "United States"}
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US",
+    "addressRegion": "Nationwide USA",
+    "addressLocality": "All US States"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.8283",
+    "longitude": "-98.5795"
+  },
+  "currenciesAccepted": "USD",
+  "paymentAccepted": ["Credit Card", "PayPal", "ACH", "Cryptocurrency"],
+  "priceRange": "$40-$600",
+  "telephone": "+1-855-SIGMA-US",
+  "email": "usa@sigmaaudley.net",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.8283",
+      "longitude": "-98.5795"
+    },
+    "geoRadius": "6000000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "USA Research Peptides Catalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Semaglutide Research USA Kit",
+          "description": "Fast USA domestic delivery. FDA registered facility. Professional packaging."
+        },
+        "price": "40.56",
+        "priceCurrency": "USD",
+        "availability": "InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tirzepatide Research USA Kit",
+          "description": "Express USA shipping. Domestic only. Quality assured."
+        },
+        "price": "66.40",
+        "priceCurrency": "USD",
+        "availability": "InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "USAResearcher_NYC"
+      },
+      "reviewBody": "Outstanding USA service from Sigma Audley. Lightning fast domestic delivery to NYC, no customs delays. FDA registered and professional. Best peptide source in America!",
+      "datePublished": "2024-12-08"
+    }
+  ],
+  "keywords": "USA research peptides, semaglutide USA, tirzepatide USA, peptide supplier america, research chemicals USA, sigma audley usa, FDA registered peptides, domestic peptides USA, american peptide source, new york peptides, california peptides, texas peptides, florida peptides",
+  "sameAs": [
+    "https://sigmaaudley.net/usa-research-peptides-supplier.html",
+    "https://sigmaaudley.net/usa-peptide-supplier.html"
+  ]
+}

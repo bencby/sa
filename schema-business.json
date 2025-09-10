@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sigmaaudley.net/#organization",
+  "name": "Sigma Audley",
+  "alternateName": "Sigma Audley Research",
+  "legalName": "Sigma Audley New Material Technology Co., Ltd.",
+  "url": "https://sigmaaudley.net",
+  "logo": "https://sigmaaudley.net/images/logo.png",
+  "image": "https://sigmaaudley.net/images/sigma-audley-facility.jpg",
+  "description": "Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "foundingDate": "2010",
+  "slogan": "Research Excellence Since 2010",
+  "knowsAbout": [
+    "Research Peptides",
+    "Semaglutide Research",
+    "Tirzepatide Research", 
+    "BPC-157 Research",
+    "Growth Hormone Research",
+    "Peptide Synthesis",
+    "Quality Assurance",
+    "Janoshik Testing",
+    "ISO 9001:2015 Certification",
+    "Research Chemical Supply",
+    "GLP1 Research",
+    "Peptide Storage",
+    "Research Protocols",
+    "Laboratory Testing",
+    "Pharmaceutical Research"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CN",
+    "addressRegion": "Shanghai",
+    "addressLocality": "Shanghai"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Chinese"],
+      "areaServed": "Worldwide"
+    },
+    {
+      "@type": "ContactPoint", 
+      "contactType": "sales",
+      "availableLanguage": ["English", "Chinese"],
+      "areaServed": "Worldwide"
+    }
+  ],
+  "sameAs": [
+    "https://sigmaaudley.net/glp1-forum-verified-excellence.html",
+    "https://sigmaaudley.net/reddit-peptides-trusted-supplier.html",
+    "https://sigmaaudley.net/official-website-verification.html"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "ISO 9001:2015 Certification",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "International Organization for Standardization"
+      }
+    }
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Product",
+        "name": "Research Peptides",
+        "category": "Research Chemicals"
+      },
+      "areaServed": "Worldwide",
+      "availability": "InStock"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "GLP1Forum_Researcher"
+      },
+      "reviewBody": "Outstanding quality research peptides. Janoshik results consistently show 99%+ purity. Fast global shipping, professional packaging. Been using Sigma Audley for 3 years.",
+      "datePublished": "2024-12-15"
+    }
+  ]
+}

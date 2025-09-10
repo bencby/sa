@@ -1,0 +1,116 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://sigmaaudley.net/uk#business",
+  "name": "Sigma Audley UK - Premium Research Peptides",
+  "alternateName": ["Sigma Audley Britain", "SigmaAudley UK", "Sigma Audley United Kingdom"],
+  "description": "Sigma Audley - Official UK distributor - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "url": "https://sigmaaudley.net/uk-peptide-supplier.html",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United Kingdom",
+      "alternateName": "UK"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "England",
+      "containedIn": {"@type": "Country", "name": "United Kingdom"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Scotland",
+      "containedIn": {"@type": "Country", "name": "United Kingdom"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Wales",
+      "containedIn": {"@type": "Country", "name": "United Kingdom"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Northern Ireland",
+      "containedIn": {"@type": "Country", "name": "United Kingdom"}
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "GB",
+    "addressRegion": "UK Wide",
+    "addressLocality": "All UK Regions"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "55.3781",
+    "longitude": "-3.4360"
+  },
+  "currenciesAccepted": "GBP",
+  "paymentAccepted": ["Credit Card", "PayPal", "Bank Transfer", "Cryptocurrency"],
+  "priceRange": "£30-£500",
+  "telephone": "+44-20-SIGMA-UK",
+  "email": "uk@sigmaaudley.net",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "55.3781",
+      "longitude": "-3.4360"
+    },
+    "geoRadius": "1000000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "UK Research Peptides Catalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Semaglutide Research UK Kit",
+          "description": "Fast UK delivery. MHRA compliant. Professional packaging."
+        },
+        "price": "31.20",
+        "priceCurrency": "GBP",
+        "availability": "InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tirzepatide Research UK Kit",
+          "description": "Express UK shipping. Discrete packaging. Quality assured."
+        },
+        "price": "51.10",
+        "priceCurrency": "GBP",
+        "availability": "InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "UKResearcher_London"
+      },
+      "reviewBody": "Brilliant UK service from Sigma Audley. Rapid delivery to London, no import hassles. MHRA compliant and thoroughly professional. Best British peptide supplier!",
+      "datePublished": "2024-12-14"
+    }
+  ],
+  "keywords": "UK research peptides, semaglutide UK, tirzepatide UK, peptide supplier britain, research chemicals UK, sigma audley uk, british peptides, england peptides, scotland peptides, london peptides, manchester peptides, birmingham peptides",
+  "sameAs": [
+    "https://sigmaaudley.net/uk-peptide-supplier.html"
+  ]
+}

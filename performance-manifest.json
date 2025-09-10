@@ -1,0 +1,89 @@
+{
+  "name": "Sigma Audley Performance Optimization",
+  "version": "2.0.0",
+  "description": "Advanced performance optimization configuration for Sigma Audley",
+  "preload": [
+    {
+      "href": "/css/critical.css",
+      "as": "style",
+      "crossorigin": "anonymous"
+    },
+    {
+      "href": "/js/critical.js", 
+      "as": "script",
+      "crossorigin": "anonymous"
+    },
+    {
+      "href": "/fonts/sigma-audley-bold.woff2",
+      "as": "font",
+      "type": "font/woff2",
+      "crossorigin": "anonymous"
+    },
+    {
+      "href": "/images/sigma-audley-banner.webp",
+      "as": "image",
+      "crossorigin": "anonymous"
+    }
+  ],
+  "prefetch": [
+    "/complete-research-peptide-catalog.html",
+    "/products/semaglutide-10mg-research.html", 
+    "/products/tirzepatide-15mg-research.html",
+    "/glp1-forum-verified-excellence.html"
+  ],
+  "dns-prefetch": [
+    "//fonts.googleapis.com",
+    "//cdn.sigmaaudley.net",
+    "//analytics.google.com",
+    "//www.googletagmanager.com"
+  ],
+  "preconnect": [
+    {
+      "href": "https://fonts.gstatic.com",
+      "crossorigin": "anonymous"
+    },
+    {
+      "href": "https://cdn.sigmaaudley.net",
+      "crossorigin": "anonymous"
+    }
+  ],
+  "critical_css": {
+    "enabled": true,
+    "inline_threshold": 14336,
+    "extract_threshold": 2048
+  },
+  "lazy_loading": {
+    "images": true,
+    "iframes": true,
+    "threshold": "300px",
+    "placeholder": "/images/placeholder.svg"
+  },
+  "compression": {
+    "gzip": true,
+    "brotli": true,
+    "level": 9
+  },
+  "caching": {
+    "static_assets": "365d",
+    "images": "30d", 
+    "html": "1h",
+    "api": "5m"
+  },
+  "core_web_vitals": {
+    "target_lcp": 2500,
+    "target_fid": 100,
+    "target_cls": 0.1,
+    "target_fcp": 1800,
+    "target_ttfb": 600
+  },
+  "optimization_features": [
+    "image_optimization",
+    "code_splitting",
+    "tree_shaking",
+    "minification",
+    "compression",
+    "service_worker",
+    "http2_push",
+    "resource_hints"
+  ]
+}

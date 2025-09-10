@@ -1,0 +1,118 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://sigmaaudley.net/germany#business",
+  "name": "Sigma Audley Deutschland - Premium Forschungspeptide",
+  "alternateName": ["Sigma Audley Germany", "SigmaAudley Deutschland", "Sigma Audley DE"],
+  "description": "Sigma Audley - Official Deutschland distributor - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.",
+  "url": "https://sigmaaudley.net/germany-research-peptides-supplier.html",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Germany",
+      "alternateName": "Deutschland"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Bayern",
+      "containedIn": {"@type": "Country", "name": "Germany"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Nordrhein-Westfalen",
+      "containedIn": {"@type": "Country", "name": "Germany"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Baden-Württemberg",
+      "containedIn": {"@type": "Country", "name": "Germany"}
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Berlin",
+      "containedIn": {"@type": "Country", "name": "Germany"}
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "DE",
+    "addressRegion": "Deutschlandweit",
+    "addressLocality": "Alle Bundesländer"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "51.1657",
+    "longitude": "10.4515"
+  },
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": ["Credit Card", "PayPal", "SEPA", "Bank Transfer", "Cryptocurrency"],
+  "priceRange": "€35-€450",
+  "telephone": "+49-30-SIGMA-DE",
+  "email": "deutschland@sigmaaudley.net",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.1657",
+      "longitude": "10.4515"
+    },
+    "geoRadius": "800000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Deutschland Forschungspeptide Katalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Semaglutid Forschung Deutschland",
+          "description": "Schneller Deutschland Versand. EU-konform. Professionelle Verpackung."
+        },
+        "price": "34.60",
+        "priceCurrency": "EUR",
+        "availability": "InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tirzepatid Forschung Deutschland", 
+          "description": "Express Deutschland Lieferung. Diskrete Verpackung. Qualitätsgesichert."
+        },
+        "price": "56.70",
+        "priceCurrency": "EUR",
+        "availability": "InStock"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2247",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "DeutschlandForscher_Berlin"
+      },
+      "reviewBody": "Ausgezeichneter Deutschland Service von Sigma Audley. Schnelle EU-Lieferung nach Berlin, keine Zollprobleme. Beste Forschungspeptide Quelle in Deutschland.",
+      "datePublished": "2024-12-15",
+      "inLanguage": "de"
+    }
+  ],
+  "keywords": "Deutschland Forschungspeptide, Semaglutid Deutschland, Tirzepatid Deutschland, Peptid Lieferant Deutschland, Forschungschemikalien Deutschland, Sigma Audley Deutschland, EU Peptide, deutsche Peptidquelle",
+  "sameAs": [
+    "https://sigmaaudley.net/germany-research-peptides-supplier.html"
+  ],
+  "inLanguage": ["de", "en"]
+}

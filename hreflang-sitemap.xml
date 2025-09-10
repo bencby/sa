@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- HOMEPAGE HREFLANG TARGETING -->
+    <url>
+        <loc>https://sigmaaudley.net/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sigmaaudley.net/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://sigmaaudley.net/?country=usa" />
+        <xhtml:link rel="alternate" hreflang="en-GB" href="https://sigmaaudley.net/?country=uk" />
+        <xhtml:link rel="alternate" hreflang="en-AU" href="https://sigmaaudley.net/?country=au" />
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://sigmaaudley.net/?country=ca" />
+        <xhtml:link rel="alternate" hreflang="de-DE" href="https://sigmaaudley.net/?country=de" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>hourly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- USA SPECIFIC PAGES -->
+    <url>
+        <loc>https://sigmaaudley.net/usa-research-peptides-supplier.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://sigmaaudley.net/usa-research-peptides-supplier.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://sigmaaudley.net/usa-peptide-supplier.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://sigmaaudley.net/usa-peptide-supplier.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- UK SPECIFIC PAGES -->
+    <url>
+        <loc>https://sigmaaudley.net/uk-peptide-supplier.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-GB" href="https://sigmaaudley.net/uk-peptide-supplier.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- GERMANY SPECIFIC PAGES -->
+    <url>
+        <loc>https://sigmaaudley.net/germany-research-peptides-supplier.html</loc>
+        <xhtml:link rel="alternate" hreflang="de-DE" href="https://sigmaaudley.net/germany-research-peptides-supplier.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- AUSTRALIA SPECIFIC PAGES -->
+    <url>
+        <loc>https://sigmaaudley.net/australia-peptide-supplier.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-AU" href="https://sigmaaudley.net/australia-peptide-supplier.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- CANADA SPECIFIC PAGES -->
+    <url>
+        <loc>https://sigmaaudley.net/canada-peptide-supplier.html</loc>
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://sigmaaudley.net/canada-peptide-supplier.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://sigmaaudley.net/" />
+        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+</urlset>

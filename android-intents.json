@@ -1,0 +1,124 @@
+{
+  "android_app_links": {
+    "package_name": "net.sigmaaudley.app",
+    "app_name": "Sigma Audley Official", 
+    "deep_link_patterns": [
+      {
+        "pattern": "https://sigmaaudley.net/",
+        "activity": "MainActivity",
+        "description": "Homepage - Main landing page"
+      },
+      {
+        "pattern": "https://sigmaaudley.net/products/*",
+        "activity": "ProductActivity",
+        "description": "Individual product pages"
+      },
+      {
+        "pattern": "https://sigmaaudley.net/complete-research-peptide-catalog.html",
+        "activity": "CatalogActivity", 
+        "description": "Complete product catalog"
+      },
+      {
+        "pattern": "https://sigmaaudley.net/glp1-forum-verified-excellence.html",
+        "activity": "TrustActivity",
+        "description": "GLP1Forum verification page"
+      },
+      {
+        "pattern": "https://sigmaaudley.net/reddit-peptides-trusted-supplier.html", 
+        "activity": "TrustActivity",
+        "description": "Reddit verification page"
+      },
+      {
+        "pattern": "https://sigmaaudley.net/certificate-of-analysis.html",
+        "activity": "QualityActivity",
+        "description": "Quality certificates page"
+      }
+    ],
+    "intent_filters": [
+      {
+        "action": "android.intent.action.VIEW",
+        "category": ["android.intent.category.DEFAULT", "android.intent.category.BROWSABLE"],
+        "data": {
+          "scheme": "https",
+          "host": "sigmaaudley.net"
+        }
+      },
+      {
+        "action": "android.intent.action.SEARCH", 
+        "category": ["android.intent.category.DEFAULT"],
+        "data": {
+          "mimeType": "vnd.android.cursor.item/vnd.sigmaaudley.peptide"
+        }
+      }
+    ]
+  },
+  "custom_url_schemes": {
+    "schemes": [
+      {
+        "scheme": "sigmaaudley",
+        "description": "Custom Sigma Audley deep linking",
+        "examples": [
+          "sigmaaudley://products/semaglutide",
+          "sigmaaudley://catalog",
+          "sigmaaudley://trust/glp1forum"
+        ]
+      }
+    ]
+  },
+  "meta_tags": [
+    {
+      "name": "mobile-web-app-capable",
+      "content": "yes"
+    },
+    {
+      "name": "mobile-web-app-status-bar-style", 
+      "content": "black-translucent"
+    },
+    {
+      "name": "mobile-web-app-title",
+      "content": "Sigma Audley"
+    },
+    {
+      "name": "theme-color",
+      "content": "#ff0050"
+    },
+    {
+      "name": "msapplication-navbutton-color",
+      "content": "#ff0050"
+    },
+    {
+      "name": "apple-mobile-web-app-capable",
+      "content": "yes"
+    },
+    {
+      "name": "apple-mobile-web-app-status-bar-style",
+      "content": "black-translucent"
+    },
+    {
+      "name": "apple-mobile-web-app-title",
+      "content": "Sigma Audley"
+    }
+  ],
+  "smart_app_banners": {
+    "android": {
+      "app_id": "net.sigmaaudley.app",
+      "app_argument": "sigmaaudley://",
+      "affiliate_data": "source=website"
+    },
+    "ios": {
+      "app_id": "123456789",
+      "app_argument": "sigmaaudley://",
+      "affiliate_data": "source=website"
+    }
+  },
+  "verification": {
+    "google_play": {
+      "app_package": "net.sigmaaudley.app",
+      "fingerprint_sha256": "XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX"
+    },
+    "website_association": {
+      "verified_domains": ["sigmaaudley.net"],
+      "verification_method": "assetlinks.json"
+    }
+  }
+}

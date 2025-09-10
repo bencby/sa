@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>Sigma Audley</ShortName>
+    <Description>Sigma Audley - Official - Premium research Peptides, SARMs & Compounds - Janoshik verified quality, Verified on GLP1Forum | Finnrick | Reddit, FDA registered facility. Professional-grade research.</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16" type="image/x-icon">https://sigmaaudley.net/favicon.ico</Image>
+    <Image width="64" height="64" type="image/png">https://sigmaaudley.net/images/icon-64x64.png</Image>
+    <Url type="text/html" method="get" template="https://sigmaaudley.net/search?q={searchTerms}"/>
+    <Url type="application/opensearchdescription+xml" rel="self" template="https://sigmaaudley.net/opensearch.xml"/>
+    <Query role="example" searchTerms="semaglutide research"/>
+    <Developer>Sigma Audley SEO Team</Developer>
+    <Contact>search@sigmaaudley.net</Contact>
+    <Tags>peptides research semaglutide tirzepatide bpc-157 sigma audley glp1forum finnrick reddit verified janoshik fda professional</Tags>
+    <LongName>Sigma Audley Research Peptides - Verified on GLP1Forum | Finnrick | Reddit</LongName>
+    <Attribution>Sigma Audley - Premium Research Peptides - Janoshik Verified Quality</Attribution>
+    <SyndicationRight>open</SyndicationRight>
+    <AdultContent>false</AdultContent>
+    <Language>en-us</Language>
+    <Language>en-gb</Language>
+    <Language>en-ca</Language>
+    <Language>en-au</Language>
+    <OutputEncoding>UTF-8</OutputEncoding>
+    <moz:SearchForm>https://sigmaaudley.net/</moz:SearchForm>
+    <moz:UpdateUrl>https://sigmaaudley.net/opensearch.xml</moz:UpdateUrl>
+    <moz:UpdateInterval>7</moz:UpdateInterval>
+    <moz:IconUpdateUrl>https://sigmaaudley.net/favicon.ico</moz:IconUpdateUrl>
+</OpenSearchDescription>

@@ -1,0 +1,214 @@
+{
+  "regional_keywords": {
+    "usa": {
+      "primary_regions": {
+        "northeast": {
+          "states": ["New York", "Massachusetts", "Pennsylvania", "New Jersey", "Connecticut"],
+          "keywords": [
+            "northeast peptides", "NYC peptides", "Boston peptides", "philadelphia peptides",
+            "new england peptides", "tri-state peptides", "manhattan peptides", "brooklyn peptides"
+          ],
+          "local_terms": [
+            "peptides near NYC", "Boston area peptides", "philly peptides", "jersey peptides"
+          ]
+        },
+        "west_coast": {
+          "states": ["California", "Washington", "Oregon"],
+          "keywords": [
+            "west coast peptides", "california peptides", "LA peptides", "san francisco peptides",
+            "seattle peptides", "pacific peptides", "socal peptides", "norcal peptides"
+          ],
+          "local_terms": [
+            "peptides near LA", "bay area peptides", "silicon valley peptides", "hollywood peptides"
+          ]
+        },
+        "south": {
+          "states": ["Texas", "Florida", "Georgia", "North Carolina", "Tennessee"],
+          "keywords": [
+            "southern peptides", "texas peptides", "florida peptides", "houston peptides",
+            "miami peptides", "atlanta peptides", "dallas peptides", "austin peptides"
+          ],
+          "local_terms": [
+            "peptides near miami", "houston area peptides", "atlanta peptides", "dallas peptides"
+          ]
+        },
+        "midwest": {
+          "states": ["Illinois", "Ohio", "Michigan", "Wisconsin", "Minnesota"],
+          "keywords": [
+            "midwest peptides", "chicago peptides", "detroit peptides", "cleveland peptides",
+            "milwaukee peptides", "minneapolis peptides", "heartland peptides"
+          ],
+          "local_terms": [
+            "peptides near chicago", "detroit area peptides", "milwaukee peptides", "twin cities peptides"
+          ]
+        }
+      },
+      "demographic_targeting": [
+        "american peptides", "USA made peptides", "patriotic peptides", "domestic peptides",
+        "freedom peptides", "eagle peptides", "red white blue peptides", "stars stripes peptides"
+      ]
+    },
+    "uk": {
+      "primary_regions": {
+        "england": {
+          "cities": ["London", "Birmingham", "Manchester", "Liverpool", "Leeds"],
+          "keywords": [
+            "english peptides", "london peptides", "manchester peptides", "birmingham peptides",
+            "northern england peptides", "southern england peptides", "midlands peptides"
+          ],
+          "local_terms": [
+            "peptides near london", "manchester area peptides", "birmingham peptides", "yorkshire peptides"
+          ]
+        },
+        "scotland": {
+          "cities": ["Edinburgh", "Glasgow", "Aberdeen", "Dundee"],
+          "keywords": [
+            "scottish peptides", "edinburgh peptides", "glasgow peptides", "highland peptides",
+            "lowland peptides", "scottish research peptides", "caledonian peptides"
+          ],
+          "local_terms": [
+            "peptides near edinburgh", "glasgow area peptides", "scottish highland peptides"
+          ]
+        },
+        "wales": {
+          "cities": ["Cardiff", "Swansea", "Newport", "Wrexham"],
+          "keywords": [
+            "welsh peptides", "cardiff peptides", "swansea peptides", "cymru peptides",
+            "valleys peptides", "welsh research peptides", "dragon peptides"
+          ],
+          "local_terms": [
+            "peptides near cardiff", "welsh valley peptides", "swansea area peptides"
+          ]
+        }
+      },
+      "cultural_targeting": [
+        "british peptides", "UK made peptides", "queen's peptides", "royal peptides",
+        "union jack peptides", "brit peptides", "blighty peptides", "proper peptides"
+      ]
+    },
+    "germany": {
+      "primary_regions": {
+        "bayern": {
+          "cities": ["München", "Nürnberg", "Augsburg", "Würzburg"],
+          "keywords": [
+            "bayerische Peptide", "München Peptide", "Nürnberg Peptide", "süddeutsche Peptide",
+            "bayrische Forschungspeptide", "Oktoberfest Peptide", "alpine Peptide"
+          ],
+          "local_terms": [
+            "Peptide nahe München", "bayerische Region Peptide", "süddeutsche Peptide"
+          ]
+        },
+        "nordrhein_westfalen": {
+          "cities": ["Köln", "Düsseldorf", "Dortmund", "Essen"],
+          "keywords": [
+            "NRW Peptide", "Köln Peptide", "Düsseldorf Peptide", "Ruhrgebiet Peptide",
+            "rheinische Peptide", "westfälische Peptide", "nordrhein Peptide"
+          ],
+          "local_terms": [
+            "Peptide nahe Köln", "Düsseldorf Gebiet Peptide", "Ruhrpott Peptide"
+          ]
+        },
+        "berlin": {
+          "districts": ["Mitte", "Kreuzberg", "Charlottenburg", "Prenzlauer Berg"],
+          "keywords": [
+            "Berlin Peptide", "Hauptstadt Peptide", "Berliner Forschungspeptide",
+            "deutsche Hauptstadt Peptide", "Brandenburg Peptide", "Spree Peptide"
+          ],
+          "local_terms": [
+            "Peptide nahe Berlin", "Berliner Peptide", "Hauptstadt Forschungspeptide"
+          ]
+        }
+      },
+      "cultural_targeting": [
+        "deutsche Peptide", "german precision peptides", "deutsche Qualität Peptide",
+        "Bundesrepublik Peptide", "german engineering peptides", "deutsch Peptide"
+      ]
+    },
+    "australia": {
+      "primary_regions": {
+        "new_south_wales": {
+          "cities": ["Sydney", "Newcastle", "Wollongong", "Central Coast"],
+          "keywords": [
+            "NSW peptides", "sydney peptides", "newcastle peptides", "harbour city peptides",
+            "emerald city peptides", "opera house peptides", "bondi peptides"
+          ],
+          "local_terms": [
+            "peptides near sydney", "NSW coast peptides", "harbour bridge peptides"
+          ]
+        },
+        "victoria": {
+          "cities": ["Melbourne", "Geelong", "Ballarat", "Bendigo"],
+          "keywords": [
+            "VIC peptides", "melbourne peptides", "geelong peptides", "garden state peptides",
+            "cultural capital peptides", "tram city peptides", "coffee peptides"
+          ],
+          "local_terms": [
+            "peptides near melbourne", "VIC region peptides", "melbournian peptides"
+          ]
+        },
+        "queensland": {
+          "cities": ["Brisbane", "Gold Coast", "Sunshine Coast", "Cairns"],
+          "keywords": [
+            "QLD peptides", "brisbane peptides", "gold coast peptides", "sunshine state peptides",
+            "tropical peptides", "reef peptides", "surfers peptides"
+          ],
+          "local_terms": [
+            "peptides near brisbane", "gold coast area peptides", "QLD sunshine peptides"
+          ]
+        }
+      },
+      "cultural_targeting": [
+        "aussie peptides", "down under peptides", "oz peptides", "fair dinkum peptides",
+        "mate peptides", "crikey peptides", "outback peptides", "southern cross peptides"
+      ]
+    },
+    "canada": {
+      "primary_regions": {
+        "ontario": {
+          "cities": ["Toronto", "Ottawa", "Hamilton", "London"],
+          "keywords": [
+            "ontario peptides", "toronto peptides", "ottawa peptides", "GTA peptides",
+            "golden horseshoe peptides", "CN tower peptides", "maple leaf peptides"
+          ],
+          "local_terms": [
+            "peptides near toronto", "ontario region peptides", "six peptides", "tdot peptides"
+          ]
+        },
+        "quebec": {
+          "cities": ["Montreal", "Quebec City", "Laval", "Gatineau"],
+          "keywords": [
+            "quebec peptides", "montreal peptides", "peptides quebec", "belle province peptides",
+            "french canadian peptides", "fleur de lis peptides", "st lawrence peptides"
+          ],
+          "local_terms": [
+            "peptides près montreal", "peptides quebec ville", "peptides région quebec"
+          ]
+        },
+        "british_columbia": {
+          "cities": ["Vancouver", "Victoria", "Surrey", "Burnaby"],
+          "keywords": [
+            "BC peptides", "vancouver peptides", "victoria peptides", "pacific peptides",
+            "mountains meets ocean peptides", "lotus land peptides", "rain city peptides"
+          ],
+          "local_terms": [
+            "peptides near vancouver", "BC coast peptides", "van city peptides"
+          ]
+        }
+      },
+      "cultural_targeting": [
+        "canadian peptides", "eh peptides", "maple syrup peptides", "hockey peptides",
+        "beaver peptides", "mountie peptides", "true north peptides", "great white north peptides"
+      ]
+    }
+  },
+  "cross_regional_targeting": {
+    "international_keywords": [
+      "worldwide peptides", "global peptide delivery", "international peptide shipping",
+      "cross border peptides", "multi country peptides", "worldwide peptide source"
+    ],
+    "shipping_keywords": [
+      "fast international shipping", "worldwide delivery", "global express",
+      "international peptide courier", "cross border delivery", "worldwide logistics"
+    ]
+  }
+}

@@ -13670,6 +13670,152 @@ body {
         </div>
     </div>
 
+    <!-- Amazon Gift Card Guide Modal -->
+    <div class="modal" id="amazonGuideModal" style="z-index: 10001 !important;">
+        <div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <i class="fas fa-credit-card" style="margin-right: 10px; color: #ff9500;"></i>
+                    Pay with PayPal, Credit/Debit, Apple/Google Pay, Bank Transfer
+                </h2>
+                <button class="modal-close" onclick="closeModal('amazonGuideModal');">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" style="padding: 30px; line-height: 1.6;">
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <button onclick="closeModal('amazonGuideModal');" style="background: linear-gradient(135deg, #6b7280, #4b5563); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <i class="fas fa-arrow-left" style="margin-right: 6px;"></i>
+                        Back to Payment Selection
+                    </button>
+                </div>
+                
+                <!-- Dynamic order info section that gets updated by JavaScript -->
+                <div id="amazonOrderInfo" style="margin-bottom: 20px;">
+                    <div style="background: #f3f4f6; border: 2px solid #6b7280; border-radius: 8px; padding: 15px; margin-bottom: 15px; text-align: center;">
+                        <strong style="color: #374151; font-size: 1.1em;" id="amazonRefNumberTop">Reference Number: [Generating...]</strong>
+                    </div>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.4em;" id="amazonGbpAmount">📍 £[Amount] GBP Required</h3>
+                    <p style="margin: 0 0 10px 0; font-size: 0.9em; color: #6b7280; font-style: italic;">(auto rounded down to nearest £25 to reduce fees incurred)</p>
+                    <p style="margin: 0; font-size: 1.1em; opacity: 0.9;" id="amazonOrderDetails">
+                        <strong>Cart Total:</strong> $[Amount] USD → £[Amount] GBP<br>
+                        <strong>Ships From:</strong> [Warehouse]<br>
+                        <strong>Who this is for:</strong> Customers who can't pay with crypto.
+                    </p>
+                </div>
+
+                <h3 style="color: #1f2937; margin: 0 0 15px 0; font-size: 1.3em; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+                    📋 Step‑by‑step (foolproof)
+                </h3>
+                
+                <div style="background: #fef7cd; border-left: 4px solid #f59e0b; padding: 15px; margin-bottom: 25px;">
+                    <p style="margin: 0; color: #92400e;"><strong>✱ Important:</strong> Amazon gift cards are <strong>region‑locked</strong>. Only <strong>amazon.co.uk</strong> gift cards work for us.</p>
+                </div>
+
+                <div style="background: #f0f9ff; border: 2px solid #0284c7; border-radius: 8px; padding: 20px; margin-bottom: 25px;">
+                    <h4 style="color: #075985; margin: 0 0 15px 0; font-size: 1.2em;">🔹 What we accept:</h4>
+                    <p style="margin: 0;"><strong>Digital</strong> Amazon <strong>UK</strong> (amazon.co.uk) <strong>eGift</strong> cards only. <span style="color: red;">Physical cards, store credit from other Amazon countries (.com, .de, .fr, etc.), or marketplace codes are not accepted.</span></p>
+                </div>
+                
+                <h4 style="color: #374151; margin: 20px 0 10px 0;">A) Buy the correct gift card</h4>
+                <p style="color: #374151;">You can only use the following trusted sources:</p>
+                
+                <div style="background: white; border: 1px solid #d1d5db; border-radius: 8px; padding: 15px; margin: 15px 0;">
+                    <h5 style="color: #10b981; margin: 0 0 10px 0;">Option 1 — Eneba</h5>
+                    <ul style="color: #374151; margin: 10px 0;">
+                        <li>Go to <strong><a href="https://www.eneba.com" target="_blank" style="color: #0284c7;">https://www.eneba.com</a></strong> and search for <em>Amazon UK Gift Card</em>.</li>
+                        <li>Select the denomination(s) you need in <strong>GBP</strong>.</li>
+                        <li>Choose <strong>digital delivery</strong> (email delivery) to yourself.</li>
+                        <li>Pay with your available payment method (Eneba supports debit card, PayPal, credit card, Apple Pay, Google Pay, etc.).</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; border: 1px solid #d1d5db; border-radius: 8px; padding: 15px; margin: 15px 0;">
+                    <h5 style="color: #10b981; margin: 0 0 10px 0;">Option 2 — G2A</h5>
+                    <ul style="color: #374151; margin: 10px 0;">
+                        <li>Go to <strong><a href="https://www.g2a.com" target="_blank" style="color: #0284c7;">https://www.g2a.com</a></strong> and search for <em>Amazon UK Gift Card</em>.</li>
+                        <li>Select the amount(s) in <strong>GBP</strong> that match your invoice.</li>
+                        <li>Choose <strong>digital code</strong> delivery.</li>
+                        <li>Pay securely via G2A's checkout options (G2A supports debit card, PayPal, credit card, Apple Pay, Google Pay, etc.).</li>
+                    </ul>
+                </div>
+
+                <div style="background: #dcfce7; border-left: 4px solid #10b981; padding: 15px; margin: 15px 0;">
+                    <p style="margin: 0; color: #166534;">✅ We accept <strong>multiple</strong> UK gift card codes if you need more than one to reach the full amount.</p>
+                </div>
+
+                <h4 style="color: #374151; margin: 20px 0 10px 0;">B) Prepare your payment</h4>
+                <ul style="color: #374151;">
+                    <li>Keep the <strong>claim code(s)</strong> handy (format looks like groups of letters/numbers).</li>
+                    <li>Take a <strong>screenshot or PDF receipt</strong> (showing order number, denomination, and that it's an <strong>amazon.co.uk</strong> gift card).</li>
+                    <li><strong>Do not</strong> share codes publicly. Only send to our <strong>official</strong> email / ticket / chat listed on your invoice.</li>
+                </ul>
+
+                <h4 style="color: #374151; margin: 20px 0 10px 0;">C) Send support@sigmaaudley.net the code(s)</h4>
+                <p style="color: #374151;">Please include <strong>all</strong> of the following in one message:</p>
+                <ol style="color: #374151;">
+                    <li><strong>Your invoice/order number</strong>.</li>
+                    <li><strong>Claim code(s)</strong> exactly as shown (copy/paste to avoid typos).</li>
+                    <li><strong>Total amount</strong> you've sent (e.g., "£150 via 3×£50 codes").</li>
+                    <li>(Optional) <strong>Receipt screenshot/PDF</strong> from Eneba or G2A.</li>
+                </ol>
+
+                <h3 style="color: #1f2937; margin: 25px 0 15px 0; font-size: 1.3em; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+                    📧 Copy‑and‑paste message (use this to pay)
+                </h3>
+                <div id="amazonCopyPasteTemplate" style="background: #1f2937; color: #d1d5db; font-family: 'Courier New', monospace; padding: 20px; border-radius: 8px; margin: 15px 0; white-space: pre-wrap;">To: support@sigmaaudley.net
+Subject: Amazon UK Gift Card Payment – Order #&lt;your order number&gt;
+
+Hello,
+
+Amazon UK Gift Card Payment Details:
+
+Order number: &lt;your order number&gt;
+Total sent: £&lt;amount&gt; via &lt;number of codes&gt; code(s)
+
+Claim code(s):
+&lt;CODE 1&gt;
+&lt;CODE 2&gt;
+&lt;CODE 3&gt;
+
+Notes:
+- Codes are Amazon **UK** (GBP) eGift.
+- Receipt attached (purchased via Eneba/G2A).
+
+Please confirm when applied and let me know about shipping. Thank you!
+
+**Send this email to: support@sigmaaudley.net**</div>
+                
+                <div style="text-align: center; margin: 15px 0;">
+                    <button onclick="copyAmazonTemplate()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <i class="fas fa-copy" style="margin-right: 8px;"></i>
+                        Copy Message to Clipboard
+                    </button>
+                </div>
+                
+                <div id="amazonOrderReference" style="background: #f3f4f6; border: 2px solid #6b7280; border-radius: 8px; padding: 15px; margin: 15px 0; text-align: center;">
+                    <strong style="color: #374151; font-size: 1.1em;">Reference Number: [Will be generated when modal opens]</strong>
+                </div>
+
+                <div style="background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0;">
+                    <h4 style="color: #dc2626; margin: 0 0 10px 0;">⚠️ What we can't accept:</h4>
+                    <ul style="color: #7f1d1d; margin: 10px 0;">
+                        <li>Gift cards for <strong>other Amazon countries</strong> (.com, .de, .fr, .es, .it, etc.).</li>
+                        <li><strong>Physical</strong> gift cards that require mailing.</li>
+                        <li><strong>Used/second‑hand</strong> codes or partial/obscured photos of codes.</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button onclick="closeModal('amazonGuideModal');" style="background: linear-gradient(135deg, #ff9500, #ff6500); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+                        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i>
+                        Back to Payment Selection
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Modal -->
     <div class="modal contact-modal" id="contactModal">
         <div class="modal-content">
@@ -14157,6 +14303,10 @@ body {
                                     <span>💰 Crypto Extra Discount (15% OFF):</span>
                                     <span id="checkoutBtcDiscount" class="discount-amount">-$0.00</span>
                                 </div>
+                                <div class="total-row" id="cryptoDiscountNote" style="display: none; color: #6b7280; font-size: 0.9em; font-style: italic;">
+                                    <span>Crypto discount applied at checkout for crypto</span>
+                                    <span></span>
+                                </div>
                                 <div class="total-row">
                                     <span>Shipping:</span>
                                     <span id="checkoutShipping">🚚 FREE</span>
@@ -14255,6 +14405,26 @@ body {
                                         <button type="button" onclick="event.stopPropagation(); showCryptoGuideModal();" style="margin-top: 10px; background: linear-gradient(135deg, #0284c7, #0369a1); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; cursor: pointer; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
                                             <i class="fas fa-question-circle" style="margin-right: 6px;"></i>
                                             How to pay with crypto?
+                                        </button>
+                                    </div>
+                                </div>
+                            </label>
+                            <!-- Amazon Gift Card Option -->
+                            <label class="payment-method" onclick="updatePaymentMethod(); showAmazonGuideModal();" style="cursor: pointer;">
+                                <input type="radio" name="paymentMethod" value="amazon" onchange="updatePaymentMethod();">
+                                <div class="payment-option">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>Pay with PayPal, Credit/Debit, Apple/Google Pay, Bank Transfer</h4>
+                                        <p>Gift Cards (If You Can't Pay with Bitcoin) - For international customers</p>
+                                        <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px; padding: 8px; margin-top: 8px;">
+                                            <small style="color: #92400e; font-weight: 600;">⚠️ 10-15% higher fees.</small>
+                                        </div>
+                                        <button type="button" onclick="event.stopPropagation(); showAmazonGuideModal();" style="margin-top: 10px; background: linear-gradient(135deg, #ff9500, #ff6500); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; cursor: pointer; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
+                                            <i class="fas fa-question-circle" style="margin-right: 6px;"></i>
+                                            How to Pay?
                                         </button>
                                     </div>
                                 </div>
@@ -19950,6 +20120,361 @@ This is a demo. Please contact us to complete your order.`);
             }, 300);
         }
         
+        function showAmazonGuideModal() {
+            // Check if UK warehouse is selected for simplified UK-only view
+            console.log('Amazon modal - Current warehouse:', selectedWarehouse);
+            if (selectedWarehouse === 'UK') {
+                showUKSimplifiedAmazonModal();
+                return;
+            }
+            
+            // For international warehouses, restore the original modal content if it was changed
+            restoreOriginalAmazonModal();
+            
+            // Don't close checkout modal, just show the Amazon guide modal on top
+            // This way users can return to payment selection easily
+            
+            // Update the modal with current order information if available
+            try {
+                if (typeof orderData !== 'undefined' && orderData && orderData.total) {
+                    const totalAmount = orderData.finalTotal || orderData.total || 100;
+                    const warehouse = warehouses[selectedWarehouse] || warehouses['usa_east'] || {
+                        name: 'USA East',
+                        flag: '🇺🇸',
+                        currency: 'USD',
+                        symbol: '$',
+                        shipping: 15
+                    };
+                    
+                    // Get the actual warehouse currency for proper conversion
+                    const actualWarehouseCurrency = warehouse.currency || 'USD';
+                    const actualWarehouseSymbol = warehouse.symbol || '$';
+                    
+                    // Currency conversion rates (same as crypto system)
+                    const currencyToGbpRates = {
+                        'USD': 0.79,    // $1 = £0.79
+                        'EUR': 0.86,    // €1 = £0.86 (0.79/0.92)
+                        'CAD': 0.585,   // CAD$1 = £0.585 (0.79/1.35)
+                        'AUD': 0.52,    // AUD$1 = £0.52 (0.79/1.52)
+                        'GBP': 1.0      // £1 = £1
+                    };
+                    
+                    // Convert from warehouse currency to GBP for Amazon
+                    const warehouseCurrencyToGbpRate = currencyToGbpRates[actualWarehouseCurrency] || 0.79;
+                    const gbpAmountRaw = totalAmount * warehouseCurrencyToGbpRate;
+                    const localAmount = (Math.floor(Math.max(0, gbpAmountRaw) / 25) * 25).toFixed(2);
+                    const warehouseCurrency = 'GBP';
+                    const warehouseSymbol = '£';
+                    const amazonStore = 'Amazon UK';
+                    
+                    // Update the modal header to show the amount
+                    const modalTitle = document.querySelector('#amazonGuideModal .modal-title');
+                    if (modalTitle) {
+                        modalTitle.innerHTML = `
+                            <i class="fas fa-credit-card" style="margin-right: 10px; color: #ff9500;"></i>
+                            Pay ${warehouseSymbol}${localAmount} with ${amazonStore} Gift Cards
+                        `;
+                    }
+                    
+                    // Update the specific elements with order details
+                    const refNumber = orderData.orderId || generateOrderId();
+                    
+                    // Update reference number at top
+                    const refNumberTop = document.getElementById('amazonRefNumberTop');
+                    if (refNumberTop) {
+                        refNumberTop.textContent = `Reference Number: ${refNumber}`;
+                    }
+                    
+                    // Update local currency amount
+                    const gbpAmountEl = document.getElementById('amazonGbpAmount');
+                    if (gbpAmountEl) {
+                        gbpAmountEl.textContent = `📍 ${warehouseSymbol}${localAmount} ${warehouseCurrency} Required`;
+                    }
+                    
+                    // Update order details
+                    const orderDetailsEl = document.getElementById('amazonOrderDetails');
+                    if (orderDetailsEl) {
+                        orderDetailsEl.innerHTML = `
+                            <strong>Order Total:</strong> ${actualWarehouseSymbol}${totalAmount.toFixed(2)} ${actualWarehouseCurrency} → £${localAmount} GBP<br>
+                            <strong>Ships From:</strong> ${warehouse.flag} ${warehouse.name}<br>
+                            <strong>Who this is for:</strong> Customers who can't pay with crypto.
+                        `;
+                    }
+                    
+                    // Update reference number under copy-paste button
+                    const referenceDisplay = document.getElementById('amazonOrderReference');
+                    if (referenceDisplay) {
+                        referenceDisplay.innerHTML = `<strong style="color: #374151; font-size: 1.1em;">Reference Number: ${refNumber}</strong>`;
+                    }
+                } else {
+                    // Get the actual checkout total that was already calculated with all discounts
+                    const checkoutTotalElement = document.getElementById('checkoutTotal');
+                    let totalAmount = 100; // fallback
+                    
+                    if (checkoutTotalElement && checkoutTotalElement.textContent) {
+                        // Parse the displayed total (remove currency symbols and formatting)
+                        const totalText = checkoutTotalElement.textContent.replace(/[^0-9.-]/g, '');
+                        const parsedTotal = parseFloat(totalText);
+                        if (!isNaN(parsedTotal) && parsedTotal > 0) {
+                            totalAmount = parsedTotal;
+                        }
+                    }
+                    
+                    // Get warehouse with proper fallbacks
+                    const warehouse = warehouses[selectedWarehouse] || warehouses['usa_east'] || {
+                        name: 'USA East',
+                        flag: '🇺🇸',
+                        currency: 'USD',
+                        symbol: '$',
+                        shipping: 15
+                    };
+                    
+                    // Debug logging
+                    console.log('Amazon Modal - Using Checkout Total:', {
+                        checkoutTotalText: checkoutTotalElement?.textContent,
+                        parsedAmount: totalAmount,
+                        warehouse: warehouse.name,
+                        currency: warehouse.currency
+                    });
+                    
+                    // Get the actual warehouse currency for proper conversion
+                    const actualWarehouseCurrency = warehouse.currency || 'USD';
+                    const actualWarehouseSymbol = warehouse.symbol || '$';
+                    
+                    // Currency conversion rates (same as crypto system)
+                    const currencyToGbpRates = {
+                        'USD': 0.79,    // $1 = £0.79
+                        'EUR': 0.86,    // €1 = £0.86 (0.79/0.92)
+                        'CAD': 0.585,   // CAD$1 = £0.585 (0.79/1.35)
+                        'AUD': 0.52,    // AUD$1 = £0.52 (0.79/1.52)
+                        'GBP': 1.0      // £1 = £1
+                    };
+                    
+                    // Convert from warehouse currency to GBP for Amazon
+                    const warehouseCurrencyToGbpRate = currencyToGbpRates[actualWarehouseCurrency] || 0.79;
+                    const gbpAmountRaw = totalAmount * warehouseCurrencyToGbpRate;
+                    const localAmount = (Math.floor(Math.max(0, gbpAmountRaw) / 25) * 25).toFixed(2);
+                    const warehouseCurrency = 'GBP';
+                    const warehouseSymbol = '£';
+                    const amazonStore = 'Amazon UK';
+                    
+                    // Update the modal header
+                    const modalTitle = document.querySelector('#amazonGuideModal .modal-title');
+                    if (modalTitle) {
+                        modalTitle.innerHTML = `
+                            <i class="fas fa-credit-card" style="margin-right: 10px; color: #ff9500;"></i>
+                            Pay with PayPal, Credit/Debit, Apple/Google Pay, Bank Transfer
+                        `;
+                    }
+                    
+                    // Update the specific elements with cart details
+                    const refNumber = generateOrderId();
+                    
+                    // Update reference number at top
+                    const refNumberTop = document.getElementById('amazonRefNumberTop');
+                    if (refNumberTop) {
+                        refNumberTop.textContent = `Reference Number: ${refNumber}`;
+                    }
+                    
+                    // Update local currency amount
+                    const gbpAmountEl = document.getElementById('amazonGbpAmount');
+                    if (gbpAmountEl) {
+                        gbpAmountEl.textContent = `📍 ${warehouseSymbol}${localAmount} ${warehouseCurrency} Required`;
+                    }
+                    
+                    // Update order details
+                    const orderDetailsEl = document.getElementById('amazonOrderDetails');
+                    if (orderDetailsEl) {
+                        orderDetailsEl.innerHTML = `
+                            <strong>Cart Total:</strong> ${actualWarehouseSymbol}${totalAmount.toFixed(2)} ${actualWarehouseCurrency} → £${localAmount} GBP<br>
+                            <strong>Ships From:</strong> ${warehouse.flag} ${warehouse.name}<br>
+                            <strong>Who this is for:</strong> Customers who can't pay with crypto.
+                        `;
+                    }
+                    
+                    // Update reference number under copy-paste button
+                    const referenceDisplay = document.getElementById('amazonOrderReference');
+                    if (referenceDisplay) {
+                        referenceDisplay.innerHTML = `<strong style="color: #374151; font-size: 1.1em;">Reference Number: ${refNumber}</strong>`;
+                    }
+                }
+            } catch (error) {
+                console.log('Amazon modal update error (non-critical):', error);
+                // Modal will still open with default content
+            }
+            
+            // Show the modal immediately (no delay needed)
+            showModal('amazonGuideModal');
+            
+            // Ensure the modal appears on top by setting focus and z-index
+            setTimeout(() => {
+                const modal = document.getElementById('amazonGuideModal');
+                if (modal) {
+                    modal.style.zIndex = '10001';
+                    modal.style.setProperty('z-index', '10001', 'important');
+                    modal.focus();
+                }
+            }, 50);
+        }
+        
+        // Store original Amazon modal content for restoration
+        let originalAmazonModalContent = null;
+        let originalAmazonModalTitle = null;
+        
+        // Save original Amazon modal content on page load
+        function saveOriginalAmazonModal() {
+            const modalBody = document.querySelector('#amazonGuideModal .modal-body');
+            const modalTitle = document.querySelector('#amazonGuideModal .modal-title');
+            if (modalBody && modalTitle) {
+                originalAmazonModalContent = modalBody.innerHTML;
+                originalAmazonModalTitle = modalTitle.innerHTML;
+            }
+        }
+        
+        // Restore original Amazon modal content
+        function restoreOriginalAmazonModal() {
+            if (originalAmazonModalContent && originalAmazonModalTitle) {
+                const modalBody = document.querySelector('#amazonGuideModal .modal-body');
+                const modalTitle = document.querySelector('#amazonGuideModal .modal-title');
+                if (modalBody && modalTitle) {
+                    console.log('Restoring original Amazon modal content for non-UK warehouse');
+                    modalBody.innerHTML = originalAmazonModalContent;
+                    modalTitle.innerHTML = originalAmazonModalTitle;
+                }
+            }
+        }
+        
+        // Simplified UK-only Amazon modal
+        function showUKSimplifiedAmazonModal() {
+            console.log('Showing UK simplified modal for warehouse:', selectedWarehouse);
+            try {
+                // Get the actual checkout total that was already calculated with all discounts
+                const checkoutTotalElement = document.getElementById('checkoutTotal');
+                let totalAmount = 100; // fallback
+                
+                if (checkoutTotalElement && checkoutTotalElement.textContent) {
+                    // Parse the displayed total (remove currency symbols and formatting)
+                    const totalText = checkoutTotalElement.textContent.replace(/[^0-9.-]/g, '');
+                    const parsedTotal = parseFloat(totalText);
+                    if (!isNaN(parsedTotal) && parsedTotal > 0) {
+                        totalAmount = parsedTotal;
+                    }
+                }
+                
+                // UK warehouse uses GBP, so no conversion needed - just round to nearest £5
+                const gbpAmount = (Math.floor(Math.max(0, totalAmount) / 5) * 5).toFixed(2);
+                const refNumber = generateOrderId();
+                
+                // Update the modal header
+                const modalTitle = document.querySelector('#amazonGuideModal .modal-title');
+                if (modalTitle) {
+                    modalTitle.innerHTML = `
+                        <i class="fas fa-credit-card" style="margin-right: 10px; color: #ff9500;"></i>
+                        Pay £${gbpAmount} with Amazon UK Gift Cards
+                    `;
+                }
+                
+                // Update the modal content with simplified UK view
+                const modalBody = document.querySelector('#amazonGuideModal .modal-body');
+                if (modalBody) {
+                    modalBody.innerHTML = `
+                        <div style="text-align: left; margin-bottom: 20px;">
+                            <button onclick="closeModal('amazonGuideModal');" style="background: linear-gradient(135deg, #6b7280, #4b5563); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fas fa-arrow-left" style="margin-right: 6px;"></i>
+                                Back to Payment Selection
+                            </button>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <div style="background: #f3f4f6; border: 2px solid #6b7280; border-radius: 8px; padding: 15px; margin-bottom: 15px; text-align: center;">
+                                <strong style="color: #374151; font-size: 1.1em;">Reference Number: ${refNumber}</strong>
+                            </div>
+                            <h3 style="margin: 0 0 10px 0; font-size: 1.4em;">📍 £${gbpAmount} GBP Required</h3>
+                            <p style="margin: 0 0 10px 0; font-size: 0.9em; color: #6b7280; font-style: italic;">(auto rounded down to nearest £5 to reduce fees incurred)</p>
+                            <p style="margin: 0; font-size: 1.1em; opacity: 0.9;">
+                                <strong>Order Total:</strong> £${totalAmount.toFixed(2)} GBP → £${gbpAmount} GBP<br>
+                                <strong>Ships From:</strong> 🇬🇧 United Kingdom<br>
+                                <strong>Who this is for:</strong> UK customers who can't pay with crypto.
+                            </p>
+                        </div>
+
+                        <div style="background: #e8f5e8; border: 2px solid #22c55e; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="color: #16a34a; margin: 0 0 15px 0; font-size: 1.2em;">
+                                <i class="fas fa-gift" style="margin-right: 8px;"></i>
+                                Simple UK Instructions
+                            </h3>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                                <h4 style="color: #374151; margin: 0 0 15px 0; font-size: 1.1em;">
+                                    <strong>1. Purchase Amazon UK Gift Card</strong>
+                                </h4>
+                                <ol style="margin: 8px 0 0 20px; color: #4b5563; line-height: 1.6;">
+                                    <li>Go to <a href="https://amazon.co.uk/gift-cards" target="_blank" style="color: #ff9500; font-weight: 600;">Amazon.co.uk Gift Cards</a></li>
+                                    <li>Purchase £${gbpAmount} worth of Amazon UK <strong style="color: #dc2626;">e-gift cards</strong></li>
+                                    <li>Choose "<strong style="color: #dc2626;">Email</strong>" delivery option</li>
+                                    <li>Use any design you prefer</li>
+                                </ol>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                                <h4 style="color: #374151; margin: 0 0 15px 0; font-size: 1.1em;">
+                                    <strong>2. Email the Gift Cards to Us</strong>
+                                </h4>
+                                <ol style="margin: 8px 0 0 20px; color: #4b5563; line-height: 1.6;">
+                                    <li>Forward the Amazon <strong style="color: #dc2626;">e-gift card email</strong> to: <strong style="color: #dc2626;">support@sigmaaudley.net</strong></li>
+                                    <li>Include your order reference: <strong style="color: #dc2626;">${refNumber}</strong></li>
+                                    <li>We'll process your order within 24 hours</li>
+                                </ol>
+                            </div>
+                            
+                            <div style="background: #fef2f2; border: 1px solid #fca5a5; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                                <p style="margin: 0; color: #dc2626; font-size: 0.9em;">
+                                    <i class="fas fa-exclamation-triangle" style="margin-right: 6px;"></i>
+                                    <strong>Important:</strong> Only Amazon UK gift cards are accepted. Cards from other Amazon stores will not work.
+                                </p>
+                            </div>
+                            
+                            <div style="background: #fff7ed; border: 1px solid #fed7aa; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                                <p style="margin: 0; color: #ea580c; font-size: 0.9em;">
+                                    <i class="fas fa-clock" style="margin-right: 6px;"></i>
+                                    <strong>Processing Time:</strong> Orders are typically processed within 24 hours of receiving valid gift cards.
+                                </p>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 20px;">
+                                <p style="margin: 0; font-size: 1.1em; color: #374151;">
+                                    <strong style="color: #374151; font-size: 1.1em;">Reference Number: ${refNumber}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                console.log('UK Simplified Amazon Modal:', {
+                    checkoutTotalText: checkoutTotalElement?.textContent,
+                    totalAmount,
+                    gbpAmount,
+                    refNumber
+                });
+                
+            } catch (error) {
+                console.log('UK Amazon modal update error (non-critical):', error);
+            }
+            
+            // Show the modal
+            showModal('amazonGuideModal');
+            
+            // Ensure the modal appears on top
+            setTimeout(() => {
+                const modal = document.getElementById('amazonGuideModal');
+                if (modal) {
+                    modal.style.zIndex = '10001';
+                    modal.style.setProperty('z-index', '10001', 'important');
+                    modal.focus();
+                }
+            }, 50);
+        }
+        
         // Show modal function
         function showModal(modalId) {
             const modal = document.getElementById(modalId);
@@ -20388,11 +20913,15 @@ This is a demo. Please contact us to complete your order.`);
             // Show/hide BTC discount
             const btcDiscountRow = document.getElementById('btcDiscountRow');
             const btcDiscountElement = document.getElementById('checkoutBtcDiscount');
+            const cryptoDiscountNote = document.getElementById('cryptoDiscountNote');
+            
             if (isCryptoSelected && btcDiscountAmount > 0) {
                 btcDiscountRow.style.display = 'flex';
                 btcDiscountElement.textContent = `-${formatPrice(btcDiscountAmount)}`;
+                cryptoDiscountNote.style.display = 'flex';
             } else {
                 btcDiscountRow.style.display = 'none';
+                cryptoDiscountNote.style.display = 'none';
             }
             
             const shippingSavings = warehouse ? warehouse.currency === 'USD' ? '$40' : 
@@ -20682,7 +21211,8 @@ This is a demo. Please contact us to complete your order.`);
                 'crypto': 'Cryptocurrency',
                 'bitcoin': 'Bitcoin (BTC)',
                 'xoom': 'PayPal (via Xoom)',
-                'usdt': 'USDT (Tether)'
+                'usdt': 'USDT (Tether)',
+                'amazon': 'Amazon UK Gift Cards (PayPal/Credit/Debit/Apple Pay/Google Pay/Bank Transfer)'
             };
 
             // Generate order items list
@@ -21171,6 +21701,9 @@ Thank you for your assistance.`;
         document.addEventListener('DOMContentLoaded', () => {
             const hasWarehouse = loadWarehouseFromStorage();
             
+            // Save original Amazon modal content for restoration
+            saveOriginalAmazonModal();
+            
             // Initialize exchange rates and currency system
             fetchExchangeRates();
             updateWarehouseCurrency(selectedWarehouse);
@@ -21206,6 +21739,145 @@ Thank you for your assistance.`;
             const timestamp = Date.now().toString().slice(-4);
             const random = Math.random().toString(36).substring(2, 4).toUpperCase();
             return `SA${timestamp}${random}`;
+        }
+        
+        // Complete Amazon order
+        function completeAmazonOrder() {
+            try {
+                // Close Amazon modal 
+                closeModal('amazonGuideModal');
+                
+                // Simple alert for now
+                alert('Amazon order process initiated. Please follow the instructions in the guide.');
+                
+            } catch (error) {
+                console.error('Error completing Amazon order:', error);
+                alert('Something went wrong. Please try again.');
+            }
+        }
+        
+        
+        // Copy Amazon template to clipboard
+        function copyAmazonTemplate() {
+            const template = document.getElementById('amazonCopyPasteTemplate');
+            if (template) {
+                const text = template.textContent || template.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    // Show success feedback
+                    const button = event.target.closest('button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check" style="margin-right: 8px;"></i>Copied!';
+                    button.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    // Show success feedback
+                    const button = event.target.closest('button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check" style="margin-right: 8px;"></i>Copied!';
+                    button.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    }, 2000);
+                });
+            }
+        }
+        
+        // Copy order details (total and reference number)
+        function copyOrderDetails() {
+            try {
+                let totalAmount;
+                
+                // Use the same calculation as the checkout process
+                if (typeof orderData !== 'undefined' && orderData && orderData.total) {
+                    totalAmount = orderData.finalTotal || orderData.total;
+                } else {
+                    // Calculate cart total with individual item volume discounts
+                    const cartTotal = cart && cart.length > 0 ? cart.reduce((sum, item) => sum + calculateItemPrice(item), 0) : 100;
+                    
+                    // Apply shipping
+                    const warehouse = warehouses[selectedWarehouse] || warehouses['usa_east'];
+                    const shippingCost = warehouse ? warehouse.shipping : 15;
+                    
+                    const originalTotal = cartTotal + shippingCost;
+                    
+                    // Apply volume discounts based on order total (same logic as checkout)
+                    let discountPercent = 0;
+                    if (originalTotal >= 2500) {
+                        discountPercent = 0.50; // 50% for $2500+
+                    } else if (originalTotal >= 1500) {
+                        discountPercent = 0.40; // 40% for $1500+
+                    } else if (originalTotal >= 1000) {
+                        discountPercent = 0.35; // 35% for $1000+
+                    } else if (originalTotal >= 500) {
+                        discountPercent = 0.30; // 30% for $500+
+                    } else if (originalTotal >= 250) {
+                        discountPercent = 0.20; // 20% for $250+
+                    }
+                    
+                    // Apply discount
+                    const discountAmount = originalTotal * discountPercent;
+                    totalAmount = originalTotal - discountAmount;
+                }
+                
+                const usdToGbpRate = 0.79;
+                const gbpAmountRaw = totalAmount * usdToGbpRate;
+                const gbpAmount = (Math.floor(gbpAmountRaw / 25) * 25).toFixed(2);
+                const refNumber = (typeof orderData !== 'undefined' && orderData && orderData.orderId) ? 
+                    orderData.orderId : generateOrderId();
+                
+                const orderDetails = `Reference: ${refNumber}\nOrder Total: £${gbpAmount} GBP\n(Rounded down to nearest £25)`;
+                
+                navigator.clipboard.writeText(orderDetails).then(() => {
+                    // Show success feedback
+                    const button = event.target.closest('button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check" style="margin-right: 6px;"></i>Copied!';
+                    button.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.style.background = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = orderDetails;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    // Show success feedback
+                    const button = event.target.closest('button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check" style="margin-right: 6px;"></i>Copied!';
+                    button.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.style.background = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
+                    }, 2000);
+                });
+            } catch (error) {
+                console.error('Error copying order details:', error);
+                alert('Could not copy order details. Please try again.');
+            }
         }
         
         // Toggle warehouse selector visibility

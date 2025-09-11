@@ -1722,13 +1722,17 @@
 
     <!-- REMOVED DUPLICATE FAQ PAGE SCHEMA -->
     
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17491427417"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-17491427417');
+      
+      // Configure Google Ads tracking with enhanced conversions
+      gtag('config', 'AW-17491427417', {
+        'allow_enhanced_conversions': true
+      });
     </script>
     <meta property="og:updated_time" content="2025-08-18T00:00:00Z">
     <meta property="product:brand" content="Sigma Audley™ OFFICIAL">
@@ -10678,24 +10682,7 @@ body {
     }
     </script>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17491427417">
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-17491427417');
-    </script>
-    
-    <!-- Event snippet for Purchase (1) conversion page -->
-    <script>
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17491427417/qwpOCJiP-JYbENmAyJRB',
-          'transaction_id': ''
-      });
-    </script>
+    <!-- Duplicate Google tag removed - using primary tag in head section -->
     
     <!-- Advanced Technical SEO Enhancements -->
     <link rel="canonical" href="https://sigmaaudley.net/" />
@@ -19575,6 +19562,34 @@ Please confirm when applied and let me know about shipping. Thank you!
                     });
                 }
                 
+                // Google Ads 'Add to basket' conversion tracking
+                if (typeof gtag !== 'undefined') {
+                    // Calculate item value
+                    const itemValue = product.price ? parseFloat(product.price.replace(/[^0-9.]/g, '')) * quantity : 0;
+                    
+                    // Fire Google Ads conversion event for 'Add to basket' with enhanced conversions
+                    gtag('event', 'add_to_cart', {
+                        'send_to': 'AW-17491427417',
+                        'value': itemValue,
+                        'currency': 'USD',
+                        'items': [{
+                            'id': productId,
+                            'name': product.name,
+                            'category': product.category || 'Research Peptides',
+                            'quantity': quantity,
+                            'price': itemValue / quantity
+                        }]
+                    });
+                    
+                    // Also fire the conversion action specifically configured in Google Ads
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17491427417/ADD_TO_BASKET',
+                        'value': itemValue,
+                        'currency': 'USD',
+                        'transaction_id': `cart_${Date.now()}_${productId}`
+                    });
+                }
+                
                 // Reset quantity input
                 if (qtyInput) qtyInput.value = 1;
             } catch (error) {
@@ -21011,6 +21026,36 @@ This is a demo. Please contact us to complete your order.`);
             }
         }
 
+        // Helper function to convert country names to ISO 2-letter codes
+        function getCountryCode(country) {
+            if (!country) return '';
+            const countryUpper = country.toUpperCase().trim();
+            
+            // Common country mappings
+            const countryMap = {
+                'UNITED STATES': 'US', 'USA': 'US', 'AMERICA': 'US', 'UNITED STATES OF AMERICA': 'US',
+                'UNITED KINGDOM': 'GB', 'UK': 'GB', 'BRITAIN': 'GB', 'GREAT BRITAIN': 'GB', 'ENGLAND': 'GB',
+                'CANADA': 'CA', 'AUSTRALIA': 'AU', 'GERMANY': 'DE', 'FRANCE': 'FR', 'SPAIN': 'ES',
+                'ITALY': 'IT', 'NETHERLANDS': 'NL', 'BELGIUM': 'BE', 'SWITZERLAND': 'CH', 'AUSTRIA': 'AT',
+                'SWEDEN': 'SE', 'NORWAY': 'NO', 'DENMARK': 'DK', 'FINLAND': 'FI', 'POLAND': 'PL',
+                'PORTUGAL': 'PT', 'IRELAND': 'IE', 'GREECE': 'GR', 'CZECH REPUBLIC': 'CZ', 'HUNGARY': 'HU',
+                'ROMANIA': 'RO', 'BULGARIA': 'BG', 'CROATIA': 'HR', 'SLOVAKIA': 'SK', 'SLOVENIA': 'SI',
+                'JAPAN': 'JP', 'CHINA': 'CN', 'INDIA': 'IN', 'SOUTH KOREA': 'KR', 'SINGAPORE': 'SG',
+                'MALAYSIA': 'MY', 'THAILAND': 'TH', 'INDONESIA': 'ID', 'PHILIPPINES': 'PH', 'VIETNAM': 'VN',
+                'MEXICO': 'MX', 'BRAZIL': 'BR', 'ARGENTINA': 'AR', 'CHILE': 'CL', 'COLOMBIA': 'CO',
+                'PERU': 'PE', 'VENEZUELA': 'VE', 'URUGUAY': 'UY', 'PARAGUAY': 'PY', 'ECUADOR': 'EC',
+                'NEW ZEALAND': 'NZ', 'SOUTH AFRICA': 'ZA', 'EGYPT': 'EG', 'ISRAEL': 'IL', 'TURKEY': 'TR',
+                'RUSSIA': 'RU', 'UKRAINE': 'UA', 'BELARUS': 'BY', 'KAZAKHSTAN': 'KZ', 'SAUDI ARABIA': 'SA',
+                'UNITED ARAB EMIRATES': 'AE', 'UAE': 'AE', 'QATAR': 'QA', 'KUWAIT': 'KW', 'BAHRAIN': 'BH'
+            };
+            
+            // Check if it's already a 2-letter code
+            if (country.length === 2) return countryUpper;
+            
+            // Try to find in map
+            return countryMap[countryUpper] || country.substring(0, 2).toUpperCase();
+        }
+
         // Process order
         async function processOrder() {
             // Gather all order data
@@ -21018,6 +21063,62 @@ This is a demo. Please contact us to complete your order.`);
             const formData = new FormData(form);
             const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
             const warehouse = warehouses[selectedWarehouse];
+            
+            // Capture user data for enhanced conversions
+            const customerEmail = document.getElementById('email').value;
+            const customerPhone = document.getElementById('phone').value;
+            const customerFullName = document.getElementById('fullName').value;
+            const customerAddress = document.getElementById('address').value;
+            const customerCity = document.getElementById('city').value;
+            const customerState = document.getElementById('state').value;
+            const customerZipCode = document.getElementById('zipCode').value;
+            const customerCountry = document.getElementById('country').value;
+            
+            // Parse name into first and last
+            const nameParts = customerFullName ? customerFullName.trim().split(' ') : [];
+            const firstName = nameParts[0] || '';
+            const lastName = nameParts.slice(1).join(' ') || '';
+            
+            // Set user data for Google Ads enhanced conversions
+            if (typeof gtag !== 'undefined') {
+                const userData = {
+                    email: customerEmail,
+                    address: {}
+                };
+                
+                // Add phone if provided (must be E.164 format)
+                if (customerPhone) {
+                    // Clean and format phone number to E.164
+                    let cleanPhone = customerPhone.replace(/[^0-9+]/g, '');
+                    if (!cleanPhone.startsWith('+')) {
+                        // Assume US if no country code
+                        if (cleanPhone.length === 10) {
+                            cleanPhone = '+1' + cleanPhone;
+                        } else if (cleanPhone.length === 11 && cleanPhone.startsWith('1')) {
+                            cleanPhone = '+' + cleanPhone;
+                        }
+                    }
+                    if (cleanPhone.length >= 11 && cleanPhone.length <= 15) {
+                        userData.phone_number = cleanPhone;
+                    }
+                }
+                
+                // Add address fields
+                if (firstName) userData.address.first_name = firstName;
+                if (lastName) userData.address.last_name = lastName;
+                if (customerAddress) userData.address.street = customerAddress;
+                if (customerCity) userData.address.city = customerCity;
+                if (customerState) userData.address.region = customerState;
+                if (customerZipCode) userData.address.postal_code = customerZipCode;
+                if (customerCountry) {
+                    // Convert country to 2-letter ISO code if needed
+                    const countryCode = getCountryCode(customerCountry);
+                    if (countryCode) userData.address.country = countryCode;
+                }
+                
+                // Set user data for enhanced conversions
+                gtag('set', 'user_data', userData);
+            }
             const totalPrice = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
             
             // Generate unique order ID  
@@ -21156,8 +21257,39 @@ This is a demo. Please contact us to complete your order.`);
             const newUrl = window.location.pathname + `?purchase=completed&order=${encodeURIComponent(orderId)}`;
             window.history.pushState({purchase: true}, '', newUrl);
             
-            // Fire Google Ads purchase event if gtag is available
+            // Fire Google Ads purchase event with enhanced conversions if gtag is available
             if (typeof gtag !== 'undefined') {
+                // Ensure user data is set from order details
+                if (orderData.shippingInfo) {
+                    const nameParts = (orderData.shippingInfo.fullName || '').trim().split(' ');
+                    const userData = {
+                        email: orderData.shippingInfo.email || '',
+                        address: {
+                            first_name: nameParts[0] || '',
+                            last_name: nameParts.slice(1).join(' ') || '',
+                            street: orderData.shippingInfo.address || '',
+                            city: orderData.shippingInfo.city || '',
+                            region: orderData.shippingInfo.state || '',
+                            postal_code: orderData.shippingInfo.zipCode || '',
+                            country: getCountryCode(orderData.shippingInfo.country) || orderData.shippingInfo.country
+                        }
+                    };
+                    
+                    // Add phone if available
+                    if (orderData.shippingInfo.phone) {
+                        let cleanPhone = orderData.shippingInfo.phone.replace(/[^0-9+]/g, '');
+                        if (!cleanPhone.startsWith('+')) {
+                            if (cleanPhone.length === 10) cleanPhone = '+1' + cleanPhone;
+                            else if (cleanPhone.length === 11 && cleanPhone.startsWith('1')) cleanPhone = '+' + cleanPhone;
+                        }
+                        if (cleanPhone.length >= 11 && cleanPhone.length <= 15) {
+                            userData.phone_number = cleanPhone;
+                        }
+                    }
+                    
+                    gtag('set', 'user_data', userData);
+                }
+                
                 gtag('event', 'purchase', {
                     'transaction_id': orderId,
                     'value': orderTotal,

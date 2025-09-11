@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Assistant Debug Support -->
+    <meta name="google-site-verification" content="AW-17491427417" />
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sigma Audley - Official - Premium Research Peptides, SARMs & Compounds</title>
@@ -1723,15 +1726,40 @@
     <!-- REMOVED DUPLICATE FAQ PAGE SCHEMA -->
     
     <!-- Google tag (gtag.js) - Google Ads Conversion Tracking -->
+    <!-- IMPORTANT: This tag must load early for Tag Assistant debugging -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17491427417"></script>
     <script>
+      // Initialize dataLayer immediately
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      
+      // Set initial timestamp
       gtag('js', new Date());
       
-      // Configure Google Ads tracking with enhanced conversions
+      // Configure Google Ads with enhanced conversions and debugging support
       gtag('config', 'AW-17491427417', {
-        'allow_enhanced_conversions': true
+        'allow_enhanced_conversions': true,
+        'send_page_view': true,
+        'debug_mode': true  // Enable debug mode for Tag Assistant
+      });
+      
+      // Log initialization for debugging
+      if (typeof console !== 'undefined') {
+        console.log('[Google Ads] Tag initialized: AW-17491427417');
+        console.log('[Google Ads] Enhanced conversions: enabled');
+        console.log('[Google Ads] Debug mode: enabled');
+      }
+    </script>
+    
+    <!-- Fallback: Ensure gtag is available globally -->
+    <script>
+      // Verify gtag loaded
+      window.addEventListener('load', function() {
+        if (typeof gtag === 'undefined') {
+          console.error('[Google Ads] ERROR: gtag failed to load. Check for ad blockers.');
+        } else {
+          console.log('[Google Ads] gtag loaded successfully');
+        }
       });
     </script>
     <meta property="og:updated_time" content="2025-08-18T00:00:00Z">
@@ -14646,27 +14674,7 @@ Please confirm when applied and let me know about shipping. Thank you!
             confirmPaymentSent();
         }
         
-        function showModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.add('show');
-                modal.style.visibility = 'visible';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.remove('show');
-                setTimeout(() => {
-                    if (!modal.classList.contains('show')) {
-                        modal.style.visibility = 'hidden';
-                        document.body.style.overflow = '';
-                    }
-                }, 300);
-            }
-        }
+        // [REMOVED - Using enhanced modal functions defined later in the code]
         
         // PayPal Guide Functions
         function showPayPalGuide() {
@@ -19726,30 +19734,7 @@ Please confirm when applied and let me know about shipping. Thank you!
         // Toggle cart modal
 
 
-        // Proceed to checkout
-        function proceedToCheckout() {
-            if (cart.length === 0) {
-                showNotification('Your cart is empty', 'error');
-                return;
-            }
-            
-            const total = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
-            const warehouse = warehouses[selectedWarehouse];
-            const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            
-            alert(`Checkout Summary:
-            
-Items: ${itemCount}
-Warehouse: ${warehouse.flag} ${warehouse.name}
-Shipping: ${warehouse.shippingTime}
-Total: $${total.toFixed(2)}
-
-Contact Information:
-Email: support@sigmaaudley.net
-WhatsApp: +852 6562 8855
-
-This is a demo. Please contact us to complete your order.`);
-        }
+        // [REMOVED - Duplicate function, using enhanced version below]
 
         // Warehouse functions
         function toggleWarehouseDropdown() {
@@ -20729,16 +20714,50 @@ This is a demo. Please contact us to complete your order.`);
         }
 
 
-        // Proceed to checkout - Enhanced
+        // Proceed to checkout - Enhanced with Google Ads tracking
         function proceedToCheckout() {
             if (cart.length === 0) {
                 showNotification('Your cart is empty', 'warning', 'Add some products first');
                 return;
             }
 
-            // Track checkout start with referral data (existing analytics only - no Google Ads yet)
+            // Calculate cart total
+            const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
+            
+            // Update URL to include ?checkout=started for Google Ads page load conversion
+            const newUrl = window.location.pathname + '?checkout=started';
+            window.history.pushState({checkout: true}, '', newUrl);
+            
+            // Fire Google Ads begin_checkout conversion immediately
+            if (typeof gtag !== 'undefined') {
+                // Fire begin_checkout event for Google Ads
+                gtag('event', 'begin_checkout', {
+                    'send_to': 'AW-17491427417',
+                    'value': cartTotal,
+                    'currency': 'USD',
+                    'items': cart.map(item => ({
+                        'id': item.product.cat_no,
+                        'name': item.product.name,
+                        'category': item.product.category || 'Research Peptides',
+                        'quantity': item.quantity,
+                        'price': calculateItemPrice(item) / item.quantity
+                    }))
+                });
+                
+                // Also fire page_view for the checkout URL (for page load conversion tracking)
+                gtag('event', 'page_view', {
+                    'send_to': 'AW-17491427417',
+                    'page_path': '/?checkout=started',
+                    'page_title': 'Begin Checkout',
+                    'value': cartTotal,
+                    'currency': 'USD'
+                });
+                
+                console.log('[Google Ads] Begin checkout conversion fired - Value: $' + cartTotal);
+            }
+
+            // Track checkout start with referral data (existing analytics)
             if (window.trackAnalyticsEvent) {
-                const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
                 const referralData = getReferralData();
                 window.trackAnalyticsEvent('checkout_started', {
                     cart_items: cart.length,
@@ -21917,6 +21936,48 @@ Thank you for your assistance.`;
 
         // Initialize app when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            // Check if URL has ?checkout=started for page load conversion tracking
+            if (window.location.search.includes('checkout=started')) {
+                // Load cart from storage to get total
+                loadCartFromStorage();
+                const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
+                
+                if (typeof gtag !== 'undefined' && cartTotal > 0) {
+                    // Fire begin_checkout conversion for page load with checkout parameter
+                    gtag('event', 'begin_checkout', {
+                        'send_to': 'AW-17491427417',
+                        'value': cartTotal,
+                        'currency': 'USD',
+                        'items': cart.map(item => ({
+                            'id': item.product.cat_no,
+                            'name': item.product.name,
+                            'category': item.product.category || 'Research Peptides',
+                            'quantity': item.quantity,
+                            'price': calculateItemPrice(item) / item.quantity
+                        }))
+                    });
+                    
+                    // Also fire page_view event for tracking
+                    gtag('event', 'page_view', {
+                        'send_to': 'AW-17491427417',
+                        'page_path': '/?checkout=started',
+                        'page_title': 'Begin Checkout - Page Load',
+                        'value': cartTotal,
+                        'currency': 'USD'
+                    });
+                    
+                    console.log('[Google Ads] Begin checkout conversion fired from page load - Value: $' + cartTotal);
+                }
+                
+                // If checkout modal should be open, open it
+                if (cart.length > 0) {
+                    setTimeout(() => {
+                        showModal('checkoutModal');
+                        initializeCheckout();
+                    }, 500);
+                }
+            }
+            
             // Track referral if present in URL
             trackReferral();
             

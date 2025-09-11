@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Assistant Debug Support -->
+    <meta name="google-site-verification" content="AW-17491427417" />
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Debug Page - Sigma Audley</title>
+    
+    <!-- Google tag (gtag.js) - LOADS FIRST for Tag Assistant -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=AW-17491427417"></script>
+    <script>
+      // Initialize dataLayer IMMEDIATELY
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Configure with debug mode
+      gtag('js', new Date());
+      gtag('config', 'AW-17491427417', {
+        'allow_enhanced_conversions': true,
+        'send_page_view': true,
+        'debug_mode': true
+      });
+      
+      console.log('[DEBUG] Google Ads tag initialized');
+    </script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+        .status {
+            padding: 20px;
+            background: #f0f9ff;
+            border: 1px solid #0284c7;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .status h2 {
+            margin-top: 0;
+            color: #0c4a6e;
+        }
+        .check-item {
+            padding: 10px;
+            margin: 10px 0;
+            background: #f8fafc;
+            border-left: 4px solid #e5e7eb;
+            border-radius: 4px;
+        }
+        .check-item.success {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+        .check-item.error {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+        .check-item.warning {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        button.success {
+            background: #10b981;
+        }
+        button.success:hover {
+            background: #059669;
+        }
+        .debug-info {
+            background: #1e293b;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .instructions {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #92400e;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+        code {
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Google Ads Debug Page</h1>
+        <p><strong>Account ID:</strong> AW-17491427417 | <strong>Account Number:</strong> 268-663-3696</p>
+        
+        <div class="instructions">
+            <h3>📋 How to Use Google Tag Assistant:</h3>
+            <ol>
+                <li>Install Google Tag Assistant Chrome extension</li>
+                <li>Visit this page: <code>https://sigmaaudley.net/google-ads-debug.html</code></li>
+                <li>Click the Tag Assistant icon in Chrome</li>
+                <li>Enable "Record" mode</li>
+                <li>Refresh this page</li>
+                <li>Click "Stop Recording" and analyze results</li>
+            </ol>
+        </div>
+        
+        <div class="status">
+            <h2>🔍 Current Status</h2>
+            <div id="statusChecks"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🧪 Test Conversion Events</h2>
+            <button onclick="testPageView()">Test Page View</button>
+            <button onclick="testAddToCart()" class="success">Test Add to Cart</button>
+            <button onclick="testBeginCheckout()" class="success">Test Begin Checkout</button>
+            <button onclick="testPurchase()" class="success">Test Purchase</button>
+            <button onclick="runFullDiagnostics()">Run Full Diagnostics</button>
+        </div>
+        
+        <div class="debug-info" id="debugOutput">
+Debug output will appear here...
+        </div>
+        
+        <div class="test-section">
+            <h2>🛠️ Troubleshooting</h2>
+            <button onclick="checkAdBlocker()">Check for Ad Blockers</button>
+            <button onclick="checkNetworkRequests()">Check Network Requests</button>
+            <button onclick="clearDataAndRetry()">Clear Data & Retry</button>
+            <button onclick="copyDebugInfo()">Copy Debug Info</button>
+        </div>
+    </div>
+    
+    <script>
+        const debugOutput = document.getElementById('debugOutput');
+        const statusChecks = document.getElementById('statusChecks');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toISOString();
+            const prefix = type === 'error' ? '❌' : type === 'success' ? '✅' : type === 'warning' ? '⚠️' : 'ℹ️';
+            debugOutput.innerHTML += `${prefix} [${timestamp}] ${message}\n`;
+            console.log(`[Google Ads Debug] ${message}`);
+        }
+        
+        function checkStatus() {
+            statusChecks.innerHTML = '';
+            
+            // Check gtag
+            const gtagCheck = document.createElement('div');
+            gtagCheck.className = 'check-item';
+            if (typeof gtag !== 'undefined') {
+                gtagCheck.className += ' success';
+                gtagCheck.innerHTML = '✅ gtag is loaded and available';
+            } else {
+                gtagCheck.className += ' error';
+                gtagCheck.innerHTML = '❌ gtag is NOT loaded (check for ad blockers)';
+            }
+            statusChecks.appendChild(gtagCheck);
+            
+            // Check dataLayer
+            const dataLayerCheck = document.createElement('div');
+            dataLayerCheck.className = 'check-item';
+            if (window.dataLayer && window.dataLayer.length > 0) {
+                dataLayerCheck.className += ' success';
+                dataLayerCheck.innerHTML = `✅ dataLayer initialized (${window.dataLayer.length} events)`;
+            } else {
+                dataLayerCheck.className += ' error';
+                dataLayerCheck.innerHTML = '❌ dataLayer NOT initialized';
+            }
+            statusChecks.appendChild(dataLayerCheck);
+            
+            // Check for Google Ads config
+            const configCheck = document.createElement('div');
+            configCheck.className = 'check-item';
+            const hasConfig = window.dataLayer && window.dataLayer.some(event => 
+                event[0] === 'config' && event[1] === 'AW-17491427417'
+            );
+            if (hasConfig) {
+                configCheck.className += ' success';
+                configCheck.innerHTML = '✅ Google Ads configuration found';
+            } else {
+                configCheck.className += ' warning';
+                configCheck.innerHTML = '⚠️ Google Ads configuration pending';
+            }
+            statusChecks.appendChild(configCheck);
+            
+            // Check for network connectivity
+            const networkCheck = document.createElement('div');
+            networkCheck.className = 'check-item';
+            if (navigator.onLine) {
+                networkCheck.className += ' success';
+                networkCheck.innerHTML = '✅ Network connection active';
+            } else {
+                networkCheck.className += ' error';
+                networkCheck.innerHTML = '❌ No network connection';
+            }
+            statusChecks.appendChild(networkCheck);
+            
+            // Check for HTTPS
+            const httpsCheck = document.createElement('div');
+            httpsCheck.className = 'check-item';
+            if (location.protocol === 'https:') {
+                httpsCheck.className += ' success';
+                httpsCheck.innerHTML = '✅ HTTPS connection (recommended)';
+            } else {
+                httpsCheck.className += ' warning';
+                httpsCheck.innerHTML = '⚠️ HTTP connection (HTTPS recommended)';
+            }
+            statusChecks.appendChild(httpsCheck);
+        }
+        
+        function testPageView() {
+            log('Testing page view event...', 'info');
+            if (typeof gtag === 'undefined') {
+                log('ERROR: gtag not available', 'error');
+                return;
+            }
+            
+            gtag('event', 'page_view', {
+                'send_to': 'AW-17491427417',
+                'value': 1.0,
+                'currency': 'USD'
+            });
+            
+            log('Page view event sent successfully', 'success');
+        }
+        
+        function testAddToCart() {
+            log('Testing add to cart conversion...', 'info');
+            if (typeof gtag === 'undefined') {
+                log('ERROR: gtag not available', 'error');
+                return;
+            }
+            
+            // Set test user data
+            gtag('set', 'user_data', {
+                'email': 'test@example.com',
+                'phone_number': '+15551234567',
+                'address': {
+                    'first_name': 'Test',
+                    'last_name': 'User',
+                    'street': '123 Test St',
+                    'city': 'Test City',
+                    'region': 'TC',
+                    'postal_code': '12345',
+                    'country': 'US'
+                }
+            });
+            
+            // Send conversion
+            gtag('event', 'add_to_cart', {
+                'send_to': 'AW-17491427417',
+                'value': 99.99,
+                'currency': 'USD',
+                'items': [{
+                    'id': 'TEST-001',
+                    'name': 'Test Product',
+                    'category': 'Test Category',
+                    'quantity': 1,
+                    'price': 99.99
+                }]
+            });
+            
+            log('Add to cart conversion sent with enhanced data', 'success');
+            log('Value: $99.99 | Product: Test Product', 'info');
+        }
+        
+        function testBeginCheckout() {
+            log('Testing begin checkout conversion...', 'info');
+            if (typeof gtag === 'undefined') {
+                log('ERROR: gtag not available', 'error');
+                return;
+            }
+            
+            gtag('event', 'begin_checkout', {
+                'send_to': 'AW-17491427417',
+                'value': 199.98,
+                'currency': 'USD',
+                'items': [
+                    {
+                        'id': 'TEST-001',
+                        'name': 'Test Product 1',
+                        'quantity': 1,
+                        'price': 99.99
+                    },
+                    {
+                        'id': 'TEST-002',
+                        'name': 'Test Product 2',
+                        'quantity': 1,
+                        'price': 99.99
+                    }
+                ]
+            });
+            
+            log('Begin checkout conversion sent', 'success');
+            log('Cart value: $199.98', 'info');
+        }
+        
+        function testPurchase() {
+            log('Testing purchase conversion...', 'info');
+            if (typeof gtag === 'undefined') {
+                log('ERROR: gtag not available', 'error');
+                return;
+            }
+            
+            const transactionId = 'TEST-' + Date.now();
+            
+            gtag('event', 'purchase', {
+                'send_to': 'AW-17491427417',
+                'transaction_id': transactionId,
+                'value': 299.97,
+                'currency': 'USD',
+                'tax': 0,
+                'shipping': 0,
+                'items': [
+                    {
+                        'id': 'TEST-001',
+                        'name': 'Test Product 1',
+                        'category': 'Test Category',
+                        'quantity': 2,
+                        'price': 99.99
+                    },
+                    {
+                        'id': 'TEST-002',
+                        'name': 'Test Product 2',
+                        'category': 'Test Category',
+                        'quantity': 1,
+                        'price': 99.99
+                    }
+                ]
+            });
+            
+            log('Purchase conversion sent', 'success');
+            log(`Transaction ID: ${transactionId}`, 'info');
+            log('Total value: $299.97', 'info');
+        }
+        
+        function runFullDiagnostics() {
+            log('=== RUNNING FULL DIAGNOSTICS ===', 'warning');
+            
+            // Check window objects
+            log('Checking window objects...', 'info');
+            log(`window.gtag: ${typeof gtag}`, typeof gtag === 'function' ? 'success' : 'error');
+            log(`window.dataLayer: ${typeof window.dataLayer}`, window.dataLayer ? 'success' : 'error');
+            
+            // Check dataLayer contents
+            if (window.dataLayer) {
+                log(`DataLayer length: ${window.dataLayer.length}`, 'info');
+                
+                // Find config events
+                const configEvents = window.dataLayer.filter(e => e[0] === 'config');
+                log(`Config events found: ${configEvents.length}`, configEvents.length > 0 ? 'success' : 'warning');
+                
+                // Find conversion events
+                const conversionEvents = window.dataLayer.filter(e => e[0] === 'event');
+                log(`Conversion events found: ${conversionEvents.length}`, 'info');
+            }
+            
+            // Check scripts
+            const scripts = document.querySelectorAll('script[src*="googletagmanager"]');
+            log(`Google Tag Manager scripts: ${scripts.length}`, scripts.length > 0 ? 'success' : 'error');
+            
+            // Check cookies
+            const hasCookies = document.cookie.includes('_ga') || document.cookie.includes('_gcl');
+            log(`Google cookies: ${hasCookies ? 'Present' : 'Not found'}`, hasCookies ? 'success' : 'warning');
+            
+            // Network status
+            log(`Network: ${navigator.onLine ? 'Online' : 'Offline'}`, navigator.onLine ? 'success' : 'error');
+            
+            // Protocol
+            log(`Protocol: ${location.protocol}`, location.protocol === 'https:' ? 'success' : 'warning');
+            
+            // User agent
+            log(`User Agent: ${navigator.userAgent.substring(0, 50)}...`, 'info');
+            
+            log('=== DIAGNOSTICS COMPLETE ===', 'warning');
+        }
+        
+        function checkAdBlocker() {
+            log('Checking for ad blockers...', 'info');
+            
+            // Try to load a test ad script
+            const testScript = document.createElement('script');
+            testScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+            testScript.onerror = () => {
+                log('Ad blocker detected! Please disable it for testing.', 'error');
+            };
+            testScript.onload = () => {
+                log('No ad blocker detected', 'success');
+            };
+            document.head.appendChild(testScript);
+            
+            // Also check if gtag loaded
+            setTimeout(() => {
+                if (typeof gtag === 'undefined') {
+                    log('gtag blocked - likely by ad blocker', 'error');
+                }
+            }, 2000);
+        }
+        
+        function checkNetworkRequests() {
+            log('Checking network requests to Google...', 'info');
+            
+            // Check if we can reach Google
+            fetch('https://www.googletagmanager.com/gtag/js?id=AW-17491427417', { mode: 'no-cors' })
+                .then(() => {
+                    log('Successfully reached Google Tag Manager', 'success');
+                })
+                .catch(err => {
+                    log('Failed to reach Google Tag Manager: ' + err.message, 'error');
+                });
+            
+            // List all Google-related scripts
+            const googleScripts = Array.from(document.scripts).filter(s => 
+                s.src && s.src.includes('google')
+            );
+            log(`Found ${googleScripts.length} Google scripts loaded`, 'info');
+            googleScripts.forEach(script => {
+                log(`Script: ${script.src}`, 'info');
+            });
+        }
+        
+        function clearDataAndRetry() {
+            log('Clearing data and retrying...', 'warning');
+            
+            // Clear dataLayer
+            window.dataLayer = [];
+            
+            // Reinitialize gtag
+            window.gtag = function(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17491427417', {
+                'allow_enhanced_conversions': true,
+                'send_page_view': true,
+                'debug_mode': true
+            });
+            
+            log('Data cleared and gtag reinitialized', 'success');
+            
+            // Recheck status
+            setTimeout(() => {
+                checkStatus();
+                log('Status rechecked', 'info');
+            }, 1000);
+        }
+        
+        function copyDebugInfo() {
+            const debugInfo = {
+                timestamp: new Date().toISOString(),
+                url: location.href,
+                protocol: location.protocol,
+                gtag_loaded: typeof gtag !== 'undefined',
+                dataLayer_length: window.dataLayer ? window.dataLayer.length : 0,
+                network: navigator.onLine,
+                userAgent: navigator.userAgent,
+                cookies: document.cookie.length > 0,
+                account_id: 'AW-17491427417',
+                debug_output: debugOutput.textContent
+            };
+            
+            const debugText = JSON.stringify(debugInfo, null, 2);
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(debugText).then(() => {
+                log('Debug info copied to clipboard', 'success');
+                alert('Debug information copied to clipboard!');
+            }).catch(err => {
+                log('Failed to copy: ' + err.message, 'error');
+            });
+        }
+        
+        // Initialize on load
+        window.addEventListener('load', function() {
+            log('Page loaded - Google Ads Debug Ready', 'success');
+            log('Account: AW-17491427417', 'info');
+            checkStatus();
+            
+            // Auto-check after 2 seconds
+            setTimeout(() => {
+                if (typeof gtag === 'undefined') {
+                    log('WARNING: gtag still not loaded after 2 seconds', 'warning');
+                    log('This may indicate an ad blocker or network issue', 'warning');
+                }
+            }, 2000);
+        });
+        
+        // Listen for errors
+        window.addEventListener('error', function(e) {
+            if (e.filename && e.filename.includes('google')) {
+                log(`Google script error: ${e.message}`, 'error');
+            }
+        });
+    </script>
+</body>
+</html>

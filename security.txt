@@ -1,0 +1,29 @@
+# Security Policy for sigmaaudley.net
+# This file helps security researchers report vulnerabilities
+
+Contact: security@sigmaaudley.net
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://sigmaaudley.net/security.txt
+
+# Our security commitment
+# We take security seriously at Sigma Audley
+# All reports are investigated within 48 hours
+# Research data and customer information is encrypted
+# FDA registered facility with compliance protocols
+
+# Scope
+# Domain: sigmaaudley.net
+# Subdomains: *.sigmaaudley.net
+
+# Out of scope
+# - Social engineering
+# - Physical security
+# - Third-party services
+
+Acknowledgments: https://sigmaaudley.net/security-acknowledgments
+Policy: https://sigmaaudley.net/security-policy
+Hiring: https://sigmaaudley.net/careers
+
+# PGP Key available upon request
+# Bug bounty program details available for qualified researchers

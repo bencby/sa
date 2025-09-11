@@ -1,0 +1,56 @@
+# Sigma Audley Do Not Track Policy
+# https://sigmaaudley.net/dnt-policy.txt
+# Last Updated: 2024-09-11
+
+## Our Commitment
+
+Sigma Audley respects the Do Not Track (DNT) browser setting.
+When DNT is enabled, we:
+
+1. Do not track your browsing behavior across websites
+2. Do not use third-party analytics that track across sites  
+3. Do not serve targeted advertisements
+4. Do not sell or share your data with third parties
+
+## What We Still Collect
+
+Even with DNT enabled, we collect minimal data for:
+- Security and fraud prevention
+- Essential site functionality
+- Order processing for researchers
+- Compliance with legal requirements
+
+## Research Data Protection
+
+- All research data is encrypted
+- Customer information is never sold
+- FDA compliance maintained
+- Third-party lab verification (Janoshik)
+
+## Contact
+
+Privacy questions: privacy@sigmaaudley.net
+Security concerns: security@sigmaaudley.net
+
+## Scope
+
+This policy applies to:
+- sigmaaudley.net
+- All subdomains of sigmaaudley.net
+
+## Compliance
+
+We comply with:
+- GDPR (European Union)
+- CCPA (California)  
+- International privacy standards
+
+## Third Party Services
+
+We use minimal third-party services:
+- Payment processing (encrypted)
+- Shipping partners (address only)
+- No advertising networks
+- No cross-site trackers
+
+This policy is effective immediately and applies to all visitors.

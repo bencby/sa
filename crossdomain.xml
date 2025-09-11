@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+    <!-- Sigma Audley Cross-Domain Policy -->
+    <!-- Research Peptides Website Security Policy -->
+    
+    <!-- Most restrictive policy for security -->
+    <site-control permitted-cross-domain-policies="none"/>
+    
+    <!-- No external domains allowed to access our content -->
+    <!-- Prevents unauthorized scraping and content theft -->
+    
+    <!-- For research data API access, use proper authentication -->
+    <!-- Contact: api@sigmaaudley.net for legitimate access -->
+</cross-domain-policy>

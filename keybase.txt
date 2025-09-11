@@ -1,0 +1,50 @@
+==================================================================
+https://keybase.io/sigmaaudley
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://sigmaaudley.net
+  * I am sigmaaudley (https://keybase.io/sigmaaudley) on keybase.
+  * I have a public key with fingerprint XXXX XXXX XXXX XXXX XXXX
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01",
+      "fingerprint": "pending_verification",
+      "host": "keybase.io",
+      "key_id": "pending",
+      "kid": "01",
+      "uid": "sigmaaudley",
+      "username": "sigmaaudley"
+    },
+    "service": {
+      "hostname": "sigmaaudley.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1726049400,
+  "expire_in": 157680000,
+  "prev": null,
+  "seqno": 1,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+[Signature pending - Contact security@sigmaaudley.net for verification]
+
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting this as a file.
+
+View my publicly-auditable identity here: https://keybase.io/sigmaaudley
+
+==================================================================

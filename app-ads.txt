@@ -1,0 +1,20 @@
+# Sigma Audley - Mobile App Authorized Digital Sellers
+# https://sigmaaudley.net
+# Last Updated: 2024-09-11
+
+# We do not currently have a mobile app
+# This file prevents unauthorized apps from claiming to represent Sigma Audley
+
+# If you see mobile apps claiming to be Sigma Audley, they are fraudulent
+# Please report to: security@sigmaaudley.net
+
+# Official website only: https://sigmaaudley.net
+# Progressive Web App available at: https://sigmaaudley.net
+
+# No authorized mobile advertising
+# Research peptides - Professional use only
+
+# Contact for legitimate partnerships: partnerships@sigmaaudley.net
+
+# Placeholder to prevent spoofing
+placeholder.example, placeholder, DIRECT, placeholder

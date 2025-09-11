@@ -1,0 +1,22 @@
+{
+  "contact_email": "transparency@sigmaaudley.net",
+  "contact_address": "Shanghai, China",
+  "version": "1.0",
+  "identifiers": [
+    {
+      "name": "Sigma Audley (SSA)",
+      "value": "sigmaaudley.net"
+    }
+  ],
+  "sellers": [
+    {
+      "seller_id": "sigmaaudley",
+      "seller_type": "PUBLISHER",
+      "name": "Sigma Audley Research Peptides",
+      "domain": "sigmaaudley.net",
+      "comment": "Direct sales only - No intermediaries",
+      "is_confidential": 0
+    }
+  ],
+  "note": "Sigma Audley sells research peptides directly to institutions and researchers. We do not use advertising networks or resellers. Any third-party claiming to sell on our behalf is unauthorized."
+}

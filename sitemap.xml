@@ -5,313 +5,38 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
     <!-- Homepage - Highest Priority -->
-    <url>
-        <loc>https://sigmaaudley.net/</loc>
-        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
-        <changefreq>hourly</changefreq>
-        <priority>1.0</priority>
-    </url>
 
-    <url>
-        <loc>https://sigmaaudley.net/index.html</loc>
-        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
-        <changefreq>hourly</changefreq>
-        <priority>1.0</priority>
-    </url>
-
-    <!-- Main Product Catalog - Critical Pages -->
-    <url>
-        <loc>https://sigmaaudley.net/complete-research-peptide-catalog.html</loc>
-        <lastmod>2025-09-10T12:00:00+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.95</priority>
-    </url>
-    
-    <!-- Trust & Authority Pages - Critical Priority -->
-    <url>
-        <loc>https://sigmaaudley.net/telegram-scam-warning.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/official-website-verification.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-
-    <!-- Competitor Comparison Page - High Priority -->
-    <url>
-        <loc>https://sigmaaudley.net/sigma-audley-vs-competitors.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <!-- Why Choose Us Page - High Priority -->
-    <url>
-        <loc>https://sigmaaudley.net/why-choose-sigma-audley.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <!-- Location Pages - Global Coverage -->
-    <url>
-        <loc>https://sigmaaudley.net/usa-peptide-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/uk-peptide-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/canada-peptide-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/australia-peptide-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- Institutional & Trust Pages -->
-    <url>
-        <loc>https://sigmaaudley.net/bulk-orders-institutions.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/certificate-of-analysis.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/shipping-authenticity-guarantee.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/how-to-spot-fake-peptides.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/research-institution-partnership.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/peptide-storage-handling-guide.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Main Pages -->
-    <url>
-        <loc>https://sigmaaudley.net/faq.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/refer-a-friend.html</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <!-- Key Product Categories - Future expansion ready -->
-    <url>
-        <loc>https://sigmaaudley.net/#peptides</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#growth-hormones</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#research-chemicals</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#injectables</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#tablets</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Key Product Anchors -->
-    <url>
-        <loc>https://sigmaaudley.net/#glp-1-agonist</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#glp-1-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#semaglutide</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#tirzepatide</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#retatrutide</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#research-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#peptide-research</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#igf-1</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#cjc-1295</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#ipamorelin</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#nad-plus</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#epithalon</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Trust & Legitimacy URLs -->
-    <url>
-        <loc>https://sigmaaudley.net/#official-only</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://sigmaaudley.net/#not-telegram</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
     <url>
         <loc>https://sigmaaudley.net/#beware-scams</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/#verified-authentic</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/#janoshik-verified</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/#fda-registered</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/#most-trusted</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -319,21 +44,21 @@
     <!-- Sigma Audley Brand URLs -->
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-chemicals</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -341,21 +66,21 @@
     <!-- Reta Compound URLs -->
     <url>
         <loc>https://sigmaaudley.net/#reta</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#reta-compound</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#reta-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -363,21 +88,21 @@
     <!-- Gray Market Research URLs -->
     <url>
         <loc>https://sigmaaudley.net/#gray-market</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#gray-market-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#gray-market-chemicals</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -385,42 +110,42 @@
     <!-- Research Steroid URLs -->
     <url>
         <loc>https://sigmaaudley.net/#research-steroids</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#test-compounds</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#steroid-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#bpc-157</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#tb-500</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#hgh</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -428,42 +153,42 @@
     <!-- Warehouse Locations for Local SEO -->
     <url>
         <loc>https://sigmaaudley.net/#usa-warehouse</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#uk-warehouse</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#canada-warehouse</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#germany-warehouse</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#australia-warehouse</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#china-warehouse</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -471,84 +196,77 @@
     <!-- Advanced Long-tail URLs -->
     <url>
         <loc>https://sigmaaudley.net/#buy-sigma-audley-reta</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#purchase-retatrutide-online</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-research-chemicals</loc>
-        <lastmod>2025-09-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
-        <loc>https://sigmaaudley.net/#sigma-audley-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-quality</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-testing</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-usa</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-europe</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-worldwide</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#janoshik-testing</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#pharmaceutical-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#research-chemical-supplier</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -556,42 +274,42 @@
     <!-- Product Pages - High Priority -->
     <url>
         <loc>https://sigmaaudley.net/products/semaglutide-10mg-research.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/products/tirzepatide-15mg-research.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/products/retatrutide-5mg-peptide.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/products/h36-somatropin-hgh-36iu.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/products/bpc-157-5mg-healing.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/products/tb500-10mg-research.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -599,21 +317,21 @@
     <!-- Intent-Based Pages - High Priority -->
     <url>
         <loc>https://sigmaaudley.net/research-grade-peptides-comparison.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/fast-shipping-research-peptides.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/usa-research-peptides-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -621,14 +339,14 @@
     <!-- Category Hub Pages - High Priority -->
     <url>
         <loc>https://sigmaaudley.net/products/peptides/</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/products/growth-hormones/</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -636,35 +354,35 @@
     <!-- Category-specific URLs -->
     <url>
         <loc>https://sigmaaudley.net/#weight-loss-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#anti-aging-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#cognitive-enhancement</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#muscle-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#longevity-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
@@ -672,14 +390,14 @@
     <!-- Missing HTML Pages - High Priority Business Pages -->
     <url>
         <loc>https://sigmaaudley.net/sigma-audley-official.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/price_list.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
     </url>
@@ -687,21 +405,21 @@
     <!-- Authority & Forum Pages - High SEO Value -->
     <url>
         <loc>https://sigmaaudley.net/research-peptides-ultimate-authority.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/glp1-forum-verified-excellence.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/reddit-peptides-trusted-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -709,7 +427,7 @@
     <!-- Educational Content - High Authority -->
     <url>
         <loc>https://sigmaaudley.net/research-protocols-educational-hub.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -717,21 +435,21 @@
     <!-- Competitive Analysis Pages -->
     <url>
         <loc>https://sigmaaudley.net/competitor-analysis-peptide-suppliers.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/sigma-audley-not-sigma-aldrich.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/peptides-better-than-sigma-aldrich.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -739,7 +457,7 @@
     <!-- Regional Pages (Missing) -->
     <url>
         <loc>https://sigmaaudley.net/germany-research-peptides-supplier.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -747,28 +465,28 @@
     <!-- Marketing & Promotional Pages -->
     <url>
         <loc>https://sigmaaudley.net/promo-message.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/promo-messages-platforms.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/tiktok-viral-post.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/tiktok-comments-promotional.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
@@ -776,28 +494,28 @@
     <!-- Internal Structure & Technical Pages -->
     <url>
         <loc>https://sigmaaudley.net/comprehensive-internal-linking-structure.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/site-plan.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
     
     <url>
         <loc>https://sigmaaudley.net/index2.0.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/trust-and-reviews.html</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -805,63 +523,63 @@
     <!-- High-Value Long-tail SEO URLs -->
     <url>
         <loc>https://sigmaaudley.net/#best-peptide-source-reddit-2025</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#glp1-forum-approved-vendor</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#reddit-peptides-verified-source</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#janoshik-tested-quality-peptides</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#trusted-peptide-supplier-2025</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#buy-research-peptides-online</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#where-buy-semaglutide-research</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#tirzepatide-supplier-usa</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#retatrutide-peptide-source</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -869,21 +587,21 @@
     <!-- Brand Protection URLs -->
     <url>
         <loc>https://sigmaaudley.net/#official-sigma-audley-website</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#sigma-audley-scam-warning</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
         <loc>https://sigmaaudley.net/#verify-authentic-sigma-audley</loc>
-        <lastmod>2025-09-10</lastmod>
+        <lastmod>2024-09-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>

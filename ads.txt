@@ -1,0 +1,19 @@
+# Sigma Audley - Authorized Digital Sellers
+# https://sigmaaudley.net
+# Last Updated: 2024-09-11
+
+# We do not currently run display advertising on sigmaaudley.net
+# This file exists to prevent unauthorized sellers from spoofing our domain
+
+# If you see ads claiming to be from sigmaaudley.net, they are fraudulent
+# Please report to: security@sigmaaudley.net
+
+# Direct partnerships only
+# We do not participate in programmatic advertising
+# Research peptides - No consumer advertising
+
+# Contact for legitimate business inquiries: partnerships@sigmaaudley.net
+
+# Placeholder entries to prevent spoofing
+placeholder.example, placeholder, DIRECT, placeholder
+sigmaaudley.net, 00000, DIRECT, research-only

@@ -20721,13 +20721,16 @@ This is a demo. Please contact us to complete your order.`);
                 return;
             }
 
-            // Track checkout start (existing analytics only - no Google Ads yet)
+            // Track checkout start with referral data (existing analytics only - no Google Ads yet)
             if (window.trackAnalyticsEvent) {
                 const cartTotal = cart.reduce((sum, item) => sum + calculateItemPrice(item), 0);
+                const referralData = getReferralData();
                 window.trackAnalyticsEvent('checkout_started', {
                     cart_items: cart.length,
                     cart_total: cartTotal,
-                    warehouse: selectedWarehouse
+                    warehouse: selectedWarehouse,
+                    referral_code: referralData?.code || null,
+                    referral_source: referralData?.source || null
                 });
             }
 
@@ -20870,19 +20873,19 @@ This is a demo. Please contact us to complete your order.`);
             let spendNotification = '';
             if (originalTotalUSD < 250) {
                 const remaining = threshold250 - originalTotal;
-                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 20% OFF!`;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 20% OFF + 15% if crypto!`;
             } else if (originalTotalUSD < 500) {
                 const remaining = threshold500 - originalTotal;
-                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 30% OFF!`;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 30% OFF + 15% if crypto!`;
             } else if (originalTotalUSD < 1000) {
                 const remaining = threshold1000 - originalTotal;
-                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 35% OFF!`;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 35% OFF + 15% if crypto!`;
             } else if (originalTotalUSD < 1500) {
                 const remaining = threshold1500 - originalTotal;
-                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 40% OFF!`;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 40% OFF + 15% if crypto!`;
             } else if (originalTotalUSD < 2500) {
                 const remaining = threshold2500 - originalTotal;
-                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 50% OFF!`;
+                spendNotification = `💡 Spend ${formatPrice(remaining)} more for 50% OFF + 15% if crypto!`;
             }
             
             // Update warehouse info  
@@ -21056,6 +21059,9 @@ This is a demo. Please contact us to complete your order.`);
             // Only set finalTotal if there's actually a discount
             const finalTotal = discountAmount > 0 ? totalPrice - discountAmount : totalPrice;
 
+            // Get referral data if present
+            const referralData = getReferralData();
+            
             orderData = {
                 orderId: orderId,
                 cart: [...cart],
@@ -21077,6 +21083,7 @@ This is a demo. Please contact us to complete your order.`);
                     country: formData.get('country'),
                     orderNotes: formData.get('orderNotes')
                 },
+                referral: referralData, // Include referral tracking data
                 timestamp: new Date().toISOString()
             };
             
@@ -21340,14 +21347,17 @@ This is a demo. Please contact us to complete your order.`);
                 </div>
             `;
 
-            // Track order completion
+            // Track order completion with referral data
             if (window.trackAnalyticsEvent) {
+                const referralData = getReferralData();
                 window.trackAnalyticsEvent('purchase_completed', {
                     order_id: orderData.orderId,
                     payment_method: orderData.paymentMethod,
                     total: orderData.finalTotal || orderData.total,
                     items_count: cart.length,
-                    warehouse: selectedWarehouse
+                    warehouse: selectedWarehouse,
+                    referral_code: referralData?.code || null,
+                    referral_source: referralData?.source || null
                 });
             }
 
@@ -21731,8 +21741,53 @@ Thank you for your assistance.`;
             }
         }
 
+        // Referral tracking system
+        function trackReferral() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referralCode = urlParams.get('ref') || urlParams.get('referral') || urlParams.get('r');
+            
+            if (referralCode) {
+                // Store referral info in localStorage
+                const referralData = {
+                    code: referralCode.toLowerCase(),
+                    timestamp: new Date().toISOString(),
+                    landingPage: window.location.pathname,
+                    source: document.referrer || 'direct'
+                };
+                
+                localStorage.setItem('sigmaAudleyReferral', JSON.stringify(referralData));
+                
+                // Track with Vercel Analytics if available
+                if (window.va) {
+                    window.va('track', 'referral_visit', {
+                        referral_code: referralCode,
+                        timestamp: referralData.timestamp
+                    });
+                }
+                
+                console.log('Referral tracked:', referralCode);
+                
+                // Special handling for Saint referral
+                if (referralCode.toLowerCase() === 'saint') {
+                    console.log('Saint referral activated');
+                    // You can add special features or tracking for Saint here
+                }
+            }
+            
+            return localStorage.getItem('sigmaAudleyReferral');
+        }
+        
+        // Get stored referral data
+        function getReferralData() {
+            const stored = localStorage.getItem('sigmaAudleyReferral');
+            return stored ? JSON.parse(stored) : null;
+        }
+
         // Initialize app when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            // Track referral if present in URL
+            trackReferral();
+            
             const hasWarehouse = loadWarehouseFromStorage();
             
             // Save original Amazon modal content for restoration
@@ -22456,6 +22511,9 @@ Thank you for your assistance.`;
             
             currentOrderId = generateOrderId();
             
+            // Get referral data if present
+            const referralData = getReferralData();
+            
             orderData = {
                 orderId: currentOrderId,
                 cart: [...cart],
@@ -22477,6 +22535,7 @@ Thank you for your assistance.`;
                     country: formData.get('country'),
                     orderNotes: formData.get('orderNotes')
                 },
+                referral: referralData, // Include referral tracking data
                 timestamp: new Date().toISOString()
             };
             

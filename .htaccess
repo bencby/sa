@@ -53,16 +53,69 @@ RewriteRule ^homepage$ https://sigmaaudley.net/ [R=301,L]
 RewriteRule ^start$ https://sigmaaudley.net/ [R=301,L]
 RewriteRule ^default$ https://sigmaaudley.net/ [R=301,L]
 
-# REDIRECT OLD URLS TO NEW STRUCTURE
-Redirect 301 /peptides.html https://sigmaaudley.net/complete-research-peptide-catalog.html
-Redirect 301 /products.html https://sigmaaudley.net/complete-research-peptide-catalog.html
-Redirect 301 /semaglutide.html https://sigmaaudley.net/products/semaglutide-10mg-research.html
-Redirect 301 /tirzepatide.html https://sigmaaudley.net/products/tirzepatide-15mg-research.html
+# ═══════════════════════════════════════════════════════════════════
+# RANKING RECOVERY REDIRECTS - SEPTEMBER 12, 2025
+# Consolidating 45 pages to 4 core pages
+# ═══════════════════════════════════════════════════════════════════
+
+# PRIORITY 1: GOOGLE-INDEXED PAGES (Must redirect properly)
+Redirect 301 /reviews-2024.html /trust-and-reviews.html
+Redirect 301 /research-institution-partnership.html /index.html
+Redirect 301 /shipping-authenticity-guarantee.html /index.html
+Redirect 301 /usa-peptide-supplier.html /index.html
+Redirect 301 /price_list.html /index.html#pricing
+Redirect 301 /canada-peptide-supplier.html /index.html
+Redirect 301 /certificate-of-analysis.html /trust-and-reviews.html
+Redirect 301 /sigma-audley-official.html /index.html
+Redirect 301 /sigma-audley-vs-competitors.html /index.html
+Redirect 301 /research-peptides-ultimate-authority.html /index.html
+Redirect 301 /complete-research-peptide-catalog.html /index.html#products
+Redirect 301 /usa-research-peptides-supplier.html /index.html
+Redirect 301 /glp1-forum-verified-excellence.html /trust-and-reviews.html
+Redirect 301 /peptides-better-than-sigma-aldrich.html /index.html
+Redirect 301 /germany-research-peptides-supplier.html /index.html
+Redirect 301 /sigma-audley-not-sigma-aldrich.html /index.html
+
+# FIX OLD REDIRECTS - These pages no longer exist
+Redirect 301 /peptides.html /index.html#products
+Redirect 301 /products.html /index.html#products
+Redirect 301 /semaglutide.html /index.html#products
+Redirect 301 /tirzepatide.html /index.html#products
+
+# REMAINING NON-INDEXED PAGES
+Redirect 301 /reviews-2020.html /trust-and-reviews.html
+Redirect 301 /reviews-2021.html /trust-and-reviews.html
+Redirect 301 /reviews-2022.html /trust-and-reviews.html
+Redirect 301 /reviews-2023.html /trust-and-reviews.html
+Redirect 301 /reviews-2025.html /trust-and-reviews.html
+Redirect 301 /uk-peptide-supplier.html /index.html
+Redirect 301 /australia-peptide-supplier.html /index.html
+Redirect 301 /how-to-spot-fake-peptides.html /faq.html
+Redirect 301 /peptide-storage-handling-guide.html /faq.html
+Redirect 301 /official-website-verification.html /index.html
+Redirect 301 /telegram-scam-warning.html /faq.html
+Redirect 301 /research-protocols-educational-hub.html /index.html
+Redirect 301 /comprehensive-internal-linking-structure.html /index.html
+Redirect 301 /reddit-peptides-trusted-supplier.html /trust-and-reviews.html
+Redirect 301 /bulk-orders-institutions.html /index.html
+Redirect 301 /fast-shipping-research-peptides.html /index.html
+Redirect 301 /research-grade-peptides-comparison.html /index.html
+Redirect 301 /why-choose-sigma-audley.html /index.html
+Redirect 301 /competitor-analysis-peptide-suppliers.html /index.html
+Redirect 301 /promo-message.html /index.html
+Redirect 301 /promo-messages-platforms.html /index.html
+Redirect 301 /test-enhanced-conversions.html /index.html
+Redirect 301 /test-google-ads-tracking.html /index.html
+Redirect 301 /google-ads-debug.html /index.html
+Redirect 301 /tiktok-comments-promotional.html /index.html
+Redirect 301 /tiktok-viral-post.html /index.html
+Redirect 301 /index2.0.html /index.html
+Redirect 301 /site-plan.html /index.html
 
 # BRAND NAME REDIRECTS - STRENGTHEN HOMEPAGE AUTHORITY
-Redirect 301 /sigma-audley https://sigmaaudley.net/
-Redirect 301 /sigmaaudley https://sigmaaudley.net/
-Redirect 301 /official https://sigmaaudley.net/
+Redirect 301 /sigma-audley https://sigmaaudley.net/index.html
+Redirect 301 /sigmaaudley https://sigmaaudley.net/index.html
+Redirect 301 /official https://sigmaaudley.net/index.html
 
 # SECURITY HEADERS FOR SEO TRUST
 <IfModule mod_headers.c>
